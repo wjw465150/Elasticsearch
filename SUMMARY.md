@@ -99,7 +99,7 @@
     * [自定义分析器](2_4_Introductory.md#自定义分析器)
     * [类型和映射](2_4_Introductory.md#类型和映射)
     * [根对象](2_4_Introductory.md#根对象)
-    * [根对象](2_4_Introductory.md#根对象)
+    * [动态映射](2_4_Introductory.md#动态映射)
     * [自定义动态映射](2_4_Introductory.md#自定义动态映射)
     * [缺省映射](2_4_Introductory.md#缺省映射)
     * [重新索引你的数据](2_4_Introductory.md#重新索引你的数据)
