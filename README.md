@@ -1,5 +1,5 @@
 # 序言
-Elastic Search权威指南中文版! 生成的文档在这里:[Elastic Search权威指南中文版](https://wjw465150.github.io/GeodeUserGuide)
+Elastic Search权威指南中文版! 生成的文档在这里:[Elastic Search权威指南中文版](https://wjw465150.github.io/Elasticsearch/)
 
 
 我仍然清晰地记得那个日子，我发布了这个开源项目第一个版本并在 IRC 聊天室创建一个频道，在那个最紧张的时刻，独自一人，急切地希望和盼望着第一个用户的到来。

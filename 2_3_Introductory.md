@@ -14,7 +14,7 @@
 GET /_search
 {} <1>
 ```
->  ![img](assets/1.png)   这是一个空的请求体。
+>  ![img](assets/1.png)   这是一个空的请求体。  
 
 只用一个查询字符串，你就可以在一个、多个或者 `_all` 索引库（indices）和一个、多个或者所有types中查询：
 
@@ -417,7 +417,7 @@ Elasticsearch 使用的查询语言（DSL） 拥有一套查询组件，这些�
     }
 }
 ```
->  ![img](assets/1.png)   range 查询已经从 `should` 语句中移到 `filter` 语句 
+>  ![img](assets/1.png)   range 查询已经从 `should` 语句中移到 `filter` 语句   
 
 
 
@@ -449,7 +449,7 @@ Elasticsearch 使用的查询语言（DSL） 拥有一套查询组件，这些�
     }
 }
 ```
->  ![img](assets/1.png)   将 `bool` 查询包裹在 `filter` 语句中，我们可以在过滤标准中增加布尔逻辑 
+>  ![img](assets/1.png)   将 `bool` 查询包裹在 `filter` 语句中，我们可以在过滤标准中增加布尔逻辑   
 
 通过混合布尔查询，我们可以在我们的查询请求中灵活地编写 scoring 和 filtering 查询逻辑。
 
@@ -468,7 +468,7 @@ Elasticsearch 使用的查询语言（DSL） 拥有一套查询组件，这些�
     }
 }
 ```
->  ![img](assets/1.png)  `term` 查询被放置在 `constant_score` 中，转成不评分的 filter。这种方式可以用来取代只有 filter 语句的 `bool` 查询。
+>  ![img](assets/1.png)  `term` 查询被放置在 `constant_score` 中，转成不评分的 filter。这种方式可以用来取代只有 filter 语句的 `bool` 查询。  
 
 
 
@@ -514,7 +514,7 @@ GET /gb/tweet/_validate/query?explain   <1>
    }
 }
 ```
->  ![img](assets/1.png)  `explain` 参数可以提供更多关于查询不合法的信息。 
+>  ![img](assets/1.png)  `explain` 参数可以提供更多关于查询不合法的信息。   
 
 很明显，我们将查询类型(`match`)与字段名称 (`tweet`)搞混了：
 
@@ -657,9 +657,9 @@ GET /_search
     ...
 }
 ```
->  ![img](assets/1.png) ![img](assets/2.png)  `_score` 不被计算, 因为它并没有用于排序.
+>  ![img](assets/1.png) ![img](assets/2.png)  `_score` 不被计算, 因为它并没有用于排序.  
 >  
->  ![img](assets/3.png)   `date` 字段的值表示为自 epoch (January 1, 1970 00:00:00 UTC)以来的毫秒数，通过 `sort` 字段的值进行返回。   
+>  ![img](assets/3.png)   `date` 字段的值表示为自 epoch (January 1, 1970 00:00:00 UTC)以来的毫秒数，通过 `sort` 字段的值进行返回。     
 
 首先我们在每个结果中有一个新的名为 `sort` 的元素，它包含了我们用于排序的值。 在这个案例中，我们按照 `date` 进行排序，在内部被索引为 *自 epoch 以来的毫秒数* 。 long 类型数 `1411516800000` 等价于日期字符串 `2014-09-24 00:00:00 UTC` 。
 
@@ -757,8 +757,9 @@ GET /_search
     }
 }
 ```
->  ![img](assets/1.png)  `tweet` 主字段与之前的一样: 是一个 `analyzed` 全文字段。
->  ![img](assets/2.png)   新的 `tweet.raw` 子字段是 `not_analyzed`.  
+>  ![img](assets/1.png)  `tweet` 主字段与之前的一样: 是一个 `analyzed` 全文字段。  
+>
+>  ![img](assets/2.png)   新的 `tweet.raw` 子字段是 `not_analyzed`.    
 
 
 现在，至少只要我们重新索引了我们的数据，使用 `tweet` 字段用于搜索，`tweet.raw` 字段用于排序：
@@ -817,7 +818,7 @@ GET /_search?explain   <1>
    "query"   : { "match" : { "tweet" : "honeymoon" }}
 }
 ```
->  ![img](assets/1.png)   `explain` 参数可以让返回结果添加一个 `_score` 评分的得来依据。 
+>  ![img](assets/1.png)   `explain` 参数可以让返回结果添加一个 `_score` 评分的得来依据。   
 >  
 >  ![注意](assets/note.png)  增加一个 `explain` 参数会为每个匹配到的文档产生一大堆额外内容，但是花时间去理解它是很有意义的。 如果现在看不明白也没关系 — 等你需要的时候再来回顾这一节就行。下面我们来一点点的了解这块知识点。
 
@@ -874,10 +875,13 @@ GET /_search?explain   <1>
    ]
 }
 ```
->  ![img](assets/1.png)  `honeymoon` 相关性评分计算的总结
->  ![img](assets/2.png)  检索词频率
->  ![img](assets/3.png)   反向文档频率
->  ![img](assets/4.png)   字段长度准则
+>  ![img](assets/1.png)  `honeymoon` 相关性评分计算的总结  
+>
+>  ![img](assets/2.png)  检索词频率  
+>
+>  ![img](assets/3.png)   反向文档频率  
+>
+>  ![img](assets/4.png)   字段长度准则  
 >
 >  ![警告](assets/warning.png)  输出 `explain` 结果代价是十分昂贵的，它只能用作调试工具 。千万不要用于生产环境。
 
@@ -1101,7 +1105,7 @@ GET /us/tweet/12/_explain
     "timed_out":     true,  <1>
     ...
 ```
->  ![img](assets/1.png)  这个搜索请求超时了。 
+>  ![img](assets/1.png)  这个搜索请求超时了。   
 >  ![警告](assets/warning.png)  超时仍然是一个最有效的操作，知道这一点很重要； 很可能查询会超过设定的超时时间。这种行为有两个原因：
 >
 >  1. 超时检查是基于每文档做的。 但是某些查询类型有大量的工作在文档评估之前需要完成。 这种 "setup" 阶段并不考虑超时设置，所以太长的建立时间会导致超过超时时间的整体延迟。
@@ -1151,8 +1155,9 @@ GET /old_index/_search?scroll=1m   <1>
     "size":  1000
 }
 ```
->  ![img](assets/1.png)  保持游标查询窗口一分钟。 
->  ![img](assets/2.png)  关键字 `_doc` 是最有效的排序顺序。 
+>  ![img](assets/1.png)  保持游标查询窗口一分钟。   
+>
+>  ![img](assets/2.png)  关键字 `_doc` 是最有效的排序顺序。   
 
 这个查询的返回结果包括一个字段 `_scroll_id`， 它是一个base64编码的长字符串 ((("scroll_id"))) 。 现在我们能传递字段 `_scroll_id` 到 `_search/scroll` 查询接口获取下一批结果：
 
@@ -1163,7 +1168,7 @@ GET /_search/scroll
     "scroll_id" : "cXVlcnlUaGVuRmV0Y2g7NTsxMDk5NDpkUmpiR2FjOFNhNnlCM1ZDMWpWYnRROzEwOTk1OmRSamJHYWM4U2E2eUIzVkMxalZidFE7MTA5OTM6ZFJqYkdhYzhTYTZ5QjNWQzFqVmJ0UTsxMTE5MDpBVUtwN2lxc1FLZV8yRGVjWlI2QUVBOzEwOTk2OmRSamJHYWM4U2E2eUIzVkMxalZidFE7MDs="
 }
 ```
->  ![img](assets/1.png)   注意再次设置游标查询过期时间为一分钟。 
+>  ![img](assets/1.png)   注意再次设置游标查询过期时间为一分钟。   
 
 这个游标查询返回的下一批结果。 尽管我们指定字段 `size` 的值为1000，我们有可能取到超过这个值数量的文档。 当查询的时候， 字段 `size` 作用于单个分片，所以每个批次实际返回的文档数量最大为 `size * number_of_primary_shards` 。
 >  ![注意](assets/note.png)  注意游标查询每次返回一个新字段 `_scroll_id`。每次我们做下一次游标查询， 我们必须把前一次查询返回的字段 `_scroll_id` 传递进去。 当没有更多的结果返回的时候，我们就处理完所有匹配的文档了。

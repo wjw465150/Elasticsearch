@@ -1,0 +1,2619 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>深入搜索 · Elasticsearch权威指南中文版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="WS">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3_1_DeepSearch.html" />
+    
+    
+    <link rel="prev" href="2_4_Introductory.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1Preface.html">
+            
+                <a href="1Preface.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="1Preface.html">
+            
+                <a href="1Preface.html#谁应该读这本书">
+            
+                    
+                    谁应该读这本书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="1Preface.html">
+            
+                <a href="1Preface.html#为什么我们要写这本书">
+            
+                    
+                    为什么我们要写这本书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="1Preface.html">
+            
+                <a href="1Preface.html#Elasticsearch版本">
+            
+                    
+                    Elasticsearch版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="1Preface.html">
+            
+                <a href="1Preface.html#如何读这本书">
+            
+                    
+                    如何读这本书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="1Preface.html">
+            
+                <a href="1Preface.html#本书导航">
+            
+                    
+                    本书导航
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="1Preface.html">
+            
+                <a href="1Preface.html#在线资源">
+            
+                    
+                    在线资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="1Preface.html">
+            
+                <a href="1Preface.html#本书协议约定">
+            
+                    
+                    本书协议约定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="1Preface.html">
+            
+                <a href="1Preface.html#使用代码示例">
+            
+                    
+                    使用代码示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="1Preface.html">
+            
+                <a href="1Preface.html#鸣谢">
+            
+                    
+                    鸣谢
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html">
+            
+                    
+                    基础入门
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#你知道的为了搜索">
+            
+                    
+                    你知道的, 为了搜索…
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#安装并运行Elasticsearch">
+            
+                    
+                    安装并运行Elasticsearch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.2" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#安装Sense">
+            
+                    
+                    安装Sense
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.3" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#和Elasticsearch交互">
+            
+                    
+                    和Elasticsearch交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.4" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#面向文档">
+            
+                    
+                    面向文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.5" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#适应新环境">
+            
+                    
+                    适应新环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.6" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#索引雇员文档">
+            
+                    
+                    索引雇员文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.7" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#检索文档">
+            
+                    
+                    检索文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.8" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#轻量搜索">
+            
+                    
+                    轻量搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.9" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#使用查询表达式搜索">
+            
+                    
+                    使用查询表达式搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.10" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#更复杂的搜索">
+            
+                    
+                    更复杂的搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.11" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#全文搜索">
+            
+                    
+                    全文搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.12" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#短语搜索">
+            
+                    
+                    短语搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.13" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#高亮搜索">
+            
+                    
+                    高亮搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.14" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#分析">
+            
+                    
+                    分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.15" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#教程结语">
+            
+                    
+                    教程结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.16" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#分布式特性">
+            
+                    
+                    分布式特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.17" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#">
+            
+                    
+                    后续步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#集群内的原理">
+            
+                    
+                    集群内的原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#空集群">
+            
+                    
+                    空集群
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#集群健康">
+            
+                    
+                    集群健康
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#添加索引">
+            
+                    
+                    添加索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.4" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#添加故障转">
+            
+                    
+                    添加故障转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.5" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#水平扩容">
+            
+                    
+                    水平扩容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.6" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#应对故障">
+            
+                    
+                    应对故障
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#数据输入和输出">
+            
+                    
+                    数据输入和输出
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#什么是文档">
+            
+                    
+                    什么是文档?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.2" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#文档元数据">
+            
+                    
+                    文档元数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.3" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#索引文档">
+            
+                    
+                    索引文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.4" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#取回一个文档">
+            
+                    
+                    取回一个文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.5" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#检查文档是否存在">
+            
+                    
+                    检查文档是否存在
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.6" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#更新整个文档">
+            
+                    
+                    更新整个文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.7" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#创建新文档">
+            
+                    
+                    创建新文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.8" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#删除文档">
+            
+                    
+                    删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.9" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#处理冲突">
+            
+                    
+                    处理冲突
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.10" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#乐观并发控制">
+            
+                    
+                    乐观并发控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.11" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#文档的部分更新">
+            
+                    
+                    文档的部分更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.12" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#取回多个文档">
+            
+                    
+                    取回多个文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.13" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#代价较小的批量操作">
+            
+                    
+                    代价较小的批量操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#分布式文档存储">
+            
+                    
+                    分布式文档存储
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.4.1" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#路由一个文档到一个分片中">
+            
+                    
+                    路由一个文档到一个分片中
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.2" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#主分片和副本分片如何交互">
+            
+                    
+                    主分片和副本分片如何交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.3" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#新建索引和删除文档">
+            
+                    
+                    新建、索引和删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.4" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#取回一个文档">
+            
+                    
+                    取回一个文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.5" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#局部更新文档">
+            
+                    
+                    局部更新文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.6" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#多文档模式">
+            
+                    
+                    多文档模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#搜索最基本的工具">
+            
+                    
+                    搜索——最基本的工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.5.1" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#空搜索">
+            
+                    
+                    空搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.2" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#多索引多类型">
+            
+                    
+                    多索引，多类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.3" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#分页">
+            
+                    
+                    分页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.4" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#轻量搜索">
+            
+                    
+                    轻量搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#映射和分析">
+            
+                    
+                    映射和分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.6.1" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#精确值VS全文">
+            
+                    
+                    精确值 VS 全文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6.2" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#倒排索引">
+            
+                    
+                    倒排索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6.3" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#分析与分析器">
+            
+                    
+                    分析与分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6.4" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#映射">
+            
+                    
+                    映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6.5" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#复杂核心域类型">
+            
+                    
+                    复杂核心域类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#请求体查询">
+            
+                    
+                    请求体查询
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.7.1" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#空查询">
+            
+                    
+                    空查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.2" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#查询表达式">
+            
+                    
+                    查询表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.3" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#查询与过滤">
+            
+                    
+                    查询与过滤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.4" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#最重要的查询">
+            
+                    
+                    最重要的查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.5" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#组合多查询">
+            
+                    
+                    组合多查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.6" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#验证查询">
+            
+                    
+                    验证查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#排序与相关性">
+            
+                    
+                    排序与相关性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.8.1" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#排序">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8.2" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#字符串排序与多字段">
+            
+                    
+                    字符串排序与多字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8.3" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#什么是相关性">
+            
+                    
+                    什么是相关性?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8.4" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#DocValues介绍">
+            
+                    
+                    Doc Values 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#执行分布式检索">
+            
+                    
+                    执行分布式检索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.9.1" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#查询阶段">
+            
+                    
+                    查询阶段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9.2" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#取回阶段">
+            
+                    
+                    取回阶段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9.3" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#搜索选项">
+            
+                    
+                    搜索选项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9.4" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#游标查询Scroll">
+            
+                    
+                    游标查询 Scroll
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#索引管理">
+            
+                    
+                    索引管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.10.1" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#创建一个索引">
+            
+                    
+                    创建一个索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.2" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#删除一个索引">
+            
+                    
+                    删除一个索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.3" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#索引设置">
+            
+                    
+                    索引设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.4" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#配置分析器">
+            
+                    
+                    配置分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.5" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#自定义分析器">
+            
+                    
+                    自定义分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.6" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#类型和映射">
+            
+                    
+                    类型和映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.7" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#根对象">
+            
+                    
+                    根对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.8" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#动态映射">
+            
+                    
+                    动态映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.9" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#自定义动态映射">
+            
+                    
+                    自定义动态映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.10" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#缺省映射">
+            
+                    
+                    缺省映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.11" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#重新索引你的数据">
+            
+                    
+                    重新索引你的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.12" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#索引别名和零停机">
+            
+                    
+                    索引别名和零停机
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#分片内部原理">
+            
+                    
+                    分片内部原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.11.1" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#使文本可被搜索">
+            
+                    
+                    使文本可被搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11.2" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#动态更新索引">
+            
+                    
+                    动态更新索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11.3" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#近实时搜索">
+            
+                    
+                    近实时搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11.4" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#持久化变更">
+            
+                    
+                    持久化变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11.5" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#段合并">
+            
+                    
+                    段合并
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#深入搜索">
+            
+                    
+                    深入搜索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#结构化搜索">
+            
+                    
+                    结构化搜索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#精确值查找">
+            
+                    
+                    精确值查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#组合过滤器">
+            
+                    
+                    组合过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#查找多个精确值">
+            
+                    
+                    查找多个精确值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.4" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#范围">
+            
+                    
+                    范围
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.5" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#处理Null值">
+            
+                    
+                    处理 Null 值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.6" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#关于缓存">
+            
+                    
+                    关于缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >深入搜索</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6DF1;&#x5165;&#x641C;&#x7D22;"><a name="&#x6DF1;&#x5165;&#x641C;&#x7D22;" class="anchor-navigation-ex-anchor" href="#&#x6DF1;&#x5165;&#x641C;&#x7D22;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DF1;&#x5165;&#x641C;&#x7D22;</h2>
+<p>&#x5728; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/getting-started.html" target="_blank">&#x57FA;&#x7840;&#x5165;&#x95E8;</a> &#x4E2D;&#x6DB5;&#x76D6;&#x4E86;&#x57FA;&#x672C;&#x5DE5;&#x5177;&#x5E76;&#x5BF9;&#x5B83;&#x4EEC;&#x6709;&#x8DB3;&#x591F;&#x8BE6;&#x7EC6;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x8FD9;&#x8BA9;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x5F00;&#x59CB;&#x7528; Elasticsearch &#x641C;&#x7D22;&#x6570;&#x636E;&#x3002; &#x7528;&#x4E0D;&#x4E86;&#x591A;&#x957F;&#x65F6;&#x95F4;&#xFF0C;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x66F4;&#x591A;&#xFF1A;&#x5E0C;&#x671B;&#x67E5;&#x8BE2;&#x5339;&#x914D;&#x66F4;&#x7075;&#x6D3B;&#xFF0C;&#x6392;&#x540D;&#x7ED3;&#x679C;&#x66F4;&#x7CBE;&#x786E;&#xFF0C;&#x4E0D;&#x540C;&#x95EE;&#x9898;&#x57DF;&#x4E0B;&#x641C;&#x7D22;&#x66F4;&#x5177;&#x4F53;&#x3002;</p>
+<p>&#x60F3;&#x8981;&#x8FDB;&#x9636;&#xFF0C;&#x53EA;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x4F7F;&#x7528; <code>match</code> &#x67E5;&#x8BE2;&#x662F;&#x4E0D;&#x591F;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7406;&#x89E3;&#x6570;&#x636E;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x80FD;&#x591F;&#x641C;&#x7D22;&#x5230;&#x5B83;&#x4EEC;&#x3002;&#x672C;&#x7AE0;&#x4F1A;&#x89E3;&#x91CA;&#x5982;&#x4F55;&#x7D22;&#x5F15;&#x548C;&#x67E5;&#x8BE2;&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;&#x8BA9;&#x6211;&#x4EEC;&#x80FD;&#x5229;&#x7528;&#x8BCD;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;&#xFF08;word proximity&#xFF09;&#x3001;&#x90E8;&#x5206;&#x5339;&#x914D;&#xFF08;partial matching&#xFF09;&#x3001;&#x6A21;&#x7CCA;&#x5339;&#x914D;&#xFF08;fuzzy matching&#xFF09;&#x4EE5;&#x53CA;&#x8BED;&#x8A00;&#x611F;&#x77E5;&#xFF08;language awareness&#xFF09;&#x8FD9;&#x4E9B;&#x4F18;&#x52BF;&#x3002;</p>
+<p>&#x7406;&#x89E3;&#x6BCF;&#x4E2A;&#x67E5;&#x8BE2;&#x5982;&#x4F55;&#x8D21;&#x732E;&#x76F8;&#x5173;&#x5EA6;&#x8BC4;&#x5206; <code>_score</code> &#x6709;&#x52A9;&#x4E8E;&#x8C03;&#x8BD5;&#x6211;&#x4EEC;&#x7684;&#x67E5;&#x8BE2;&#xFF1A;&#x786E;&#x4FDD;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x7684;&#x6700;&#x4F73;&#x5339;&#x914D;&#x6587;&#x6863;&#x51FA;&#x73B0;&#x5728;&#x7ED3;&#x679C;&#x9996;&#x9875;&#xFF0C;&#x4EE5;&#x53CA;&#x524A;&#x51CF;&#x7ED3;&#x679C;&#x4E2D;&#x51E0;&#x4E4E;&#x4E0D;&#x76F8;&#x5173;&#x7684; &#x201C;&#x957F;&#x5C3E;&#xFF08;long tail&#xFF09;&#x201D;&#x3002;</p>
+<p>&#x641C;&#x7D22;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x5168;&#x6587;&#x641C;&#x7D22;&#xFF1A;&#x6211;&#x4EEC;&#x5F88;&#x5927;&#x4E00;&#x90E8;&#x5206;&#x6570;&#x636E;&#x90FD;&#x662F;&#x7ED3;&#x6784;&#x5316;&#x7684;&#xFF0C;&#x5982;&#x65E5;&#x671F;&#x548C;&#x6570;&#x5B57;&#x3002; &#x6211;&#x4EEC;&#x4F1A;&#x4EE5;&#x8BF4;&#x660E;&#x7ED3;&#x6784;&#x5316;&#x641C;&#x7D22;&#x4E0E;&#x5168;&#x6587;&#x641C;&#x7D22;&#x6700;&#x9AD8;&#x6548;&#x7684;&#x7ED3;&#x5408;&#x65B9;&#x5F0F;&#x5F00;&#x59CB;&#x672C;&#x7AE0;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="&#x7ED3;&#x6784;&#x5316;&#x641C;&#x7D22;"><a name="&#x7ED3;&#x6784;&#x5316;&#x641C;&#x7D22;" class="anchor-navigation-ex-anchor" href="#&#x7ED3;&#x6784;&#x5316;&#x641C;&#x7D22;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7ED3;&#x6784;&#x5316;&#x641C;&#x7D22;</h3>
+<p><em>&#x7ED3;&#x6784;&#x5316;&#x641C;&#x7D22;&#xFF08;Structured search&#xFF09;</em> &#x662F;&#x6307;&#x6709;&#x5173;&#x63A2;&#x8BE2;&#x90A3;&#x4E9B;&#x5177;&#x6709;&#x5185;&#x5728;&#x7ED3;&#x6784;&#x6570;&#x636E;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x6BD4;&#x5982;&#x65E5;&#x671F;&#x3001;&#x65F6;&#x95F4;&#x548C;&#x6570;&#x5B57;&#x90FD;&#x662F;&#x7ED3;&#x6784;&#x5316;&#x7684;&#xFF1A;&#x5B83;&#x4EEC;&#x6709;&#x7CBE;&#x786E;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;&#x4E9B;&#x683C;&#x5F0F;&#x8FDB;&#x884C;&#x903B;&#x8F91;&#x64CD;&#x4F5C;&#x3002;&#x6BD4;&#x8F83;&#x5E38;&#x89C1;&#x7684;&#x64CD;&#x4F5C;&#x5305;&#x62EC;&#x6BD4;&#x8F83;&#x6570;&#x5B57;&#x6216;&#x65F6;&#x95F4;&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x6216;&#x5224;&#x5B9A;&#x4E24;&#x4E2A;&#x503C;&#x7684;&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x6587;&#x672C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x3002;&#x5982;&#x5F69;&#x8272;&#x7B14;&#x53EF;&#x4EE5;&#x6709;&#x79BB;&#x6563;&#x7684;&#x989C;&#x8272;&#x96C6;&#x5408;&#xFF1A; <code>&#x7EA2;&#xFF08;red&#xFF09;</code> &#x3001; <code>&#x7EFF;&#xFF08;green&#xFF09;</code> &#x3001; <code>&#x84DD;&#xFF08;blue&#xFF09;</code> &#x3002;&#x4E00;&#x4E2A;&#x535A;&#x5BA2;&#x53EF;&#x80FD;&#x88AB;&#x6807;&#x8BB0;&#x4E86;&#x5173;&#x952E;&#x8BCD; <code>&#x5206;&#x5E03;&#x5F0F;&#xFF08;distributed&#xFF09;</code> &#x548C; <code>&#x641C;&#x7D22;&#xFF08;search&#xFF09;</code> &#x3002;&#x7535;&#x5546;&#x7F51;&#x7AD9;&#x4E0A;&#x7684;&#x5546;&#x54C1;&#x90FD;&#x6709; UPCs&#xFF08;&#x901A;&#x7528;&#x4EA7;&#x54C1;&#x7801; Universal Product Codes&#xFF09;&#x6216;&#x5176;&#x4ED6;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x9700;&#x8981;&#x9075;&#x4ECE;&#x4E25;&#x683C;&#x89C4;&#x5B9A;&#x7684;&#x3001;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x683C;&#x5F0F;&#x3002;</p>
+<p>&#x5728;&#x7ED3;&#x6784;&#x5316;&#x67E5;&#x8BE2;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C; <em>&#x603B;&#x662F;</em> &#x975E;&#x662F;&#x5373;&#x5426;&#xFF0C;&#x8981;&#x4E48;&#x5B58;&#x4E8E;&#x96C6;&#x5408;&#x4E4B;&#x4E2D;&#xFF0C;&#x8981;&#x4E48;&#x5B58;&#x5728;&#x96C6;&#x5408;&#x4E4B;&#x5916;&#x3002;&#x7ED3;&#x6784;&#x5316;&#x67E5;&#x8BE2;&#x4E0D;&#x5173;&#x5FC3;&#x6587;&#x4EF6;&#x7684;&#x76F8;&#x5173;&#x5EA6;&#x6216;&#x8BC4;&#x5206;&#xFF1B;&#x5B83;&#x7B80;&#x5355;&#x7684;&#x5BF9;&#x6587;&#x6863;&#x5305;&#x62EC;&#x6216;&#x6392;&#x9664;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x8FD9;&#x5728;&#x903B;&#x8F91;&#x4E0A;&#x662F;&#x80FD;&#x8BF4;&#x901A;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x4E0D;&#x80FD;&#x6BD4;&#x5176;&#x4ED6;&#x6570;&#x5B57; <em>&#x66F4;</em> &#x9002;&#x5408;&#x5B58;&#x4E8E;&#x67D0;&#x4E2A;&#x76F8;&#x540C;&#x8303;&#x56F4;&#x3002;&#x7ED3;&#x679C;&#x53EA;&#x80FD;&#x662F;&#xFF1A;&#x5B58;&#x4E8E;&#x8303;&#x56F4;&#x4E4B;&#x4E2D;&#xFF0C;&#x6291;&#x6216;&#x53CD;&#x4E4B;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x5BF9;&#x4E8E;&#x7ED3;&#x6784;&#x5316;&#x6587;&#x672C;&#x6765;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;&#x503C;&#x8981;&#x4E48;&#x76F8;&#x7B49;&#xFF0C;&#x8981;&#x4E48;&#x4E0D;&#x7B49;&#x3002;&#x6CA1;&#x6709; <em>&#x66F4;&#x4F3C;</em> &#x8FD9;&#x79CD;&#x6982;&#x5FF5;&#x3002;</p>
+<h4 id="&#x7CBE;&#x786E;&#x503C;&#x67E5;&#x627E;"><a name="&#x7CBE;&#x786E;&#x503C;&#x67E5;&#x627E;" class="anchor-navigation-ex-anchor" href="#&#x7CBE;&#x786E;&#x503C;&#x67E5;&#x627E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7CBE;&#x786E;&#x503C;&#x67E5;&#x627E;</h4>
+<p>&#x5F53;&#x8FDB;&#x884C;&#x7CBE;&#x786E;&#x503C;&#x67E5;&#x627E;&#x65F6;&#xFF0C; &#x6211;&#x4EEC;&#x4F1A;&#x4F7F;&#x7528;&#x8FC7;&#x6EE4;&#x5668;&#xFF08;filters&#xFF09;&#x3002;&#x8FC7;&#x6EE4;&#x5668;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x6267;&#x884C;&#x901F;&#x5EA6;&#x975E;&#x5E38;&#x5FEB;&#xFF0C;&#x4E0D;&#x4F1A;&#x8BA1;&#x7B97;&#x76F8;&#x5173;&#x5EA6;&#xFF08;&#x76F4;&#x63A5;&#x8DF3;&#x8FC7;&#x4E86;&#x6574;&#x4E2A;&#x8BC4;&#x5206;&#x9636;&#x6BB5;&#xFF09;&#x800C;&#x4E14;&#x5F88;&#x5BB9;&#x6613;&#x88AB;&#x7F13;&#x5B58;&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x672C;&#x7AE0;&#x540E;&#x9762;&#x7684; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/filter-caching.html" target="_blank">&#x8FC7;&#x6EE4;&#x5668;&#x7F13;&#x5B58;</a> &#x4E2D;&#x8BA8;&#x8BBA;&#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x6027;&#x80FD;&#x4F18;&#x52BF;&#xFF0C;&#x4E0D;&#x8FC7;&#x73B0;&#x5728;&#x53EA;&#x8981;&#x8BB0;&#x4F4F;&#xFF1A;&#x8BF7;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x4F7F;&#x7528;&#x8FC7;&#x6EE4;&#x5F0F;&#x67E5;&#x8BE2;&#x3002;</p>
+<p><strong>term &#x67E5;&#x8BE2;&#x6570;&#x5B57;</strong></p>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x6765;&#x770B;&#x6700;&#x4E3A;&#x5E38;&#x7528;&#x7684; <code>term</code> &#x67E5;&#x8BE2;&#xFF0C; &#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x5904;&#x7406;&#x6570;&#x5B57;&#xFF08;numbers&#xFF09;&#x3001;&#x5E03;&#x5C14;&#x503C;&#xFF08;Booleans&#xFF09;&#x3001;&#x65E5;&#x671F;&#xFF08;dates&#xFF09;&#x4EE5;&#x53CA;&#x6587;&#x672C;&#xFF08;text&#xFF09;&#x3002;</p>
+<pre><code>&#x8BA9;&#x6211;&#x4EEC;&#x4EE5;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x5F00;&#x59CB;&#x4ECB;&#x7ECD;&#xFF0C;&#x521B;&#x5EFA;&#x5E76;&#x7D22;&#x5F15;&#x4E00;&#x4E9B;&#x8868;&#x793A;&#x4EA7;&#x54C1;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x6587;&#x6863;&#x91CC;&#x6709;&#x5B57;&#x6BB5; `price` &#x548C; `productID` &#xFF08; `&#x4EF7;&#x683C;` &#x548C; `&#x4EA7;&#x54C1;ID` &#xFF09;&#xFF1A;
+</code></pre><pre><code class="lang-json">POST /my_store/products/_bulk
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-number">1</span> }}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">10</span>, <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;XHDK-A-1293-#fJ3&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-number">2</span> }}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">20</span>, <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;KDKE-B-9947-#kL5&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-number">3</span> }}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">30</span>, <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;JODL-X-1937-#pV7&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-number">4</span> }}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">30</span>, <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;QQPX-R-3956-#aD8&quot;</span> }
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x505A;&#x7684;&#x662F;&#x67E5;&#x627E;&#x5177;&#x6709;&#x67D0;&#x4E2A;&#x4EF7;&#x683C;&#x7684;&#x6240;&#x6709;&#x4EA7;&#x54C1;&#xFF0C;&#x6709;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x80CC;&#x666F;&#x7684;&#x4EBA;&#x80AF;&#x5B9A;&#x719F;&#x6089; SQL&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x7528; SQL &#x5F62;&#x5F0F;&#x8868;&#x8FBE;&#xFF0C;&#x4F1A;&#x662F;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">document</span>
+<span class="hljs-keyword">FROM</span>   products
+<span class="hljs-keyword">WHERE</span>  price = <span class="hljs-number">20</span>
+</code></pre>
+<p>&#x5728; Elasticsearch &#x7684;&#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;query DSL&#xFF09;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>term</code> &#x67E5;&#x8BE2;&#x8FBE;&#x5230;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x7684;&#x3002; <code>term</code> &#x67E5;&#x8BE2;&#x4F1A;&#x67E5;&#x627E;&#x6211;&#x4EEC;&#x6307;&#x5B9A;&#x7684;&#x7CBE;&#x786E;&#x503C;&#x3002;&#x4F5C;&#x4E3A;&#x5176;&#x672C;&#x8EAB;&#xFF0C; <code>term</code> &#x67E5;&#x8BE2;&#x662F;&#x7B80;&#x5355;&#x7684;&#x3002;&#x5B83;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x540D;&#x4EE5;&#x53CA;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x67E5;&#x627E;&#x7684;&#x6570;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-js">{
+    <span class="hljs-string">&quot;term&quot;</span> : {
+        <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">20</span>
+    }
+}
+</code></pre>
+<p>&#x901A;&#x5E38;&#x5F53;&#x67E5;&#x627E;&#x4E00;&#x4E2A;&#x7CBE;&#x786E;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5E0C;&#x671B;&#x5BF9;&#x67E5;&#x8BE2;&#x8FDB;&#x884C;&#x8BC4;&#x5206;&#x8BA1;&#x7B97;&#x3002;&#x53EA;&#x5E0C;&#x671B;&#x5BF9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x5305;&#x62EC;&#x6216;&#x6392;&#x9664;&#x7684;&#x8BA1;&#x7B97;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4F1A;&#x4F7F;&#x7528; <code>constant_score</code> &#x67E5;&#x8BE2;&#x4EE5;&#x975E;&#x8BC4;&#x5206;&#x6A21;&#x5F0F;&#x6765;&#x6267;&#x884C; <code>term</code> &#x67E5;&#x8BE2;&#x5E76;&#x4EE5;&#x4E00;&#x4F5C;&#x4E3A;&#x7EDF;&#x4E00;&#x8BC4;&#x5206;&#x3002;</p>
+<p>&#x6700;&#x7EC8;&#x7EC4;&#x5408;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x4E2A; <code>constant_score</code> &#x67E5;&#x8BE2;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4E00;&#x4E2A; <code>term</code> &#x67E5;&#x8BE2;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_store/products/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;constant_score&quot;</span> : { &lt;1&gt;
+            &quot;filter&quot; : {
+                &quot;term&quot; : {   &lt;2&gt;
+                    &quot;price&quot; : 20
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x6211;&#x4EEC;&#x7528; <code>constant_score</code> &#x5C06; <code>term</code> &#x67E5;&#x8BE2;&#x8F6C;&#x5316;&#x6210;&#x4E3A;&#x8FC7;&#x6EE4;&#x5668;   </p>
+<p> <img src="assets/2.png" alt="img">  &#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x770B;&#x5230;&#x8FC7;&#x7684; <code>term</code> &#x67E5;&#x8BE2;   </p>
+</blockquote>
+<p>&#x6267;&#x884C;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x6240;&#x641C;&#x7D22;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x4E0E;&#x6211;&#x4EEC;&#x671F;&#x671B;&#x7684;&#x4E00;&#x81F4;&#xFF1A;&#x53EA;&#x6709;&#x6587;&#x6863; 2 &#x547D;&#x4E2D;&#x5E76;&#x4F5C;&#x4E3A;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#xFF08;&#x56E0;&#x4E3A;&#x53EA;&#x6709; <code>2</code> &#x7684;&#x4EF7;&#x683C;&#x662F; <code>20</code> &#xFF09;:</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;hits&quot;</span> : [
+    {
+        <span class="hljs-string">&quot;_index&quot;</span> : <span class="hljs-string">&quot;my_store&quot;</span>,
+        <span class="hljs-string">&quot;_type&quot;</span> :  <span class="hljs-string">&quot;products&quot;</span>,
+        <span class="hljs-string">&quot;_id&quot;</span> :    <span class="hljs-string">&quot;2&quot;</span>,
+        <span class="hljs-string">&quot;_score&quot;</span> : <span class="hljs-number">1.0</span>,       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">1</span>&gt;</span>
+        &quot;_source&quot; : {
+          &quot;price&quot; :     20,
+          &quot;productID&quot; : &quot;KDKE-B-9947-#kL5&quot;
+        }
+    }
+]
+</span></code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x67E5;&#x8BE2;&#x7F6E;&#x4E8E; <code>filter</code> &#x8BED;&#x53E5;&#x5185;&#x4E0D;&#x8FDB;&#x884C;&#x8BC4;&#x5206;&#x6216;&#x76F8;&#x5173;&#x5EA6;&#x7684;&#x8BA1;&#x7B97;&#xFF0C;&#x6240;&#x4EE5;&#x6240;&#x6709;&#x7684;&#x7ED3;&#x679C;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x8BC4;&#x5206; <code>1</code> &#x3002; </p>
+</blockquote>
+<p><strong>term &#x67E5;&#x8BE2;&#x6587;&#x672C;</strong></p>
+<p>&#x5982;&#x672C;&#x90E8;&#x5206;&#x5F00;&#x59CB;&#x5904;&#x63D0;&#x5230;&#x8FC7;&#x7684;&#x4E00;&#x6837; &#xFF0C;&#x4F7F;&#x7528; <code>term</code> &#x67E5;&#x8BE2;&#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x5339;&#x914D;&#x6570;&#x5B57;&#x4E00;&#x6837;&#x5BB9;&#x6613;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x67E5;&#x8BE2;&#x67D0;&#x4E2A;&#x5177;&#x4F53; UPC ID &#x7684;&#x4EA7;&#x54C1;&#xFF0C;&#x4F7F;&#x7528; SQL &#x8868;&#x8FBE;&#x5F0F;&#x4F1A;&#x662F;&#x5982;&#x4E0B;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> product
+<span class="hljs-keyword">FROM</span>   products
+<span class="hljs-keyword">WHERE</span>  productID = <span class="hljs-string">&quot;XHDK-A-1293-#fJ3&quot;</span>
+</code></pre>
+<p>&#x8F6C;&#x6362;&#x6210;&#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;query DSL&#xFF09;&#xFF0C;&#x540C;&#x6837;&#x4F7F;&#x7528; <code>term</code> &#x67E5;&#x8BE2;&#xFF0C;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_store/products/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;constant_score&quot;</span> : {
+            <span class="hljs-string">&quot;filter&quot;</span> : {
+                <span class="hljs-string">&quot;term&quot;</span> : {
+                    <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;XHDK-A-1293-#fJ3&quot;</span>
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x4F46;&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x5C0F;&#x95EE;&#x9898;&#xFF1A;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x671F;&#x671B;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x95EE;&#x9898;&#x4E0D;&#x5728; <code>term</code> &#x67E5;&#x8BE2;&#xFF0C;&#x800C;&#x5728;&#x4E8E;&#x7D22;&#x5F15;&#x6570;&#x636E;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4F7F;&#x7528; <code>analyze</code> API (<a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/analysis-intro.html#analyze-api" target="_blank">&#x5206;&#x6790; API</a>)&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x91CC;&#x7684; UPC &#x7801;&#x88AB;&#x62C6;&#x5206;&#x6210;&#x591A;&#x4E2A;&#x66F4;&#x5C0F;&#x7684; token &#xFF1A;</p>
+<pre><code class="lang-js">GET /my_store/_analyze
+{
+  <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;productID&quot;</span>,
+  <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;XHDK-A-1293-#fJ3&quot;</span>
+}
+</code></pre>
+<pre><code class="lang-js">{
+  <span class="hljs-string">&quot;tokens&quot;</span> : [ {
+    <span class="hljs-string">&quot;token&quot;</span> :        <span class="hljs-string">&quot;xhdk&quot;</span>,
+    <span class="hljs-string">&quot;start_offset&quot;</span> : <span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;end_offset&quot;</span> :   <span class="hljs-number">4</span>,
+    <span class="hljs-string">&quot;type&quot;</span> :         <span class="hljs-string">&quot;&lt;ALPHANUM&gt;&quot;</span>,
+    <span class="hljs-string">&quot;position&quot;</span> :     <span class="hljs-number">1</span>
+  }, {
+    <span class="hljs-string">&quot;token&quot;</span> :        <span class="hljs-string">&quot;a&quot;</span>,
+    <span class="hljs-string">&quot;start_offset&quot;</span> : <span class="hljs-number">5</span>,
+    <span class="hljs-string">&quot;end_offset&quot;</span> :   <span class="hljs-number">6</span>,
+    <span class="hljs-string">&quot;type&quot;</span> :         <span class="hljs-string">&quot;&lt;ALPHANUM&gt;&quot;</span>,
+    <span class="hljs-string">&quot;position&quot;</span> :     <span class="hljs-number">2</span>
+  }, {
+    <span class="hljs-string">&quot;token&quot;</span> :        <span class="hljs-string">&quot;1293&quot;</span>,
+    <span class="hljs-string">&quot;start_offset&quot;</span> : <span class="hljs-number">7</span>,
+    <span class="hljs-string">&quot;end_offset&quot;</span> :   <span class="hljs-number">11</span>,
+    <span class="hljs-string">&quot;type&quot;</span> :         <span class="hljs-string">&quot;&lt;NUM&gt;&quot;</span>,
+    <span class="hljs-string">&quot;position&quot;</span> :     <span class="hljs-number">3</span>
+  }, {
+    <span class="hljs-string">&quot;token&quot;</span> :        <span class="hljs-string">&quot;fj3&quot;</span>,
+    <span class="hljs-string">&quot;start_offset&quot;</span> : <span class="hljs-number">13</span>,
+    <span class="hljs-string">&quot;end_offset&quot;</span> :   <span class="hljs-number">16</span>,
+    <span class="hljs-string">&quot;type&quot;</span> :         <span class="hljs-string">&quot;&lt;ALPHANUM&gt;&quot;</span>,
+    <span class="hljs-string">&quot;position&quot;</span> :     <span class="hljs-number">4</span>
+  } ]
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x51E0;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;</p>
+<ul>
+<li>Elasticsearch &#x7528; 4 &#x4E2A;&#x4E0D;&#x540C;&#x7684; token &#x800C;&#x4E0D;&#x662F;&#x5355;&#x4E2A; token &#x6765;&#x8868;&#x793A;&#x8FD9;&#x4E2A; UPC &#x3002;</li>
+<li>&#x6240;&#x6709;&#x5B57;&#x6BCD;&#x90FD;&#x662F;&#x5C0F;&#x5199;&#x7684;&#x3002;</li>
+<li>&#x4E22;&#x5931;&#x4E86;&#x8FDE;&#x5B57;&#x7B26;&#x548C;&#x54C8;&#x5E0C;&#x7B26;&#xFF08; <code>#</code> &#xFF09;&#x3002;</li>
+</ul>
+<p>&#x6240;&#x4EE5;&#x5F53;&#x6211;&#x4EEC;&#x7528; <code>term</code> &#x67E5;&#x8BE2;&#x67E5;&#x627E;&#x7CBE;&#x786E;&#x503C; <code>XHDK-A-1293-#fJ3</code> &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x4EFB;&#x4F55;&#x6587;&#x6863;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5E76;&#x4E0D;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#xFF0C;&#x6B63;&#x5982;&#x524D;&#x9762;&#x5448;&#x73B0;&#x51FA;&#x7684;&#x5206;&#x6790;&#x7ED3;&#x679C;&#xFF0C;&#x7D22;&#x5F15;&#x91CC;&#x6709;&#x56DB;&#x4E2A; token &#x3002;</p>
+<p>&#x663E;&#x7136;&#x8FD9;&#x79CD;&#x5BF9; ID &#x7801;&#x6216;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x7CBE;&#x786E;&#x503C;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x5E76;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x544A;&#x8BC9; Elasticsearch &#x8BE5;&#x5B57;&#x6BB5;&#x5177;&#x6709;&#x7CBE;&#x786E;&#x503C;&#xFF0C;&#x8981;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x6210; <code>not_analyzed</code> &#x65E0;&#x9700;&#x5206;&#x6790;&#x7684;&#x3002; &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/mapping-intro.html#custom-field-mappings" target="_blank">&#x81EA;&#x5B9A;&#x4E49;&#x5B57;&#x6BB5;&#x6620;&#x5C04;</a> &#x4E2D;&#x67E5;&#x770B;&#x5B83;&#x7684;&#x7528;&#x6CD5;&#x3002;&#x4E3A;&#x4E86;&#x4FEE;&#x6B63;&#x641C;&#x7D22;&#x7ED3;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x9996;&#x5148;&#x5220;&#x9664;&#x65E7;&#x7D22;&#x5F15;&#xFF08;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x6620;&#x5C04;&#x4E0D;&#x518D;&#x6B63;&#x786E;&#xFF09;&#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x80FD;&#x6B63;&#x786E;&#x6620;&#x5C04;&#x7684;&#x65B0;&#x7D22;&#x5F15;&#xFF1A;</p>
+<pre><code class="lang-js">DELETE /my_store   &lt;<span class="hljs-number">1</span>&gt;
+
+PUT /my_store      &lt;<span class="hljs-number">2</span>&gt;
+{
+    <span class="hljs-string">&quot;mappings&quot;</span> : {
+        <span class="hljs-string">&quot;products&quot;</span> : {
+            <span class="hljs-string">&quot;properties&quot;</span> : {
+                <span class="hljs-string">&quot;productID&quot;</span> : {
+                    <span class="hljs-string">&quot;type&quot;</span> : <span class="hljs-string">&quot;string&quot;</span>,
+                    <span class="hljs-string">&quot;index&quot;</span> : <span class="hljs-string">&quot;not_analyzed&quot;</span>    &lt;<span class="hljs-number">3</span>&gt;
+                }
+            }
+        }
+    }
+
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x5220;&#x9664;&#x7D22;&#x5F15;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x66F4;&#x65B0;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x6620;&#x5C04;&#x3002;   </p>
+<p> <img src="assets/2.png" alt="img">  &#x5728;&#x7D22;&#x5F15;&#x88AB;&#x5220;&#x9664;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x7D22;&#x5F15;&#x5E76;&#x4E3A;&#x5176;&#x6307;&#x5B9A;&#x81EA;&#x5B9A;&#x4E49;&#x6620;&#x5C04;&#x3002;   </p>
+<p> <img src="assets/3.png" alt="img">  &#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x544A;&#x8BC9; Elasticsearch &#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x5BF9; <code>productID</code> &#x505A;&#x4EFB;&#x4F55;&#x5206;&#x6790;&#x3002;    </p>
+</blockquote>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E3A;&#x6587;&#x6863;&#x91CD;&#x5EFA;&#x7D22;&#x5F15;&#xFF1A;</p>
+<pre><code class="lang-js">POST /my_store/products/_bulk
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-number">1</span> }}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">10</span>, <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;XHDK-A-1293-#fJ3&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-number">2</span> }}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">20</span>, <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;KDKE-B-9947-#kL5&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-number">3</span> }}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">30</span>, <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;JODL-X-1937-#pV7&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-number">4</span> }}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">30</span>, <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;QQPX-R-3956-#aD8&quot;</span> }
+</code></pre>
+<p>&#x6B64;&#x65F6;&#xFF0C; <code>term</code> &#x67E5;&#x8BE2;&#x5C31;&#x80FD;&#x641C;&#x7D22;&#x5230;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x518D;&#x6B21;&#x641C;&#x7D22;&#x65B0;&#x7D22;&#x5F15;&#x8FC7;&#x7684;&#x6570;&#x636E;&#xFF08;&#x6CE8;&#x610F;&#xFF0C;&#x67E5;&#x8BE2;&#x548C;&#x8FC7;&#x6EE4;&#x5E76;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x4EFB;&#x4F55;&#x6539;&#x53D8;&#xFF0C;&#x6539;&#x53D8;&#x7684;&#x662F;&#x6570;&#x636E;&#x6620;&#x5C04;&#x7684;&#x65B9;&#x5F0F;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_store/products/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;constant_score&quot;</span> : {
+            <span class="hljs-string">&quot;filter&quot;</span> : {
+                <span class="hljs-string">&quot;term&quot;</span> : {
+                    <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;XHDK-A-1293-#fJ3&quot;</span>
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x56E0;&#x4E3A; <code>productID</code> &#x5B57;&#x6BB5;&#x662F;&#x672A;&#x5206;&#x6790;&#x8FC7;&#x7684;&#xFF0C; <code>term</code> &#x67E5;&#x8BE2;&#x4E0D;&#x4F1A;&#x5BF9;&#x5176;&#x505A;&#x4EFB;&#x4F55;&#x5206;&#x6790;&#xFF0C;&#x67E5;&#x8BE2;&#x4F1A;&#x8FDB;&#x884C;&#x7CBE;&#x786E;&#x67E5;&#x627E;&#x5E76;&#x8FD4;&#x56DE;&#x6587;&#x6863; 1 &#x3002;&#x6210;&#x529F;&#xFF01;</p>
+<p><strong>&#x5185;&#x90E8;&#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x64CD;&#x4F5C;</strong></p>
+<p>&#x5728;&#x5185;&#x90E8;&#xFF0C;Elasticsearch &#x4F1A;&#x5728;&#x8FD0;&#x884C;&#x975E;&#x8BC4;&#x5206;&#x67E5;&#x8BE2;&#x7684;&#x65F6;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ol>
+<li><p><em>&#x67E5;&#x627E;&#x5339;&#x914D;&#x6587;&#x6863;</em>.</p>
+<p><code>term</code> &#x67E5;&#x8BE2;&#x5728;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x67E5;&#x627E; <code>XHDK-A-1293-#fJ3</code> &#x7136;&#x540E;&#x83B7;&#x53D6;&#x5305;&#x542B;&#x8BE5; term &#x7684;&#x6240;&#x6709;&#x6587;&#x6863;&#x3002;&#x672C;&#x4F8B;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;&#x6587;&#x6863; 1 &#x6EE1;&#x8DB3;&#x6211;&#x4EEC;&#x8981;&#x6C42;&#x3002;</p>
+</li>
+<li><p><em>&#x521B;&#x5EFA; bitset</em>.</p>
+<p>&#x8FC7;&#x6EE4;&#x5668;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <em>bitset</em> &#xFF08;&#x4E00;&#x4E2A;&#x5305;&#x542B; 0 &#x548C; 1 &#x7684;&#x6570;&#x7EC4;&#xFF09;&#xFF0C;&#x5B83;&#x63CF;&#x8FF0;&#x4E86;&#x54EA;&#x4E2A;&#x6587;&#x6863;&#x4F1A;&#x5305;&#x542B;&#x8BE5; term &#x3002;&#x5339;&#x914D;&#x6587;&#x6863;&#x7684;&#x6807;&#x5FD7;&#x4F4D;&#x662F; 1 &#x3002;&#x672C;&#x4F8B;&#x4E2D;&#xFF0C;bitset &#x7684;&#x503C;&#x4E3A; <code>[1,0,0,0]</code> &#x3002;&#x5728;&#x5185;&#x90E8;&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x6210;&#x4E00;&#x4E2A; <a href="https://www.elastic.co/blog/frame-of-reference-and-roaring-bitmaps" target="_blank">&quot;roaring bitmap&quot;</a>&#xFF0C;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5BF9;&#x7A00;&#x758F;&#x6216;&#x5BC6;&#x96C6;&#x7684;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x9AD8;&#x6548;&#x7F16;&#x7801;&#x3002;</p>
+</li>
+<li><p><em>&#x8FED;&#x4EE3; bitset(s)</em></p>
+<p>&#x4E00;&#x65E6;&#x4E3A;&#x6BCF;&#x4E2A;&#x67E5;&#x8BE2;&#x751F;&#x6210;&#x4E86; bitsets &#xFF0C;Elasticsearch &#x5C31;&#x4F1A;&#x5FAA;&#x73AF;&#x8FED;&#x4EE3; bitsets &#x4ECE;&#x800C;&#x627E;&#x5230;&#x6EE1;&#x8DB3;&#x6240;&#x6709;&#x8FC7;&#x6EE4;&#x6761;&#x4EF6;&#x7684;&#x5339;&#x914D;&#x6587;&#x6863;&#x7684;&#x96C6;&#x5408;&#x3002;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x662F;&#x542F;&#x53D1;&#x5F0F;&#x7684;&#xFF0C;&#x4F46;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x5148;&#x8FED;&#x4EE3;&#x7A00;&#x758F;&#x7684; bitset &#xFF08;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x6392;&#x9664;&#x6389;&#x5927;&#x91CF;&#x7684;&#x6587;&#x6863;&#xFF09;&#x3002;</p>
+</li>
+<li><p><em>&#x589E;&#x91CF;&#x4F7F;&#x7528;&#x8BA1;&#x6570;</em>.</p>
+<p>Elasticsearch &#x80FD;&#x591F;&#x7F13;&#x5B58;&#x975E;&#x8BC4;&#x5206;&#x67E5;&#x8BE2;&#x4ECE;&#x800C;&#x83B7;&#x53D6;&#x66F4;&#x5FEB;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4E5F;&#x4F1A;&#x4E0D;&#x592A;&#x806A;&#x660E;&#x5730;&#x7F13;&#x5B58;&#x4E00;&#x4E9B;&#x4F7F;&#x7528;&#x6781;&#x5C11;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x975E;&#x8BC4;&#x5206;&#x8BA1;&#x7B97;&#x56E0;&#x4E3A;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#x5FEB;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EA;&#x60F3;&#x7F13;&#x5B58;&#x90A3;&#x4E9B;&#x6211;&#x4EEC; <em>&#x77E5;&#x9053;</em> &#x5728;&#x5C06;&#x6765;&#x4F1A;&#x88AB;&#x518D;&#x6B21;&#x4F7F;&#x7528;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x8D44;&#x6E90;&#x7684;&#x6D6A;&#x8D39;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x4EE5;&#x4E0A;&#x8BBE;&#x60F3;&#xFF0C;Elasticsearch &#x4F1A;&#x4E3A;&#x6BCF;&#x4E2A;&#x7D22;&#x5F15;&#x8DDF;&#x8E2A;&#x4FDD;&#x7559;&#x67E5;&#x8BE2;&#x4F7F;&#x7528;&#x7684;&#x5386;&#x53F2;&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x67E5;&#x8BE2;&#x5728;&#x6700;&#x8FD1;&#x7684; 256 &#x6B21;&#x67E5;&#x8BE2;&#x4E2D;&#x4F1A;&#x88AB;&#x7528;&#x5230;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#x3002;&#x5F53; bitset &#x88AB;&#x7F13;&#x5B58;&#x540E;&#xFF0C;&#x7F13;&#x5B58;&#x4F1A;&#x5728;&#x90A3;&#x4E9B;&#x4F4E;&#x4E8E; 10,000 &#x4E2A;&#x6587;&#x6863;&#xFF08;&#x6216;&#x5C11;&#x4E8E; 3% &#x7684;&#x603B;&#x7D22;&#x5F15;&#x6570;&#xFF09;&#x7684;&#x6BB5;&#xFF08;segment&#xFF09;&#x4E2D;&#x88AB;&#x5FFD;&#x7565;&#x3002;&#x8FD9;&#x4E9B;&#x5C0F;&#x7684;&#x6BB5;&#x5373;&#x5C06;&#x4F1A;&#x6D88;&#x5931;&#xFF0C;&#x6240;&#x4EE5;&#x4E3A;&#x5B83;&#x4EEC;&#x5206;&#x914D;&#x7F13;&#x5B58;&#x662F;&#x4E00;&#x79CD;&#x6D6A;&#x8D39;&#x3002;</p>
+</li>
+</ol>
+<p>&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x5E76;&#x975E;&#x5982;&#x6B64;&#xFF08;&#x6267;&#x884C;&#x6709;&#x5B83;&#x7684;&#x590D;&#x6742;&#x6027;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x67E5;&#x8BE2;&#x8BA1;&#x5212;&#x662F;&#x5982;&#x4F55;&#x91CD;&#x65B0;&#x89C4;&#x5212;&#x7684;&#xFF0C;&#x6709;&#x4E9B;&#x542F;&#x53D1;&#x5F0F;&#x7684;&#x7B97;&#x6CD5;&#x662F;&#x57FA;&#x4E8E;&#x67E5;&#x8BE2;&#x4EE3;&#x4EF7;&#x7684;&#xFF09;&#xFF0C;&#x7406;&#x8BBA;&#x4E0A;&#x975E;&#x8BC4;&#x5206;&#x67E5;&#x8BE2; <em>&#x5148;&#x4E8E;</em> &#x8BC4;&#x5206;&#x67E5;&#x8BE2;&#x6267;&#x884C;&#x3002;&#x975E;&#x8BC4;&#x5206;&#x67E5;&#x8BE2;&#x4EFB;&#x52A1;&#x65E8;&#x5728;&#x964D;&#x4F4E;&#x90A3;&#x4E9B;&#x5C06;&#x5BF9;&#x8BC4;&#x5206;&#x67E5;&#x8BE2;&#x8BA1;&#x7B97;&#x5E26;&#x6765;&#x66F4;&#x9AD8;&#x6210;&#x672C;&#x7684;&#x6587;&#x6863;&#x6570;&#x91CF;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x5FEB;&#x901F;&#x641C;&#x7D22;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
+<p>&#x4ECE;&#x6982;&#x5FF5;&#x4E0A;&#x8BB0;&#x4F4F;&#x975E;&#x8BC4;&#x5206;&#x8BA1;&#x7B97;&#x662F;&#x9996;&#x5148;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x8FD9;&#x5C06;&#x6709;&#x52A9;&#x4E8E;&#x5199;&#x51FA;&#x9AD8;&#x6548;&#x53C8;&#x5FEB;&#x901F;&#x7684;&#x641C;&#x7D22;&#x8BF7;&#x6C42;&#x3002;</p>
+<h4 id="&#x7EC4;&#x5408;&#x8FC7;&#x6EE4;&#x5668;"><a name="&#x7EC4;&#x5408;&#x8FC7;&#x6EE4;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x7EC4;&#x5408;&#x8FC7;&#x6EE4;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EC4;&#x5408;&#x8FC7;&#x6EE4;&#x5668;</h4>
+<p>&#x524D;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x4F8B;&#x5B50;&#x90FD;&#x662F;&#x5355;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#xFF08;filter&#xFF09;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x3002; &#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x8FC7;&#x6EE4;&#x591A;&#x4E2A;&#x503C;&#x6216;&#x5B57;&#x6BB5;&#x3002;&#x6BD4;&#x65B9;&#x8BF4;&#xFF0C;&#x600E;&#x6837;&#x7528; Elasticsearch &#x6765;&#x8868;&#x8FBE;&#x4E0B;&#x9762;&#x7684; SQL &#xFF1F;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> product
+<span class="hljs-keyword">FROM</span>   products
+<span class="hljs-keyword">WHERE</span>  (price = <span class="hljs-number">20</span> <span class="hljs-keyword">OR</span> productID = <span class="hljs-string">&quot;XHDK-A-1293-#fJ3&quot;</span>)
+  <span class="hljs-keyword">AND</span>  (price != <span class="hljs-number">30</span>)
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981; <code>bool</code> &#xFF08;&#x5E03;&#x5C14;&#xFF09;&#x8FC7;&#x6EE4;&#x5668;&#x3002; &#x8FD9;&#x662F;&#x4E2A; <em>&#x590D;&#x5408;&#x8FC7;&#x6EE4;&#x5668;&#xFF08;compound filter&#xFF09;</em> &#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x591A;&#x4E2A;&#x5176;&#x4ED6;&#x8FC7;&#x6EE4;&#x5668;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x5C06;&#x8FD9;&#x4E9B;&#x8FC7;&#x6EE4;&#x5668;&#x7ED3;&#x5408;&#x6210;&#x5404;&#x5F0F;&#x5404;&#x6837;&#x7684;&#x5E03;&#x5C14;&#xFF08;&#x903B;&#x8F91;&#xFF09;&#x7EC4;&#x5408;&#x3002;</p>
+<p><strong>&#x5E03;&#x5C14;&#x8FC7;&#x6EE4;&#x5668;</strong></p>
+<p>&#x4E00;&#x4E2A; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x7531;&#x4E09;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-js">{
+   <span class="hljs-string">&quot;bool&quot;</span> : {
+      <span class="hljs-string">&quot;must&quot;</span> :     [],
+      <span class="hljs-string">&quot;should&quot;</span> :   [],
+      <span class="hljs-string">&quot;must_not&quot;</span> : [],
+   }
+}
+</code></pre>
+<ul>
+<li><p><code>must</code></p>
+<p>&#x6240;&#x6709;&#x7684;&#x8BED;&#x53E5;&#x90FD; <em>&#x5FC5;&#x987B;&#xFF08;must&#xFF09;</em> &#x5339;&#x914D;&#xFF0C;&#x4E0E; <code>AND</code> &#x7B49;&#x4EF7;&#x3002;</p>
+</li>
+<li><p><code>must_not</code></p>
+<p>&#x6240;&#x6709;&#x7684;&#x8BED;&#x53E5;&#x90FD; <em>&#x4E0D;&#x80FD;&#xFF08;must not&#xFF09;</em> &#x5339;&#x914D;&#xFF0C;&#x4E0E; <code>NOT</code> &#x7B49;&#x4EF7;&#x3002;</p>
+</li>
+<li><p><code>should</code></p>
+<p>&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#x8981;&#x5339;&#x914D;&#xFF0C;&#x4E0E; <code>OR</code> &#x7B49;&#x4EF7;&#x3002;</p>
+</li>
+</ul>
+<p>&#x5C31;&#x8FD9;&#x4E48;&#x7B80;&#x5355;&#xFF01; &#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x591A;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x65F6;&#xFF0C;&#x53EA;&#x987B;&#x5C06;&#x5B83;&#x4EEC;&#x7F6E;&#x5165; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x4E0D;&#x540C;&#x90E8;&#x5206;&#x5373;&#x53EF;&#x3002;</p>
+<blockquote>
+<p> <img src="assets/note.png" alt="&#x6CE8;&#x610F;">  &#x4E00;&#x4E2A; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x6BCF;&#x4E2A;&#x90E8;&#x5206;&#x90FD;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53EA;&#x6709;&#x4E00;&#x4E2A; <code>must</code> &#x8BED;&#x53E5;&#xFF09;&#xFF0C;&#x800C;&#x4E14;&#x6BCF;&#x4E2A;&#x90E8;&#x5206;&#x5185;&#x90E8;&#x53EF;&#x4EE5;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x4E00;&#x7EC4;&#x8FC7;&#x6EE4;&#x5668;&#x3002;</p>
+</blockquote>
+<p>&#x7528; Elasticsearch &#x6765;&#x8868;&#x793A;&#x672C;&#x90E8;&#x5206;&#x5F00;&#x59CB;&#x5904;&#x7684; SQL &#x4F8B;&#x5B50;&#xFF0C;&#x5C06;&#x4E24;&#x4E2A; <code>term</code> &#x8FC7;&#x6EE4;&#x5668;&#x7F6E;&#x5165; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x7684; <code>should</code> &#x8BED;&#x53E5;&#x5185;&#xFF0C;&#x518D;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#x5904;&#x7406; <code>NOT</code> &#x975E;&#x7684;&#x6761;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_store/products/_search
+{
+   <span class="hljs-string">&quot;query&quot;</span> : {
+      <span class="hljs-string">&quot;filtered&quot;</span> : {   &lt;1&gt;
+         &quot;filter&quot; : {
+            &quot;bool&quot; : {
+              &quot;should&quot; : [
+                 { &quot;term&quot; : {&quot;price&quot; : 20}},   &lt;2&gt;
+                 { &quot;term&quot; : {&quot;productID&quot; : &quot;XHDK-A-1293-#fJ3&quot;}}    &lt;3&gt;
+              ],
+              &quot;must_not&quot; : {
+                 &quot;term&quot; : {&quot;price&quot; : 30}  &lt;4&gt;
+              }
+           }
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x4E00;&#x4E2A; <code>filtered</code> &#x67E5;&#x8BE2;&#x5C06;&#x6240;&#x6709;&#x7684;&#x4E1C;&#x897F;&#x5305;&#x8D77;&#x6765;&#x3002;    </p>
+<p> <img src="assets/2.png" alt="img"> <img src="assets/3.png" alt="img">  &#x5728; <code>should</code> &#x8BED;&#x53E5;&#x5757;&#x91CC;&#x9762;&#x7684;&#x4E24;&#x4E2A; <code>term</code> &#x8FC7;&#x6EE4;&#x5668;&#x4E0E; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x662F;&#x7236;&#x5B50;&#x5173;&#x7CFB;&#xFF0C;&#x4E24;&#x4E2A; <code>term</code> &#x6761;&#x4EF6;&#x9700;&#x8981;&#x5339;&#x914D;&#x5176;&#x4E00;&#x3002;   </p>
+<p> <img src="assets/4.png" alt="img">  &#x5982;&#x679C;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#x7684;&#x4EF7;&#x683C;&#x662F; <code>30</code> &#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x88AB;&#x6392;&#x9664;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5904;&#x4E8E; <code>must_not</code> &#x8BED;&#x53E5;&#x91CC;&#x9762;&#x3002;  </p>
+</blockquote>
+<p>&#x6211;&#x4EEC;&#x641C;&#x7D22;&#x7684;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x4E86; 2 &#x4E2A;&#x547D;&#x4E2D;&#x7ED3;&#x679C;&#xFF0C;&#x4E24;&#x4E2A;&#x6587;&#x6863;&#x5206;&#x522B;&#x5339;&#x914D;&#x4E86; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;hits&quot;</span> : [
+    {
+        <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;1&quot;</span>,
+        <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+        <span class="hljs-string">&quot;_source&quot;</span> : {
+          <span class="hljs-string">&quot;price&quot;</span> :     <span class="hljs-number">10</span>,
+          <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;XHDK-A-1293-#fJ3&quot;</span> &lt;<span class="hljs-number">1</span>&gt;
+        }
+    },
+    {
+        <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;2&quot;</span>,
+        <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+        <span class="hljs-string">&quot;_source&quot;</span> : {
+          <span class="hljs-string">&quot;price&quot;</span> :     <span class="hljs-number">20</span>, <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">2</span>&gt;</span>
+          &quot;productID&quot; : &quot;KDKE-B-9947-#kL5&quot;
+        }
+    }
+]
+</span></code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img"> &#x4E0E; <code>term</code> &#x8FC7;&#x6EE4;&#x5668;&#x4E2D; <code>productID = &quot;XHDK-A-1293-#fJ3&quot;</code> &#x6761;&#x4EF6;&#x5339;&#x914D;   </p>
+<p> <img src="assets/2.png" alt="img">  &#x4E0E; <code>term</code> &#x8FC7;&#x6EE4;&#x5668;&#x4E2D; <code>price = 20</code> &#x6761;&#x4EF6;&#x5339;&#x914D;  </p>
+</blockquote>
+<p><strong>&#x5D4C;&#x5957;&#x5E03;&#x5C14;&#x8FC7;&#x6EE4;&#x5668;</strong></p>
+<p>&#x5C3D;&#x7BA1; <code>bool</code> &#x662F;&#x4E00;&#x4E2A;&#x590D;&#x5408;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x591A;&#x4E2A;&#x5B50;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x672C;&#x8EAB;&#x4ECD;&#x7136;&#x8FD8;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x3002; &#x8FD9;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E2A; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x7F6E;&#x4E8E;&#x5176;&#x4ED6; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x5185;&#x90E8;&#xFF0C;&#x8FD9;&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9;&#x4EFB;&#x610F;&#x590D;&#x6742;&#x5E03;&#x5C14;&#x903B;&#x8F91;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x7684;&#x80FD;&#x529B;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x4EE5;&#x4E0B;&#x8FD9;&#x4E2A; SQL &#x8BED;&#x53E5;&#xFF1A;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">document</span>
+<span class="hljs-keyword">FROM</span>   products
+<span class="hljs-keyword">WHERE</span>  productID      = <span class="hljs-string">&quot;KDKE-B-9947-#kL5&quot;</span>
+  <span class="hljs-keyword">OR</span> (     productID = <span class="hljs-string">&quot;JODL-X-1937-#pV7&quot;</span>
+       <span class="hljs-keyword">AND</span> price     = <span class="hljs-number">30</span> )
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x7EC4;&#x5D4C;&#x5957;&#x7684; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_store/products/_search
+{
+   <span class="hljs-string">&quot;query&quot;</span> : {
+      <span class="hljs-string">&quot;filtered&quot;</span> : {
+         <span class="hljs-string">&quot;filter&quot;</span> : {
+            <span class="hljs-string">&quot;bool&quot;</span> : {
+              <span class="hljs-string">&quot;should&quot;</span> : [
+                { <span class="hljs-string">&quot;term&quot;</span> : {<span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;KDKE-B-9947-#kL5&quot;</span>}}, &lt;1&gt;
+                { &quot;bool&quot; : { &lt;2&gt;
+                  &quot;must&quot; : [
+                    { &quot;term&quot; : {&quot;productID&quot; : &quot;JODL-X-1937-#pV7&quot;}}, 
+                    { &quot;term&quot; : {&quot;price&quot; : 30}} &lt;4&gt;
+                  ]
+                }}
+              ]
+           }
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img"> <img src="assets/2.png" alt="img">  &#x56E0;&#x4E3A; <code>term</code> &#x548C; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668;&#x662F;&#x5144;&#x5F1F;&#x5173;&#x7CFB;&#xFF0C;&#x4ED6;&#x4EEC;&#x90FD;&#x5904;&#x4E8E;&#x5916;&#x5C42;&#x7684;&#x5E03;&#x5C14;&#x903B;&#x8F91; <code>should</code> &#x7684;&#x5185;&#x90E8;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x547D;&#x4E2D;&#x6587;&#x6863;&#x81F3;&#x5C11;&#x987B;&#x5339;&#x914D;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x6761;&#x4EF6;&#x3002;  </p>
+<p> <img src="assets/3.png" alt="img"> <img src="assets/4.png" alt="img">  &#x8FD9;&#x4E24;&#x4E2A; <code>term</code> &#x8BED;&#x53E5;&#x4F5C;&#x4E3A;&#x5144;&#x5F1F;&#x5173;&#x7CFB;&#xFF0C;&#x540C;&#x65F6;&#x5904;&#x4E8E; <code>must</code> &#x8BED;&#x53E5;&#x4E4B;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x8FD4;&#x56DE;&#x7684;&#x547D;&#x4E2D;&#x6587;&#x6863;&#x8981;&#x5FC5;&#x987B;&#x90FD;&#x80FD;&#x540C;&#x65F6;&#x5339;&#x914D;&#x8FD9;&#x4E24;&#x4E2A;&#x6761;&#x4EF6;&#x3002;  </p>
+</blockquote>
+<p>&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x6709;&#x4E24;&#x4E2A;&#x6587;&#x6863;&#xFF0C;&#x5B83;&#x4EEC;&#x5404;&#x5339;&#x914D; <code>should</code> &#x8BED;&#x53E5;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;hits&quot;</span> : [
+    {
+        <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;2&quot;</span>,
+        <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+        <span class="hljs-string">&quot;_source&quot;</span> : {
+          <span class="hljs-string">&quot;price&quot;</span> :     <span class="hljs-number">20</span>,
+          <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;KDKE-B-9947-#kL5&quot;</span> &lt;<span class="hljs-number">1</span>&gt;
+        }
+    },
+    {
+        <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;3&quot;</span>,
+        <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+        <span class="hljs-string">&quot;_source&quot;</span> : {
+          <span class="hljs-string">&quot;price&quot;</span> :      <span class="hljs-number">30</span>, &lt;2&gt;
+          &quot;productID&quot; : &quot;JODL-X-1937-#pV7&quot; &lt;3&gt;
+        }
+    }
+]
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x8FD9;&#x4E2A; <code>productID</code> &#x4E0E;&#x5916;&#x5C42;&#x7684; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668; <code>should</code> &#x91CC;&#x7684;&#x552F;&#x4E00;&#x4E00;&#x4E2A; <code>term</code> &#x5339;&#x914D;&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img"> <img src="assets/3.png" alt="img">  &#x8FD9;&#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#x4E0E;&#x5D4C;&#x5957;&#x7684; <code>bool</code> &#x8FC7;&#x6EE4;&#x5668; <code>must</code> &#x91CC;&#x7684;&#x4E24;&#x4E2A; <code>term</code> &#x5339;&#x914D;&#x3002;  </p>
+</blockquote>
+<p>&#x8FD9;&#x53EA;&#x662F;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x4F46;&#x8DB3;&#x4EE5;&#x5C55;&#x793A;&#x5E03;&#x5C14;&#x8FC7;&#x6EE4;&#x5668;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x590D;&#x6742;&#x903B;&#x8F91;&#x6761;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x6784;&#x5EFA;&#x6A21;&#x5757;&#x3002;</p>
+<h4 id="&#x67E5;&#x627E;&#x591A;&#x4E2A;&#x7CBE;&#x786E;&#x503C;"><a name="&#x67E5;&#x627E;&#x591A;&#x4E2A;&#x7CBE;&#x786E;&#x503C;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x627E;&#x591A;&#x4E2A;&#x7CBE;&#x786E;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x627E;&#x591A;&#x4E2A;&#x7CBE;&#x786E;&#x503C;</h4>
+<p><code>term</code> &#x67E5;&#x8BE2;&#x5BF9;&#x4E8E;&#x67E5;&#x627E;&#x5355;&#x4E2A;&#x503C;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x4F46;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x60F3;&#x641C;&#x7D22;&#x591A;&#x4E2A;&#x503C;&#x3002; &#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x67E5;&#x627E;&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x503C;&#x4E3A; $20 &#x6216; $30 &#x7684;&#x6587;&#x6863;&#x8BE5;&#x5982;&#x4F55;&#x5904;&#x7406;&#x5462;&#xFF1F;</p>
+<p>&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x591A;&#x4E2A; <code>term</code> &#x67E5;&#x8BE2;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x7528;&#x5355;&#x4E2A; <code>terms</code> &#x67E5;&#x8BE2;&#xFF08;&#x6CE8;&#x610F;&#x672B;&#x5C3E;&#x7684; <em>s</em> &#xFF09;&#xFF0C; <code>terms</code> &#x67E5;&#x8BE2;&#x597D;&#x6BD4;&#x662F; <code>term</code> &#x67E5;&#x8BE2;&#x7684;&#x590D;&#x6570;&#x5F62;&#x5F0F;&#xFF08;&#x4EE5;&#x82F1;&#x8BED;&#x540D;&#x8BCD;&#x7684;&#x5355;&#x590D;&#x6570;&#x505A;&#x6BD4;&#xFF09;&#x3002;</p>
+<p>&#x5B83;&#x51E0;&#x4E4E;&#x4E0E; <code>term</code> &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#xFF0C;&#x4E0E;&#x6307;&#x5B9A;&#x5355;&#x4E2A;&#x4EF7;&#x683C;&#x4E0D;&#x540C;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x5C06; <code>term</code> &#x5B57;&#x6BB5;&#x7684;&#x503C;&#x6539;&#x4E3A;&#x6570;&#x7EC4;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre><code class="lang-js">{
+    <span class="hljs-string">&quot;terms&quot;</span> : {
+        <span class="hljs-string">&quot;price&quot;</span> : [<span class="hljs-number">20</span>, <span class="hljs-number">30</span>]
+    }
+}
+</code></pre>
+<p>&#x4E0E; <code>term</code> &#x67E5;&#x8BE2;&#x4E00;&#x6837;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x5C06;&#x5176;&#x7F6E;&#x5165; <code>filter</code> &#x8BED;&#x53E5;&#x7684;&#x5E38;&#x91CF;&#x8BC4;&#x5206;&#x67E5;&#x8BE2;&#x4E2D;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_store/products/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;constant_score&quot;</span> : {
+            <span class="hljs-string">&quot;filter&quot;</span> : {
+                <span class="hljs-string">&quot;terms&quot;</span> : { <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">1</span>&gt;</span>
+                    &quot;price&quot; : [20, 30]
+                }
+            }
+        }
+    }
+}
+</span></code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x8FD9;&#x4E2A; <code>terms</code> &#x67E5;&#x8BE2;&#x88AB;&#x7F6E;&#x4E8E; <code>constant_score</code> &#x67E5;&#x8BE2;&#x4E2D;     </p>
+</blockquote>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E8C;&#x3001;&#x7B2C;&#x4E09;&#x548C;&#x7B2C;&#x56DB;&#x4E2A;&#x6587;&#x6863;&#xFF1A;</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;hits&quot;</span> : [
+    {
+        <span class="hljs-string">&quot;_id&quot;</span> :    <span class="hljs-string">&quot;2&quot;</span>,
+        <span class="hljs-string">&quot;_score&quot;</span> : <span class="hljs-number">1.0</span>,
+        <span class="hljs-string">&quot;_source&quot;</span> : {
+          <span class="hljs-string">&quot;price&quot;</span> :     <span class="hljs-number">20</span>,
+          <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;KDKE-B-9947-#kL5&quot;</span>
+        }
+    },
+    {
+        <span class="hljs-string">&quot;_id&quot;</span> :    <span class="hljs-string">&quot;3&quot;</span>,
+        <span class="hljs-string">&quot;_score&quot;</span> : <span class="hljs-number">1.0</span>,
+        <span class="hljs-string">&quot;_source&quot;</span> : {
+          <span class="hljs-string">&quot;price&quot;</span> :     <span class="hljs-number">30</span>,
+          <span class="hljs-string">&quot;productID&quot;</span> : <span class="hljs-string">&quot;JODL-X-1937-#pV7&quot;</span>
+        }
+    },
+    {
+        <span class="hljs-string">&quot;_id&quot;</span>:     <span class="hljs-string">&quot;4&quot;</span>,
+        <span class="hljs-string">&quot;_score&quot;</span>:  <span class="hljs-number">1.0</span>,
+        <span class="hljs-string">&quot;_source&quot;</span>: {
+           <span class="hljs-string">&quot;price&quot;</span>:     <span class="hljs-number">30</span>,
+           <span class="hljs-string">&quot;productID&quot;</span>: <span class="hljs-string">&quot;QQPX-R-3956-#aD8&quot;</span>
+        }
+     }
+]
+</code></pre>
+<p><strong>&#x5305;&#x542B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x76F8;&#x7B49;</strong></p>
+<p>&#x4E00;&#x5B9A;&#x8981;&#x4E86;&#x89E3; <code>term</code> &#x548C; <code>terms</code> &#x662F; <em>&#x5305;&#x542B;&#xFF08;contains&#xFF09;</em> &#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x975E; <em>&#x7B49;&#x503C;&#xFF08;equals&#xFF09;</em> &#xFF08;&#x5224;&#x65AD;&#xFF09;&#x3002; &#x5982;&#x4F55;&#x7406;&#x89E3;&#x8FD9;&#x53E5;&#x8BDD;&#x5462;&#xFF1F;</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A; term&#xFF08;&#x8BCD;&#x9879;&#xFF09;&#x8FC7;&#x6EE4;&#x5668; <code>{ &quot;term&quot; : { &quot;tags&quot; : &quot;search&quot; } }</code> &#xFF0C;&#x5B83;&#x4F1A;&#x4E0E;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x6587;&#x6863; <em>&#x540C;&#x65F6;</em>&#x5339;&#x914D;&#xFF1A;</p>
+<pre><code class="lang-js">{ <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>] }
+{ <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>, <span class="hljs-string">&quot;open_source&quot;</span>] } &lt;<span class="hljs-number">1</span>&gt;
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x5C3D;&#x7BA1;&#x7B2C;&#x4E8C;&#x4E2A;&#x6587;&#x6863;&#x5305;&#x542B;&#x9664; <code>search</code> &#x4EE5;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x8BCD;&#xFF0C;&#x5B83;&#x8FD8;&#x662F;&#x88AB;&#x5339;&#x914D;&#x5E76;&#x4F5C;&#x4E3A;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x3002;  </p>
+</blockquote>
+<p>&#x56DE;&#x5FC6;&#x4E00;&#x4E0B; <code>term</code> &#x67E5;&#x8BE2;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF1F; Elasticsearch &#x4F1A;&#x5728;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x67E5;&#x627E;&#x5305;&#x62EC;&#x67D0; term &#x7684;&#x6240;&#x6709;&#x6587;&#x6863;&#xFF0C;&#x7136;&#x540E;&#x6784;&#x9020;&#x4E00;&#x4E2A; bitset &#x3002;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x8868;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>DocIDs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>open_source</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td><code>1</code>,<code>2</code></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5F53; <code>term</code> &#x67E5;&#x8BE2;&#x5339;&#x914D;&#x6807;&#x8BB0; <code>search</code> &#x65F6;&#xFF0C;&#x5B83;&#x76F4;&#x63A5;&#x5728;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x627E;&#x5230;&#x8BB0;&#x5F55;&#x5E76;&#x83B7;&#x53D6;&#x76F8;&#x5173;&#x7684;&#x6587;&#x6863; ID&#xFF0C;&#x5982;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x6240;&#x793A;&#xFF0C;&#x8FD9;&#x91CC;&#x6587;&#x6863; 1 &#x548C;&#x6587;&#x6863; 2 &#x5747;&#x5305;&#x542B;&#x8BE5;&#x6807;&#x8BB0;&#xFF0C;&#x6240;&#x4EE5;&#x4E24;&#x4E2A;&#x6587;&#x6863;&#x4F1A;&#x540C;&#x65F6;&#x4F5C;&#x4E3A;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x3002;</p>
+<blockquote>
+<p> <img src="assets/note.png" alt="&#x6CE8;&#x610F;">  &#x7531;&#x4E8E;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x8868;&#x81EA;&#x8EAB;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x6574;&#x4E2A;&#x5B57;&#x6BB5;&#x662F;&#x5426;&#x76F8;&#x7B49;&#x4F1A;&#x96BE;&#x4EE5;&#x8BA1;&#x7B97;&#xFF0C;&#x5982;&#x679C;&#x786E;&#x5B9A;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x6587;&#x6863;&#x662F;&#x5426; <em>&#x53EA;&#xFF08;only&#xFF09;</em> &#x5305;&#x542B;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x67E5;&#x627E;&#x7684;&#x8BCD;&#x5462;&#xFF1F;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x627E;&#x5230;&#x76F8;&#x5173;&#x7684;&#x8BB0;&#x5F55;&#x5E76;&#x83B7;&#x53D6;&#x6587;&#x6863; ID&#xFF0C;&#x7136;&#x540E;&#x518D;&#x626B;&#x63CF; <em>&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x7684;&#x6BCF;&#x884C;&#x8BB0;&#x5F55;</em> &#xFF0C;&#x67E5;&#x770B;&#x5B83;&#x4EEC;&#x662F;&#x5426;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x7684; terms &#x3002;</p>
+<p> &#x200B;                    &#x53EF;&#x4EE5;&#x60F3;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x4E0D;&#x4EC5;&#x4F4E;&#x6548;&#xFF0C;&#x800C;&#x4E14;&#x4EE3;&#x4EF7;&#x9AD8;&#x6602;&#x3002;&#x6B63;&#x56E0;&#x5982;&#x6B64;&#xFF0C; <code>term</code> &#x548C; <code>terms</code> &#x662F; <em>&#x5FC5;&#x987B;&#x5305;&#x542B;&#xFF08;must contain&#xFF09;</em> &#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E0D;&#x662F; <em>&#x5FC5;&#x987B;&#x7CBE;&#x786E;&#x76F8;&#x7B49;&#xFF08;must equal exactly&#xFF09;</em> &#x3002;</p>
+</blockquote>
+<p><strong>&#x7CBE;&#x786E;&#x76F8;&#x7B49;</strong></p>
+<p>&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x671F;&#x671B;&#x5F97;&#x5230;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x8BF4;&#x7684;&#x90A3;&#x79CD;&#x884C;&#x4E3A;&#xFF08;&#x5373;&#x6574;&#x4E2A;&#x5B57;&#x6BB5;&#x5B8C;&#x5168;&#x76F8;&#x7B49;&#xFF09;&#xFF0C;&#x6700;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x589E;&#x52A0;&#x5E76;&#x7D22;&#x5F15;&#x53E6;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C; &#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x7528;&#x4EE5;&#x5B58;&#x50A8;&#x8BE5;&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x8BCD;&#x9879;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x540C;&#x6837;&#x4EE5;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x4E24;&#x4E2A;&#x6587;&#x6863;&#x4E3A;&#x4F8B;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5305;&#x62EC;&#x4E86;&#x4E00;&#x4E2A;&#x7EF4;&#x62A4;&#x6807;&#x7B7E;&#x6570;&#x7684;&#x65B0;&#x5B57;&#x6BB5;&#xFF1A;</p>
+<pre><code class="lang-js">{ <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>], <span class="hljs-string">&quot;tag_count&quot;</span> : <span class="hljs-number">1</span> }
+{ <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>, <span class="hljs-string">&quot;open_source&quot;</span>], <span class="hljs-string">&quot;tag_count&quot;</span> : <span class="hljs-number">2</span> }
+</code></pre>
+<p>&#x4E00;&#x65E6;&#x589E;&#x52A0;&#x8FD9;&#x4E2A;&#x7528;&#x6765;&#x7D22;&#x5F15;&#x9879; term &#x6570;&#x76EE;&#x4FE1;&#x606F;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x6784;&#x9020;&#x4E00;&#x4E2A; <code>constant_score</code> &#x67E5;&#x8BE2;&#xFF0C;&#x6765;&#x786E;&#x4FDD;&#x7ED3;&#x679C;&#x4E2D;&#x7684;&#x6587;&#x6863;&#x6240;&#x5305;&#x542B;&#x7684;&#x8BCD;&#x9879;&#x6570;&#x91CF;&#x4E0E;&#x8981;&#x6C42;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_index/my_type/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span>: {
+        <span class="hljs-string">&quot;constant_score&quot;</span> : {
+            <span class="hljs-string">&quot;filter&quot;</span> : {
+                 <span class="hljs-string">&quot;bool&quot;</span> : {
+                    <span class="hljs-string">&quot;must&quot;</span> : [
+                        { <span class="hljs-string">&quot;term&quot;</span> : { <span class="hljs-string">&quot;tags&quot;</span> : <span class="hljs-string">&quot;search&quot;</span> } }, &lt;1&gt;
+                        { &quot;term&quot; : { &quot;tag_count&quot; : 1 } }    &lt;2&gt;
+                    ]
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img"> &#x67E5;&#x627E;&#x6240;&#x6709;&#x5305;&#x542B; term <code>search</code> &#x7684;&#x6587;&#x6863;&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img"> &#x786E;&#x4FDD;&#x6587;&#x6863;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x3002;  </p>
+</blockquote>
+<p>&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x73B0;&#x5728;&#x53EA;&#x4F1A;&#x5339;&#x914D;&#x5177;&#x6709;&#x5355;&#x4E2A;&#x6807;&#x7B7E; <code>search</code> &#x7684;&#x6587;&#x6863;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5305;&#x542B; <code>search</code> &#x7684;&#x6587;&#x6863;&#x3002;</p>
+<h4 id="&#x8303;&#x56F4;"><a name="&#x8303;&#x56F4;" class="anchor-navigation-ex-anchor" href="#&#x8303;&#x56F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8303;&#x56F4;</h4>
+<p>&#x672C;&#x7AE0;&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x5BF9;&#x4E8E;&#x6570;&#x5B57;&#xFF0C;&#x53EA;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x5904;&#x7406;&#x7CBE;&#x786E;&#x503C;&#x67E5;&#x8BE2;&#x3002; &#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5BF9;&#x6570;&#x5B57;&#x8303;&#x56F4;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#x6709;&#x65F6;&#x4F1A;&#x66F4;&#x6709;&#x7528;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x67E5;&#x627E;&#x6240;&#x6709;&#x4EF7;&#x683C;&#x5927;&#x4E8E; $20 &#x4E14;&#x5C0F;&#x4E8E; $40 &#x7F8E;&#x5143;&#x7684;&#x4EA7;&#x54C1;&#x3002;</p>
+<p>&#x5728; SQL &#x4E2D;&#xFF0C;&#x8303;&#x56F4;&#x67E5;&#x8BE2;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">document</span>
+<span class="hljs-keyword">FROM</span>   products
+<span class="hljs-keyword">WHERE</span>  price <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">20</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">40</span>
+</code></pre>
+<p>Elasticsearch &#x6709; <code>range</code> &#x67E5;&#x8BE2;&#xFF0C; &#x4E0D;&#x51FA;&#x6240;&#x6599;&#x5730;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x67E5;&#x627E;&#x5904;&#x4E8E;&#x67D0;&#x4E2A;&#x8303;&#x56F4;&#x5185;&#x7684;&#x6587;&#x6863;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;range&quot;</span> : {
+    <span class="hljs-string">&quot;price&quot;</span> : {
+        <span class="hljs-string">&quot;gte&quot;</span> : <span class="hljs-number">20</span>,
+        <span class="hljs-string">&quot;lte&quot;</span> : <span class="hljs-number">40</span>
+    }
+}
+</code></pre>
+<p><code>range</code> &#x67E5;&#x8BE2;&#x53EF;&#x540C;&#x65F6;&#x63D0;&#x4F9B;&#x5305;&#x542B;&#xFF08;inclusive&#xFF09;&#x548C;&#x4E0D;&#x5305;&#x542B;&#xFF08;exclusive&#xFF09;&#x8FD9;&#x4E24;&#x79CD;&#x8303;&#x56F4;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x53EF;&#x4F9B;&#x7EC4;&#x5408;&#x7684;&#x9009;&#x9879;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li><code>gt</code>: <code>&gt;</code> &#x5927;&#x4E8E;&#xFF08;greater than&#xFF09;</li>
+<li><code>lt</code>: <code>&lt;</code> &#x5C0F;&#x4E8E;&#xFF08;less than&#xFF09;</li>
+<li><code>gte</code>: <code>&gt;=</code> &#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#xFF08;greater than or equal to&#xFF09;</li>
+<li><code>lte</code>: <code>&lt;=</code> &#x5C0F;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#xFF08;less than or equal to&#xFF09;</li>
+</ul>
+<p><strong>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x8303;&#x56F4;&#x67E5;&#x8BE2;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;.</strong> </p>
+<pre><code class="lang-js">GET /my_store/products/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;constant_score&quot;</span> : {
+            <span class="hljs-string">&quot;filter&quot;</span> : {
+                <span class="hljs-string">&quot;range&quot;</span> : {
+                    <span class="hljs-string">&quot;price&quot;</span> : {
+                        <span class="hljs-string">&quot;gte&quot;</span> : <span class="hljs-number">20</span>,
+                        <span class="hljs-string">&quot;lt&quot;</span>  : <span class="hljs-number">40</span>
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x8303;&#x56F4;&#x65E0;&#x754C;&#xFF08;&#x6BD4;&#x65B9;&#x8BF4; &gt;20 &#xFF09;&#xFF0C;&#x53EA;&#x987B;&#x7701;&#x7565;&#x5176;&#x4E2D;&#x4E00;&#x8FB9;&#x7684;&#x9650;&#x5236;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;range&quot;</span> : {
+    <span class="hljs-string">&quot;price&quot;</span> : {
+        <span class="hljs-string">&quot;gt&quot;</span> : <span class="hljs-number">20</span>
+    }
+}
+</code></pre>
+<p><strong>&#x65E5;&#x671F;&#x8303;&#x56F4;</strong></p>
+<p><code>range</code> &#x67E5;&#x8BE2;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x5728;&#x65E5;&#x671F;&#x5B57;&#x6BB5;&#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;range&quot;</span> : {
+    <span class="hljs-string">&quot;timestamp&quot;</span> : {
+        <span class="hljs-string">&quot;gt&quot;</span> : <span class="hljs-string">&quot;2014-01-01 00:00:00&quot;</span>,
+        <span class="hljs-string">&quot;lt&quot;</span> : <span class="hljs-string">&quot;2014-01-07 00:00:00&quot;</span>
+    }
+}
+</code></pre>
+<p>&#x5F53;&#x4F7F;&#x7528;&#x5B83;&#x5904;&#x7406;&#x65E5;&#x671F;&#x5B57;&#x6BB5;&#x65F6;&#xFF0C; <code>range</code> &#x67E5;&#x8BE2;&#x652F;&#x6301;&#x5BF9; <em>&#x65E5;&#x671F;&#x8BA1;&#x7B97;&#xFF08;date math&#xFF09;</em> &#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x65B9;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x67E5;&#x627E;&#x65F6;&#x95F4;&#x6233;&#x5728;&#x8FC7;&#x53BB;&#x4E00;&#x5C0F;&#x65F6;&#x5185;&#x7684;&#x6240;&#x6709;&#x6587;&#x6863;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;range&quot;</span> : {
+    <span class="hljs-string">&quot;timestamp&quot;</span> : {
+        <span class="hljs-string">&quot;gt&quot;</span> : <span class="hljs-string">&quot;now-1h&quot;</span>
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x4F1A;&#x4E00;&#x76F4;&#x67E5;&#x627E;&#x65F6;&#x95F4;&#x6233;&#x5728;&#x8FC7;&#x53BB;&#x4E00;&#x4E2A;&#x5C0F;&#x65F6;&#x5185;&#x7684;&#x6240;&#x6709;&#x6587;&#x6863;&#xFF0C;&#x8BA9;&#x8FC7;&#x6EE4;&#x5668;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x65F6;&#x95F4; <em>&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#xFF08;sliding window&#xFF09;</em> &#x6765;&#x8FC7;&#x6EE4;&#x6587;&#x6863;&#x3002;</p>
+<p>&#x65E5;&#x671F;&#x8BA1;&#x7B97;&#x8FD8;&#x53EF;&#x4EE5;&#x88AB;&#x5E94;&#x7528;&#x5230;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5E76;&#x975E;&#x53EA;&#x80FD;&#x662F;&#x4E00;&#x4E2A;&#x50CF; now &#x8FD9;&#x6837;&#x7684;&#x5360;&#x4F4D;&#x7B26;&#x3002;&#x53EA;&#x8981;&#x5728;&#x67D0;&#x4E2A;&#x65E5;&#x671F;&#x540E;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x53CC;&#x7BA1;&#x7B26;&#x53F7; (<code>||</code>) &#x5E76;&#x7D27;&#x8DDF;&#x4E00;&#x4E2A;&#x65E5;&#x671F;&#x6570;&#x5B66;&#x8868;&#x8FBE;&#x5F0F;&#x5C31;&#x80FD;&#x505A;&#x5230;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;range&quot;</span> : {
+    <span class="hljs-string">&quot;timestamp&quot;</span> : {
+        <span class="hljs-string">&quot;gt&quot;</span> : <span class="hljs-string">&quot;2014-01-01 00:00:00&quot;</span>,
+        <span class="hljs-string">&quot;lt&quot;</span> : <span class="hljs-string">&quot;2014-01-01 00:00:00||+1M&quot;</span> &lt;<span class="hljs-number">1</span>&gt;
+    }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img"> &#x65E9;&#x4E8E; 2014 &#x5E74; 1 &#x6708; 1 &#x65E5;&#x52A0; 1 &#x6708;&#xFF08;2014 &#x5E74; 2 &#x6708; 1 &#x65E5; &#x96F6;&#x65F6;&#xFF09;  </p>
+</blockquote>
+<p>&#x65E5;&#x671F;&#x8BA1;&#x7B97;&#x662F; <em>&#x65E5;&#x5386;&#x76F8;&#x5173;&#xFF08;calendar aware&#xFF09;</em> &#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4E0D;&#x4EC5;&#x77E5;&#x9053;&#x6BCF;&#x6708;&#x7684;&#x5177;&#x4F53;&#x5929;&#x6570;&#xFF0C;&#x8FD8;&#x77E5;&#x9053;&#x67D0;&#x5E74;&#x7684;&#x603B;&#x5929;&#x6570;&#xFF08;&#x95F0;&#x5E74;&#xFF09;&#x7B49;&#x4FE1;&#x606F;&#x3002;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#xFF1A; <a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.6/mapping-date-format.html" target="_blank">&#x65F6;&#x95F4;&#x683C;&#x5F0F;&#x53C2;&#x8003;&#x6587;&#x6863;</a> &#x3002;</p>
+<p><strong>&#x5B57;&#x7B26;&#x4E32;&#x8303;&#x56F4;</strong></p>
+<p><code>range</code> &#x67E5;&#x8BE2;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x6BB5;&#xFF0C; &#x5B57;&#x7B26;&#x4E32;&#x8303;&#x56F4;&#x53EF;&#x91C7;&#x7528; <em>&#x5B57;&#x5178;&#x987A;&#x5E8F;&#xFF08;lexicographically&#xFF09;</em> &#x6216;&#x5B57;&#x6BCD;&#x987A;&#x5E8F;&#xFF08;alphabetically&#xFF09;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x91C7;&#x7528;&#x5B57;&#x5178;&#x5E8F;&#xFF08;lexicographically&#xFF09;&#x6392;&#x5E8F;&#x7684;&#xFF1A;</p>
+<ul>
+<li>5, 50, 6, B, C, a, ab, abb, abc, b<blockquote>
+<p> <img src="assets/note.png" alt="&#x6CE8;&#x610F;">  &#x5728;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x7684;&#x8BCD;&#x9879;&#x5C31;&#x662F;&#x91C7;&#x53D6;&#x5B57;&#x5178;&#x987A;&#x5E8F;&#xFF08;lexicographically&#xFF09;&#x6392;&#x5217;&#x7684;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x8303;&#x56F4;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x987A;&#x5E8F;&#x6765;&#x786E;&#x5B9A;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x67E5;&#x627E;&#x4ECE; <code>a</code> &#x5230; <code>b</code> &#xFF08;&#x4E0D;&#x5305;&#x542B;&#xFF09;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>range</code> &#x67E5;&#x8BE2;&#x8BED;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;range&quot;</span> : {
+    <span class="hljs-string">&quot;title&quot;</span> : {
+        <span class="hljs-string">&quot;gte&quot;</span> : <span class="hljs-string">&quot;a&quot;</span>,
+        <span class="hljs-string">&quot;lt&quot;</span> :  <span class="hljs-string">&quot;b&quot;</span>
+    }
+}
+</code></pre>
+<hr>
+<blockquote>
+<p> <strong>&#x6CE8;&#x610F;&#x57FA;&#x6570;</strong></p>
+<p> &#x6570;&#x5B57;&#x548C;&#x65E5;&#x671F;&#x5B57;&#x6BB5;&#x7684;&#x7D22;&#x5F15;&#x65B9;&#x5F0F;&#x4F7F;&#x9AD8;&#x6548;&#x5730;&#x8303;&#x56F4;&#x8BA1;&#x7B97;&#x6210;&#x4E3A;&#x53EF;&#x80FD;&#x3002; &#x4F46;&#x5B57;&#x7B26;&#x4E32;&#x5374;&#x5E76;&#x975E;&#x5982;&#x6B64;&#xFF0C;&#x8981;&#x60F3;&#x5BF9;&#x5176;&#x4F7F;&#x7528;&#x8303;&#x56F4;&#x8FC7;&#x6EE4;&#xFF0C;Elasticsearch &#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5728;&#x4E3A;&#x8303;&#x56F4;&#x5185;&#x7684;&#x6BCF;&#x4E2A;&#x8BCD;&#x9879;&#x90FD;&#x6267;&#x884C; <code>term</code> &#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x8FD9;&#x4F1A;&#x6BD4;&#x65E5;&#x671F;&#x6216;&#x6570;&#x5B57;&#x7684;&#x8303;&#x56F4;&#x8FC7;&#x6EE4;&#x6162;&#x8BB8;&#x591A;&#x3002;</p>
+<p> &#x5B57;&#x7B26;&#x4E32;&#x8303;&#x56F4;&#x5728;&#x8FC7;&#x6EE4; <em>&#x4F4E;&#x57FA;&#x6570;&#xFF08;low cardinality&#xFF09;</em> &#x5B57;&#x6BB5;&#xFF08;&#x5373;&#x53EA;&#x6709;&#x5C11;&#x91CF;&#x552F;&#x4E00;&#x8BCD;&#x9879;&#xFF09;&#x65F6;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x552F;&#x4E00;&#x8BCD;&#x9879;&#x8D8A;&#x591A;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x8303;&#x56F4;&#x7684;&#x8BA1;&#x7B97;&#x4F1A;&#x8D8A;&#x6162;&#x3002;</p>
+</blockquote>
+<hr>
+<h4 id="&#x5904;&#x7406;Null&#x503C;"><a name="&#x5904;&#x7406;Null&#x503C;" class="anchor-navigation-ex-anchor" href="#&#x5904;&#x7406;Null&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5904;&#x7406; Null &#x503C;  </h4>
+<p>&#x56DE;&#x60F3;&#x5728;&#x4E4B;&#x524D;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6709;&#x7684;&#x6587;&#x6863;&#x6709;&#x540D;&#x4E3A; <code>tags</code> &#xFF08;&#x6807;&#x7B7E;&#xFF09;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5B83;&#x662F;&#x4E2A;&#x591A;&#x503C;&#x5B57;&#x6BB5;&#xFF0C; &#x4E00;&#x4E2A;&#x6587;&#x6863;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x6839;&#x672C;&#x5C31;&#x6CA1;&#x6709;&#x6807;&#x7B7E;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x6CA1;&#x6709;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x5C06;&#x5B83;&#x5B58;&#x5165;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x7684;&#x5462;&#xFF1F;</p>
+<p>&#x8FD9;&#x662F;&#x4E2A;&#x6709;&#x6B3A;&#x9A97;&#x6027;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;&#x7B54;&#x6848;&#x662F;&#xFF1A;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x5B58;&#x3002;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x4E4B;&#x524D;&#x5185;&#x5BB9;&#x91CC;&#x63D0;&#x5230;&#x8FC7;&#x7684;&#x5012;&#x6392;&#x7D22;&#x5F15;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>DocIDs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>open_source</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td><code>1</code>,<code>2</code></td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x4F55;&#x5C06;&#x67D0;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5B57;&#x6BB5;&#x5B58;&#x50A8;&#x5728;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#x5462;&#xFF1F;&#x65E0;&#x6CD5;&#x505A;&#x5230;&#xFF01;&#x7B80;&#x5355;&#x7684;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x53EA;&#x662F;&#x4E00;&#x4E2A; token &#x5217;&#x8868;&#x548C;&#x4E0E;&#x4E4B;&#x76F8;&#x5173;&#x7684;&#x6587;&#x6863;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x679C;&#x5B57;&#x6BB5;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4E5F;&#x4E0D;&#x4F1A;&#x6301;&#x6709;&#x4EFB;&#x4F55; token&#xFF0C;&#x4E5F;&#x5C31;&#x65E0;&#x6CD5;&#x5728;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x7ED3;&#x6784;&#x4E2D;&#x8868;&#x73B0;&#x3002;</p>
+<p>&#x6700;&#x7EC8;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740; &#xFF0C;<code>null</code>, <code>[]</code> &#xFF08;&#x7A7A;&#x6570;&#x7EC4;&#xFF09;&#x548C; <code>[null]</code> &#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x65E0;&#x6CD5;&#x5B58;&#x4E8E;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x3002;</p>
+<p>&#x663E;&#x7136;&#xFF0C;&#x4E16;&#x754C;&#x5E76;&#x4E0D;&#x7B80;&#x5355;&#xFF0C;&#x6570;&#x636E;&#x5F80;&#x5F80;&#x4F1A;&#x6709;&#x7F3A;&#x5931;&#x5B57;&#x6BB5;&#xFF0C;&#x6216;&#x6709;&#x663E;&#x5F0F;&#x7684;&#x7A7A;&#x503C;&#x6216;&#x7A7A;&#x6570;&#x7EC4;&#x3002;&#x4E3A;&#x4E86;&#x5E94;&#x5BF9;&#x8FD9;&#x4E9B;&#x72B6;&#x51B5;&#xFF0C;Elasticsearch &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#x6765;&#x5904;&#x7406;&#x7A7A;&#x6216;&#x7F3A;&#x5931;&#x503C;&#x3002;</p>
+<p><strong>&#x5B58;&#x5728;&#x67E5;&#x8BE2;</strong></p>
+<p>&#x7B2C;&#x4E00;&#x4EF6;&#x6B66;&#x5668;&#x5C31;&#x662F; <code>exists</code> &#x5B58;&#x5728;&#x67E5;&#x8BE2;&#x3002; &#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x4F1A;&#x8FD4;&#x56DE;&#x90A3;&#x4E9B;&#x5728;&#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#x6709;&#x4EFB;&#x4F55;&#x503C;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x7D22;&#x5F15;&#x4E00;&#x4E9B;&#x793A;&#x4F8B;&#x6587;&#x6863;&#x5E76;&#x7528;&#x6807;&#x7B7E;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x8BF4;&#x660E;&#xFF1A;</p>
+<pre><code class="lang-js">POST /my_index/posts/_bulk
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>              }}
+{ <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>]                }  
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>              }}
+{ <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>, <span class="hljs-string">&quot;open_source&quot;</span>] }  
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-string">&quot;3&quot;</span>              }}
+{ <span class="hljs-string">&quot;other_field&quot;</span> : <span class="hljs-string">&quot;some data&quot;</span>        }  
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-string">&quot;4&quot;</span>              }}
+{ <span class="hljs-string">&quot;tags&quot;</span> : <span class="hljs-literal">null</span>                      }  
+{ <span class="hljs-string">&quot;index&quot;</span>: { <span class="hljs-string">&quot;_id&quot;</span>: <span class="hljs-string">&quot;5&quot;</span>              }}
+{ <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>, <span class="hljs-literal">null</span>]          }
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  <code>tags</code> &#x5B57;&#x6BB5;&#x6709; 1 &#x4E2A;&#x503C;&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img">  <code>tags</code> &#x5B57;&#x6BB5;&#x6709; 2 &#x4E2A;&#x503C;&#x3002;  </p>
+<p> <img src="assets/3.png" alt="img">  <code>tags</code> &#x5B57;&#x6BB5;&#x7F3A;&#x5931;&#x3002;   </p>
+<p> <img src="assets/4.png" alt="img">  <code>tags</code> &#x5B57;&#x6BB5;&#x88AB;&#x7F6E;&#x4E3A; <code>null</code> &#x3002;  </p>
+<p> <img src="assets/5.png" alt="img">  <code>tags</code> &#x5B57;&#x6BB5;&#x6709; 1 &#x4E2A;&#x503C;&#x548C; 1 &#x4E2A; <code>null</code> &#x3002;  </p>
+</blockquote>
+<p>&#x4EE5;&#x4E0A;&#x6587;&#x6863;&#x96C6;&#x5408;&#x4E2D; <code>tags</code> &#x5B57;&#x6BB5;&#x5BF9;&#x5E94;&#x7684;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>DocIDs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>open_source</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td><code>1</code>,<code>2</code>,<code>5</code></td>
+</tr>
+</tbody>
+</table>
+<p>&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x6807;&#x662F;&#x627E;&#x5230;&#x90A3;&#x4E9B;&#x88AB;&#x8BBE;&#x7F6E;&#x8FC7;&#x6807;&#x7B7E;&#x5B57;&#x6BB5;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;&#x6807;&#x7B7E;&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x3002;&#x53EA;&#x8981;&#x5B83;&#x5B58;&#x5728;&#x4E8E;&#x6587;&#x6863;&#x4E2D;&#x5373;&#x53EF;&#xFF0C;&#x7528; SQL &#x7684;&#x8BDD;&#x5C31;&#x662F;&#x7528; <code>IS NOT NULL</code> &#x975E;&#x7A7A;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#xFF1A;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> tags
+<span class="hljs-keyword">FROM</span>   posts
+<span class="hljs-keyword">WHERE</span>  tags <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+</code></pre>
+<p>&#x5728; Elasticsearch &#x4E2D;&#xFF0C;&#x4F7F;&#x7528; <code>exists</code> &#x67E5;&#x8BE2;&#x7684;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_index/posts/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;constant_score&quot;</span> : {
+            <span class="hljs-string">&quot;filter&quot;</span> : {
+                <span class="hljs-string">&quot;exists&quot;</span> : { <span class="hljs-string">&quot;field&quot;</span> : <span class="hljs-string">&quot;tags&quot;</span> }
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE; 3 &#x4E2A;&#x6587;&#x6863;&#xFF1A;</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;hits&quot;</span> : [
+    {
+      <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;1&quot;</span>,
+      <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+      <span class="hljs-string">&quot;_source&quot;</span> : { <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>] }
+    },
+    {
+      <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;5&quot;</span>,
+      <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+      <span class="hljs-string">&quot;_source&quot;</span> : { <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>, <span class="hljs-literal">null</span>] } 
+    },
+    {
+      <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;2&quot;</span>,
+      <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+      <span class="hljs-string">&quot;_source&quot;</span> : { <span class="hljs-string">&quot;tags&quot;</span> : [<span class="hljs-string">&quot;search&quot;</span>, <span class="hljs-string">&quot;open source&quot;</span>] }
+    }
+]
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x5C3D;&#x7BA1;&#x6587;&#x6863; 5 &#x6709; <code>null</code> &#x503C;&#xFF0C;&#x4F46;&#x5B83;&#x4ECD;&#x4F1A;&#x88AB;&#x547D;&#x4E2D;&#x8FD4;&#x56DE;&#x3002;&#x5B57;&#x6BB5;&#x4E4B;&#x6240;&#x4EE5;&#x5B58;&#x5728;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x6807;&#x7B7E;&#x6709;&#x5B9E;&#x9645;&#x503C;&#xFF08; <code>search</code> &#xFF09;&#x53EF;&#x4EE5;&#x88AB;&#x7D22;&#x5F15;&#xFF0C;&#x6240;&#x4EE5; <code>null</code> &#x5BF9;&#x8FC7;&#x6EE4;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x4EFB;&#x4F55;&#x5F71;&#x54CD;&#x3002;  </p>
+</blockquote>
+<p>&#x663E;&#x800C;&#x6613;&#x89C1;&#xFF0C;&#x53EA;&#x8981; <code>tags</code> &#x5B57;&#x6BB5;&#x5B58;&#x5728;&#x9879;&#xFF08;term&#xFF09;&#x7684;&#x6587;&#x6863;&#x90FD;&#x4F1A;&#x547D;&#x4E2D;&#x5E76;&#x4F5C;&#x4E3A;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#xFF0C;&#x53EA;&#x6709; 3 &#x548C; 4 &#x4E24;&#x4E2A;&#x6587;&#x6863;&#x88AB;&#x6392;&#x9664;&#x3002;</p>
+<p><strong>&#x7F3A;&#x5931;&#x67E5;&#x8BE2;</strong></p>
+<p>&#x8FD9;&#x4E2A; <code>missing</code> &#x67E5;&#x8BE2;&#x672C;&#x8D28;&#x4E0A;&#x4E0E; <code>exists</code> &#x6070;&#x597D;&#x76F8;&#x53CD;&#xFF1A; &#x5B83;&#x8FD4;&#x56DE;&#x67D0;&#x4E2A;&#x7279;&#x5B9A; <em>&#x65E0;</em> &#x503C;&#x5B57;&#x6BB5;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x4E0E;&#x4EE5;&#x4E0B; SQL &#x8868;&#x8FBE;&#x7684;&#x610F;&#x601D;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> tags
+<span class="hljs-keyword">FROM</span>   posts
+<span class="hljs-keyword">WHERE</span>  tags <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x524D;&#x9762;&#x4F8B;&#x5B50;&#x4E2D; <code>exists</code> &#x67E5;&#x8BE2;&#x6362;&#x6210; <code>missing</code> &#x67E5;&#x8BE2;&#xFF1A;</p>
+<pre><code class="lang-js">GET /my_index/posts/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;constant_score&quot;</span> : {
+            <span class="hljs-string">&quot;filter&quot;</span>: {
+                <span class="hljs-string">&quot;missing&quot;</span> : { <span class="hljs-string">&quot;field&quot;</span> : <span class="hljs-string">&quot;tags&quot;</span> }
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x6309;&#x7167;&#x671F;&#x671B;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x5F97;&#x5230; 3 &#x548C; 4 &#x4E24;&#x4E2A;&#x6587;&#x6863;&#xFF08;&#x8FD9;&#x4E24;&#x4E2A;&#x6587;&#x6863;&#x7684; <code>tags</code> &#x5B57;&#x6BB5;&#x6CA1;&#x6709;&#x5B9E;&#x9645;&#x503C;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;hits&quot;</span> : [
+    {
+      <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;3&quot;</span>,
+      <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+      <span class="hljs-string">&quot;_source&quot;</span> : { <span class="hljs-string">&quot;other_field&quot;</span> : <span class="hljs-string">&quot;some data&quot;</span> }
+    },
+    {
+      <span class="hljs-string">&quot;_id&quot;</span> :     <span class="hljs-string">&quot;4&quot;</span>,
+      <span class="hljs-string">&quot;_score&quot;</span> :  <span class="hljs-number">1.0</span>,
+      <span class="hljs-string">&quot;_source&quot;</span> : { <span class="hljs-string">&quot;tags&quot;</span> : <span class="hljs-literal">null</span> }
+    }
+]
+</code></pre>
+<hr>
+<blockquote>
+<p> <strong>&#x5F53; null &#x7684;&#x610F;&#x601D;&#x662F; null</strong></p>
+<p> &#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x533A;&#x5206;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x662F;&#x6CA1;&#x6709;&#x503C;&#xFF0C;&#x8FD8;&#x662F;&#x5B83;&#x5DF2;&#x88AB;&#x663E;&#x5F0F;&#x7684;&#x8BBE;&#x7F6E;&#x6210;&#x4E86; <code>null</code> &#x3002;&#x5728;&#x4E4B;&#x524D;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x884C;&#x4E3A;&#x662F;&#x65E0;&#x6CD5;&#x505A;&#x5230;&#x8FD9;&#x70B9;&#x7684;&#xFF1B;&#x6570;&#x636E;&#x88AB;&#x4E22;&#x5931;&#x4E86;&#x3002;&#x4E0D;&#x8FC7;&#x5E78;&#x8FD0;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5C06;&#x663E;&#x5F0F;&#x7684; <code>null</code> &#x503C;&#x66FF;&#x6362;&#x6210;&#x6211;&#x4EEC;&#x6307;&#x5B9A; <em>&#x5360;&#x4F4D;&#x7B26;&#xFF08;placeholder&#xFF09;</em> &#x3002;</p>
+<p> &#x5728;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF08;string&#xFF09;&#x3001;&#x6570;&#x5B57;&#xFF08;numeric&#xFF09;&#x3001;&#x5E03;&#x5C14;&#x503C;&#xFF08;Boolean&#xFF09;&#x6216;&#x65E5;&#x671F;&#xFF08;date&#xFF09;&#x5B57;&#x6BB5;&#x6307;&#x5B9A;&#x6620;&#x5C04;&#x65F6;&#xFF0C;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x4E3A;&#x4E4B;&#x8BBE;&#x7F6E; <code>null_value</code> &#x7A7A;&#x503C;&#xFF0C;&#x7528;&#x4EE5;&#x5904;&#x7406;&#x663E;&#x5F0F; <code>null</code> &#x503C;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x4E0D;&#x8FC7;&#x5373;&#x4F7F;&#x5982;&#x6B64;&#xFF0C;&#x8FD8;&#x662F;&#x4F1A;&#x5C06;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x503C;&#x7684;&#x5B57;&#x6BB5;&#x4ECE;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x6392;&#x9664;&#x3002;</p>
+<p> &#x5F53;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684; <code>null_value</code> &#x7A7A;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x5B83;&#x4F1A;&#x5339;&#x914D;&#x5B57;&#x6BB5;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x4E3A;&#x4E00;&#x4E2A; <code>date</code> &#x65E5;&#x671F;&#x5B57;&#x6BB5;&#x8BBE;&#x7F6E;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x7684; <code>null_value</code> &#x3002;</li>
+<li>&#x5B83;&#x5FC5;&#x987B;&#x4E0E;&#x666E;&#x901A;&#x503C;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x628A;&#x5B9E;&#x9645;&#x503C;&#x5F53;&#x6210; <code>null</code> &#x7A7A;&#x7684;&#x60C5;&#x51B5;&#x3002;</li>
+</ul>
+</blockquote>
+<hr>
+<p><strong>&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x5B58;&#x5728;&#x4E0E;&#x7F3A;&#x5931;</strong></p>
+<p>&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x8FC7;&#x6EE4;&#x6838;&#x5FC3;&#x7C7B;&#x578B;&#xFF0C; <code>exists</code> and <code>missing</code> &#x67E5;&#x8BE2; &#x8FD8;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x90E8;&#x5B57;&#x6BB5;&#x3002;&#x4EE5;&#x4E0B;&#x9762;&#x6587;&#x6863;&#x4E3A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-js">{
+   <span class="hljs-string">&quot;name&quot;</span> : {
+      <span class="hljs-string">&quot;first&quot;</span> : <span class="hljs-string">&quot;John&quot;</span>,
+      <span class="hljs-string">&quot;last&quot;</span> :  <span class="hljs-string">&quot;Smith&quot;</span>
+   }
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x68C0;&#x67E5; <code>name.first</code> &#x548C; <code>name.last</code> &#x7684;&#x5B58;&#x5728;&#x6027;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x68C0;&#x67E5; <code>name</code> &#xFF0C;&#x4E0D;&#x8FC7;&#x5728; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/mapping.html" target="_blank">&#x6620;&#x5C04;</a> &#x4E2D;&#xFF0C;&#x5982;&#x4E0A;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x90E8;&#x662F;&#x4E2A;&#x6241;&#x5E73;&#x7684;&#x5B57;&#x6BB5;&#x4E0E;&#x503C;&#xFF08;field-value&#xFF09;&#x7684;&#x7B80;&#x5355;&#x952E;&#x503C;&#x7ED3;&#x6784;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-js">{
+   <span class="hljs-string">&quot;name.first&quot;</span> : <span class="hljs-string">&quot;John&quot;</span>,
+   <span class="hljs-string">&quot;name.last&quot;</span>  : <span class="hljs-string">&quot;Smith&quot;</span>
+}
+</code></pre>
+<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x7528; <code>exists</code> &#x6216; <code>missing</code> &#x67E5;&#x8BE2; <code>name</code> &#x5B57;&#x6BB5;&#x5462;&#xFF1F; <code>name</code> &#x5B57;&#x6BB5;&#x5E76;&#x4E0D;&#x771F;&#x5B9E;&#x5B58;&#x5728;&#x4E8E;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x3002;</p>
+<p>&#x539F;&#x56E0;&#x662F;&#x5F53;&#x6211;&#x4EEC;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x8FC7;&#x6EE4;&#x7684;&#x65F6;&#x5019;&#xFF1A;</p>
+<pre><code class="lang-js">{
+    <span class="hljs-string">&quot;exists&quot;</span> : { <span class="hljs-string">&quot;field&quot;</span> : <span class="hljs-string">&quot;name&quot;</span> }
+}
+</code></pre>
+<p>&#x5B9E;&#x9645;&#x6267;&#x884C;&#x7684;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-js">{
+    <span class="hljs-string">&quot;bool&quot;</span>: {
+        <span class="hljs-string">&quot;should&quot;</span>: [
+            { <span class="hljs-string">&quot;exists&quot;</span>: { <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;name.first&quot;</span> }},
+            { <span class="hljs-string">&quot;exists&quot;</span>: { <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;name.last&quot;</span> }}
+        ]
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5982;&#x679C; <code>first</code> &#x548C; <code>last</code> &#x90FD;&#x662F;&#x7A7A;&#xFF0C;&#x90A3;&#x4E48; <code>name</code> &#x8FD9;&#x4E2A;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x624D;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x4E0D;&#x5B58;&#x5728;&#x3002;</p>
+<h4 id="&#x5173;&#x4E8E;&#x7F13;&#x5B58;"><a name="&#x5173;&#x4E8E;&#x7F13;&#x5B58;" class="anchor-navigation-ex-anchor" href="#&#x5173;&#x4E8E;&#x7F13;&#x5B58;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5173;&#x4E8E;&#x7F13;&#x5B58;</h4>
+<p>&#x5728;&#x672C;&#x7AE0;&#x524D;&#x9762;&#xFF08;<a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_finding_exact_values.html#_internal_filter_operation" target="_blank">&#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x5185;&#x90E8;&#x64CD;&#x4F5C;</a>&#xFF09;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E86;&#x8FC7;&#x6EE4;&#x5668;&#x662F;&#x5982;&#x4F55;&#x8BA1;&#x7B97;&#x7684;&#x3002; &#x5176;&#x6838;&#x5FC3;&#x5B9E;&#x9645;&#x662F;&#x91C7;&#x7528;&#x4E00;&#x4E2A; bitset &#x8BB0;&#x5F55;&#x4E0E;&#x8FC7;&#x6EE4;&#x5668;&#x5339;&#x914D;&#x7684;&#x6587;&#x6863;&#x3002;Elasticsearch &#x79EF;&#x6781;&#x5730;&#x628A;&#x8FD9;&#x4E9B; bitset &#x7F13;&#x5B58;&#x8D77;&#x6765;&#x4EE5;&#x5907;&#x968F;&#x540E;&#x4F7F;&#x7528;&#x3002;&#x4E00;&#x65E6;&#x7F13;&#x5B58;&#x6210;&#x529F;&#xFF0C;bitset &#x53EF;&#x4EE5;&#x590D;&#x7528; <em>&#x4EFB;&#x4F55;</em> &#x5DF2;&#x4F7F;&#x7528;&#x8FC7;&#x7684;&#x76F8;&#x540C;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x518D;&#x6B21;&#x8BA1;&#x7B97;&#x6574;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x3002;</p>
+<p>&#x8FD9;&#x4E9B; bitsets &#x7F13;&#x5B58;&#x662F;&#x201C;&#x667A;&#x80FD;&#x201D;&#x7684;&#xFF1A;&#x5B83;&#x4EEC;&#x4EE5;&#x589E;&#x91CF;&#x65B9;&#x5F0F;&#x66F4;&#x65B0;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x7D22;&#x5F15;&#x65B0;&#x6587;&#x6863;&#x65F6;&#xFF0C;&#x53EA;&#x9700;&#x5C06;&#x90A3;&#x4E9B;&#x65B0;&#x6587;&#x6863;&#x52A0;&#x5165;&#x5DF2;&#x6709; bitset&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5BF9;&#x6574;&#x4E2A;&#x7F13;&#x5B58;&#x4E00;&#x904D;&#x53C8;&#x4E00;&#x904D;&#x7684;&#x91CD;&#x590D;&#x8BA1;&#x7B97;&#x3002;&#x548C;&#x7CFB;&#x7EDF;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x4E00;&#x6837;&#xFF0C;&#x8FC7;&#x6EE4;&#x5668;&#x662F;&#x5B9E;&#x65F6;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x62C5;&#x5FC3;&#x7F13;&#x5B58;&#x8FC7;&#x671F;&#x95EE;&#x9898;&#x3002;</p>
+<p><strong>&#x72EC;&#x7ACB;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#x7F13;&#x5B58;</strong></p>
+<p>&#x5C5E;&#x4E8E;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x7EC4;&#x4EF6;&#x7684; bitsets &#x662F;&#x72EC;&#x7ACB;&#x4E8E;&#x5B83;&#x6240;&#x5C5E;&#x641C;&#x7D22;&#x8BF7;&#x6C42;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x7684;&#x3002;&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x4E00;&#x65E6;&#x88AB;&#x7F13;&#x5B58;&#xFF0C;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x4F5C;&#x591A;&#x4E2A;&#x641C;&#x7D22;&#x8BF7;&#x6C42;&#x3002;bitsets &#x5E76;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x6240;&#x5B58;&#x5728;&#x7684;&#x67E5;&#x8BE2;&#x4E0A;&#x4E0B;&#x6587;&#x3002;&#x8FD9;&#x6837;&#x4F7F;&#x5F97;&#x7F13;&#x5B58;&#x53EF;&#x4EE5;&#x52A0;&#x901F;&#x67E5;&#x8BE2;&#x4E2D;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x4ECE;&#x800C;&#x964D;&#x4F4E;&#x8F83;&#x5C11;&#x3001;&#x6613;&#x53D8;&#x7684;&#x90E8;&#x5206;&#x6240;&#x5E26;&#x6765;&#x7684;&#x6D88;&#x8017;&#x3002;</p>
+<p>&#x540C;&#x6837;&#xFF0C;&#x5982;&#x679C;&#x5355;&#x4E2A;&#x8BF7;&#x6C42;&#x91CD;&#x7528;&#x76F8;&#x540C;&#x7684;&#x975E;&#x8BC4;&#x5206;&#x67E5;&#x8BE2;&#xFF0C;&#x5B83;&#x7F13;&#x5B58;&#x7684; bitset &#x53EF;&#x4EE5;&#x88AB;&#x5355;&#x4E2A;&#x641C;&#x7D22;&#x91CC;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x6240;&#x91CD;&#x7528;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x4E0B;&#x9762;&#x4F8B;&#x5B50;&#x4E2D;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x5B83;&#x67E5;&#x627E;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x7684;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li>&#x5728;&#x6536;&#x4EF6;&#x7BB1;&#x4E2D;&#xFF0C;&#x4E14;&#x6CA1;&#x6709;&#x88AB;&#x8BFB;&#x8FC7;&#x7684;</li>
+<li><em>&#x4E0D;&#x5728;</em> &#x6536;&#x4EF6;&#x7BB1;&#x4E2D;&#xFF0C;&#x4F46;&#x88AB;&#x6807;&#x6CE8;&#x91CD;&#x8981;&#x7684;</li>
+</ul>
+<pre><code class="lang-js">GET /inbox/emails/_search
+{
+  <span class="hljs-string">&quot;query&quot;</span>: {
+      <span class="hljs-string">&quot;constant_score&quot;</span>: {
+          <span class="hljs-string">&quot;filter&quot;</span>: {
+              <span class="hljs-string">&quot;bool&quot;</span>: {
+                 <span class="hljs-string">&quot;should&quot;</span>: [
+                    { <span class="hljs-string">&quot;bool&quot;</span>: {
+                          <span class="hljs-string">&quot;must&quot;</span>: [
+                             { <span class="hljs-string">&quot;term&quot;</span>: { <span class="hljs-string">&quot;folder&quot;</span>: <span class="hljs-string">&quot;inbox&quot;</span> }}, &lt;1&gt;
+                             { &quot;term&quot;: { &quot;read&quot;: false }}
+                          ]
+                    }},
+                    { &quot;bool&quot;: {
+                          &quot;must_not&quot;: {
+                             &quot;term&quot;: { &quot;folder&quot;: &quot;inbox&quot; } &lt;2&gt;
+                          },
+                          &quot;must&quot;: {
+                             &quot;term&quot;: { &quot;important&quot;: true }
+                          }
+                    }}
+                 ]
+              }
+            }
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img"> <img src="assets/2.png" alt="img">  &#x4E24;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x4F7F;&#x7528;&#x540C;&#x4E00; bitset &#x3002;    </p>
+</blockquote>
+<p>&#x5C3D;&#x7BA1;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6536;&#x4EF6;&#x7BB1;&#x7684;&#x6761;&#x4EF6;&#x662F; <code>must</code> &#x8BED;&#x53E5;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F; <code>must_not</code> &#x8BED;&#x53E5;&#xFF0C;&#x4F46;&#x4ED6;&#x4EEC;&#x4E24;&#x8005;&#x662F;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#x6267;&#x884C;&#x540E;&#xFF0C; bitset &#x5C31;&#x4F1A;&#x88AB;&#x8BA1;&#x7B97;&#x7136;&#x540E;&#x7F13;&#x5B58;&#x8D77;&#x6765;&#x4F9B;&#x53E6;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x3002;&#x5F53;&#x518D;&#x6B21;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x65F6;&#xFF0C;&#x6536;&#x4EF6;&#x7BB1;&#x7684;&#x8FD9;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x5DF2;&#x7ECF;&#x88AB;&#x7F13;&#x5B58;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x4E24;&#x4E2A;&#x8BED;&#x53E5;&#x90FD;&#x4F1A;&#x4F7F;&#x7528;&#x5DF2;&#x7F13;&#x5B58;&#x7684; bitset &#x3002;</p>
+<p>&#x8FD9;&#x70B9;&#x4E0E;&#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;query DSL&#xFF09;&#x7684;&#x53EF;&#x7EC4;&#x5408;&#x6027;&#x7ED3;&#x5408;&#x5F97;&#x5F88;&#x597D;&#x3002;&#x5B83;&#x6613;&#x88AB;&#x79FB;&#x52A8;&#x5230;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x540C;&#x4E00;&#x67E5;&#x8BE2;&#x4E2D;&#x7684;&#x591A;&#x4E2A;&#x4F4D;&#x7F6E;&#x590D;&#x7528;&#x3002;&#x8FD9;&#x4E0D;&#x4EC5;&#x80FD;&#x65B9;&#x4FBF;&#x5F00;&#x53D1;&#x8005;&#xFF0C;&#x800C;&#x4E14;&#x5BF9;&#x63D0;&#x5347;&#x6027;&#x80FD;&#x6709;&#x76F4;&#x63A5;&#x7684;&#x76CA;&#x5904;&#x3002;</p>
+<p><strong>&#x81EA;&#x52A8;&#x7F13;&#x5B58;&#x884C;&#x4E3A;</strong></p>
+<p>&#x5728; Elasticsearch &#x7684;&#x8F83;&#x65E9;&#x7248;&#x672C;&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x884C;&#x4E3A;&#x662F;&#x7F13;&#x5B58;&#x4E00;&#x5207;&#x53EF;&#x4EE5;&#x7F13;&#x5B58;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x4E5F;&#x901A;&#x5E38;&#x610F;&#x5473;&#x7740;&#x7CFB;&#x7EDF;&#x7F13;&#x5B58; bitsets &#x592A;&#x5BCC;&#x4FB5;&#x7565;&#x6027;&#xFF0C;&#x4ECE;&#x800C;&#x56E0;&#x4E3A;&#x6E05;&#x7406;&#x7F13;&#x5B58;&#x5E26;&#x6765;&#x6027;&#x80FD;&#x538B;&#x529B;&#x3002;&#x4E0D;&#x4EC5;&#x5982;&#x6B64;&#xFF0C;&#x5C3D;&#x7BA1;&#x5F88;&#x591A;&#x8FC7;&#x6EE4;&#x5668;&#x90FD;&#x5F88;&#x5BB9;&#x6613;&#x88AB;&#x8BC4;&#x4EF7;&#xFF0C;&#x4F46;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x6162;&#x4E8E;&#x7F13;&#x5B58;&#x7684;&#xFF08;&#x4EE5;&#x53CA;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x590D;&#x7528;&#xFF09;&#x3002;&#x7F13;&#x5B58;&#x8FD9;&#x4E9B;&#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x610F;&#x4E49;&#x4E0D;&#x5927;&#xFF0C;&#x56E0;&#x4E3A;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730;&#x518D;&#x6B21;&#x6267;&#x884C;&#x8FC7;&#x6EE4;&#x5668;&#x3002;</p>
+<p>&#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x5012;&#x6392;&#x662F;&#x975E;&#x5E38;&#x5FEB;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x67E5;&#x8BE2;&#x7EC4;&#x4EF6;&#x5374;&#x5F88;&#x5C11;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#x4F8B;&#x5982; <code>term</code> &#x8FC7;&#x6EE4;&#x5B57;&#x6BB5; <code>&quot;user_id&quot;</code> &#xFF1A;&#x5982;&#x679C;&#x6709;&#x4E0A;&#x767E;&#x4E07;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x6BCF;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x7528;&#x6237; ID &#x51FA;&#x73B0;&#x7684;&#x6982;&#x7387;&#x90FD;&#x5F88;&#x5C0F;&#x3002;&#x90A3;&#x4E48;&#x4E3A;&#x8FD9;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x7F13;&#x5B58; bitsets &#x5C31;&#x4E0D;&#x662F;&#x5F88;&#x5408;&#x7B97;&#xFF0C;&#x56E0;&#x4E3A;&#x7F13;&#x5B58;&#x7684;&#x7ED3;&#x679C;&#x5F88;&#x53EF;&#x80FD;&#x5728;&#x91CD;&#x7528;&#x4E4B;&#x524D;&#x5C31;&#x88AB;&#x5254;&#x9664;&#x4E86;&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x7F13;&#x5B58;&#x7684;&#x6270;&#x52A8;&#x5BF9;&#x6027;&#x80FD;&#x6709;&#x7740;&#x4E25;&#x91CD;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x66F4;&#x4E25;&#x91CD;&#x7684;&#x662F;&#xFF0C;&#x5B83;&#x8BA9;&#x5F00;&#x53D1;&#x8005;&#x96BE;&#x4EE5;&#x533A;&#x5206;&#x6709;&#x826F;&#x597D;&#x8868;&#x73B0;&#x7684;&#x7F13;&#x5B58;&#x4EE5;&#x53CA;&#x65E0;&#x7528;&#x7F13;&#x5B58;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF0C;Elasticsearch &#x4F1A;&#x57FA;&#x4E8E;&#x4F7F;&#x7528;&#x9891;&#x6B21;&#x81EA;&#x52A8;&#x7F13;&#x5B58;&#x67E5;&#x8BE2;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x975E;&#x8BC4;&#x5206;&#x67E5;&#x8BE2;&#x5728;&#x6700;&#x8FD1;&#x7684; 256 &#x6B21;&#x67E5;&#x8BE2;&#x4E2D;&#x88AB;&#x4F7F;&#x7528;&#x8FC7;&#xFF08;&#x6B21;&#x6570;&#x53D6;&#x51B3;&#x4E8E;&#x67E5;&#x8BE2;&#x7C7B;&#x578B;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x5C31;&#x4F1A;&#x4F5C;&#x4E3A;&#x7F13;&#x5B58;&#x7684;&#x5019;&#x9009;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x7247;&#x6BB5;&#x90FD;&#x80FD;&#x4FDD;&#x8BC1;&#x7F13;&#x5B58; bitset &#x3002;&#x53EA;&#x6709;&#x90A3;&#x4E9B;&#x6587;&#x6863;&#x6570;&#x91CF;&#x8D85;&#x8FC7; 10,000 &#xFF08;&#x6216;&#x8D85;&#x8FC7;&#x603B;&#x6587;&#x6863;&#x6570;&#x91CF;&#x7684; 3% )&#x624D;&#x4F1A;&#x7F13;&#x5B58; bitset &#x3002;&#x56E0;&#x4E3A;&#x5C0F;&#x7684;&#x7247;&#x6BB5;&#x53EF;&#x4EE5;&#x5F88;&#x5FEB;&#x7684;&#x8FDB;&#x884C;&#x641C;&#x7D22;&#x548C;&#x5408;&#x5E76;&#xFF0C;&#x8FD9;&#x91CC;&#x7F13;&#x5B58;&#x7684;&#x610F;&#x4E49;&#x4E0D;&#x5927;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x7F13;&#x5B58;&#x4E86;&#xFF0C;&#x975E;&#x8BC4;&#x5206;&#x8BA1;&#x7B97;&#x7684; bitset &#x4F1A;&#x4E00;&#x76F4;&#x9A7B;&#x7559;&#x5728;&#x7F13;&#x5B58;&#x4E2D;&#x76F4;&#x5230;&#x5B83;&#x88AB;&#x5254;&#x9664;&#x3002;&#x5254;&#x9664;&#x89C4;&#x5219;&#x662F;&#x57FA;&#x4E8E; LRU &#x7684;&#xFF1A;&#x4E00;&#x65E6;&#x7F13;&#x5B58;&#x6EE1;&#x4E86;&#xFF0C;&#x6700;&#x8FD1;&#x6700;&#x5C11;&#x4F7F;&#x7528;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#x4F1A;&#x88AB;&#x5254;&#x9664;&#x3002;</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; WS 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-02-26 17:16:15
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2_4_Introductory.html#段合并" class="navigation navigation-prev " aria-label="Previous page: 段合并">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3_1_DeepSearch.html#结构化搜索" class="navigation navigation-next " aria-label="Next page: 结构化搜索">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"深入搜索","level":"4.1","depth":1,"next":{"title":"结构化搜索","level":"4.1.1","depth":2,"anchor":"#结构化搜索","path":"3_1_DeepSearch.md","ref":"3_1_DeepSearch.md#结构化搜索","articles":[{"title":"精确值查找","level":"4.1.1.1","depth":3,"anchor":"#精确值查找","path":"3_1_DeepSearch.md","ref":"3_1_DeepSearch.md#精确值查找","articles":[]},{"title":"组合过滤器","level":"4.1.1.2","depth":3,"anchor":"#组合过滤器","path":"3_1_DeepSearch.md","ref":"3_1_DeepSearch.md#组合过滤器","articles":[]},{"title":"查找多个精确值","level":"4.1.1.3","depth":3,"anchor":"#查找多个精确值","path":"3_1_DeepSearch.md","ref":"3_1_DeepSearch.md#查找多个精确值","articles":[]},{"title":"范围","level":"4.1.1.4","depth":3,"anchor":"#范围","path":"3_1_DeepSearch.md","ref":"3_1_DeepSearch.md#范围","articles":[]},{"title":"处理 Null 值","level":"4.1.1.5","depth":3,"anchor":"#处理Null值","path":"3_1_DeepSearch.md","ref":"3_1_DeepSearch.md#处理Null值","articles":[]},{"title":"关于缓存","level":"4.1.1.6","depth":3,"anchor":"#关于缓存","path":"3_1_DeepSearch.md","ref":"3_1_DeepSearch.md#关于缓存","articles":[]}]},"previous":{"title":"段合并","level":"3.1.11.5","depth":3,"anchor":"#段合并","path":"2_4_Introductory.md","ref":"2_4_Introductory.md#段合并","articles":[]},"dir":"ltr"},"config":{"plugins":["github@^2.0.0","edit-link@^2.0.2","anchors@^0.7.1","include-codeblock@^3.0.2","splitter@^0.0.8","tbfed-pagefooter@^0.0.1","expandable-chapters-small@^0.1.7","anchor-navigation-ex@0.1.8","book-summary-scroll-position-saver","-lunr","-search","search-plus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © WS 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/wjw465150/Elasticsearch"},"book-summary-scroll-position-saver":{},"splitter":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"expandable-chapters-small":{},"include-codeblock":{"check":false,"edit":true,"fixlang":false,"lang":"","template":"ace","theme":"chrome","unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"编辑此页面","base":"https://github.com/wjw465150/Elasticsearch/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","author":"WS","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Elasticsearch权威指南中文版","language":"zh-hans","gitbook":"*","description":"Elasticsearch权威指南中文版"},"file":{"path":"3_1_DeepSearch.md","mtime":"2019-02-26T09:16:15.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-26T09:32:20.248Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-book-summary-scroll-position-saver/book-summary-scroll-position-saver.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

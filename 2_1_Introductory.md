@@ -83,6 +83,7 @@ cd elasticsearch-<version>
 ./bin/elasticsearch  <1> <2>
 ```
 >   ![img](assets/1.png)  如果你想把 Elasticsearch 作为一个守护进程在后台运行，那么可以在后面添加参数 `-d` 。 
+>
 >   ![img](assets/2.png)  如果你是在 Windows 上面运行 Elasticseach，你应该运行 `bin\elasticsearch.bat` 而不是 `bin\elasticsearch` 。
 
 测试 Elasticsearch 是否启动成功，可以打开另一个终端，执行以下操作：
@@ -127,13 +128,13 @@ Sense 是一个 [Kibana](https://www.elastic.co/guide/en/kibana/4.6/index.html) 
    ```sh
    ./bin/kibana plugin --install elastic/sense <1>
    ```
-   >   ![img](assets/1.png) Windows上面执行: `bin\kibana.bat plugin --install elastic/sense` 。NOTE：你可以直接从这里 <https://download.elastic.co/elastic/sense/sense-latest.tar.gz>下载 Sense 离线安装可以查看这里 [install it on an offline machine](https://www.elastic.co/guide/en/sense/current/installing.html#manual_download) 。 
+   >   ![img](assets/1.png) Windows上面执行: `bin\kibana.bat plugin --install elastic/sense` 。NOTE：你可以直接从这里 <https://download.elastic.co/elastic/sense/sense-latest.tar.gz>下载 Sense 离线安装可以查看这里 [install it on an offline machine](https://www.elastic.co/guide/en/sense/current/installing.html#manual_download) 。  
 
 2. 启动 Kibana.
    ```sh
    ./bin/kibana <1>
    ```
-   >  ![img](assets/1.png) Windows 上启动 kibana: `bin\kibana.bat` 。 |
+   >  ![img](assets/1.png) Windows 上启动 kibana: `bin\kibana.bat` 。   
 
 3. 在你的浏览器中打开 Sense: `http://localhost:5601/app/sense` 。
 
@@ -248,7 +249,7 @@ GET /_count
 
 Elasticsearch 是 *面向文档* 的，意味着它存储整个对象或 *文档_。Elasticsearch 不仅存储文档，而且 _索引*每个文档的内容使之可以被检索。在 Elasticsearch 中，你 对文档进行索引、检索、排序和过滤--而不是对行列数据。这是一种完全不同的思考数据的方式，也是 Elasticsearch 能支持复杂全文检索的原因。
 
-**JSON**[编辑](https://github.com/elasticsearch-cn/elasticsearch-definitive-guide/edit/cn/010_Intro/20_Document.asciidoc)
+**JSON**
 
 Elasticsearch 使用 JavaScript Object Notation 或者 [*JSON*](http://en.wikipedia.org/wiki/Json) 作为文档的序列化格式。JSON 序列化被大多数编程语言所支持，并且已经成为 NoSQL 领域的标准格式。 它简单、简洁、易于阅读。
 
@@ -281,7 +282,7 @@ Elasticsearch 使用 JavaScript Object Notation 或者 [*JSON*](http://en.wikipe
 
 接下来尽情享受 Elasticsearch 探索之旅。
 
-**创建一个雇员目录**[编辑](https://github.com/elasticsearch-cn/elasticsearch-definitive-guide/edit/cn/010_Intro/25_Tutorial_Indexing.asciidoc)
+**创建一个雇员目录**
 
 我们受雇于 *Megacorp* 公司，作为 HR 部门新的 *“热爱无人机”* （_"We love our drones!"_）激励项目的一部分，我们的任务是为此创建一个雇员目录。该目录应当能培养雇员认同感及支持实时、高效、动态协作，因此有一些业务需求：
 
@@ -574,8 +575,9 @@ GET /megacorp/employee/_search
     }
 }
 ```
->  ![img](assets/1.png)    这部分与我们之前使用的 `match` *查询* 一样。
->  ![img](assets/2.png)  这部分是一个 `range` *过滤器* ， 它能找到年龄大于 30 的文档，其中 `gt` 表示_大于*(_great than*)。
+>  ![img](assets/1.png)    这部分与我们之前使用的 `match` *查询* 一样。  
+>
+>  ![img](assets/2.png)  这部分是一个 `range` *过滤器* ， 它能找到年龄大于 30 的文档，其中 `gt` 表示_大于*(_great than*)。  
 
 目前无需太多担心语法问题，后续会更详细地介绍。只需明确我们添加了一个 *过滤器* 用于执行一个范围查询，并复用之前的 `match` 查询。现在结果只返回了一个雇员，叫 Jane Smith，32 岁。
 
@@ -656,7 +658,7 @@ GET /megacorp/employee/_search
    }
 }
 ```
->  ![img](assets/1.png) ![img](assets/2.png)   相关性得分   
+>  ![img](assets/1.png) ![img](assets/2.png)   相关性得分     
 
 Elasticsearch 默认按照相关性得分排序，即每个文档跟查询的匹配程度。第一个最高得分的结果很明显：John Smith 的 `about` 属性清楚地写着 “rock climbing” 。
 
@@ -763,7 +765,7 @@ GET /megacorp/employee/_search
    }
 }
 ```
->  ![img](assets/1.png)   原始文本中的高亮片段 
+>  ![img](assets/1.png)   原始文本中的高亮片段   
 
 关于高亮搜索片段，可以在 [highlighting reference documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-request-highlighting.html) 了解更多信息。
 
@@ -1010,7 +1012,7 @@ GET /_cluster/health
    "unassigned_shards":     0
 }
 ```
->  ![img](assets/1.png)  `status` 字段是我们最关心的。 
+>  ![img](assets/1.png)  `status` 字段是我们最关心的。   
 
 `status` 字段指示着当前集群在总体上是否工作正常。它的三种颜色含义如下：
 
@@ -1085,8 +1087,9 @@ PUT /blogs
   "active_shards_percent_as_number": 50
 }
 ```
->  ![img](assets/1.png)   集群 `status` 值为 `yellow` 。 
->  ![img](assets/2.png)  没有被分配到任何节点的副本数。 
+>  ![img](assets/1.png)   集群 `status` 值为 `yellow` 。   
+>
+>  ![img](assets/2.png)  没有被分配到任何节点的副本数。   
 
 集群的健康状况为 `yellow` 则表示全部 *主* 分片都正常运行（集群可以正常服务所有请求），但是 *副本* 分片没有全部处在正常状态。 实际上，所有3个副本分片都是 `unassigned` —— 它们都没有被分配到任何节点。 在同一个节点上既保存原始数据又保存副本是没有意义的，因为一旦失去了那个节点，我们也将丢失该节点上的所有副本数据。
 
@@ -1139,7 +1142,7 @@ PUT /blogs
   "active_shards_percent_as_number": 100
 }
 ```
->  ![img](assets/1.png)   集群 `status` 值为 `green` 。 
+>  ![img](assets/1.png)   集群 `status` 值为 `green` 。   
 
 我们的集群现在不仅仅是正常运行的，并且还处于 *始终可用* 的状态。
 
@@ -1531,7 +1534,7 @@ PUT /website/blog/123
   "created":   false   <1>
 }
 ```
->  ![img](assets/1.png)   `created` 标志设置成 `false` ，是因为相同的索引、类型和 ID 的文档已经存在。 
+>  ![img](assets/1.png)   `created` 标志设置成 `false` ，是因为相同的索引、类型和 ID 的文档已经存在。   
 
 
 
@@ -1723,7 +1726,7 @@ PUT /website/blog/1?version=1   <1>
   "text":  "Starting to get the hang of this..."
 }
 ```
->  ![img](assets/1.png) 我们想这个在我们索引中的文档只有现在的 `_version` 为 `1` 时，本次更新才能成功。 
+>  ![img](assets/1.png) 我们想这个在我们索引中的文档只有现在的 `_version` 为 `1` 时，本次更新才能成功。   
 
 此请求成功，并且响应体告诉我们 `_version` 已经递增到 `2` ：
 
@@ -1869,7 +1872,7 @@ POST /website/blog/1/_update
    }
 }
 ```
->  ![img](assets/1.png) ![img](assets/2.png)  新的字段已被添加到 `_source` 中。 
+>  ![img](assets/1.png) ![img](assets/2.png)  新的字段已被添加到 `_source` 中。   
 
 **使用脚本部分更新文档**
 
@@ -1934,7 +1937,8 @@ POST /website/blog/1/_update
 }
 ```
 >  ![img](assets/1.png)   `search` 标签已追加到 `tags` 数组中。 
->  ![img](assets/2.png)   `views` 字段已递增。                  |
+>
+>  ![img](assets/2.png)   `views` 字段已递增。  
 
 我们甚至可以选择通过设置 `ctx.op` 为 `delete` 来删除基于其内容的文档：
 
@@ -1985,7 +1989,7 @@ POST /website/pageviews/1/_update?retry_on_conflict=5   <1>
    }
 }
 ```
->  ![img](assets/1.png)   失败之前重试该更新5次。 
+>  ![img](assets/1.png)   失败之前重试该更新5次。   
 
 在增量操作无关顺序的场景，例如递增计数器等这个方法十分有效，但是在其他情况下变更的顺序 *是* 非常重要的。 类似 [`index` API](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index-doc.html) ， `update` API 默认采用 *最终写入生效* 的方案，但它也接受一个 `version` 参数来允许你使用 [optimistic concurrency control](https://www.elastic.co/guide/cn/elasticsearch/guide/current/optimistic-concurrency-control.html) 指定想要更新文档的版本。
 
@@ -2094,7 +2098,7 @@ GET /website/blog/_mget
   ]
 }
 ```
->  ![img](assets/1.png)  未找到该文档。 
+>  ![img](assets/1.png)  未找到该文档。   
 
 事实上第二个文档未能找到并不妨碍第一个文档被检索到。每个文档都是单独检索和报告的。
 
@@ -2178,8 +2182,9 @@ POST /_bulk
 { "update": { "_index": "website", "_type": "blog", "_id": "123", "_retry_on_conflict" : 3} }
 { "doc" : {"title" : "My updated blog post"} }   <2>
 ```
->  ![img](assets/1.png)  请注意 `delete` 动作不能有请求体,它后面跟着的是另外一个操作。
->  ![img](assets/2.png)  谨记最后一个换行符不要落下。                                 |
+>  ![img](assets/1.png)  请注意 `delete` 动作不能有请求体,它后面跟着的是另外一个操作。  
+>
+>  ![img](assets/2.png)  谨记最后一个换行符不要落下。 
 
 这个 Elasticsearch 响应包含 `items` 数组， 这个数组的内容是以请求的顺序列出来的每个请求的结果。
 
@@ -2220,7 +2225,7 @@ POST /_bulk
    ]
 }
 ```
->  ![img](assets/1.png)]   所有的子请求都成功完成。 
+>  ![img](assets/1.png)   所有的子请求都成功完成。   
 
 每个子请求都是独立执行，因此某个子请求的失败不会对其他子请求的成功与否造成影响。 如果其中任何子请求失败，最顶层的 `error` 标志被设置为 `true` ，并且在相应的请求报告出错误明细：
 
@@ -2259,10 +2264,13 @@ POST /_bulk
 }
 ```
 
->  ![img](assets/1.png)  一个或者多个请求失败。
->  ![img](assets/2.png)  这个请求的HTTP状态码报告为 `409 CONFLICT` 。 
->  ![img](assets/3.png)  解释为什么请求失败的错误信息。
->  ![img](assets/4.png)  第二个请求成功，返回 HTTP 状态码 `200 OK` 。 
+>  ![img](assets/1.png)  一个或者多个请求失败。  
+>
+>  ![img](assets/2.png)  这个请求的HTTP状态码报告为 `409 CONFLICT` 。   
+>
+>  ![img](assets/3.png)  解释为什么请求失败的错误信息。  
+>
+>  ![img](assets/4.png)  第二个请求成功，返回 HTTP 状态码 `200 OK` 。   
 
 这也意味着 `bulk` 请求不是原子的： 不能用它来实现事务控制。每个请求是单独处理的，因此一个请求的成功或失败不会影响其他的请求。
 

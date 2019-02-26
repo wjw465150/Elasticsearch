@@ -1003,7 +1003,7 @@ PUT /gb   <1>
   }
 }
 ```
->  ![img](assets/1.png)    通过消息体中指定的 `mappings` 创建了索引。
+>  ![img](assets/1.png)    通过消息体中指定的 `mappings` 创建了索引。  
 
 
 
@@ -1042,7 +1042,7 @@ GET /gb/_analyze
   "text": "Black-cats"   <2>
 }
 ```
->  ![img](assets/1.png)  ![img](assets/2.png)  消息体里面传输我们想要分析的文本。
+>  ![img](assets/1.png)  ![img](assets/2.png)  消息体里面传输我们想要分析的文本。  
 
 `tweet` 域产生两个词条 `black` 和 `cat` ， `tag` 域产生单独的词条 `Black-cats` 。换句话说，我们的映射正常工作。
 
@@ -1140,8 +1140,9 @@ Elasticsearch 会动态 监测新的对象域并映射它们为 `对象` ，在 
   }
 }
 ```
->  ![img](assets/1.png)  根对象
->  ![img](assets/2.png)  ![img](assets/3.png)   内部对象 
+>  ![img](assets/1.png)  根对象  
+>
+>  ![img](assets/2.png)  ![img](assets/3.png)   内部对象   
 
 `user` 和 `name` 域的映射结构与 `tweet` 类型的相同。事实上， `type` 映射只是一种特殊的 `对象` 映射，我们称之为 *根对象* 。除了它有一些文档元数据的特殊顶级域，例如 `_source` 和 `_all` 域，它和其他对象一样。
 
