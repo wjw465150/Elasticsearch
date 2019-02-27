@@ -969,3 +969,1226 @@ GET /inbox/emails/_search
 
 一旦缓存了，非评分计算的 bitset 会一直驻留在缓存中直到它被剔除。剔除规则是基于 LRU 的：一旦缓存满了，最近最少使用的过滤器会被剔除。
 
+
+
+### 全文搜索
+
+我们已经介绍了搜索结构化数据的简单应用示例，现在来探寻 *全文搜索（full-text search）* ：怎样在全文字段中搜索到最相关的文档。
+
+全文搜索两个最重要的方面是：
+
+- 相关性（Relevance）
+
+  它是评价查询与其结果间的相关程度，并根据这种相关程度对结果排名的一种能力，这种计算方式可以是 TF/IDF 方法（参见 [相关性的介绍](https://www.elastic.co/guide/cn/elasticsearch/guide/current/relevance-intro.html)）、地理位置邻近、模糊相似，或其他的某些算法。
+
+- 分析（Analysis）
+
+  它是将文本块转换为有区别的、规范化的 token 的一个过程，（参见 [分析的介绍](https://www.elastic.co/guide/cn/elasticsearch/guide/current/analysis-intro.html)） 目的是为了（a）创建倒排索引以及（b）查询倒排索引。
+
+一旦谈论相关性或分析这两个方面的问题时，我们所处的语境是关于查询的而不是过滤。
+
+
+
+#### 基于词项与基于全文
+
+所有查询会或多或少的执行相关度计算，但不是所有查询都有分析阶段。 和一些特殊的完全不会对文本进行操作的查询（如 `bool` 或 `function_score` ）不同，文本查询可以划分成两大家族：
+
+- 基于词项的查询
+
+  如 `term` 或 `fuzzy` 这样的底层查询不需要分析阶段，它们对单个词项进行操作。用 `term` 查询词项 `Foo` 只要在倒排索引中查找 *准确词项* ，并且用 TF/IDF 算法为每个包含该词项的文档计算相关度评分 `_score` 。记住 `term` 查询只对倒排索引的词项精确匹配，这点很重要，它不会对词的多样性进行处理（如， `foo`或 `FOO` ）。这里，无须考虑词项是如何存入索引的。如果是将 `["Foo","Bar"]` 索引存入一个不分析的（ `not_analyzed` ）包含精确值的字段，或者将 `Foo Bar` 索引到一个带有 `whitespace` 空格分析器的字段，两者的结果都会是在倒排索引中有 `Foo` 和 `Bar` 这两个词。
+
+- 基于全文的查询
+
+  像 `match` 或 `query_string` 这样的查询是高层查询，它们了解字段映射的信息：如果查询 `日期（date）` 或 `整数（integer）` 字段，它们会将查询字符串分别作为日期或整数对待。如果查询一个（ `not_analyzed` ）未分析的精确值字符串字段， 它们会将整个查询字符串作为单个词项对待。但如果要查询一个（ `analyzed` ）已分析的全文字段， 它们会先将查询字符串传递到一个合适的分析器，然后生成一个供查询的词项列表。一旦组成了词项列表，这个查询会对每个词项逐一执行底层的查询，再将结果合并，然后为每个文档生成一个最终的相关度评分。我们将会在随后章节中详细讨论这个过程。
+
+我们很少直接使用基于词项的搜索，通常情况下都是对全文进行查询，而非单个词项，这只需要简单的执行一个高层全文查询（进而在高层查询内部会以基于词项的底层查询完成搜索）。
+>  ![注意](assets/note.png)  当我们想要查询一个具有精确值的 `not_analyzed` 未分析字段之前， 需要考虑，是否真的采用评分查询，或者非评分查询会更好。
+>  
+>  单词项查询通常可以用是、非这种二元问题表示，所以更适合用过滤， 而且这样做可以有效利用[缓存](https://www.elastic.co/guide/cn/elasticsearch/guide/current/filter-caching.html)：
+>  
+>  ```js
+>  GET /_search
+>  {
+>      "query": {
+>          "constant_score": {
+>              "filter": {
+>                  "term": { "gender": "female" }
+>              }
+>          }
+>      }
+>  }
+>  ```
+
+
+
+#### 匹配查询
+
+匹配查询 `match` 是个 *核心* 查询。无论需要查询什么字段， `match` 查询都应该会是首选的查询方式。 它是一个高级 *全文查询* ，这表示它既能处理全文字段，又能处理精确字段。
+
+这就是说， `match` 查询主要的应用场景就是进行全文搜索，我们以下面一个简单例子来说明全文搜索是如何工作的：
+
+**索引一些数据**
+
+首先，我们使用 [`bulk` API](https://www.elastic.co/guide/cn/elasticsearch/guide/current/bulk.html) 创建一些新的文档和索引：
+
+```js
+DELETE /my_index   <1>
+
+PUT /my_index
+{ "settings": { "number_of_shards": 1 }}   <2>
+
+POST /my_index/my_type/_bulk
+{ "index": { "_id": 1 }}
+{ "title": "The quick brown fox" }
+{ "index": { "_id": 2 }}
+{ "title": "The quick brown fox jumps over the lazy dog" }
+{ "index": { "_id": 3 }}
+{ "title": "The quick brown fox jumps over the quick dog" }
+{ "index": { "_id": 4 }}
+{ "title": "Brown fox brown dog" }
+```
+>  ![img](assets/1.png)  删除已有的索引。  
+>  
+>  ![img](assets/2.png)  稍后，我们会在 [被破坏的相关性！](https://www.elastic.co/guide/cn/elasticsearch/guide/current/relevance-is-broken.html) 中解释只为这个索引分配一个主分片的原因。   
+
+
+
+**单个词查询**
+
+我们用第一个示例来解释使用 `match` 查询搜索全文字段中的单个词：
+
+```js
+GET /my_index/my_type/_search
+{
+    "query": {
+        "match": {
+            "title": "QUICK!"
+        }
+    }
+}
+```
+
+Elasticsearch 执行上面这个 `match` 查询的步骤是：
+
+1. *检查字段类型* 。
+
+   标题 `title` 字段是一个 `string` 类型（ `analyzed` ）已分析的全文字段，这意味着查询字符串本身也应该被分析。
+
+2. *分析查询字符串* 。
+
+   将查询的字符串 `QUICK!` 传入标准分析器中，输出的结果是单个项 `quick` 。因为只有一个单词项，所以 `match` 查询执行的是单个底层 `term` 查询。
+
+3. *查找匹配文档* 。
+
+   用 `term` 查询在倒排索引中查找 `quick` 然后获取一组包含该项的文档，本例的结果是文档：1、2 和 3 。
+
+4. *为每个文档评分* 。
+
+   用 `term` 查询计算每个文档相关度评分 `_score` ，这是种将 词频（term frequency，即词 `quick` 在相关文档的 `title` 字段中出现的频率）和反向文档频率（inverse document frequency，即词 `quick` 在所有文档的 `title` 字段中出现的频率），以及字段的长度（即字段越短相关度越高）相结合的计算方式。参见 [相关性的介绍](https://www.elastic.co/guide/cn/elasticsearch/guide/current/relevance-intro.html) 。
+
+这个过程给我们以下（经缩减）结果：
+
+```js
+"hits": [
+ {
+    "_id":      "1",
+    "_score":   0.5,         <1>
+    "_source": {
+       "title": "The quick brown fox"
+    }
+ },
+ {
+    "_id":      "3",
+    "_score":   0.44194174,   <2>
+    "_source": {
+       "title": "The quick brown fox jumps over the quick dog"
+    }
+ },
+ {
+    "_id":      "2",
+    "_score":   0.3125,       <3>
+    "_source": {
+       "title": "The quick brown fox jumps over the lazy dog"
+    }
+ }
+]
+```
+>  ![img](assets/1.png)   文档 1 最相关，因为它的 `title` 字段更短，即 `quick` 占据内容的一大部分。  
+>  
+>  ![img](assets/2.png)  ![img](assets/3.png)  文档 3 比 文档 2 更具相关性，因为在文档 3 中 `quick` 出现了两次。  
+
+
+
+#### 多词查询
+
+如果我们一次只能搜索一个词，那么全文搜索就会不太灵活，幸运的是 `match` 查询让多词查询变得简单：
+
+```js
+GET /my_index/my_type/_search
+{
+    "query": {
+        "match": {
+            "title": "BROWN DOG!"
+        }
+    }
+}
+```
+
+上面这个查询返回所有四个文档：
+
+```js
+{
+  "hits": [
+     {
+        "_id":      "4",
+        "_score":   0.73185337,              <1>
+        "_source": {
+           "title": "Brown fox brown dog"
+        }
+     },
+     {
+        "_id":      "2", 
+        "_score":   0.47486103,              <2>
+        "_source": {
+           "title": "The quick brown fox jumps over the lazy dog"
+        }
+     },
+     {
+        "_id":      "3",
+        "_score":   0.47486103,              <3>
+        "_source": {
+           "title": "The quick brown fox jumps over the quick dog"
+        }
+     },
+     {
+        "_id":      "1",
+        "_score":   0.11914785,              <4>
+        "_source": {
+           "title": "The quick brown fox"
+        }
+     }
+  ]
+}
+```
+>  ![img](assets/1.png)  文档 4 最相关，因为它包含词 `"brown"` 两次以及 `"dog"` 一次。   
+>  
+>  ![img](assets/2.png) ![img](assets/3.png)  文档 2、3 同时包含 `brown` 和 `dog` 各一次，而且它们 `title` 字段的长度相同，所以具有相同的评分。 
+>  
+>  ![img](assets/4.png)  文档 1 也能匹配，尽管它只有 `brown` 没有 `dog` 。            |
+
+因为 `match` 查询必须查找两个词（ `["brown","dog"]` ），它在内部实际上先执行两次 `term` 查询，然后将两次查询的结果合并作为最终结果输出。为了做到这点，它将两个 `term` 查询包入一个 `bool` 查询中，详细信息见 [布尔查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/bool-query.html)。
+
+以上示例告诉我们一个重要信息：即任何文档只要 `title` 字段里包含 *指定词项中的至少一个词* 就能匹配，被匹配的词项越多，文档就越相关。
+
+**提高精度**
+
+用 *任意* 查询词项匹配文档可能会导致结果中出现不相关的长尾。 这是种散弹式搜索。可能我们只想搜索包含 *所有* 词项的文档，也就是说，不去匹配 `brown OR dog` ，而通过匹配 `brown AND dog` 找到所有文档。
+
+`match` 查询还可以接受 `operator` 操作符作为输入参数，默认情况下该操作符是 `or` 。我们可以将它修改成 `and` 让所有指定词项都必须匹配：
+
+```js
+GET /my_index/my_type/_search
+{
+    "query": {
+        "match": {
+            "title": {      <1>
+                "query":    "BROWN DOG!",
+                "operator": "and"
+            }
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  `match` 查询的结构需要做稍许调整才能使用 `operator` 操作符参数。 
+
+这个查询可以把文档 1 排除在外，因为它只包含两个词项中的一个。
+
+**控制精度**
+
+在 *所有* 与 *任意* 间二选一有点过于非黑即白。 如果用户给定 5 个查询词项，想查找只包含其中 4 个的文档，该如何处理？将 `operator` 操作符参数设置成 `and` 只会将此文档排除。
+
+有时候这正是我们期望的，但在全文搜索的大多数应用场景下，我们既想包含那些可能相关的文档，同时又排除那些不太相关的。换句话说，我们想要处于中间某种结果。
+
+`match` 查询支持 `minimum_should_match` 最小匹配参数， 这让我们可以指定必须匹配的词项数用来表示一个文档是否相关。我们可以将其设置为某个具体数字，更常用的做法是将其设置为一个百分数，因为我们无法控制用户搜索时输入的单词数量：
+
+```js
+GET /my_index/my_type/_search
+{
+  "query": {
+    "match": {
+      "title": {
+        "query":                "quick brown dog",
+        "minimum_should_match": "75%"
+      }
+    }
+  }
+}
+```
+
+当给定百分比的时候， `minimum_should_match` 会做合适的事情：在之前三词项的示例中， `75%` 会自动被截断成 `66.6%` ，即三个里面两个词。无论这个值设置成什么，至少包含一个词项的文档才会被认为是匹配的。
+>  ![注意](assets/note.png)  参数 `minimum_should_match` 的设置非常灵活，可以根据用户输入词项的数目应用不同的规则。完整的信息参考文档<https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-minimum-should-match.html#query-dsl-minimum-should-match>  
+
+为了完全理解 `match` 是如何处理多词查询的，我们就需要查看如何使用 `bool` 查询将多个查询条件组合在一起。
+
+
+
+#### 组合查询
+
+在 [组合过滤器](https://www.elastic.co/guide/cn/elasticsearch/guide/current/combining-filters.html) 中，我们讨论过如何使用 `bool` 过滤器通过 `and` 、 `or` 和 `not` 逻辑组合将多个过滤器进行组合。在查询中， `bool` 查询有类似的功能，只有一个重要的区别。
+
+过滤器做二元判断：文档是否应该出现在结果中？但查询更精妙，它除了决定一个文档是否应该被包括在结果中，还会计算文档的 *相关程度* 。
+
+与过滤器一样， `bool` 查询也可以接受 `must` 、 `must_not` 和 `should` 参数下的多个查询语句。比如：
+
+```js
+GET /my_index/my_type/_search
+{
+  "query": {
+    "bool": {
+      "must":     { "match": { "title": "quick" }},
+      "must_not": { "match": { "title": "lazy"  }},
+      "should": [
+                  { "match": { "title": "brown" }},
+                  { "match": { "title": "dog"   }}
+      ]
+    }
+  }
+}
+```
+
+以上的查询结果返回 `title` 字段包含词项 `quick` 但不包含 `lazy` 的任意文档。目前为止，这与 `bool` 过滤器的工作方式非常相似。
+
+区别就在于两个 `should` 语句，也就是说：一个文档不必包含 `brown` 或 `dog` 这两个词项，但如果一旦包含，我们就认为它们 *更相关* ：
+
+```js
+{
+  "hits": [
+     {
+        "_id":      "3",
+        "_score":   0.70134366,  <1>
+        "_source": {
+           "title": "The quick brown fox jumps over the quick dog"
+        }
+     },
+     {
+        "_id":      "1",
+        "_score":   0.3312608,
+        "_source": {
+           "title": "The quick brown fox"
+        }
+     }
+  ]
+}
+```
+>  ![img](assets/1.png)  文档 3 会比文档 1 有更高评分是因为它同时包含 `brown` 和 `dog` 。 
+
+**评分计算**
+
+`bool` 查询会为每个文档计算相关度评分 `_score` ， 再将所有匹配的 `must` 和 `should` 语句的分数 `_score`求和，最后除以 `must` 和 `should` 语句的总数。
+
+`must_not` 语句不会影响评分； 它的作用只是将不相关的文档排除。
+
+**控制精度**
+
+所有 `must` 语句必须匹配，所有 `must_not` 语句都必须不匹配，但有多少 `should` 语句应该匹配呢？ 默认情况下，没有 `should` 语句是必须匹配的，只有一个例外：那就是当没有 `must` 语句的时候，至少有一个 `should` 语句必须匹配。
+
+就像我们能控制 [`match` 查询的精度](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-multi-word.html#match-precision) 一样，我们可以通过 `minimum_should_match` 参数控制需要匹配的 `should` 语句的数量， 它既可以是一个绝对的数字，又可以是个百分比：
+
+```js
+GET /my_index/my_type/_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { "title": "brown" }},
+        { "match": { "title": "fox"   }},
+        { "match": { "title": "dog"   }}
+      ],
+      "minimum_should_match": 2   <1>
+    }
+  }
+}
+```
+>  ![img](assets/1.png)]  这也可以用百分比表示。 
+
+这个查询结果会将所有满足以下条件的文档返回： `title` 字段包含 `"brown" AND "fox"` 、 `"brown" AND "dog"` 或 `"fox" AND "dog"` 。如果有文档包含所有三个条件，它会比只包含两个的文档更相关。
+
+
+
+#### 如何使用布尔匹配
+
+目前为止，可能已经意识到[多词 `match` 查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-multi-word.html)只是简单地将生成的 `term` 查询包裹 在一个 `bool` 查询中。如果使用默认的 `or` 操作符，每个 `term` 查询都被当作 `should` 语句，这样就要求必须至少匹配一条语句。以下两个查询是等价的：
+
+```js
+{
+    "match": { "title": "brown fox"}
+}
+{
+  "bool": {
+    "should": [
+      { "term": { "title": "brown" }},
+      { "term": { "title": "fox"   }}
+    ]
+  }
+}
+```
+
+如果使用 `and` 操作符，所有的 `term` 查询都被当作 `must` 语句，所以 *所有（all）* 语句都必须匹配。以下两个查询是等价的：
+
+```js
+{
+    "match": {
+        "title": {
+            "query":    "brown fox",
+            "operator": "and"
+        }
+    }
+}
+{
+  "bool": {
+    "must": [
+      { "term": { "title": "brown" }},
+      { "term": { "title": "fox"   }}
+    ]
+  }
+}
+```
+
+如果指定参数 `minimum_should_match` ，它可以通过 `bool` 查询直接传递，使以下两个查询等价：
+
+```js
+{
+    "match": {
+        "title": {
+            "query":                "quick brown fox",
+            "minimum_should_match": "75%"
+        }
+    }
+}
+{
+  "bool": {
+    "should": [
+      { "term": { "title": "brown" }},
+      { "term": { "title": "fox"   }},
+      { "term": { "title": "quick" }}
+    ],
+    "minimum_should_match": 2   <1>
+  }
+}
+```
+>  ![img](assets/1.png)  因为只有三条语句，`match` 查询的参数 `minimum_should_match` 值 75% 会被截断成 `2` 。即三条 `should` 语句中至少有两条必须匹配。  
+
+当然，我们通常将这些查询用 `match` 查询来表示，但是如果了解 `match` 内部的工作原理，我们就能根据自己的需要来控制查询过程。有些时候单个 `match` 查询无法满足需求，比如为某些查询条件分配更高的权重。我们会在下一小节中看到这个例子。
+
+
+
+#### 查询语句提升权重
+
+当然 `bool` 查询不仅限于组合简单的单个词 `match` 查询， 它可以组合任意其他的查询，以及其他 `bool` 查询。 普遍的用法是通过汇总多个独立查询的分数，从而达到为每个文档微调其相关度评分 `_score` 的目的。
+
+假设想要查询关于 “full-text search（全文搜索）” 的文档， 但我们希望为提及 “Elasticsearch” 或 “Lucene” 的文档给予更高的 *权重* ，这里 *更高权重* 是指如果文档中出现 “Elasticsearch” 或 “Lucene” ，它们会比没有的出现这些词的文档获得更高的相关度评分 `_score` ，也就是说，它们会出现在结果集的更上面。
+
+一个简单的 `bool` *查询* 允许我们写出如下这种非常复杂的逻辑：
+
+```js
+GET /_search
+{
+    "query": {
+        "bool": {
+            "must": {
+                "match": {
+                    "content": {  <1>
+                        "query":    "full text search",
+                        "operator": "and"
+                    }
+                }
+            },
+            "should": [   <2>
+                { "match": { "content": "Elasticsearch" }},
+                { "match": { "content": "Lucene"        }}
+            ]
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  `content` 字段必须包含 `full` 、 `text` 和 `search` 所有三个词。 
+>  
+>  ![img](assets/2.png)  如果 `content` 字段也包含 `Elasticsearch` 或 `Lucene` ，文档会获得更高的评分 `_score` 。 
+
+`should` 语句匹配得越多表示文档的相关度越高。目前为止还挺好。
+
+但是如果我们想让包含 `Lucene` 的有更高的权重，并且包含 `Elasticsearch` 的语句比 `Lucene` 的权重更高，该如何处理?
+
+我们可以通过指定 `boost` 来控制任何查询语句的相对的权重， `boost` 的默认值为 `1` ，大于 `1` 会提升一个语句的相对权重。所以下面重写之前的查询：
+
+```js
+GET /_search
+{
+    "query": {
+        "bool": {
+            "must": {
+                "match": {  <1>
+                    "content": {
+                        "query":    "full text search",
+                        "operator": "and"
+                    }
+                }
+            },
+            "should": [
+                { "match": {
+                    "content": {
+                        "query": "Elasticsearch",
+                        "boost": 3   <2>
+                    }
+                }},
+                { "match": {
+                    "content": {
+                        "query": "Lucene",
+                        "boost": 2   <3>
+                    }
+                }}
+            ]
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  这些语句使用默认的 `boost` 值 `1` 。   
+>
+>  ![img](assets/2.png)  这条语句更为重要，因为它有最高的 `boost` 值。  
+>  
+>  ![img](assets/3.png) 这条语句比使用默认值的更重要，但它的重要性不及 `Elasticsearch` 语句。 
+>  
+>  ![注意](assets/note.png)  `boost` 参数被用来提升一个语句的相对权重（ `boost` 值大于 `1` ）或降低相对权重（ `boost`值处于 `0` 到 `1` 之间），但是这种提升或降低并不是线性的，换句话说，如果一个 `boost` 值为 `2` ，并不能获得两倍的评分 `_score` 。
+>
+> 相反，新的评分 `_score` 会在应用权重提升之后被 *归一化* ，每种类型的查询都有自己的归一算法，细节超出了本书的范围，所以不作介绍。简单的说，更高的 `boost` 值为我们带来更高的评分 `_score` 。
+>
+> 如果不基于 TF/IDF 要实现自己的评分模型，我们就需要对权重提升的过程能有更多控制，可以使用 [`function_score` 查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/function-score-query.html)操纵一个文档的权重提升方式而跳过归一化这一步骤。  
+
+更多的组合查询方式会在下章[多字段搜索](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-field-search.html)中介绍，但在此之前，让我们先看另外一个重要的查询特性：文本分析（text analysis）。
+
+
+
+#### 控制分析
+
+查询只能查找倒排索引表中真实存在的项， 所以保证文档在索引时与查询字符串在搜索时应用相同的分析过程非常重要，这样查询的项才能够匹配倒排索引中的项。
+
+尽管是在说 *文档* ，不过分析器可以由每个字段决定。 每个字段都可以有不同的分析器，既可以通过配置为字段指定分析器，也可以使用更高层的类型（type）、索引（index）或节点（node）的默认配置。在索引时，一个字段值是根据配置或默认分析器分析的。
+
+例如为 `my_index` 新增一个字段：
+
+```js
+PUT /my_index/_mapping/my_type
+{
+    "my_type": {
+        "properties": {
+            "english_title": {
+                "type":     "string",
+                "analyzer": "english"
+            }
+        }
+    }
+}
+```
+
+现在我们就可以通过使用 `analyze` API 来分析单词 `Foxes` ，进而比较 `english_title` 字段和 `title` 字段在索引时的分析结果：
+
+```js
+GET /my_index/_analyze
+{
+  "field": "my_type.title",   <1>
+  "text": "Foxes"
+}
+
+GET /my_index/_analyze
+{
+  "field": "my_type.english_title",   <2>
+  "text": "Foxes"
+}
+```
+>  ![img](assets/1.png)  字段 `title` ，使用默认的 `standard` 标准分析器，返回词项 `foxes` 。 
+>  
+>  ![img](assets/2.png)  字段 `english_title` ，使用 `english` 英语分析器，返回词项 `fox` 。 
+
+这意味着，如果使用底层 `term` 查询精确项 `fox` 时， `english_title` 字段会匹配但 `title` 字段不会。
+
+如同 `match` 查询这样的高层查询知道字段映射的关系，能为每个被查询的字段应用正确的分析器。 可以使用 `validate-query` API 查看这个行为：
+
+```js
+GET /my_index/my_type/_validate/query?explain
+{
+    "query": {
+        "bool": {
+            "should": [
+                { "match": { "title":         "Foxes"}},
+                { "match": { "english_title": "Foxes"}}
+            ]
+        }
+    }
+}
+```
+
+返回语句的 `explanation` 结果：
+
+```
+(title:foxes english_title:fox)
+```
+
+`match` 查询为每个字段使用合适的分析器，以保证它在寻找每个项时都为该字段使用正确的格式。
+
+**默认分析器**
+
+虽然我们可以在字段层级指定分析器， 但是如果该层级没有指定任何的分析器，那么我们如何能确定这个字段使用的是哪个分析器呢？
+
+分析器可以从三个层面进行定义：按字段（per-field）、按索引（per-index）或全局缺省（global default）。Elasticsearch 会按照以下顺序依次处理，直到它找到能够使用的分析器。索引时的顺序如下：
+
+- 字段映射里定义的 `analyzer` ，否则
+- 索引设置中名为 `default` 的分析器，默认为
+- `standard` 标准分析器
+
+在搜索时，顺序有些许不同：
+
+- 查询自己定义的 `analyzer` ，否则
+- 字段映射里定义的 `analyzer` ，否则
+- 索引设置中名为 `default` 的分析器，默认为
+- `standard` 标准分析器
+
+有时，在索引时和搜索时使用不同的分析器是合理的。 我们可能要想为同义词建索引（例如，所有 `quick`出现的地方，同时也为 `fast` 、 `rapid` 和 `speedy` 创建索引）。但在搜索时，我们不需要搜索所有的同义词，取而代之的是寻找用户输入的单词是否是 `quick` 、 `fast` 、 `rapid` 或 `speedy` 。
+
+为了区分，Elasticsearch 也支持一个可选的 `search_analyzer` 映射，它仅会应用于搜索时（ `analyzer` 还用于索引时）。还有一个等价的 `default_search` 映射，用以指定索引层的默认配置。
+
+如果考虑到这些额外参数，一个搜索时的 *完整* 顺序会是下面这样：
+
+- 查询自己定义的 `analyzer` ，否则
+- 字段映射里定义的 `search_analyzer` ，否则
+- 字段映射里定义的 `analyzer` ，否则
+- 索引设置中名为 `default_search` 的分析器，默认为
+- 索引设置中名为 `default` 的分析器，默认为
+- `standard` 标准分析器
+
+**分析器配置实践**
+
+就可以配置分析器地方的数量而言是十分惊人的， 但是实际非常简单。
+
+**保持简单**
+
+多数情况下，会提前知道文档会包括哪些字段。最简单的途径就是在创建索引或者增加类型映射时，为每个全文字段设置分析器。这种方式尽管有点麻烦，但是它让我们可以清楚的看到每个字段每个分析器是如何设置的。
+
+通常，多数字符串字段都是 `not_analyzed` 精确值字段，比如标签（tag）或枚举（enum），而且更多的全文字段会使用默认的 `standard` 分析器或 `english` 或其他某种语言的分析器。这样只需要为少数一两个字段指定自定义分析：或许标题 `title` 字段需要以支持 *输入即查找（find-as-you-type）* 的方式进行索引。
+
+可以在索引级别设置中，为绝大部分的字段设置你想指定的 `default` 默认分析器。然后在字段级别设置中，对某一两个字段配置需要指定的分析器。
+>  ![注意](assets/note.png)  对于和时间相关的日志数据，通常的做法是每天自行创建索引，由于这种方式不是从头创建的索引，仍然可以用 [索引模板（Index Template）](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/indices-templates.html) 为新建的索引指定配置和映射。 
+
+
+
+#### 被破坏的相关度！  {#被破坏的相关度}
+
+在讨论更复杂的 [多字段搜索](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-field-search.html) 之前，让我们先快速解释一下为什么只在主分片上 [创建测试索引](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-query.html#match-test-data) 。
+
+用户会时不时的抱怨无法按相关度排序并提供简短的重现步骤： 用户索引了一些文档，运行一个简单的查询，然后发现明显低相关度的结果出现在高相关度结果之上。
+
+为了理解为什么会这样，可以设想，我们在两个主分片上创建了索引和总共 10 个文档，其中 6 个文档有单词 `foo` 。可能是分片 1 有其中 3 个 `foo` 文档，而分片 2 有其中另外 3 个文档，换句话说，所有文档是均匀分布存储的。
+
+在 [什么是相关度？](https://www.elastic.co/guide/cn/elasticsearch/guide/current/relevance-intro.html)中，我们描述了 Elasticsearch 默认使用的相似度算法，这个算法叫做 *词频/逆向文档频率* 或 TF/IDF 。词频是计算某个词在当前被查询文档里某个字段中出现的频率，出现的频率越高，文档越相关。 *逆向文档频率* 将 *某个词在索引内所有文档出现的百分数* 考虑在内，出现的频率越高，它的权重就越低。
+
+但是由于性能原因， Elasticsearch 不会计算索引内所有文档的 IDF 。 相反，每个分片会根据 *该分片* 内的所有文档计算一个本地 IDF 。
+
+因为文档是均匀分布存储的，两个分片的 IDF 是相同的。相反，设想如果有 5 个 `foo` 文档存于分片 1 ，而第 6 个文档存于分片 2 ，在这种场景下， `foo` 在一个分片里非常普通（所以不那么重要），但是在另一个分片里非常出现很少（所以会显得更重要）。这些 IDF 之间的差异会导致不正确的结果。
+
+在实际应用中，这并不是一个问题，本地和全局的 IDF 的差异会随着索引里文档数的增多渐渐消失，在真实世界的数据量下，局部的 IDF 会被迅速均化，所以上述问题并不是相关度被破坏所导致的，而是由于数据太少。
+
+为了测试，我们可以通过两种方式解决这个问题。第一种是只在主分片上创建索引，正如 [`match` 查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-query.html) 里介绍的那样，如果只有一个分片，那么本地的 IDF *就是* 全局的 IDF。
+
+第二个方式就是在搜索请求后添加 `?search_type=dfs_query_then_fetch` ， `dfs` 是指 *分布式频率搜索（Distributed Frequency Search）* ， 它告诉 Elasticsearch ，先分别获得每个分片本地的 IDF ，然后根据结果再计算整个索引的全局 IDF 。
+>  ![提示](assets/tip.png)  不要在生产环境上使用 `dfs_query_then_fetch` 。完全没有必要。只要有足够的数据就能保证词频是均匀分布的。没有理由给每个查询额外加上 DFS 这步。 
+
+
+
+### 多字段搜索
+
+查询很少是简单一句话的 `match` 匹配查询。通常我们需要用相同或不同的字符串查询一个或多个字段，也就是说，需要对多个查询语句以及它们相关度评分进行合理的合并。
+
+有时候或许我们正查找作者 Leo Tolstoy 写的一本名为 _War and Peace_（战争与和平）的书。或许我们正用 “minimum should match” （最少应该匹配）的方式在文档中对标题或页面内容进行搜索，或许我们正在搜索所有名字为 John Smith 的用户。
+
+在本章，我们会介绍构造多语句搜索的工具及在特定场景下应该采用的解决方案。
+
+
+
+#### 多字符串查询
+
+最简单的多字段查询可以将搜索项映射到具体的字段。 如果我们知道 *War and Peace* 是标题，Leo Tolstoy 是作者，很容易就能把两个条件用 `match` 语句表示， 并将它们用 [`bool` 查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/bool-query.html) 组合起来：
+
+```js
+GET /_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { "title":  "War and Peace" }},
+        { "match": { "author": "Leo Tolstoy"   }}
+      ]
+    }
+  }
+}
+```
+
+`bool` 查询采取 *more-matches-is-better* 匹配越多越好的方式，所以每条 `match` 语句的评分结果会被加在一起，从而为每个文档提供最终的分数 `_score` 。能与两条语句同时匹配的文档比只与一条语句匹配的文档得分要高。
+
+当然，并不是只能使用 `match` 语句：可以用 `bool` 查询来包裹组合任意其他类型的查询， 甚至包括其他的 `bool` 查询。我们可以在上面的示例中添加一条语句来指定译者版本的偏好：
+
+```js
+GET /_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { "title":  "War and Peace" }},
+        { "match": { "author": "Leo Tolstoy"   }},
+        { "bool":  {
+          "should": [
+            { "match": { "translator": "Constance Garnett" }},
+            { "match": { "translator": "Louise Maude"      }}
+          ]
+        }}
+      ]
+    }
+  }
+}
+```
+
+为什么将译者条件语句放入另一个独立的 `bool` 查询中呢？所有的四个 `match` 查询都是 `should` 语句，所以为什么不将 translator 语句与其他如 title 、 author 这样的语句放在同一层呢？
+
+答案在于评分的计算方式。 `bool` 查询运行每个 `match` 查询，再把评分加在一起，然后将结果与所有匹配的语句数量相乘，最后除以所有的语句数量。处于同一层的每条语句具有相同的权重。在前面这个例子中，包含 translator 语句的 `bool` 查询，只占总评分的三分之一。如果将 translator 语句与 title 和 author 两条语句放入同一层，那么 title 和 author 语句只贡献四分之一评分。
+
+**语句的优先级**
+
+前例中每条语句贡献三分之一评分的这种方式可能并不是我们想要的， 我们可能对 title 和 author 两条语句更感兴趣，这样就需要调整查询，使 title 和 author 语句相对来说更重要。
+
+在武器库中，最容易使用的就是 `boost` 参数。为了提升 `title` 和 `author` 字段的权重， 为它们分配的 `boost` 值大于 `1` ：
+
+```js
+GET /_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { <1>
+            "title":  {
+              "query": "War and Peace",
+              "boost": 2
+        }}},
+        { "match": { <2>
+            "author":  {
+              "query": "Leo Tolstoy",
+              "boost": 2
+        }}},
+        { "bool":  { <3>
+            "should": [
+              { "match": { "translator": "Constance Garnett" }},
+              { "match": { "translator": "Louise Maude"      }}
+            ]
+        }}
+      ]
+    }
+  }
+}
+```
+>  ![img](assets/1.png) ![img](assets/2.png)  `title` 和 `author` 语句的 `boost` 值为 `2` 。 
+>  
+>  ![img](assets/3.png)  嵌套 `bool` 语句默认的 `boost` 值为 `1` 。     
+
+要获取 `boost` 参数 “最佳” 值，较为简单的方式就是不断试错：设定 `boost` 值，运行测试查询，如此反复。 `boost` 值比较合理的区间处于 `1` 到 `10` 之间，当然也有可能是 `15` 。如果为 `boost` 指定比这更高的值，将不会对最终的评分结果产生更大影响，因为评分是被 [归一化的（normalized）](https://www.elastic.co/guide/cn/elasticsearch/guide/current/_boosting_query_clauses.html#boost-normalization) 。
+
+
+
+#### 单字符串查询
+
+`bool` 查询是多语句查询的主干。 它的适用场景很多，特别是当需要将不同查询字符串映射到不同字段的时候。
+
+问题在于，目前有些用户期望将所有的搜索项堆积到单个字段中，并期望应用程序能为他们提供正确的结果。有意思的是多字段搜索的表单通常被称为 *高级查询 （Advanced Search）* —— 只是因为它对用户而言是高级的，而多字段搜索的实现却非常简单。
+
+对于多词（multiword）、多字段（multifield）查询来说，不存在简单的 *万能* 方案。为了获得最好结果，需要 *了解我们的数据* ，并了解如何使用合适的工具。
+
+**了解我们的数据**
+
+当用户输入了单个字符串查询的时候，通常会遇到以下三种情形：
+
+- 最佳字段
+
+  当搜索词语具体概念的时候，比如 “brown fox” ，词组比各自独立的单词更有意义。像 `title` 和 `body` 这样的字段，尽管它们之间是相关的，但同时又彼此相互竞争。文档在 *相同字段* 中包含的词越多越好，评分也来自于 *最匹配字段* 。
+
+- 多数字段
+
+  为了对相关度进行微调，常用的一个技术就是将相同的数据索引到不同的字段，它们各自具有独立的分析链。主字段可能包括它们的词源、同义词以及 *变音词* 或口音词，被用来匹配尽可能多的文档。相同的文本被索引到其他字段，以提供更精确的匹配。一个字段可以包括未经词干提取过的原词，另一个字段包括其他词源、口音，还有一个字段可以提供 [词语相似性](https://www.elastic.co/guide/cn/elasticsearch/guide/current/proximity-matching.html) 信息的瓦片词（shingles）。其他字段是作为匹配每个文档时提高相关度评分的 *信号* ， *匹配字段越多* 则越好。
+
+- 混合字段
+
+  对于某些实体，我们需要在多个字段中确定其信息，单个字段都只能作为整体的一部分：Person： `first_name` 和 `last_name` （人：名和姓）Book： `title` 、 `author` 和 `description` （书：标题、作者、描述）Address： `street` 、 `city` 、 `country` 和 `postcode` （地址：街道、市、国家和邮政编码）在这种情况下，我们希望在 *任何* 这些列出的字段中找到尽可能多的词，这有如在一个大字段中进行搜索，这个大字段包括了所有列出的字段。
+
+上述所有都是多词、多字段查询，但每个具体查询都要求使用不同策略。本章后面的部分，我们会依次介绍每个策略。
+
+
+
+#### 最佳字段
+
+假设有个网站允许用户搜索博客的内容， 以下面两篇博客内容文档为例：
+
+```js
+PUT /my_index/my_type/1
+{
+    "title": "Quick brown rabbits",
+    "body":  "Brown rabbits are commonly seen."
+}
+
+PUT /my_index/my_type/2
+{
+    "title": "Keeping pets healthy",
+    "body":  "My quick brown fox eats rabbits on a regular basis."
+}
+```
+
+用户输入词组 “Brown fox” 然后点击搜索按钮。事先，我们并不知道用户的搜索项是会在 `title` 还是在 `body` 字段中被找到，但是，用户很有可能是想搜索相关的词组。用肉眼判断，文档 2 的匹配度更高，因为它同时包括要查找的两个词：
+
+现在运行以下 `bool` 查询：
+
+```js
+{
+    "query": {
+        "bool": {
+            "should": [
+                { "match": { "title": "Brown fox" }},
+                { "match": { "body":  "Brown fox" }}
+            ]
+        }
+    }
+}
+```
+
+但是我们发现查询的结果是文档 1 的评分更高：
+
+```js
+{
+  "hits": [
+     {
+        "_id":      "1",
+        "_score":   0.14809652,
+        "_source": {
+           "title": "Quick brown rabbits",
+           "body":  "Brown rabbits are commonly seen."
+        }
+     },
+     {
+        "_id":      "2",
+        "_score":   0.09256032,
+        "_source": {
+           "title": "Keeping pets healthy",
+           "body":  "My quick brown fox eats rabbits on a regular basis."
+        }
+     }
+  ]
+}
+```
+
+为了理解导致这样的原因， 需要回想一下 `bool` 是如何计算评分的：
+
+1. 它会执行 `should` 语句中的两个查询。
+2. 加和两个查询的评分。
+3. 乘以匹配语句的总数。
+4. 除以所有语句总数（这里为：2）。
+
+文档 1 的两个字段都包含 `brown` 这个词，所以两个 `match` 语句都能成功匹配并且有一个评分。文档 2 的 `body` 字段同时包含 `brown` 和 `fox` 这两个词，但 `title` 字段没有包含任何词。这样， `body` 查询结果中的高分，加上 `title` 查询中的 0 分，然后乘以二分之一，就得到比文档 1 更低的整体评分。
+
+在本例中， `title` 和 `body` 字段是相互竞争的关系，所以就需要找到单个 *最佳匹配* 的字段。
+
+如果不是简单将每个字段的评分结果加在一起，而是将 *最佳匹配* 字段的评分作为查询的整体评分，结果会怎样？这样返回的结果可能是： *同时* 包含 `brown` 和 `fox` 的单个字段比反复出现相同词语的多个不同字段有更高的相关度。
+
+**dis_max 查询**
+
+不使用 `bool` 查询，可以使用 `dis_max` 即分离 *最大化查询（Disjunction Max Query）* 。分离（Disjunction）的意思是 *或（or）* ，这与可以把结合（conjunction）理解成 *与（and）* 相对应。分离最大化查询（Disjunction Max Query）指的是： *将任何与任一查询匹配的文档作为结果返回，但只将最佳匹配的评分作为查询的评分结果返回* ：
+
+```js
+{
+    "query": {
+        "dis_max": {
+            "queries": [
+                { "match": { "title": "Brown fox" }},
+                { "match": { "body":  "Brown fox" }}
+            ]
+        }
+    }
+}
+```
+
+得到我们想要的结果为：
+
+```js
+{
+  "hits": [
+     {
+        "_id":      "2",
+        "_score":   0.21509302,
+        "_source": {
+           "title": "Keeping pets healthy",
+           "body":  "My quick brown fox eats rabbits on a regular basis."
+        }
+     },
+     {
+        "_id":      "1",
+        "_score":   0.12713557,
+        "_source": {
+           "title": "Quick brown rabbits",
+           "body":  "Brown rabbits are commonly seen."
+        }
+     }
+  ]
+}
+```
+
+
+
+#### 最佳字段查询调优
+
+当用户搜索 “quick pets” 时会发生什么呢？ 在前面的例子中，两个文档都包含词 `quick` ，但是只有文档 2 包含词 `pets` ，两个文档中都不具有同时包含 *两个词* 的 *相同字段* 。
+
+如下，一个简单的 `dis_max` 查询会采用单个最佳匹配字段， 而忽略其他的匹配：
+
+```js
+{
+    "query": {
+        "dis_max": {
+            "queries": [
+                { "match": { "title": "Quick pets" }},
+                { "match": { "body":  "Quick pets" }}
+            ]
+        }
+    }
+}
+```
+
+
+
+```js
+{
+  "hits": [
+     {
+        "_id": "1",
+        "_score": 0.12713557, <1>
+        "_source": {
+           "title": "Quick brown rabbits",
+           "body": "Brown rabbits are commonly seen."
+        }
+     },
+     {
+        "_id": "2",
+        "_score": 0.12713557, <2>
+        "_source": {
+           "title": "Keeping pets healthy",
+           "body": "My quick brown fox eats rabbits on a regular basis."
+        }
+     }
+   ]
+}
+```
+>  ![img](assets/1.png)  ![img](assets/2)  注意两个评分是完全相同的。
+
+我们可能期望同时匹配 `title` 和 `body` 字段的文档比只与一个字段匹配的文档的相关度更高，但事实并非如此，因为 `dis_max` 查询只会简单地使用 *单个* 最佳匹配语句的评分 `_score` 作为整体评分。
+
+**tie_breaker 参数**
+
+可以通过指定 `tie_breaker` 这个参数将其他匹配语句的评分也考虑其中：
+
+```js
+{
+    "query": {
+        "dis_max": {
+            "queries": [
+                { "match": { "title": "Quick pets" }},
+                { "match": { "body":  "Quick pets" }}
+            ],
+            "tie_breaker": 0.3
+        }
+    }
+}
+```
+
+结果如下：
+
+```js
+{
+  "hits": [
+     {
+        "_id": "2",
+        "_score": 0.14757764, <1>
+        "_source": {
+           "title": "Keeping pets healthy",
+           "body": "My quick brown fox eats rabbits on a regular basis."
+        }
+     },
+     {
+        "_id": "1",
+        "_score": 0.124275915, <2>
+        "_source": {
+           "title": "Quick brown rabbits",
+           "body": "Brown rabbits are commonly seen."
+        }
+     }
+   ]
+}
+```
+>  ![img](assets/1.png)  ![img](assets/2.png)  文档 2 的相关度比文档 1 略高  
+
+
+
+`tie_breaker` 参数提供了一种 `dis_max` 和 `bool` 之间的折中选择，它的评分方式如下：
+
+1. 获得最佳匹配语句的评分 `_score` 。
+2. 将其他匹配语句的评分结果与 `tie_breaker` 相乘。
+3. 对以上评分求和并规范化。
+
+有了 `tie_breaker` ，会考虑所有匹配语句，但最佳匹配语句依然占最终结果里的很大一部分。
+>  ![注意](assets/note.png)  `tie_breaker` 可以是 `0` 到 `1` 之间的浮点数，其中 `0` 代表使用 `dis_max` 最佳匹配语句的普通逻辑， `1` 表示所有匹配语句同等重要。最佳的精确值需要根据数据与查询调试得出，但是合理值应该与零接近（处于 `0.1 - 0.4` 之间），这样就不会颠覆 `dis_max` 最佳匹配性质的根本。
+
+
+
+#### multi_match 查询  {#multi_match查询}
+
+`multi_match` 查询为能在多个字段上反复执行相同查询提供了一种便捷方式。
+
+>  ![注意](assets/note.png)  `multi_match` 多匹配查询的类型有多种，其中的三种恰巧与 [了解我们的数据](https://www.elastic.co/guide/cn/elasticsearch/guide/current/_single_query_string.html#know-your-data) 中介绍的三个场景对应，即： `best_fields` 、 `most_fields` 和 `cross_fields` （最佳字段、多数字段、跨字段）。
+
+
+
+默认情况下，查询的类型是 `best_fields` ， 这表示它会为每个字段生成一个 `match` 查询，然后将它们组合到 `dis_max` 查询的内部，如下：
+
+```js
+{
+  "dis_max": {
+    "queries":  [
+      {
+        "match": {
+          "title": {
+            "query": "Quick brown fox",
+            "minimum_should_match": "30%"
+          }
+        }
+      },
+      {
+        "match": {
+          "body": {
+            "query": "Quick brown fox",
+            "minimum_should_match": "30%"
+          }
+        }
+      },
+    ],
+    "tie_breaker": 0.3
+  }
+}
+```
+
+上面这个查询用 `multi_match` 重写成更简洁的形式：
+
+```js
+{
+    "multi_match": {
+        "query":                "Quick brown fox",
+        "type":                 "best_fields",   <1>
+        "fields":               [ "title", "body" ],
+        "tie_breaker":          0.3,
+        "minimum_should_match": "30%"   <2>
+    }
+}
+```
+>  ![img](assets/1.png)  `best_fields` 类型是默认值，可以不指定。   
+>  
+>  ![img](assets/2.png)  如 `minimum_should_match` 或 `operator` 这样的参数会被传递到生成的 `match` 查询中。 
+
+**查询字段名称的模糊匹配**
+
+字段名称可以用模糊匹配的方式给出：任何与模糊模式正则匹配的字段都会被包括在搜索条件中， 例如可以使用以下方式同时匹配 `book_title` 、 `chapter_title` 和 `section_title` （书名、章名、节名）这三个字段：
+
+```js
+{
+    "multi_match": {
+        "query":  "Quick brown fox",
+        "fields": "*_title"
+    }
+}
+```
+
+**提升单个字段的权重**
+
+可以使用 `^` 字符语法为单个字段提升权重，在字段名称的末尾添加 `^boost` ， 其中 `boost` 是一个浮点数：
+
+```js
+{
+    "multi_match": {
+        "query":  "Quick brown fox",
+        "fields": [ "*_title", "chapter_title^2" ]   <1>
+    }
+}
+```
+>  ![img](assets/1.png)   `chapter_title` 这个字段的 `boost` 值为 `2` ，而其他两个字段 `book_title` 和 `section_title` 字段的默认 boost 值为 `1` 。 
+
+
+
+#### 多数字段
+
+全文搜索被称作是 *召回率（Recall）* 与 *精确率（Precision）* 的战场： *召回率* ——返回所有的相关文档；*精确率* ——不返回无关文档。目的是在结果的第一页中为用户呈现最为相关的文档。
+
+为了提高召回率的效果，我们扩大搜索范围 ——不仅返回与用户搜索词精确匹配的文档，还会返回我们认为与查询相关的所有文档。如果一个用户搜索 “quick brown box” ，一个包含词语 `fast foxes` 的文档被认为是非常合理的返回结果。
+
+如果包含词语 `fast foxes` 的文档是能找到的唯一相关文档，那么它会出现在结果列表的最上面，但是，如果有 100 个文档都出现了词语 `quick brown fox` ，那么这个包含词语 `fast foxes` 的文档当然会被认为是次相关的，它可能处于返回结果列表更下面的某个地方。当包含了很多潜在匹配之后，我们需要将最匹配的几个置于结果列表的顶部。
+
+提高全文相关性精度的常用方式是为同一文本建立多种方式的索引， 每种方式都提供了一个不同的相关度信号 *signal* 。主字段会以尽可能多的形式的去匹配尽可能多的文档。举个例子，我们可以进行以下操作：
+
+- 使用词干提取来索引 `jumps` 、 `jumping` 和 `jumped` 样的词，将 `jump` 作为它们的词根形式。这样即使用户搜索 `jumped` ，也还是能找到包含 `jumping` 的匹配的文档。
+- 将同义词包括其中，如 `jump` 、 `leap` 和 `hop` 。
+- 移除变音或口音词：如 `ésta` 、 `está` 和 `esta` 都会以无变音形式 `esta` 来索引。
+
+尽管如此，如果我们有两个文档，其中一个包含词 `jumped` ，另一个包含词 `jumping` ，用户很可能期望前者能排的更高，因为它正好与输入的搜索条件一致。
+
+为了达到目的，我们可以将相同的文本索引到其他字段从而提供更为精确的匹配。一个字段可能是为词干未提取过的版本，另一个字段可能是变音过的原始词，第三个可能使用 *shingles* 提供 [词语相似性](https://www.elastic.co/guide/cn/elasticsearch/guide/current/proximity-matching.html) 信息。这些附加的字段可以看成提高每个文档的相关度评分的信号 *signals* ，能匹配字段的越多越好。
+
+一个文档如果与广度匹配的主字段相匹配，那么它会出现在结果列表中。如果文档同时又与 *signal* 信号字段匹配，那么它会获得额外加分，系统会提升它在结果列表中的位置。
+
+我们会在本书稍后对同义词、词相似性、部分匹配以及其他潜在的信号进行讨论，但这里只使用词干已提取（stemmed）和未提取（unstemmed）的字段作为简单例子来说明这种技术。
+
+**多字段映射**
+
+首先要做的事情就是对我们的字段索引两次： 一次使用词干模式以及一次非词干模式。为了做到这点，采用 *multifields* 来实现，已经在 [multifields](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-fields.html) 有所介绍：
+
+```js
+DELETE /my_index
+
+PUT /my_index
+{
+    "settings": { "number_of_shards": 1 },  <1>
+    "mappings": {
+        "my_type": {
+            "properties": {
+                "title": {                     <2>
+                    "type":     "string",
+                    "analyzer": "english",
+                    "fields": {
+                        "std":   {             <3>
+                            "type":     "string",
+                            "analyzer": "standard"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  参考 [被破坏的相关度](https://www.elastic.co/guide/cn/elasticsearch/guide/current/relevance-is-broken.html).   
+>  
+>  ![img](assets/2.png)  `title` 字段使用 `english` 英语分析器来提取词干。      
+>
+>  ![img](assets/3.png)  `title.std` 字段使用 `standard` 标准分析器，所以没有词干提取。   
+
+接着索引一些文档：
+
+```js
+PUT /my_index/my_type/1
+{ "title": "My rabbit jumps" }
+
+PUT /my_index/my_type/2
+{ "title": "Jumping jack rabbits" }
+```
+
+这里用一个简单 `match` 查询 `title` 标题字段是否包含 `jumping rabbits` （跳跃的兔子）：
+
+```js
+GET /my_index/_search
+{
+   "query": {
+        "match": {
+            "title": "jumping rabbits"
+        }
+    }
+}
+```
+
+因为有了 `english` 分析器，这个查询是在查找以 `jump` 和 `rabbit` 这两个被提取词的文档。两个文档的 `title` 字段都同时包括这两个词，所以两个文档得到的评分也相同：
+
+```js
+{
+  "hits": [
+     {
+        "_id": "1",
+        "_score": 0.42039964,
+        "_source": {
+           "title": "My rabbit jumps"
+        }
+     },
+     {
+        "_id": "2",
+        "_score": 0.42039964,
+        "_source": {
+           "title": "Jumping jack rabbits"
+        }
+     }
+  ]
+}
+```
+
+如果只是查询 `title.std` 字段，那么只有文档 2 是匹配的。尽管如此，如果同时查询两个字段，然后使用 `bool` 查询将评分结果 *合并* ，那么两个文档都是匹配的（ `title` 字段的作用），而且文档 2 的相关度评分更高（ `title.std` 字段的作用）：
+
+```js
+GET /my_index/_search
+{
+   "query": {
+        "multi_match": {
+            "query":  "jumping rabbits",
+            "type":   "most_fields",               <1>
+            "fields": [ "title", "title.std" ]
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  我们希望将所有匹配字段的评分合并起来，所以使用 `most_fields` 类型。这让 `multi_match` 查询用 `bool` 查询将两个字段语句包在里面，而不是使用 `dis_max` 查询。 
+
+```js
+{
+  "hits": [
+     {
+        "_id": "2",
+        "_score": 0.8226396,                 <1>
+        "_source": {
+           "title": "Jumping jack rabbits"
+        }
+     },
+     {
+        "_id": "1",
+        "_score": 0.10741998,                <2>
+        "_source": {
+           "title": "My rabbit jumps"
+        }
+     }
+  ]
+}
+```
+>  ![img](assets/1.png)  ![img](assets/2.png)  文档 2 现在的评分要比文档 1 高。 
+
+用广度匹配字段 `title` 包括尽可能多的文档——以提升召回率——同时又使用字段 `title.std` 作为 *信号*将相关度更高的文档置于结果顶部。
+
+每个字段对于最终评分的贡献可以通过自定义值 `boost` 来控制。比如，使 `title` 字段更为重要，这样同时也降低了其他信号字段的作用：
+
+```js
+GET /my_index/_search
+{
+   "query": {
+        "multi_match": {
+            "query":       "jumping rabbits",
+            "type":        "most_fields",
+            "fields":      [ "title^10", "title.std" ]   <1>
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  `title` 字段的 `boost` 的值为 `10` 使它比 `title.std` 更重要。 
+  
+
+
+
