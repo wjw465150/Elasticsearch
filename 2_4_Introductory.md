@@ -616,12 +616,12 @@ PUT /my_index
 {
     "mappings": {
         "my_type": {
-            "dynamic":      "strict",   <1>
+            "dynamic":      "strict",                   <1>
             "properties": {
                 "title":  { "type": "string"},
                 "stash":  {
                     "type":     "object",
-                    "dynamic":  true    <2>
+                    "dynamic":  true                    <2>
                 }
             }
         }
@@ -713,7 +713,7 @@ PUT /my_index
         "my_type": {
             "dynamic_templates": [
                 { "es": {
-                      "match":              "*_es",   <1>
+                      "match":              "*_es",        <1>
                       "match_mapping_type": "string",
                       "mapping": {
                           "type":           "string",
@@ -721,7 +721,7 @@ PUT /my_index
                       }
                 }},
                 { "en": {
-                      "match":              "*",      <2>
+                      "match":              "*",           <2>
                       "match_mapping_type": "string",
                       "mapping": {
                           "type":           "string",
@@ -1056,8 +1056,8 @@ Lucene 允许新段被写入和打开--使其包含的文档在未进行一次�
 这些行为可能会对新用户造成困惑: 他们索引了一个文档然后尝试搜索它，但却没有搜到。这个问题的解决办法是用 `refresh` API 执行一次手动刷新:
 
 ```json
-POST /_refresh        <1>
-POST /blogs/_refresh  <2>
+POST /_refresh          <1>
+POST /blogs/_refresh    <2>
 ```
 >  ![img](assets/1.png)  刷新（Refresh）所有的索引  
 >  
@@ -1070,7 +1070,7 @@ POST /blogs/_refresh  <2>
 PUT /my_logs
 {
   "settings": {
-    "refresh_interval": "30s"   <1>
+    "refresh_interval": "30s"      <1>
   }
 }
 ```
@@ -1082,10 +1082,10 @@ PUT /my_logs
 
 ```json
 PUT /my_logs/_settings
-{ "refresh_interval": -1 }    <1>
+{ "refresh_interval": -1 }      <1>
 
 PUT /my_logs/_settings
-{ "refresh_interval": "1s" }  <2>
+{ "refresh_interval": "1s" }    <2>
 ```
 >  ![img](assets/1.png)  关闭自动刷新。   
 >  

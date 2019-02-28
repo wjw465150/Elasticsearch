@@ -126,13 +126,13 @@ Sense 是一个 [Kibana](https://www.elastic.co/guide/en/kibana/4.6/index.html) 
 
 1. 在 Kibana 目录下运行下面的命令，下载并安装 Sense app：
    ```sh
-   ./bin/kibana plugin --install elastic/sense <1>
+   ./bin/kibana plugin --install elastic/sense     <1>
    ```
    >   ![img](assets/1.png) Windows上面执行: `bin\kibana.bat plugin --install elastic/sense` 。NOTE：你可以直接从这里 <https://download.elastic.co/elastic/sense/sense-latest.tar.gz>下载 Sense 离线安装可以查看这里 [install it on an offline machine](https://www.elastic.co/guide/en/sense/current/installing.html#manual_download) 。  
 
 2. 启动 Kibana.
    ```sh
-   ./bin/kibana <1>
+   ./bin/kibana     <1>
    ```
    >  ![img](assets/1.png) Windows 上启动 kibana: `bin\kibana.bat` 。   
 
@@ -563,12 +563,12 @@ GET /megacorp/employee/_search
         "bool": {
             "must": {
                 "match" : {
-                    "last_name" : "smith"   <1>
+                    "last_name" : "smith"     <1>
                 }
             },
             "filter": {
                 "range" : {
-                    "age" : { "gt" : 30 }   <2>
+                    "age" : { "gt" : 30 }     <2>
                 }
             }
         }
@@ -630,7 +630,7 @@ GET /megacorp/employee/_search
    ...
    "hits": {
       "total":      2,
-      "max_score":  0.16273327,             <1>
+      "max_score":  0.16273327,                                <1>
       "hits": [
          {
             ...
@@ -645,7 +645,7 @@ GET /megacorp/employee/_search
          },
          {
             ...
-            "_score":         0.016878016,   <2>
+            "_score":         0.016878016,                    <2>
             "_source": {
                "first_name":  "Jane",
                "last_name":   "Smith",
@@ -757,7 +757,7 @@ GET /megacorp/employee/_search
             },
             "highlight": {
                "about": [
-                  "I love to go <em>rock</em> <em>climbing</em>" <1>
+                  "I love to go <em>rock</em> <em>climbing</em>"         <1>
                ]
             }
          }
@@ -1001,7 +1001,7 @@ GET /_cluster/health
 ```js
 {
    "cluster_name":          "elasticsearch",
-   "status":                "green",   <1>
+   "status":                "green",                   <1>
    "timed_out":             false,
    "number_of_nodes":       1,
    "number_of_data_nodes":  1,
@@ -1071,12 +1071,12 @@ PUT /blogs
 ```js
 {
   "cluster_name": "elasticsearch",
-  "status": "yellow",                 <1>
+  "status": "yellow",                                 <1>
   "timed_out": false,
   "number_of_nodes": 1,
   "number_of_data_nodes": 1,
   "active_primary_shards": 3,
-  "active_shards": 3,                 <2>
+  "active_shards": 3,                                 <2>
   "relocating_shards": 0,
   "initializing_shards": 0,
   "unassigned_shards": 3, 
@@ -1126,7 +1126,7 @@ PUT /blogs
 ```js
 {
   "cluster_name": "elasticsearch",
-  "status": "green",     <1>
+  "status": "green",                             <1>
   "timed_out": false,
   "number_of_nodes": 2,
   "number_of_data_nodes": 2,
@@ -1531,7 +1531,7 @@ PUT /website/blog/123
   "_type" :    "blog",
   "_id" :      "123",
   "_version" : 2,
-  "created":   false   <1>
+  "created":   false                 <1>
 }
 ```
 >  ![img](assets/1.png)   `created` 标志设置成 `false` ，是因为相同的索引、类型和 ID 的文档已经存在。   
@@ -1720,7 +1720,7 @@ GET /website/blog/1
 现在，当我们尝试通过重建文档的索引来保存修改，我们指定 `version` 为我们的修改会被应用的版本：
 
 ```js
-PUT /website/blog/1?version=1   <1>
+PUT /website/blog/1?version=1                        <1>
 {
   "title": "My first blog entry",
   "text":  "Starting to get the hang of this..."
@@ -1867,8 +1867,8 @@ POST /website/blog/1/_update
    "_source": {
       "title":  "My first blog entry",
       "text":   "Starting to get the hang of this...",
-      "tags": [ "testing" ],   <1>
-      "views":  0              <2>
+      "tags": [ "testing" ],                            <1>
+      "views":  0                                       <2>
    }
 }
 ```
@@ -1931,8 +1931,8 @@ POST /website/blog/1/_update
    "_source": {
       "title":  "My first blog entry",
       "text":   "Starting to get the hang of this...",
-      "tags":  ["testing", "search"], <1>
-      "views":  1                     <2>
+      "tags":  ["testing", "search"],                      <1>
+      "views":  1                                          <2>
    }
 }
 ```
@@ -1981,7 +1981,7 @@ POST /website/pageviews/1/_update
 这可以通过 设置参数 `retry_on_conflict` 来自动完成， 这个参数规定了失败之前 `update` 应该重试的次数，它的默认值为 `0` 。
 
 ```js
-POST /website/pageviews/1/_update?retry_on_conflict=5   <1>
+POST /website/pageviews/1/_update?retry_on_conflict=5     <1>
 {
    "script" : "ctx._source.views+=1",
    "upsert": {
@@ -2093,7 +2093,7 @@ GET /website/blog/_mget
       "_index" :   "website",
       "_type" :    "blog",
       "_id" :      "1",
-      "found" :    false  <1>
+      "found" :    false                            <1>
     }
   ]
 }
@@ -2174,7 +2174,7 @@ GET /website/blog/_mget
 
 ```js
 POST /_bulk
-{ "delete": { "_index": "website", "_type": "blog", "_id": "123" }}   <1>
+{ "delete": { "_index": "website", "_type": "blog", "_id": "123" }}         <1>
 { "create": { "_index": "website", "_type": "blog", "_id": "123" }}
 { "title":    "My first blog post" }
 { "index":  { "_index": "website", "_type": "blog" }}
@@ -2191,7 +2191,7 @@ POST /_bulk
 ```js
 {
    "took": 4,
-   "errors": false,   <1>
+   "errors": false,                                <1>
    "items": [
       {  "delete": {
             "_index":   "website",
@@ -2242,13 +2242,13 @@ POST /_bulk
 ```js
 {
    "took": 3,
-   "errors": true,   <1>
+   "errors": true,                                        <1>
    "items": [
       {  "create": {
             "_index":   "website",
             "_type":    "blog",
             "_id":      "123",
-            "status":   409,   <2>
+            "status":   409,                              <2>
             "error":    "DocumentAlreadyExistsException   <3>
                         [[website][4] [blog][123]:
                         document already exists]"
@@ -2258,7 +2258,7 @@ POST /_bulk
             "_type":    "blog",
             "_id":      "123",
             "_version": 5,
-            "status":   200   <4>
+            "status":   200                               <4>
       }}
    ]
 }

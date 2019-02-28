@@ -1670,18 +1670,18 @@ GET /_search
 {
   "query": {
     "bool": {
-      "should": [
-        { "match": { <1>
+      "should": [ 
+        { "match": {                                <1>
             "title":  {
               "query": "War and Peace",
               "boost": 2
         }}},
-        { "match": { <2>
+        { "match": {                                <2>
             "author":  {
               "query": "Leo Tolstoy",
               "boost": 2
         }}},
-        { "bool":  { <3>
+        { "bool":  {                                <3>
             "should": [
               { "match": { "translator": "Constance Garnett" }},
               { "match": { "translator": "Louise Maude"      }}
@@ -1871,7 +1871,7 @@ PUT /my_index/my_type/2
   "hits": [
      {
         "_id": "1",
-        "_score": 0.12713557, <1>
+        "_score": 0.12713557,                         <1>
         "_source": {
            "title": "Quick brown rabbits",
            "body": "Brown rabbits are commonly seen."
@@ -1879,7 +1879,7 @@ PUT /my_index/my_type/2
      },
      {
         "_id": "2",
-        "_score": 0.12713557, <2>
+        "_score": 0.12713557,                         <2>
         "_source": {
            "title": "Keeping pets healthy",
            "body": "My quick brown fox eats rabbits on a regular basis."
@@ -1888,7 +1888,7 @@ PUT /my_index/my_type/2
    ]
 }
 ```
->  ![img](assets/1.png)  ![img](assets/2)  注意两个评分是完全相同的。
+>  ![img](assets/1.png)  ![img](assets/2.png)  注意两个评分是完全相同的。
 
 我们可能期望同时匹配 `title` 和 `body` 字段的文档比只与一个字段匹配的文档的相关度更高，但事实并非如此，因为 `dis_max` 查询只会简单地使用 *单个* 最佳匹配语句的评分 `_score` 作为整体评分。
 
@@ -1917,7 +1917,7 @@ PUT /my_index/my_type/2
   "hits": [
      {
         "_id": "2",
-        "_score": 0.14757764, <1>
+        "_score": 0.14757764,                        <1>
         "_source": {
            "title": "Keeping pets healthy",
            "body": "My quick brown fox eats rabbits on a regular basis."
@@ -1925,7 +1925,7 @@ PUT /my_index/my_type/2
      },
      {
         "_id": "1",
-        "_score": 0.124275915, <2>
+        "_score": 0.124275915,                       <2>
         "_source": {
            "title": "Quick brown rabbits",
            "body": "Brown rabbits are commonly seen."
@@ -1991,10 +1991,10 @@ PUT /my_index/my_type/2
 {
     "multi_match": {
         "query":                "Quick brown fox",
-        "type":                 "best_fields",   <1>
+        "type":                 "best_fields",              <1>
         "fields":               [ "title", "body" ],
         "tie_breaker":          0.3,
-        "minimum_should_match": "30%"   <2>
+        "minimum_should_match": "30%"                       <2>
     }
 }
 ```
@@ -2023,7 +2023,7 @@ PUT /my_index/my_type/2
 {
     "multi_match": {
         "query":  "Quick brown fox",
-        "fields": [ "*_title", "chapter_title^2" ]   <1>
+        "fields": [ "*_title", "chapter_title^2" ]     <1>
     }
 }
 ```
@@ -2062,15 +2062,15 @@ DELETE /my_index
 
 PUT /my_index
 {
-    "settings": { "number_of_shards": 1 },  <1>
+    "settings": { "number_of_shards": 1 },           <1>
     "mappings": {
         "my_type": {
             "properties": {
-                "title": {                     <2>
+                "title": {                           <2>
                     "type":     "string",
                     "analyzer": "english",
                     "fields": {
-                        "std":   {             <3>
+                        "std":   {                   <3>
                             "type":     "string",
                             "analyzer": "standard"
                         }
@@ -2154,14 +2154,14 @@ GET /my_index/_search
   "hits": [
      {
         "_id": "2",
-        "_score": 0.8226396,                 <1>
+        "_score": 0.8226396,                   <1>
         "_source": {
            "title": "Jumping jack rabbits"
         }
      },
      {
         "_id": "1",
-        "_score": 0.10741998,                <2>
+        "_score": 0.10741998,                  <2>
         "_source": {
            "title": "My rabbit jumps"
         }
@@ -2182,13 +2182,425 @@ GET /my_index/_search
         "multi_match": {
             "query":       "jumping rabbits",
             "type":        "most_fields",
-            "fields":      [ "title^10", "title.std" ]   <1>
+            "fields":      [ "title^10", "title.std" ]     <1>
         }
     }
 }
 ```
 >  ![img](assets/1.png)  `title` 字段的 `boost` 的值为 `10` 使它比 `title.std` 更重要。 
-  
+
+
+
+#### 跨字段实体搜索
+
+现在讨论一种普遍的搜索模式：跨字段实体搜索（cross-fields entity search）。 在如 `person` 、 `product`或 `address` （人、产品或地址）这样的实体中，需要使用多个字段来唯一标识它的信息。 `person` 实体可能是这样索引的：
+
+```js
+{
+    "firstname":  "Peter",
+    "lastname":   "Smith"
+}
+```
+
+或地址：
+
+```js
+{
+    "street":   "5 Poland Street",
+    "city":     "London",
+    "country":  "United Kingdom",
+    "postcode": "W1V 3DG"
+}
+```
+
+这与之前描述的 [多字符串查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-query-strings.html) 很像，但这存在着巨大的区别。在 [多字符串查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-query-strings.html) 中，我们为每个字段使用不同的字符串，在本例中，我们想使用 *单个* 字符串在多个字段中进行搜索。
+
+我们的用户可能想搜索 “Peter Smith” 这个人，或 “Poland Street W1V” 这个地址，这些词出现在不同的字段中，所以如果使用 `dis_max` 或 `best_fields` 查询去查找 *单个* 最佳匹配字段显然是个错误的方式。
+
+**简单的方式**
+
+依次查询每个字段并将每个字段的匹配评分结果相加，听起来真像是 `bool` 查询：
+
+```js
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { "street":    "Poland Street W1V" }},
+        { "match": { "city":      "Poland Street W1V" }},
+        { "match": { "country":   "Poland Street W1V" }},
+        { "match": { "postcode":  "Poland Street W1V" }}
+      ]
+    }
+  }
+}
+```
+
+为每个字段重复查询字符串会使查询瞬间变得冗长，可以采用 `multi_match` 查询， 将 `type` 设置成 `most_fields` 然后告诉 Elasticsearch 合并所有匹配字段的评分：
+
+```js
+{
+  "query": {
+    "multi_match": {
+      "query":       "Poland Street W1V",
+      "type":        "most_fields",
+      "fields":      [ "street", "city", "country", "postcode" ]
+    }
+  }
+}
+```
+
+**most_fields 方式的问题**
+
+用 `most_fields` 这种方式搜索也存在某些问题，这些问题并不会马上显现：
+
+- 它是为多数字段匹配 *任意* 词设计的，而不是在 *所有字段* 中找到最匹配的。
+- 它不能使用 `operator` 或 `minimum_should_match` 参数来降低次相关结果造成的长尾效应。
+- 词频对于每个字段是不一样的，而且它们之间的相互影响会导致不好的排序结果。
+
+
+
+#### 字段中心式查询
+
+以上三个源于 `most_fields` 的问题都因为它是 *字段中心式（field-centric）* 而不是 *词中心式（term-centric）* 的：当真正感兴趣的是匹配词的时候，它为我们查找的是最匹配的 *字段* 。
+>  ![注意](assets/note.png)  `best_fields` 类型也是字段中心式的， 它也存在类似的问题。  
+
+首先查看这些问题存在的原因，再想如何解决它们。
+
+
+
+**问题 1 ：在多个字段中匹配相同的词**
+
+回想一下 `most_fields` 查询是如何执行的：Elasticsearch 为每个字段生成独立的 `match` 查询，再用 `bool`查询将他们包起来。
+
+可以通过 `validate-query` API 查看：
+
+```js
+GET /_validate/query?explain
+{
+  "query": {
+    "multi_match": {
+      "query":   "Poland Street W1V",
+      "type":    "most_fields",
+      "fields":  [ "street", "city", "country", "postcode" ]
+    }
+  }
+}
+```
+
+生成 `explanation` 解释：
+
+```
+(street:poland   street:street   street:w1v)
+(city:poland     city:street     city:w1v)
+(country:poland  country:street  country:w1v)
+(postcode:poland postcode:street postcode:w1v)
+```
+
+可以发现， *两个* 字段都与 `poland` 匹配的文档要比一个字段同时匹配 `poland` 与 `street` 文档的评分高。
+
+
+
+**问题 2 ：剪掉长尾**
+
+在 [匹配精度](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-multi-word.html#match-precision) 中，我们讨论过使用 `and` 操作符或设置 `minimum_should_match` 参数来消除结果中几乎不相关的长尾，或许可以尝试以下方式：
+
+```js
+{
+    "query": {
+        "multi_match": {
+            "query":       "Poland Street W1V",
+            "type":        "most_fields",
+            "operator":    "and",                                        <1>
+            "fields":      [ "street", "city", "country", "postcode" ]
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  所有词必须呈现。 
+
+但是对于 `best_fields` 或 `most_fields` 这些参数会在 `match` 查询生成时被传入，这个查询的 `explanation` 解释如下：
+
+```
+(+street:poland   +street:street   +street:w1v)
+(+city:poland     +city:street     +city:w1v)
+(+country:poland  +country:street  +country:w1v)
+(+postcode:poland +postcode:street +postcode:w1v)
+```
+
+换句话说，使用 `and` 操作符要求所有词都必须存在于 *相同字段* ，这显然是不对的！可能就不存在能与这个查询匹配的文档。
+
+
+
+**问题 3 ：词频**
+
+在 [什么是相关](https://www.elastic.co/guide/cn/elasticsearch/guide/current/relevance-intro.html) 中，我们解释过每个词默认使用 TF/IDF 相似度算法计算相关度评分：
+
+- 词频
+
+  一个词在单个文档的某个字段中出现的频率越高，这个文档的相关度就越高。
+
+- 逆向文档频率
+
+  一个词在所有文档某个字段索引中出现的频率越高，这个词的相关度就越低。
+
+当搜索多个字段时，TF/IDF 会带来某些令人意外的结果。
+
+想想用字段 `first_name` 和 `last_name` 查询 “Peter Smith” 的例子， Peter 是个平常的名 Smith 也是平常的姓，这两者都具有较低的 IDF 值。但当索引中有另外一个人的名字是 “Smith Williams” 时， Smith 作为名来说很不平常，以致它有一个较高的 IDF 值！
+
+下面这个简单的查询可能会在结果中将 “Smith Williams” 置于 “Peter Smith” 之上，尽管事实上是第二个人比第一个人更为匹配。
+
+```js
+{
+    "query": {
+        "multi_match": {
+            "query":       "Peter Smith",
+            "type":        "most_fields",
+            "fields":      [ "*_name" ]
+        }
+    }
+}
+```
+
+这里的问题是 `smith` 在名字段中具有高 IDF ，它会削弱 “Peter” 作为名和 “Smith” 作为姓时低 IDF 的所起作用。
+
+
+
+**解决方案**
+
+存在这些问题仅仅是因为我们在处理着多个字段，如果将所有这些字段组合成单个字段，问题就会消失。可以为 `person` 文档添加 `full_name` 字段来解决这个问题：
+
+```js
+{
+    "first_name":  "Peter",
+    "last_name":   "Smith",
+    "full_name":   "Peter Smith"
+}
+```
+
+当查询 `full_name` 字段时：
+
+- 具有更多匹配词的文档会比只有一个重复匹配词的文档更重要。
+- `minimum_should_match` 和 `operator` 参数会像期望那样工作。
+- 姓和名的逆向文档频率被合并，所以 Smith 到底是作为姓还是作为名出现，都会变得无关紧要。
+
+这么做当然是可行的，但我们并不太喜欢存储冗余数据。取而代之的是 Elasticsearch 可以提供两个解决方案——一个在索引时，而另一个是在搜索时——随后会讨论它们。
+
+
+
+#### 自定义 _all 字段  {#自定义all字段}
+
+在 [all-field](https://www.elastic.co/guide/cn/elasticsearch/guide/current/root-object.html#all-field) 字段中，我们解释过 `_all` 字段的索引方式是将所有其他字段的值作为一个大字符串索引的。然而这么做并不十分灵活，为了灵活我们可以给人名添加一个自定义 `_all` 字段，再为地址添加另一个 `_all` 字段。
+
+Elasticsearch 在字段映射中为我们提供 `copy_to` 参数来实现这个功能：
+
+```js
+PUT /my_index
+{
+    "mappings": {
+        "person": {
+            "properties": {
+                "first_name": {
+                    "type":     "string",
+                    "copy_to":  "full_name"       <1>
+                },
+                "last_name": {
+                    "type":     "string",
+                    "copy_to":  "full_name"       <2>
+                },
+                "full_name": {
+                    "type":     "string"
+                }
+            }
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  ![img](assets/2.png)  `first_name` 和 `last_name` 字段中的值会被复制到 `full_name` 字段。 
+
+有了这个映射，我们可以用 `first_name` 来查询名，用 `last_name` 来查询姓，或者直接使用 `full_name` 查询整个姓名。
+
+`first_name` 和 `last_name` 的映射并不影响 `full_name` 如何被索引， `full_name` 将两个字段的内容复制到本地，然后根据 `full_name` 的映射自行索引。
+
+----
+
+>  ![警告](assets/warning.png)  `copy_to` 设置对[multi-field](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-fields.html)无效。如果尝试这样配置映射，Elasticsearch 会抛异常。 
+
+为什么呢？多字段只是以不同方式简单索引“主”字段；它们没有自己的数据源。也就是说没有可供 `copy_to` 到另一字段的数据源。
+
+只要对“主”字段 `copy_to` 就能轻而易举的达到相同的效果：
+
+```js
+PUT /my_index
+{
+    "mappings": {
+        "person": {
+            "properties": {
+                "first_name": {
+                    "type":     "string",
+                    "copy_to":  "full_name",   <1>
+                    "fields": {
+                        "raw": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        }
+                    }
+                },
+                "full_name": {
+                    "type":     "string"
+                }
+            }
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  `copy_to` 是针对“主”字段，而不是多字段的   
+
+----
+
+
+
+#### cross-fields 跨字段查询  {#crossfields跨字段查询}
+
+自定义 `_all` 的方式是一个好的解决方案，只需在索引文档前为其设置好映射。 不过， Elasticsearch 还在搜索时提供了相应的解决方案：使用 `cross_fields` 类型进行 `multi_match` 查询。 `cross_fields` 使用词中心式（term-centric）的查询方式，这与 `best_fields` 和 `most_fields` 使用字段中心式（field-centric）的查询方式非常不同，它将所有字段当成一个大字段，并在 *每个字段* 中查找 *每个词* 。
+
+为了说明字段中心式（field-centric）与词中心式（term-centric）这两种查询方式的不同， 先看看以下字段中心式的 `most_fields` 查询的 `explanation` 解释：
+
+```js
+GET /_validate/query?explain
+{
+    "query": {
+        "multi_match": {
+            "query":       "peter smith",
+            "type":        "most_fields",
+            "operator":    "and",                          <1>
+            "fields":      [ "first_name", "last_name" ]
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  所有词都是必须的。
+
+对于匹配的文档， `peter` 和 `smith` 都必须同时出现在相同字段中，要么是 `first_name` 字段，要么 `last_name` 字段：
+
+```
+(+first_name:peter +first_name:smith)
+(+last_name:peter  +last_name:smith)
+```
+
+*词中心式* 会使用以下逻辑：
+
+```
++(first_name:peter last_name:peter)
++(first_name:smith last_name:smith)
+```
+
+换句话说，词 `peter` 和 `smith` 都必须出现，但是可以出现在任意字段中。
+
+`cross_fields` 类型首先分析查询字符串并生成一个词列表，然后它从所有字段中依次搜索每个词。这种不同的搜索方式很自然的解决了 [字段中心式](https://www.elastic.co/guide/cn/elasticsearch/guide/current/field-centric.html) 查询三个问题中的二个。剩下的问题是逆向文档频率不同。
+
+幸运的是 `cross_fields` 类型也能解决这个问题，通过 `validate-query` 可以看到：
+
+```js
+GET /_validate/query?explain
+{
+    "query": {
+        "multi_match": {
+            "query":       "peter smith",
+            "type":        "cross_fields",                 <1>
+            "operator":    "and",
+            "fields":      [ "first_name", "last_name" ]
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  用 `cross_fields` 词中心式匹配。  
+
+它通过 *混合* 不同字段逆向索引文档频率的方式解决了词频的问题：
+
+```
++blended("peter", fields: [first_name, last_name])
++blended("smith", fields: [first_name, last_name])
+```
+
+换句话说，它会同时在 `first_name` 和 `last_name` 两个字段中查找 `smith` 的 IDF ，然后用两者的最小值作为两个字段的 IDF 。结果实际上就是 `smith` 会被认为既是个平常的姓，也是平常的名。
+
+------
+>  
+>  ![注意](assets/note.png)  为了让 `cross_fields` 查询以最优方式工作，所有的字段都须使用相同的分析器， 具有相同分析器的字段会被分组在一起作为混合字段使用。
+>  
+>  如果包括了不同分析链的字段，它们会以 `best_fields` 的相同方式被加入到查询结果中。例如：我们将 `title` 字段加到之前的查询中（假设它们使用的是不同的分析器）， explanation 的解释结果如下：
+>  
+>  ```
+>  (+title:peter +title:smith)
+>  (
+>    +blended("peter", fields: [first_name, last_name])
+>    +blended("smith", fields: [first_name, last_name])
+>  )
+>  ```
+>  
+>  当在使用 `minimum_should_match` 和 `operator` 参数时，这点尤为重要。
+>  
+------
+
+
+
+**按字段提高权重**
+
+采用 `cross_fields` 查询与 [自定义 `_all` 字段](https://www.elastic.co/guide/cn/elasticsearch/guide/current/custom-all.html) 相比，其中一个优势就是它可以在搜索时为单个字段提升权重。
+
+这对像 `first_name` 和 `last_name` 具有相同值的字段并不是必须的，但如果要用 `title` 和 `description`字段搜索图书，可能希望为 `title` 分配更多的权重，这同样可以使用前面介绍过的 `^` 符号语法来实现：
+
+```js
+GET /books/_search
+{
+    "query": {
+        "multi_match": {
+            "query":       "peter smith",
+            "type":        "cross_fields",
+            "fields":      [ "title^2", "description" ]     <1>
+        }
+    }
+}
+```
+>  ![img](assets/1.png)  `title` 字段的权重提升值为 `2` ， `description` 字段的权重提升值默认为 `1` 。   
+
+自定义单字段查询是否能够优于多字段查询，取决于在多字段查询与单字段自定义 `_all` 之间代价的权衡，即哪种解决方案会带来更大的性能优化就选择哪一种。
+
+
+
+#### Exact-Value 精确值字段  {#ExactValue精确值字段}
+
+在结束多字段查询这个话题之前，我们最后要讨论的是精确值 `not_analyzed` 未分析字段。 将 `not_analyzed` 字段与 `multi_match` 中 `analyzed` 字段混在一起没有多大用处。
+
+原因可以通过查看查询的 explanation 解释得到，设想将 `title` 字段设置成 `not_analyzed` ：
+
+```js
+GET /_validate/query?explain
+{
+    "query": {
+        "multi_match": {
+            "query":       "peter smith",
+            "type":        "cross_fields",
+            "fields":      [ "title", "first_name", "last_name" ]
+        }
+    }
+}
+```
+
+因为 `title` 字段是未分析过的，Elasticsearch 会将 “peter smith” 这个完整的字符串作为查询条件来搜索！
+
+```
+title:peter smith
+(
+    blended("peter", fields: [first_name, last_name])
+    blended("smith", fields: [first_name, last_name])
+)
+```
+
+显然这个项不在 `title` 的倒排索引中，所以需要在 `multi_match` 查询中避免使用 `not_analyzed` 字段。
+
+
 
 
 

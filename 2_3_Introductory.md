@@ -12,7 +12,7 @@
 
 ```js
 GET /_search
-{} <1>
+{}              <1>
 ```
 >  ![img](assets/1.png)   这是一个空的请求体。  
 
@@ -412,7 +412,7 @@ Elasticsearch 使用的查询语言（DSL） 拥有一套查询组件，这些�
             { "match": { "tag": "starred" }}
         ],
         "filter": {
-          "range": { "date": { "gte": "2014-01-01" }}   <1>
+          "range": { "date": { "gte": "2014-01-01" }}                     <1>
         }
     }
 }
@@ -436,7 +436,7 @@ Elasticsearch 使用的查询语言（DSL） 拥有一套查询组件，这些�
             { "match": { "tag": "starred" }}
         ],
         "filter": {
-          "bool": {   <1>
+          "bool": {                                                   <1>
               "must": [
                   { "range": { "date": { "gte": "2014-01-01" }}},
                   { "range": { "price": { "lte": 29.99 }}}
@@ -463,7 +463,7 @@ Elasticsearch 使用的查询语言（DSL） 拥有一套查询组件，这些�
 {
     "constant_score":   {
         "filter": {
-            "term": { "category": "ebooks" }   <1>
+            "term": { "category": "ebooks" }       <1>
         }
     }
 }
@@ -505,7 +505,7 @@ GET /gb/tweet/_validate/query
 为了找出 查询不合法的原因，可以将 `explain` 参数 加到查询字符串中：
 
 ```js
-GET /gb/tweet/_validate/query?explain   <1>
+GET /gb/tweet/_validate/query?explain                 <1>
 {
    "query": {
       "tweet" : {
@@ -642,17 +642,17 @@ GET /_search
 ```js
 "hits" : {
     "total" :           6,
-    "max_score" :       null, <1>
+    "max_score" :       null,                 <1>
     "hits" : [ {
         "_index" :      "us",
         "_type" :       "tweet",
         "_id" :         "14",
-        "_score" :      null,   <2>
+        "_score" :      null,                 <2>
         "_source" :     {
              "date":    "2014-09-24",
              ...
         },
-        "sort" :        [ 1411516800000 ]   <3>
+        "sort" :        [ 1411516800000 ]     <3>
     },
     ...
 }
@@ -746,11 +746,11 @@ GET /_search
 为一个多字段映射如：
 
 ```js
-"tweet": { <1>
+"tweet": {                                <1>
     "type":     "string",
     "analyzer": "english",
     "fields": {
-        "raw": {   <2>
+        "raw": {                          <2>
             "type":  "string",
             "index": "not_analyzed"
         }
@@ -813,7 +813,7 @@ Elasticsearch 的相似度算法 被定义为检索词频率/反向文档频率�
 当调试一条复杂的查询语句时， 想要理解 `_score` 究竟是如何计算是比较困难的。Elasticsearch 在 每个查询语句中都有一个 explain 参数，将 `explain` 设为 `true` 就可以得到更详细的信息。
 
 ```js
-GET /_search?explain   <1>
+GET /_search?explain                                          <1>
 {
    "query"   : { "match" : { "tweet" : "honeymoon" }}
 }
@@ -843,7 +843,7 @@ GET /_search?explain   <1>
 然后它提供了 `_explanation` 。每个 入口都包含一个 `description` 、 `value` 、 `details` 字段，它分别告诉你计算的类型、计算结果和任何我们需要的计算细节。
 
 ```js
-"_explanation": {   <1>
+"_explanation": {                                                          <1>
    "description": "weight(tweet:honeymoon in 0)
                   [PerFieldSimilarity], result of:",
    "value":       0.076713204,
@@ -852,7 +852,7 @@ GET /_search?explain   <1>
          "description": "fieldWeight in 0, product of:",
          "value":       0.076713204,
          "details": [
-            {  <2>
+            {                                                              <2>
                "description": "tf(freq=1.0), with freq of:",
                "value":       1,
                "details": [
@@ -862,11 +862,11 @@ GET /_search?explain   <1>
                   }
                ]
             },
-            {  <3>
+            {                                                             <3>
                "description": "idf(docFreq=1, maxDocs=1)",
                "value":       0.30685282
             },
-            { <4>
+            {                                                            <4>
                "description": "fieldNorm(doc=0)",
                "value":        0.25,
             }
@@ -1102,7 +1102,7 @@ GET /us/tweet/12/_explain
 
 ```js
     ...
-    "timed_out":     true,  <1>
+    "timed_out":     true,                                            <1>
     ...
 ```
 >  ![img](assets/1.png)  这个搜索请求超时了。   
@@ -1148,10 +1148,10 @@ GET /_search?search_type=dfs_query_then_fetch
 启用游标查询可以通过在查询的时候设置参数 `scroll` 的值为我们期望的游标查询的过期时间。 游标查询的过期时间会在每次做查询的时候刷新，所以这个时间只需要足够处理当前批的结果就可以了，而不是处理查询结果的所有文档的所需时间。 这个过期时间的参数很重要，因为保持这个游标查询窗口需要消耗资源，所以我们期望如果不再需要维护这种资源就该早点儿释放掉。 设置这个超时能够让 Elasticsearch 在稍后空闲的时候自动释放这部分资源。
 
 ```js
-GET /old_index/_search?scroll=1m   <1>
+GET /old_index/_search?scroll=1m                                  <1>
 {
     "query": { "match_all": {}},
-    "sort" : ["_doc"],   <2>
+    "sort" : ["_doc"],                                            <2>
     "size":  1000
 }
 ```
@@ -1164,7 +1164,7 @@ GET /old_index/_search?scroll=1m   <1>
 ```js
 GET /_search/scroll
 {
-    "scroll": "1m",   <1>
+    "scroll": "1m",                                    <1>
     "scroll_id" : "cXVlcnlUaGVuRmV0Y2g7NTsxMDk5NDpkUmpiR2FjOFNhNnlCM1ZDMWpWYnRROzEwOTk1OmRSamJHYWM4U2E2eUIzVkMxalZidFE7MTA5OTM6ZFJqYkdhYzhTYTZ5QjNWQzFqVmJ0UTsxMTE5MDpBVUtwN2lxc1FLZV8yRGVjWlI2QUVBOzEwOTk2OmRSamJHYWM4U2E2eUIzVkMxalZidFE7MDs="
 }
 ```

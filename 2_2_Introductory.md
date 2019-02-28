@@ -980,7 +980,7 @@ DELETE /gb
 然后创建一个新索引，指定 `tweet` 域使用 `english` 分析器：
 
 ```js
-PUT /gb   <1>
+PUT /gb                             <1>
 {
   "mappings": {
     "tweet" : {
@@ -1033,13 +1033,13 @@ PUT /gb/_mapping/tweet
 GET /gb/_analyze
 {
   "field": "tweet",
-  "text": "Black-cats"   <1>
+  "text": "Black-cats"     <1>
 }
 
 GET /gb/_analyze
 {
   "field": "tag",
-  "text": "Black-cats"   <2>
+  "text": "Black-cats"     <2>
 }
 ```
 >  ![img](assets/1.png)  ![img](assets/2.png)  消息体里面传输我们想要分析的文本。  
@@ -1116,16 +1116,16 @@ Elasticsearch 会动态 监测新的对象域并映射它们为 `对象` ，在 
 ```js
 {
   "gb": {
-    "tweet": { <1>
+    "tweet": {                                      <1>
       "properties": {
         "tweet":            { "type": "string" },
-        "user": { <2>
+        "user": {                                   <2>
           "type":             "object",
           "properties": {
             "id":           { "type": "string" },
             "gender":       { "type": "string" },
             "age":          { "type": "long"   },
-            "name":   { <3>
+            "name":   {                             <3>
               "type":         "object",
               "properties": {
                 "full":     { "type": "string" },
