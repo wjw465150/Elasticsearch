@@ -1,4 +1,4 @@
-## 深入搜索
+# 深入搜索
 
 
 
@@ -12,7 +12,7 @@
 
 
 
-### 结构化搜索
+## 结构化搜索
 
 *结构化搜索（Structured search）* 是指有关探询那些具有内在结构数据的过程。比如日期、时间和数字都是结构化的：它们有精确的格式，我们可以对这些格式进行逻辑操作。比较常见的操作包括比较数字或时间的范围，或判定两个值的大小。
 
@@ -24,7 +24,7 @@
 
 
 
-#### 精确值查找
+### 精确值查找
 
 当进行精确值查找时， 我们会使用过滤器（filters）。过滤器很重要，因为它们执行速度非常快，不会计算相关度（直接跳过了整个评分阶段）而且很容易被缓存。我们会在本章后面的 [过滤器缓存](https://www.elastic.co/guide/cn/elasticsearch/guide/current/filter-caching.html) 中讨论过滤器的性能优势，不过现在只要记住：请尽可能多的使用过滤式查询。
 
@@ -276,7 +276,7 @@ GET /my_store/products/_search
 
 
 
-#### 组合过滤器
+### 组合过滤器
 
 前面的两个例子都是单个过滤器（filter）的使用方式。 在实际应用中，我们很有可能会过滤多个值或字段。比方说，怎样用 Elasticsearch 来表达下面的 SQL ？
 
@@ -446,7 +446,7 @@ GET /my_store/products/_search
 
 
 
-#### 查找多个精确值
+### 查找多个精确值
 
 `term` 查询对于查找单个值非常有用，但通常我们可能想搜索多个值。 如果我们想要查找价格字段值为 $20 或 $30 的文档该如何处理呢？
 
@@ -572,7 +572,7 @@ GET /my_index/my_type/_search
 
 
 
-#### 范围
+### 范围
 
 本章到目前为止，对于数字，只介绍如何处理精确值查询。 实际上，对数字范围进行过滤有时会更有用。例如，我们可能想要查找所有价格大于 $20 且小于 $40 美元的产品。
 
@@ -700,7 +700,7 @@ GET /my_store/products/_search
 
 
 
-#### 处理 Null 值  {#处理Null值}
+### 处理 Null 值  {#处理Null值}
 
 回想在之前例子中，有的文档有名为 `tags` （标签）的字段，它是个多值字段， 一个文档可能有一个或多个标签，也可能根本就没有标签。如果一个字段没有值，那么如何将它存入倒排索引中的呢？
 
@@ -905,7 +905,7 @@ GET /my_index/posts/_search
 
 
 
-#### 关于缓存
+### 关于缓存
 
 在本章前面（[过滤器的内部操作](https://www.elastic.co/guide/cn/elasticsearch/guide/current/_finding_exact_values.html#_internal_filter_operation)）中，我们已经简单介绍了过滤器是如何计算的。 其核心实际是采用一个 bitset 记录与过滤器匹配的文档。Elasticsearch 积极地把这些 bitset 缓存起来以备随后使用。一旦缓存成功，bitset 可以复用 *任何* 已使用过的相同过滤器，而无需再次计算整个过滤器。
 
@@ -971,7 +971,7 @@ GET /inbox/emails/_search
 
 
 
-### 全文搜索
+## 全文搜索
 
 我们已经介绍了搜索结构化数据的简单应用示例，现在来探寻 *全文搜索（full-text search）* ：怎样在全文字段中搜索到最相关的文档。
 
@@ -989,7 +989,7 @@ GET /inbox/emails/_search
 
 
 
-#### 基于词项与基于全文
+### 基于词项与基于全文
 
 所有查询会或多或少的执行相关度计算，但不是所有查询都有分析阶段。 和一些特殊的完全不会对文本进行操作的查询（如 `bool` 或 `function_score` ）不同，文本查询可以划分成两大家族：
 
@@ -1021,7 +1021,7 @@ GET /inbox/emails/_search
 
 
 
-#### 匹配查询
+### 匹配查询
 
 匹配查询 `match` 是个 *核心* 查询。无论需要查询什么字段， `match` 查询都应该会是首选的查询方式。 它是一个高级 *全文查询* ，这表示它既能处理全文字段，又能处理精确字段。
 
@@ -1119,7 +1119,7 @@ Elasticsearch 执行上面这个 `match` 查询的步骤是：
 
 
 
-#### 多词查询
+### 多词查询
 
 如果我们一次只能搜索一个词，那么全文搜索就会不太灵活，幸运的是 `match` 查询让多词查询变得简单：
 
@@ -1232,7 +1232,7 @@ GET /my_index/my_type/_search
 
 
 
-#### 组合查询
+### 组合查询
 
 在 [组合过滤器](https://www.elastic.co/guide/cn/elasticsearch/guide/current/combining-filters.html) 中，我们讨论过如何使用 `bool` 过滤器通过 `and` 、 `or` 和 `not` 逻辑组合将多个过滤器进行组合。在查询中， `bool` 查询有类似的功能，只有一个重要的区别。
 
@@ -1315,7 +1315,7 @@ GET /my_index/my_type/_search
 
 
 
-#### 如何使用布尔匹配
+### 如何使用布尔匹配
 
 目前为止，可能已经意识到[多词 `match` 查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-multi-word.html)只是简单地将生成的 `term` 查询包裹 在一个 `bool` 查询中。如果使用默认的 `or` 操作符，每个 `term` 查询都被当作 `should` 语句，这样就要求必须至少匹配一条语句。以下两个查询是等价的：
 
@@ -1382,7 +1382,7 @@ GET /my_index/my_type/_search
 
 
 
-#### 查询语句提升权重
+### 查询语句提升权重
 
 当然 `bool` 查询不仅限于组合简单的单个词 `match` 查询， 它可以组合任意其他的查询，以及其他 `bool` 查询。 普遍的用法是通过汇总多个独立查询的分数，从而达到为每个文档微调其相关度评分 `_score` 的目的。
 
@@ -1468,7 +1468,7 @@ GET /_search
 
 
 
-#### 控制分析
+### 控制分析
 
 查询只能查找倒排索引表中真实存在的项， 所以保证文档在索引时与查询字符串在搜索时应用相同的分析过程非常重要，这样查询的项才能够匹配倒排索引中的项。
 
@@ -1580,7 +1580,7 @@ GET /my_index/my_type/_validate/query?explain
 
 
 
-#### 被破坏的相关度！  {#被破坏的相关度}
+### 被破坏的相关度！  {#被破坏的相关度}
 
 在讨论更复杂的 [多字段搜索](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-field-search.html) 之前，让我们先快速解释一下为什么只在主分片上 [创建测试索引](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-query.html#match-test-data) 。
 
@@ -1603,7 +1603,7 @@ GET /my_index/my_type/_validate/query?explain
 
 
 
-### 多字段搜索
+## 多字段搜索
 
 查询很少是简单一句话的 `match` 匹配查询。通常我们需要用相同或不同的字符串查询一个或多个字段，也就是说，需要对多个查询语句以及它们相关度评分进行合理的合并。
 
@@ -1613,7 +1613,7 @@ GET /my_index/my_type/_validate/query?explain
 
 
 
-#### 多字符串查询
+### 多字符串查询
 
 最简单的多字段查询可以将搜索项映射到具体的字段。 如果我们知道 *War and Peace* 是标题，Leo Tolstoy 是作者，很容易就能把两个条件用 `match` 语句表示， 并将它们用 [`bool` 查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/bool-query.html) 组合起来：
 
@@ -1700,7 +1700,7 @@ GET /_search
 
 
 
-#### 单字符串查询
+### 单字符串查询
 
 `bool` 查询是多语句查询的主干。 它的适用场景很多，特别是当需要将不同查询字符串映射到不同字段的时候。
 
@@ -1728,7 +1728,7 @@ GET /_search
 
 
 
-#### 最佳字段
+### 最佳字段
 
 假设有个网站允许用户搜索博客的内容， 以下面两篇博客内容文档为例：
 
@@ -1845,7 +1845,7 @@ PUT /my_index/my_type/2
 
 
 
-#### 最佳字段查询调优
+### 最佳字段查询调优
 
 当用户搜索 “quick pets” 时会发生什么呢？ 在前面的例子中，两个文档都包含词 `quick` ，但是只有文档 2 包含词 `pets` ，两个文档中都不具有同时包含 *两个词* 的 *相同字段* 。
 
@@ -1949,7 +1949,7 @@ PUT /my_index/my_type/2
 
 
 
-#### multi_match 查询  {#multi_match查询}
+### multi_match 查询  {#multi_match查询}
 
 `multi_match` 查询为能在多个字段上反复执行相同查询提供了一种便捷方式。
 
@@ -2031,7 +2031,7 @@ PUT /my_index/my_type/2
 
 
 
-#### 多数字段
+### 多数字段
 
 全文搜索被称作是 *召回率（Recall）* 与 *精确率（Precision）* 的战场： *召回率* ——返回所有的相关文档；*精确率* ——不返回无关文档。目的是在结果的第一页中为用户呈现最为相关的文档。
 
@@ -2191,7 +2191,7 @@ GET /my_index/_search
 
 
 
-#### 跨字段实体搜索
+### 跨字段实体搜索
 
 现在讨论一种普遍的搜索模式：跨字段实体搜索（cross-fields entity search）。 在如 `person` 、 `product`或 `address` （人、产品或地址）这样的实体中，需要使用多个字段来唯一标识它的信息。 `person` 实体可能是这样索引的：
 
@@ -2260,7 +2260,7 @@ GET /my_index/_search
 
 
 
-#### 字段中心式查询
+### 字段中心式查询
 
 以上三个源于 `most_fields` 的问题都因为它是 *字段中心式（field-centric）* 而不是 *词中心式（term-centric）* 的：当真正感兴趣的是匹配词的时候，它为我们查找的是最匹配的 *字段* 。
 >  ![注意](assets/note.png)  `best_fields` 类型也是字段中心式的， 它也存在类似的问题。  
@@ -2388,7 +2388,7 @@ GET /_validate/query?explain
 
 
 
-#### 自定义 _all 字段  {#自定义all字段}
+### 自定义 _all 字段  {#自定义all字段}
 
 在 [all-field](https://www.elastic.co/guide/cn/elasticsearch/guide/current/root-object.html#all-field) 字段中，我们解释过 `_all` 字段的索引方式是将所有其他字段的值作为一个大字符串索引的。然而这么做并不十分灵活，为了灵活我们可以给人名添加一个自定义 `_all` 字段，再为地址添加另一个 `_all` 字段。
 
@@ -2460,7 +2460,7 @@ PUT /my_index
 
 
 
-#### cross-fields 跨字段查询  {#crossfields跨字段查询}
+### cross-fields 跨字段查询  {#crossfields跨字段查询}
 
 自定义 `_all` 的方式是一个好的解决方案，只需在索引文档前为其设置好映射。 不过， Elasticsearch 还在搜索时提供了相应的解决方案：使用 `cross_fields` 类型进行 `multi_match` 查询。 `cross_fields` 使用词中心式（term-centric）的查询方式，这与 `best_fields` 和 `most_fields` 使用字段中心式（field-centric）的查询方式非常不同，它将所有字段当成一个大字段，并在 *每个字段* 中查找 *每个词* 。
 
@@ -2569,7 +2569,7 @@ GET /books/_search
 
 
 
-#### Exact-Value 精确值字段  {#ExactValue精确值字段}
+### Exact-Value 精确值字段  {#ExactValue精确值字段}
 
 在结束多字段查询这个话题之前，我们最后要讨论的是精确值 `not_analyzed` 未分析字段。 将 `not_analyzed` 字段与 `multi_match` 中 `analyzed` 字段混在一起没有多大用处。
 
