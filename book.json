@@ -13,6 +13,7 @@
     "expandable-chapters-small@^0.1.7",
     "anchor-navigation-ex@0.1.8",
     "book-summary-scroll-position-saver",
+    "ace", "emphasize",
     "-lunr", "-search", "search-plus"
   ],
   "pluginsConfig": {

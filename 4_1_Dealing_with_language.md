@@ -1035,10 +1035,11 @@ Position 1     Position 2
 >  **Unicode归一化形式 (Normalization Forms)**
 >
 >  ```
->  _组合_ (_composed_) 模式—`nfc` 和 `nfkc`—用尽可能少的字节(byte)来代表字符。 ((("composed forms (Unicode normalization)"))) 所以用 `é` 来代表单个字母 `é` 。  _分解_ （_decomposed_） 模式—`nfd` and `nfkd`—用字符的每一部分来代表字符。所以 `é` 分解为 `e` 和 `´`。 ((("decomposed forms (Unicode normalization)")))
+  _组合_ (_composed_) 模式—`nfc` 和 `nfkc`—用尽可能少的字节(byte)来代表字符。 ((("composed forms (Unicode normalization)"))) 所以用 `é` 来代表单个字母 `é` 。  _分解_ （_decomposed_） 模式—`nfd` and `nfkd`—用字符的每一部分来代表字符。所以 `é` 分解为 `e` 和 `´`。 ((("decomposed forms (Unicode normalization)")))
 >  ```
 >
->  *规范* (*canonical*) 模式—`nfc` 和 `nfd`&—把连字作为单个字符，例如 `ﬃ` 或者 `œ` 。 *兼容*(*compatibility*) 模式—`nfkc` 和 `nfkd`—将这些组合的字符分解成简单字符的等价物，例如： `f` + `f` + `i` 或者 `o` + `e`.
+>  *规范* (*canonical*) 模式—`nfc` 和 `nfd`&—把连字作为单个字符，例如 `ﬃ` 或者 `œ` 。 *兼容*(*compatibility*) 模式—`nfkc` 和 `nfkd`—将这些组合的字符分解成简单字符的等价物，例如： `f` + `f` + `i` 或者 `o` + `e`.  
+
 ------
 
 无论你选择哪一个归一化(normalization)模式，只要你的文本只用一种模式，那你的同一个词元(token)就会由相同的字节(byte)组成。例如，*兼容* (*compatibility*) 模式 可以用连词 `ﬃ` 的简化形式 `ffi`来进行对比。
@@ -1133,7 +1134,7 @@ Weißkopfseeadler WEISSKOPFSEEADLER
 
 
 
-### Unicode 字符折叠  {#Unicode 字符折叠}
+### Unicode 字符折叠  {#Unicode字符折叠}
 
 ```
 在多语言((("Unicode", "character folding")))((("tokens", "normalizing", "Unicode character folding")))处理中，`lowercase` 语汇单元过滤器(token filters)是一个很好的开始。但是作为对比的话，也只是对于整个巴别塔的惊鸿一瞥。所以 <<asciifolding-token-filter,`asciifolding` token filter>> 需要更有效的Unicode _字符折叠_ (_character-folding_)工具来处理全世界的各种语言。((("asciifolding token filter")))
