@@ -1,0 +1,4633 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>聚合 · Elasticsearch权威指南中文版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="WS">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="5_1_Aggregations.html" />
+    
+    
+    <link rel="prev" href="4_2_Dealing_with_language.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    序言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1Preface.html">
+            
+                <a href="1Preface.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="1Preface.html">
+            
+                <a href="1Preface.html#谁应该读这本书">
+            
+                    
+                    谁应该读这本书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="1Preface.html">
+            
+                <a href="1Preface.html#为什么我们要写这本书">
+            
+                    
+                    为什么我们要写这本书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="1Preface.html">
+            
+                <a href="1Preface.html#Elasticsearch版本">
+            
+                    
+                    Elasticsearch版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="1Preface.html">
+            
+                <a href="1Preface.html#如何读这本书">
+            
+                    
+                    如何读这本书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="1Preface.html">
+            
+                <a href="1Preface.html#本书导航">
+            
+                    
+                    本书导航
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="1Preface.html">
+            
+                <a href="1Preface.html#在线资源">
+            
+                    
+                    在线资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="1Preface.html">
+            
+                <a href="1Preface.html#本书协议约定">
+            
+                    
+                    本书协议约定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="1Preface.html">
+            
+                <a href="1Preface.html#使用代码示例">
+            
+                    
+                    使用代码示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="1Preface.html">
+            
+                <a href="1Preface.html#鸣谢">
+            
+                    
+                    鸣谢
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html">
+            
+                    
+                    基础入门
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#你知道的为了搜索">
+            
+                    
+                    你知道的, 为了搜索…
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#安装并运行Elasticsearch">
+            
+                    
+                    安装并运行Elasticsearch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.2" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#安装Sense">
+            
+                    
+                    安装Sense
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.3" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#和Elasticsearch交互">
+            
+                    
+                    和Elasticsearch交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.4" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#面向文档">
+            
+                    
+                    面向文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.5" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#适应新环境">
+            
+                    
+                    适应新环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.6" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#索引雇员文档">
+            
+                    
+                    索引雇员文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.7" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#检索文档">
+            
+                    
+                    检索文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.8" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#轻量搜索">
+            
+                    
+                    轻量搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.9" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#使用查询表达式搜索">
+            
+                    
+                    使用查询表达式搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.10" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#更复杂的搜索">
+            
+                    
+                    更复杂的搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.11" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#全文搜索">
+            
+                    
+                    全文搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.12" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#短语搜索">
+            
+                    
+                    短语搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.13" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#高亮搜索">
+            
+                    
+                    高亮搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.14" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#分析">
+            
+                    
+                    分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.15" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#教程结语">
+            
+                    
+                    教程结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.16" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#分布式特性">
+            
+                    
+                    分布式特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.17" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#">
+            
+                    
+                    后续步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#集群内的原理">
+            
+                    
+                    集群内的原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#空集群">
+            
+                    
+                    空集群
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#集群健康">
+            
+                    
+                    集群健康
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#添加索引">
+            
+                    
+                    添加索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.4" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#添加故障转">
+            
+                    
+                    添加故障转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.5" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#水平扩容">
+            
+                    
+                    水平扩容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.6" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#应对故障">
+            
+                    
+                    应对故障
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#数据输入和输出">
+            
+                    
+                    数据输入和输出
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#什么是文档">
+            
+                    
+                    什么是文档?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.2" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#文档元数据">
+            
+                    
+                    文档元数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.3" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#索引文档">
+            
+                    
+                    索引文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.4" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#取回一个文档">
+            
+                    
+                    取回一个文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.5" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#检查文档是否存在">
+            
+                    
+                    检查文档是否存在
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.6" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#更新整个文档">
+            
+                    
+                    更新整个文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.7" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#创建新文档">
+            
+                    
+                    创建新文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.8" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#删除文档">
+            
+                    
+                    删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.9" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#处理冲突">
+            
+                    
+                    处理冲突
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.10" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#乐观并发控制">
+            
+                    
+                    乐观并发控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.11" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#文档的部分更新">
+            
+                    
+                    文档的部分更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.12" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#取回多个文档">
+            
+                    
+                    取回多个文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.13" data-path="2_1_Introductory.html">
+            
+                <a href="2_1_Introductory.html#代价较小的批量操作">
+            
+                    
+                    代价较小的批量操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#分布式文档存储">
+            
+                    
+                    分布式文档存储
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.4.1" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#路由一个文档到一个分片中">
+            
+                    
+                    路由一个文档到一个分片中
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.2" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#主分片和副本分片如何交互">
+            
+                    
+                    主分片和副本分片如何交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.3" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#新建索引和删除文档">
+            
+                    
+                    新建、索引和删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.4" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#取回一个文档">
+            
+                    
+                    取回一个文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.5" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#局部更新文档">
+            
+                    
+                    局部更新文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.6" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#多文档模式">
+            
+                    
+                    多文档模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#搜索最基本的工具">
+            
+                    
+                    搜索——最基本的工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.5.1" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#空搜索">
+            
+                    
+                    空搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.2" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#多索引多类型">
+            
+                    
+                    多索引，多类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.3" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#分页">
+            
+                    
+                    分页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.4" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#轻量搜索">
+            
+                    
+                    轻量搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#映射和分析">
+            
+                    
+                    映射和分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.6.1" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#精确值VS全文">
+            
+                    
+                    精确值 VS 全文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6.2" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#倒排索引">
+            
+                    
+                    倒排索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6.3" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#分析与分析器">
+            
+                    
+                    分析与分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6.4" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#映射">
+            
+                    
+                    映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6.5" data-path="2_2_Introductory.html">
+            
+                <a href="2_2_Introductory.html#复杂核心域类型">
+            
+                    
+                    复杂核心域类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#请求体查询">
+            
+                    
+                    请求体查询
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.7.1" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#空查询">
+            
+                    
+                    空查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.2" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#查询表达式">
+            
+                    
+                    查询表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.3" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#查询与过滤">
+            
+                    
+                    查询与过滤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.4" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#最重要的查询">
+            
+                    
+                    最重要的查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.5" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#组合多查询">
+            
+                    
+                    组合多查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.6" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#验证查询">
+            
+                    
+                    验证查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#排序与相关性">
+            
+                    
+                    排序与相关性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.8.1" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#排序">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8.2" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#字符串排序与多字段">
+            
+                    
+                    字符串排序与多字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8.3" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#什么是相关性">
+            
+                    
+                    什么是相关性?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8.4" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#DocValues介绍">
+            
+                    
+                    Doc Values 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#执行分布式检索">
+            
+                    
+                    执行分布式检索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.9.1" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#查询阶段">
+            
+                    
+                    查询阶段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9.2" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#取回阶段">
+            
+                    
+                    取回阶段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9.3" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#搜索选项">
+            
+                    
+                    搜索选项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9.4" data-path="2_3_Introductory.html">
+            
+                <a href="2_3_Introductory.html#游标查询Scroll">
+            
+                    
+                    游标查询 Scroll
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#索引管理">
+            
+                    
+                    索引管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.10.1" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#创建一个索引">
+            
+                    
+                    创建一个索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.2" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#删除一个索引">
+            
+                    
+                    删除一个索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.3" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#索引设置">
+            
+                    
+                    索引设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.4" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#配置分析器">
+            
+                    
+                    配置分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.5" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#自定义分析器">
+            
+                    
+                    自定义分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.6" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#类型和映射">
+            
+                    
+                    类型和映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.7" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#根对象">
+            
+                    
+                    根对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.8" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#动态映射">
+            
+                    
+                    动态映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.9" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#自定义动态映射">
+            
+                    
+                    自定义动态映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.10" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#缺省映射">
+            
+                    
+                    缺省映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.11" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#重新索引你的数据">
+            
+                    
+                    重新索引你的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10.12" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#索引别名和零停机">
+            
+                    
+                    索引别名和零停机
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#分片内部原理">
+            
+                    
+                    分片内部原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.11.1" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#使文本可被搜索">
+            
+                    
+                    使文本可被搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11.2" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#动态更新索引">
+            
+                    
+                    动态更新索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11.3" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#近实时搜索">
+            
+                    
+                    近实时搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11.4" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#持久化变更">
+            
+                    
+                    持久化变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11.5" data-path="2_4_Introductory.html">
+            
+                <a href="2_4_Introductory.html#段合并">
+            
+                    
+                    段合并
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#深入搜索">
+            
+                    
+                    深入搜索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#结构化搜索">
+            
+                    
+                    结构化搜索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#精确值查找">
+            
+                    
+                    精确值查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#组合过滤器">
+            
+                    
+                    组合过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#查找多个精确值">
+            
+                    
+                    查找多个精确值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.4" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#范围">
+            
+                    
+                    范围
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.5" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#处理Null值">
+            
+                    
+                    处理 Null 值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.6" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#关于缓存">
+            
+                    
+                    关于缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#全文搜索">
+            
+                    
+                    全文搜索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.2.1" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#基于词项与基于全文">
+            
+                    
+                    基于词项与基于全文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.2" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#匹配查询">
+            
+                    
+                    匹配查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.3" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#多词查询">
+            
+                    
+                    多词查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.4" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#组合查询">
+            
+                    
+                    组合查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.5" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#如何使用布尔匹配">
+            
+                    
+                    如何使用布尔匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.6" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#查询语句提升权重">
+            
+                    
+                    查询语句提升权重
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.7" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#控制分析">
+            
+                    
+                    控制分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.8" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#被破坏的相关度">
+            
+                    
+                    被破坏的相关度！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#多字段搜索">
+            
+                    
+                    多字段搜索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.3.1" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#多字符串查询">
+            
+                    
+                    多字符串查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.2" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#单字符串查询">
+            
+                    
+                    单字符串查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.3" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#最佳字段">
+            
+                    
+                    最佳字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.4" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#最佳字段查询调优">
+            
+                    
+                    最佳字段查询调优
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.5" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#multi_match查询">
+            
+                    
+                    multi_match 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.6" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#多数字段">
+            
+                    
+                    多数字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.7" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#跨字段实体搜索">
+            
+                    
+                    跨字段实体搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.8" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#字段中心式查询">
+            
+                    
+                    字段中心式查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.9" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#自定义all字段">
+            
+                    
+                    自定义 _all 字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.10" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#crossfields跨字段查询">
+            
+                    
+                    cross-fields 跨字段查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.11" data-path="3_1_DeepSearch.html">
+            
+                <a href="3_1_DeepSearch.html#ExactValue精确值字段">
+            
+                    
+                    Exact-Value 精确值字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#近似匹配">
+            
+                    
+                    近似匹配
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.4.1" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#短语匹配">
+            
+                    
+                    短语匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.2" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#混合起来">
+            
+                    
+                    混合起来
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.3" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#多值字段">
+            
+                    
+                    多值字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.4" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#越近越好">
+            
+                    
+                    越近越好
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.5" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#使用邻近度提高相关度">
+            
+                    
+                    使用邻近度提高相关度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.6" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#性能优化">
+            
+                    
+                    性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.7" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#寻找相关词">
+            
+                    
+                    寻找相关词
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#部分匹配">
+            
+                    
+                    部分匹配
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.1" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#邮编与结构化数据">
+            
+                    
+                    邮编与结构化数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#prefix前缀查询">
+            
+                    
+                    prefix 前缀查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.3" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#通配符与正则表达式查询">
+            
+                    
+                    通配符与正则表达式查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.4" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#查询时输入即搜索">
+            
+                    
+                    查询时输入即搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.5" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#索引时优化">
+            
+                    
+                    索引时优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.6" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#Ngrams在部分匹配的应用">
+            
+                    
+                    Ngrams 在部分匹配的应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.7" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#索引时输入即搜索">
+            
+                    
+                    索引时输入即搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.8" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#Ngrams在复合词的应用">
+            
+                    
+                    Ngrams 在复合词的应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#控制相关度">
+            
+                    
+                    控制相关度
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.6.1" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#相关度评分背后的理论">
+            
+                    
+                    相关度评分背后的理论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.2" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#Lucene的实用评分函数">
+            
+                    
+                    Lucene 的实用评分函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.3" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#查询时权重提升">
+            
+                    
+                    查询时权重提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.4" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#使用查询结构修改相关度">
+            
+                    
+                    使用查询结构修改相关度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.5" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#NotQuiteNot">
+            
+                    
+                    Not Quite Not
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.6" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#忽略TFIDF">
+            
+                    
+                    忽略 TF/IDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.7" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#functionscore查询">
+            
+                    
+                    function_score 查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.8" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#按受欢迎度提升权重">
+            
+                    
+                    按受欢迎度提升权重
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.9" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#过滤集提升权重">
+            
+                    
+                    过滤集提升权重
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.10" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#随机评分">
+            
+                    
+                    随机评分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.11" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#越近越好">
+            
+                    
+                    越近越好
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.12" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#理解price价格语句">
+            
+                    
+                    理解 price 价格语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.13" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#脚本评分">
+            
+                    
+                    脚本评分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.14" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#可插拔的相似度算法">
+            
+                    
+                    可插拔的相似度算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.15" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#更改相似度">
+            
+                    
+                    更改相似度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.16" data-path="3_2_DeepSearch.html">
+            
+                <a href="3_2_DeepSearch.html#调试相关度是最后10要做的事情">
+            
+                    
+                    调试相关度是最后 10% 要做的事情
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#处理人类语言">
+            
+                    
+                    处理人类语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#开始处理各种语言">
+            
+                    
+                    开始处理各种语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#使用语言分析器">
+            
+                    
+                    使用语言分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#配置语言分析器">
+            
+                    
+                    配置语言分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.3" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#混合语言的陷阱">
+            
+                    
+                    混合语言的陷阱
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.4" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#每份文档一种语言">
+            
+                    
+                    每份文档一种语言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.5" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#每个域一种语言">
+            
+                    
+                    每个域一种语言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.6" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#混合语言域">
+            
+                    
+                    混合语言域
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#词汇识别">
+            
+                    
+                    词汇识别
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#标准分析器">
+            
+                    
+                    标准分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.2" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#标准分词器">
+            
+                    
+                    标准分词器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.3" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#安装ICU插件">
+            
+                    
+                    安装 ICU 插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.4" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#icu分词器">
+            
+                    
+                    icu_分词器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.5" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#整理输入文本">
+            
+                    
+                    整理输入文本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#归一化词元">
+            
+                    
+                    归一化词元
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.3.1" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#举个例子">
+            
+                    
+                    举个例子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.2" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#如果有口音">
+            
+                    
+                    如果有口音
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.3" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#Unicode的世界">
+            
+                    
+                    Unicode的世界
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.4" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#Unicode大小写折叠">
+            
+                    
+                    Unicode 大小写折叠
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.5" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#Unicode字符折叠">
+            
+                    
+                    Unicode 字符折叠
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.6" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#排序和整理">
+            
+                    
+                    排序和整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#将单词还原为词根">
+            
+                    
+                    将单词还原为词根
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.4.1" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#词干提取算法">
+            
+                    
+                    词干提取算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4.2" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#字典词干提取器">
+            
+                    
+                    字典词干提取器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4.3" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#Hunspell词干提取器">
+            
+                    
+                    Hunspell 词干提取器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4.4" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#选择一个词干提取器">
+            
+                    
+                    选择一个词干提取器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4.5" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#控制词干提取">
+            
+                    
+                    控制词干提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4.6" data-path="4_1_Dealing_with_language.html">
+            
+                <a href="4_1_Dealing_with_language.html#原形词干提取">
+            
+                    
+                    原形词干提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#停用词性能与精度">
+            
+                    
+                    停用词: 性能与精度
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.5.1" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#停用词的优缺点">
+            
+                    
+                    停用词的优缺点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5.2" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#使用停用词">
+            
+                    
+                    使用停用词
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5.3" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#停用词与性能">
+            
+                    
+                    停用词与性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5.4" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#词项的分别管理">
+            
+                    
+                    词项的分别管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5.5" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#停用词与短语查询">
+            
+                    
+                    停用词与短语查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5.6" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#commongrams过滤器">
+            
+                    
+                    common_grams 过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5.7" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#停用词与相关性">
+            
+                    
+                    停用词与相关性
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#同义词">
+            
+                    
+                    同义词
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.6.1" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#使用同义词">
+            
+                    
+                    使用同义词
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6.2" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#同义词格式">
+            
+                    
+                    同义词格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6.3" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#扩展或收缩">
+            
+                    
+                    扩展或收缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6.4" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#同义词和分析链">
+            
+                    
+                    同义词和分析链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6.5" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#多词同义词和短语查询">
+            
+                    
+                    多词同义词和短语查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6.6" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#符号同义词">
+            
+                    
+                    符号同义词
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#拼写错误">
+            
+                    
+                    拼写错误
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.7.1" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#模糊性">
+            
+                    
+                    模糊性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7.2" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#模糊查询">
+            
+                    
+                    模糊查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7.3" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#模糊匹配查询">
+            
+                    
+                    模糊匹配查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7.4" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#模糊性评分">
+            
+                    
+                    模糊性评分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7.5" data-path="4_2_Dealing_with_language.html">
+            
+                <a href="4_2_Dealing_with_language.html#语音匹配">
+            
+                    
+                    语音匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#聚合">
+            
+                    
+                    聚合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#高阶概念">
+            
+                    
+                    高阶概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1.1" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#桶">
+            
+                    
+                    桶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.2" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#指标">
+            
+                    
+                    指标
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.3" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#桶和指标的组合">
+            
+                    
+                    桶和指标的组合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#尝试聚合">
+            
+                    
+                    尝试聚合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.2.1" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#添加度量指标">
+            
+                    
+                    添加度量指标
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2.2" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#嵌套桶">
+            
+                    
+                    嵌套桶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2.3" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#最后的修改">
+            
+                    
+                    最后的修改
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#条形图">
+            
+                    
+                    条形图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#按时间统计">
+            
+                    
+                    按时间统计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.4.1" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#返回空Buckets">
+            
+                    
+                    返回空 Buckets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.2" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#扩展例子">
+            
+                    
+                    扩展例子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.3" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#潜力无穷">
+            
+                    
+                    潜力无穷
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="5_1_Aggregations.html">
+            
+                <a href="5_1_Aggregations.html#范围限定的聚合">
+            
+                    
+                    范围限定的聚合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#过滤和聚合">
+            
+                    
+                    过滤和聚合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.6.1" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#过滤">
+            
+                    
+                    过滤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6.2" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#过滤桶">
+            
+                    
+                    过滤桶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6.3" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#后过滤器">
+            
+                    
+                    后过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6.4" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#小结">
+            
+                    
+                    小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#多桶排序">
+            
+                    
+                    多桶排序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.7.1" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#内置排序">
+            
+                    
+                    内置排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7.2" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#按度量排序">
+            
+                    
+                    按度量排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7.3" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#基于深度度量排序">
+            
+                    
+                    基于“深度”度量排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.8" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#近似聚合">
+            
+                    
+                    近似聚合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.8.1" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#统计去重后的数量">
+            
+                    
+                    统计去重后的数量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.8.2" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#百分位计算">
+            
+                    
+                    百分位计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.9" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#通过聚合发现异常指标">
+            
+                    
+                    通过聚合发现异常指标
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.9.1" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#significantterms演示">
+            
+                    
+                    significant_terms 演示
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#DocValuesandFielddata">
+            
+                    
+                    Doc Values and Fielddata
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.10.1" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#DocValues">
+            
+                    
+                    Doc Values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10.2" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#深入理解DocValues">
+            
+                    
+                    深入理解 Doc Values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10.3" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#聚合与分析">
+            
+                    
+                    聚合与分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10.4" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#限制内存使用">
+            
+                    
+                    限制内存使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10.5" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#Fielddata的过滤">
+            
+                    
+                    Fielddata 的过滤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10.6" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#预加载fielddata">
+            
+                    
+                    预加载 fielddata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10.7" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#优化聚合查询">
+            
+                    
+                    优化聚合查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.11" data-path="5_2_Aggregations.html">
+            
+                <a href="5_2_Aggregations.html#总结">
+            
+                    
+                    总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >聚合</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#&#x805A;&#x5408;">&#x805A;&#x5408;</a></li><ul><li><a href="#&#x9AD8;&#x9636;&#x6982;&#x5FF5;">&#x9AD8;&#x9636;&#x6982;&#x5FF5;</a></li><ul><li><a href="#&#x6876;">&#x6876;</a></li><li><a href="#&#x6307;&#x6807;">&#x6307;&#x6807;</a></li><li><a href="#&#x6876;&#x548C;&#x6307;&#x6807;&#x7684;&#x7EC4;&#x5408;">&#x6876;&#x548C;&#x6307;&#x6807;&#x7684;&#x7EC4;&#x5408;</a></li></ul><li><a href="#&#x5C1D;&#x8BD5;&#x805A;&#x5408;">&#x5C1D;&#x8BD5;&#x805A;&#x5408;</a></li><ul><li><a href="#&#x6DFB;&#x52A0;&#x5EA6;&#x91CF;&#x6307;&#x6807;">&#x6DFB;&#x52A0;&#x5EA6;&#x91CF;&#x6307;&#x6807;</a></li><li><a href="#&#x5D4C;&#x5957;&#x6876;">&#x5D4C;&#x5957;&#x6876;</a></li><li><a href="#&#x6700;&#x540E;&#x7684;&#x4FEE;&#x6539;">&#x6700;&#x540E;&#x7684;&#x4FEE;&#x6539;</a></li></ul><li><a href="#&#x6761;&#x5F62;&#x56FE;">&#x6761;&#x5F62;&#x56FE;</a></li><li><a href="#&#x6309;&#x65F6;&#x95F4;&#x7EDF;&#x8BA1;">&#x6309;&#x65F6;&#x95F4;&#x7EDF;&#x8BA1;</a></li><ul><li><a href="#&#x8FD4;&#x56DE;&#x7A7A;Buckets">&#x8FD4;&#x56DE;&#x7A7A; Buckets  </a></li><li><a href="#&#x6269;&#x5C55;&#x4F8B;&#x5B50;">&#x6269;&#x5C55;&#x4F8B;&#x5B50;</a></li><li><a href="#&#x6F5C;&#x529B;&#x65E0;&#x7A77;">&#x6F5C;&#x529B;&#x65E0;&#x7A77;</a></li></ul><li><a href="#&#x8303;&#x56F4;&#x9650;&#x5B9A;&#x7684;&#x805A;&#x5408;">&#x8303;&#x56F4;&#x9650;&#x5B9A;&#x7684;&#x805A;&#x5408;</a></li></ul></ul></div><a href="#&#x805A;&#x5408;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x805A;&#x5408;"><a name="&#x805A;&#x5408;" class="anchor-navigation-ex-anchor" href="#&#x805A;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x805A;&#x5408;</h1>
+<p>&#x5728;&#x8FD9;&#x4E4B;&#x524D;&#xFF0C;&#x672C;&#x4E66;&#x81F4;&#x529B;&#x4E8E;&#x641C;&#x7D22;&#x3002; &#x901A;&#x8FC7;&#x641C;&#x7D22;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x5E76;&#x4E14;&#x5E0C;&#x671B;&#x627E;&#x5230;&#x5339;&#x914D;&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x7684;&#x6587;&#x6863;&#x96C6;&#xFF0C;&#x5C31;&#x597D;&#x6BD4;&#x5728;&#x5927;&#x6D77;&#x635E;&#x9488;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x805A;&#x5408;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7684;&#x6982;&#x89C8;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x662F;&#x5206;&#x6790;&#x548C;&#x603B;&#x7ED3;&#x5168;&#x5957;&#x7684;&#x6570;&#x636E;&#x800C;&#x4E0D;&#x662F;&#x5BFB;&#x627E;&#x5355;&#x4E2A;&#x6587;&#x6863;&#xFF1A;</p>
+<ul>
+<li>&#x5728;&#x5927;&#x6D77;&#x91CC;&#x6709;&#x591A;&#x5C11;&#x9488;&#xFF1F;</li>
+<li>&#x9488;&#x7684;&#x5E73;&#x5747;&#x957F;&#x5EA6;&#x662F;&#x591A;&#x5C11;&#xFF1F;</li>
+<li>&#x6309;&#x7167;&#x9488;&#x7684;&#x5236;&#x9020;&#x5546;&#x6765;&#x5212;&#x5206;&#xFF0C;&#x9488;&#x7684;&#x957F;&#x5EA6;&#x4E2D;&#x4F4D;&#x503C;&#x662F;&#x591A;&#x5C11;&#xFF1F;</li>
+<li>&#x6BCF;&#x6708;&#x52A0;&#x5165;&#x5230;&#x6D77;&#x4E2D;&#x7684;&#x9488;&#x6709;&#x591A;&#x5C11;&#xFF1F;</li>
+</ul>
+<p>&#x805A;&#x5408;&#x4E5F;&#x53EF;&#x4EE5;&#x56DE;&#x7B54;&#x66F4;&#x52A0;&#x7EC6;&#x5FAE;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li>&#x4F60;&#x6700;&#x53D7;&#x6B22;&#x8FCE;&#x7684;&#x9488;&#x7684;&#x5236;&#x9020;&#x5546;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</li>
+<li>&#x8FD9;&#x91CC;&#x9762;&#x6709;&#x5F02;&#x5E38;&#x7684;&#x9488;&#x4E48;&#xFF1F;</li>
+</ul>
+<p>&#x805A;&#x5408;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5411;&#x6570;&#x636E;&#x63D0;&#x51FA;&#x4E00;&#x4E9B;&#x590D;&#x6742;&#x7684;&#x95EE;&#x9898;&#x3002;&#x867D;&#x7136;&#x529F;&#x80FD;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x4E8E;&#x641C;&#x7D22;&#xFF0C;&#x4F46;&#x5B83;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x805A;&#x5408;&#x7684;&#x6267;&#x884C;&#x901F;&#x5EA6;&#x5F88;&#x5FEB;&#x5E76;&#x4E14;&#x5C31;&#x50CF;&#x641C;&#x7D22;&#x4E00;&#x6837;&#x51E0;&#x4E4E;&#x662F;&#x5B9E;&#x65F6;&#x7684;&#x3002;</p>
+<p>&#x8FD9;&#x5BF9;&#x62A5;&#x544A;&#x548C;&#x4EEA;&#x8868;&#x76D8;&#x662F;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x7684;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x5B9E;&#x65F6;&#x663E;&#x793A;&#x4F60;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8BA9;&#x4F60;&#x7ACB;&#x5373;&#x56DE;&#x5E94;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5BF9;&#x4F60;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x6C47;&#x603B;&#xFF08; <em>&#x9700;&#x8981;&#x4E00;&#x5468;&#x65F6;&#x95F4;&#x53BB;&#x8FD0;&#x884C;&#x7684; Hadoop &#x4EFB;&#x52A1;</em> &#xFF09;&#xFF0C;&#x60A8;&#x7684;&#x62A5;&#x544A;&#x968F;&#x7740;&#x4F60;&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;&#x800C;&#x53D8;&#x5316;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x9884;&#x5148;&#x8BA1;&#x7B97;&#x7684;&#x3001;&#x8FC7;&#x65F6;&#x7684;&#x548C;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x805A;&#x5408;&#x548C;&#x641C;&#x7D22;&#x662F;&#x4E00;&#x8D77;&#x7684;&#x3002; &#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x5355;&#x4E2A;&#x8BF7;&#x6C42;&#x91CC;&#x540C;&#x65F6;&#x5BF9;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x641C;&#x7D22;/&#x8FC7;&#x6EE4;&#x548C;&#x5206;&#x6790;&#x3002;&#x5E76;&#x4E14;&#x7531;&#x4E8E;&#x805A;&#x5408;&#x662F;&#x5728;&#x7528;&#x6237;&#x641C;&#x7D22;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x91CC;&#x8BA1;&#x7B97;&#x7684;&#xFF0C;&#x4F60;&#x4E0D;&#x53EA;&#x662F;&#x663E;&#x793A;&#x56DB;&#x661F;&#x9152;&#x5E97;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x800C;&#x662F;&#x663E;&#x793A;&#x5339;&#x914D;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x7684;&#x56DB;&#x661F;&#x9152;&#x5E97;&#x7684;&#x6570;&#x91CF;&#x3002;</p>
+<p>&#x805A;&#x5408;&#x662F;&#x5982;&#x6B64;&#x5F3A;&#x5927;&#x4EE5;&#x81F3;&#x4E8E;&#x8BB8;&#x591A;&#x516C;&#x53F8;&#x5DF2;&#x7ECF;&#x4E13;&#x95E8;&#x4E3A;&#x6570;&#x636E;&#x5206;&#x6790;&#x5EFA;&#x7ACB;&#x4E86;&#x5927;&#x578B; Elasticsearch &#x96C6;&#x7FA4;&#x3002;</p>
+<h2 id="&#x9AD8;&#x9636;&#x6982;&#x5FF5;"><a name="&#x9AD8;&#x9636;&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#&#x9AD8;&#x9636;&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9AD8;&#x9636;&#x6982;&#x5FF5;</h2>
+<p>&#x7C7B;&#x4F3C;&#x4E8E; DSL &#x67E5;&#x8BE2;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C; &#x805A;&#x5408;&#x4E5F;&#x6709; <em>&#x53EF;&#x7EC4;&#x5408;</em> &#x7684;&#x8BED;&#x6CD5;&#xFF1A;&#x72EC;&#x7ACB;&#x5355;&#x5143;&#x7684;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x88AB;&#x6DF7;&#x5408;&#x8D77;&#x6765;&#x63D0;&#x4F9B;&#x4F60;&#x9700;&#x8981;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x884C;&#x4E3A;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x53EA;&#x9700;&#x8981;&#x5B66;&#x4E60;&#x5F88;&#x5C11;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x51E0;&#x4E4E;&#x65E0;&#x5C3D;&#x7684;&#x7EC4;&#x5408;&#x3002;</p>
+<p>&#x8981;&#x638C;&#x63E1;&#x805A;&#x5408;&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x660E;&#x767D;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x6982;&#x5FF5;&#xFF1A;</p>
+<ul>
+<li><p><em>&#x6876;&#xFF08;Buckets&#xFF09;</em></p>
+<p>&#x6EE1;&#x8DB3;&#x7279;&#x5B9A;&#x6761;&#x4EF6;&#x7684;&#x6587;&#x6863;&#x7684;&#x96C6;&#x5408;</p>
+</li>
+<li><p><em>&#x6307;&#x6807;&#xFF08;Metrics&#xFF09;</em></p>
+<p>&#x5BF9;&#x6876;&#x5185;&#x7684;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;&#x8BA1;&#x7B97;</p>
+</li>
+</ul>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x5168;&#x90E8;&#x4E86;&#xFF01;&#x6BCF;&#x4E2A;&#x805A;&#x5408;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x6876;&#x548C;&#x96F6;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x6307;&#x6807;&#x7684;&#x7EC4;&#x5408;&#x3002;&#x7FFB;&#x8BD1;&#x6210;&#x7C97;&#x7565;&#x7684;SQL&#x8BED;&#x53E5;&#x6765;&#x89E3;&#x91CA;&#x5427;&#xFF1A;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(color)             &lt;<span class="hljs-number">1</span>&gt;
+<span class="hljs-keyword">FROM</span> <span class="hljs-keyword">table</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> color                  &lt;<span class="hljs-number">2</span>&gt;
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">   <code>COUNT(color)</code> &#x76F8;&#x5F53;&#x4E8E;&#x6307;&#x6807;&#x3002;   </p>
+<p> <img src="assets/2.png" alt="img">   <code>GROUP BY color</code> &#x76F8;&#x5F53;&#x4E8E;&#x6876;&#x3002;   </p>
+</blockquote>
+<p>&#x6876;&#x5728;&#x6982;&#x5FF5;&#x4E0A;&#x7C7B;&#x4F3C;&#x4E8E; SQL &#x7684;&#x5206;&#x7EC4;&#xFF08;GROUP BY&#xFF09;&#xFF0C;&#x800C;&#x6307;&#x6807;&#x5219;&#x7C7B;&#x4F3C;&#x4E8E; <code>COUNT()</code> &#x3001; <code>SUM()</code> &#x3001; <code>MAX()</code> &#x7B49;&#x7EDF;&#x8BA1;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x6DF1;&#x5165;&#x8FD9;&#x4E24;&#x4E2A;&#x6982;&#x5FF5; &#x5E76;&#x4E14;&#x4E86;&#x89E3;&#x548C;&#x8FD9;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#x76F8;&#x5173;&#x7684;&#x4E1C;&#x897F;&#x3002;</p>
+<h3 id="&#x6876;"><a name="&#x6876;" class="anchor-navigation-ex-anchor" href="#&#x6876;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6876;</h3>
+<p><em>&#x6876;</em> &#x7B80;&#x5355;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#x6EE1;&#x8DB3;&#x7279;&#x5B9A;&#x6761;&#x4EF6;&#x7684;&#x6587;&#x6863;&#x7684;&#x96C6;&#x5408;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x96C7;&#x5458;&#x5C5E;&#x4E8E; <em>&#x7537;&#x6027;</em> &#x6876;&#x6216;&#x8005; <em>&#x5973;&#x6027;</em> &#x6876;</li>
+<li>&#x5965;&#x5C14;&#x5DF4;&#x5C3C;&#x5C5E;&#x4E8E; <em>&#x7EBD;&#x7EA6;</em> &#x6876;</li>
+<li>&#x65E5;&#x671F;2014-10-28&#x5C5E;&#x4E8E; <em>&#x5341;&#x6708;</em> &#x6876;</li>
+</ul>
+<p>&#x5F53;&#x805A;&#x5408;&#x5F00;&#x59CB;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x6863;&#x91CC;&#x9762;&#x7684;&#x503C;&#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x6765;&#x51B3;&#x5B9A;&#x7B26;&#x5408;&#x54EA;&#x4E2A;&#x6876;&#x7684;&#x6761;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x5339;&#x914D;&#x5230;&#xFF0C;&#x6587;&#x6863;&#x5C06;&#x653E;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x6876;&#x5E76;&#x63A5;&#x7740;&#x8FDB;&#x884C;&#x805A;&#x5408;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x6876;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x5D4C;&#x5957;&#x5728;&#x5176;&#x4ED6;&#x6876;&#x91CC;&#x9762;&#xFF0C;&#x63D0;&#x4F9B;&#x5C42;&#x6B21;&#x5316;&#x7684;&#x6216;&#x8005;&#x6709;&#x6761;&#x4EF6;&#x7684;&#x5212;&#x5206;&#x65B9;&#x6848;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x8F9B;&#x8F9B;&#x90A3;&#x63D0;&#x4F1A;&#x88AB;&#x653E;&#x5165;&#x4FC4;&#x4EA5;&#x4FC4;&#x5DDE;&#x8FD9;&#x4E2A;&#x6876;&#xFF0C;&#x800C; <em>&#x6574;&#x4E2A;</em> &#x4FC4;&#x4EA5;&#x4FC4;&#x5DDE;&#x6876;&#x4F1A;&#x88AB;&#x653E;&#x5165;&#x7F8E;&#x56FD;&#x8FD9;&#x4E2A;&#x6876;&#x3002;</p>
+<p>Elasticsearch &#x6709;&#x5F88;&#x591A;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6876;&#xFF0C;&#x80FD;&#x8BA9;&#x4F60;&#x901A;&#x8FC7;&#x5F88;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x5212;&#x5206;&#x6587;&#x6863;&#xFF08;&#x65F6;&#x95F4;&#x3001;&#x6700;&#x53D7;&#x6B22;&#x8FCE;&#x7684;&#x8BCD;&#x3001;&#x5E74;&#x9F84;&#x533A;&#x95F4;&#x3001;&#x5730;&#x7406;&#x4F4D;&#x7F6E;&#x7B49;&#x7B49;&#xFF09;&#x3002;&#x5176;&#x5B9E;&#x6839;&#x672C;&#x4E0A;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x540C;&#x6837;&#x7684;&#x539F;&#x7406;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF1A;&#x57FA;&#x4E8E;&#x6761;&#x4EF6;&#x6765;&#x5212;&#x5206;&#x6587;&#x6863;&#x3002;</p>
+<h3 id="&#x6307;&#x6807;"><a name="&#x6307;&#x6807;" class="anchor-navigation-ex-anchor" href="#&#x6307;&#x6807;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6307;&#x6807;</h3>
+<p>&#x6876;&#x80FD;&#x8BA9;&#x6211;&#x4EEC;&#x5212;&#x5206;&#x6587;&#x6863;&#x5230;&#x6709;&#x610F;&#x4E49;&#x7684;&#x96C6;&#x5408;&#xFF0C; &#x4F46;&#x662F;&#x6700;&#x7EC8;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x662F;&#x5BF9;&#x8FD9;&#x4E9B;&#x6876;&#x5185;&#x7684;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x6307;&#x6807;&#x7684;&#x8BA1;&#x7B97;&#x3002;&#x5206;&#x6876;&#x662F;&#x4E00;&#x79CD;&#x8FBE;&#x5230;&#x76EE;&#x7684;&#x7684;&#x624B;&#x6BB5;&#xFF1A;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x7ED9;&#x6587;&#x6863;&#x5206;&#x7EC4;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8BA9;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x6307;&#x6807;&#x3002;</p>
+<p>&#x5927;&#x591A;&#x6570; <em>&#x6307;&#x6807;</em> &#x662F;&#x7B80;&#x5355;&#x7684;&#x6570;&#x5B66;&#x8FD0;&#x7B97;&#xFF08;&#x4F8B;&#x5982;&#x6700;&#x5C0F;&#x503C;&#x3001;&#x5E73;&#x5747;&#x503C;&#x3001;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x8FD8;&#x6709;&#x6C47;&#x603B;&#xFF09;&#xFF0C;&#x8FD9;&#x4E9B;&#x662F;&#x901A;&#x8FC7;&#x6587;&#x6863;&#x7684;&#x503C;&#x6765;&#x8BA1;&#x7B97;&#x3002;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#xFF0C;&#x6307;&#x6807;&#x80FD;&#x8BA9;&#x4F60;&#x8BA1;&#x7B97;&#x50CF;&#x5E73;&#x5747;&#x85AA;&#x8D44;&#x3001;&#x6700;&#x9AD8;&#x51FA;&#x552E;&#x4EF7;&#x683C;&#x3001;95%&#x7684;&#x67E5;&#x8BE2;&#x5EF6;&#x8FDF;&#x8FD9;&#x6837;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h3 id="&#x6876;&#x548C;&#x6307;&#x6807;&#x7684;&#x7EC4;&#x5408;"><a name="&#x6876;&#x548C;&#x6307;&#x6807;&#x7684;&#x7EC4;&#x5408;" class="anchor-navigation-ex-anchor" href="#&#x6876;&#x548C;&#x6307;&#x6807;&#x7684;&#x7EC4;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6876;&#x548C;&#x6307;&#x6807;&#x7684;&#x7EC4;&#x5408;</h3>
+<p><em>&#x805A;&#x5408;</em> &#x662F;&#x7531;&#x6876;&#x548C;&#x6307;&#x6807;&#x7EC4;&#x6210;&#x7684;&#x3002; &#x805A;&#x5408;&#x53EF;&#x80FD;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6876;&#xFF0C;&#x53EF;&#x80FD;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x6807;&#xFF0C;&#x6216;&#x8005;&#x53EF;&#x80FD;&#x4E24;&#x4E2A;&#x90FD;&#x6709;&#x3002;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E9B;&#x6876;&#x5D4C;&#x5957;&#x5728;&#x5176;&#x4ED6;&#x6876;&#x91CC;&#x9762;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6240;&#x5C5E;&#x56FD;&#x5BB6;&#x6765;&#x5212;&#x5206;&#x6587;&#x6863;&#xFF08;&#x6876;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x56FD;&#x5BB6;&#x7684;&#x5E73;&#x5747;&#x85AA;&#x916C;&#xFF08;&#x6307;&#x6807;&#xFF09;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x6876;&#x53EF;&#x4EE5;&#x88AB;&#x5D4C;&#x5957;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x975E;&#x5E38;&#x591A;&#x5E76;&#x4E14;&#x975E;&#x5E38;&#x590D;&#x6742;&#x7684;&#x805A;&#x5408;&#xFF1A;</p>
+<p>1.&#x901A;&#x8FC7;&#x56FD;&#x5BB6;&#x5212;&#x5206;&#x6587;&#x6863;&#xFF08;&#x6876;&#xFF09;</p>
+<p>2.&#x7136;&#x540E;&#x901A;&#x8FC7;&#x6027;&#x522B;&#x5212;&#x5206;&#x6BCF;&#x4E2A;&#x56FD;&#x5BB6;&#xFF08;&#x6876;&#xFF09;</p>
+<p>3.&#x7136;&#x540E;&#x901A;&#x8FC7;&#x5E74;&#x9F84;&#x533A;&#x95F4;&#x5212;&#x5206;&#x6BCF;&#x79CD;&#x6027;&#x522B;&#xFF08;&#x6876;&#xFF09;</p>
+<p>4.&#x6700;&#x540E;&#xFF0C;&#x4E3A;&#x6BCF;&#x4E2A;&#x5E74;&#x9F84;&#x533A;&#x95F4;&#x8BA1;&#x7B97;&#x5E73;&#x5747;&#x85AA;&#x916C;&#xFF08;&#x6307;&#x6807;&#xFF09;</p>
+<p>&#x6700;&#x540E;&#x5C06;&#x544A;&#x8BC9;&#x4F60;&#x6BCF;&#x4E2A; <code>&lt;&#x56FD;&#x5BB6;, &#x6027;&#x522B;, &#x5E74;&#x9F84;&gt;</code> &#x7EC4;&#x5408;&#x7684;&#x5E73;&#x5747;&#x85AA;&#x916C;&#x3002;&#x6240;&#x6709;&#x7684;&#x8FD9;&#x4E9B;&#x90FD;&#x5728;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5185;&#x5B8C;&#x6210;&#x5E76;&#x4E14;&#x53EA;&#x904D;&#x5386;&#x4E00;&#x6B21;&#x6570;&#x636E;&#xFF01;</p>
+<h2 id="&#x5C1D;&#x8BD5;&#x805A;&#x5408;"><a name="&#x5C1D;&#x8BD5;&#x805A;&#x5408;" class="anchor-navigation-ex-anchor" href="#&#x5C1D;&#x8BD5;&#x805A;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C1D;&#x8BD5;&#x805A;&#x5408;</h2>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x4EE5;&#x4E0B;&#x51E0;&#x9875;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#x7684;&#x805A;&#x5408;&#x548C;&#x5B83;&#x4EEC;&#x7684;&#x8BED;&#x6CD5;&#xFF0C; &#x4F46;&#x5B66;&#x4E60;&#x805A;&#x5408;&#x7684;&#x6700;&#x4F73;&#x9014;&#x5F84;&#x5C31;&#x662F;&#x7528;&#x5B9E;&#x4F8B;&#x6765;&#x8BF4;&#x660E;&#x3002; &#x4E00;&#x65E6;&#x6211;&#x4EEC;&#x83B7;&#x5F97;&#x4E86;&#x805A;&#x5408;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x5408;&#x7406;&#x5730;&#x5D4C;&#x5957;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#xFF0C;&#x90A3;&#x4E48;&#x8BED;&#x6CD5;&#x5C31;&#x53D8;&#x5F97;&#x4E0D;&#x90A3;&#x4E48;&#x91CD;&#x8981;&#x4E86;&#x3002;</p>
+<blockquote>
+<p> <img src="assets/note.png" alt="&#x6CE8;&#x610F;">  &#x805A;&#x5408;&#x7684;&#x6876;&#x64CD;&#x4F5C;&#x548C;&#x5EA6;&#x91CF;&#x7684;&#x5B8C;&#x6574;&#x7528;&#x6CD5;&#x53EF;&#x4EE5;&#x5728; <a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-aggregations.html" target="_blank">Elasticsearch &#x53C2;&#x8003;</a> &#x4E2D;&#x627E;&#x5230;&#x3002;&#x672C;&#x7AE0;&#x4E2D;&#x4F1A;&#x6DB5;&#x76D6;&#x5176;&#x4E2D;&#x5F88;&#x591A;&#x5185;&#x5BB9;&#xFF0C;&#x4F46;&#x5728;&#x9605;&#x8BFB;&#x5B8C;&#x672C;&#x7AE0;&#x540E;&#x67E5;&#x770B;&#x5B83;&#x4F1A;&#x6709;&#x52A9;&#x4E8E;&#x6211;&#x4EEC;&#x5BF9;&#x5B83;&#x7684;&#x6574;&#x4F53;&#x80FD;&#x529B;&#x6709;&#x6240;&#x4E86;&#x89E3;&#x3002;  </p>
+</blockquote>
+<p>&#x6240;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x5148;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E9B;&#x5BF9;&#x6C7D;&#x8F66;&#x7ECF;&#x9500;&#x5546;&#x6709;&#x7528;&#x7684;&#x805A;&#x5408;&#xFF0C;&#x6570;&#x636E;&#x662F;&#x5173;&#x4E8E;&#x6C7D;&#x8F66;&#x4EA4;&#x6613;&#x7684;&#x4FE1;&#x606F;&#xFF1A;&#x8F66;&#x578B;&#x3001;&#x5236;&#x9020;&#x5546;&#x3001;&#x552E;&#x4EF7;&#x3001;&#x4F55;&#x65F6;&#x88AB;&#x51FA;&#x552E;&#x7B49;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x6279;&#x91CF;&#x7D22;&#x5F15;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#xFF1A;</p>
+<pre><code class="lang-js">POST /cars/transactions/_bulk
+{ <span class="hljs-string">&quot;index&quot;</span>: {}}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">10000</span>, <span class="hljs-string">&quot;color&quot;</span> : <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;honda&quot;</span>, <span class="hljs-string">&quot;sold&quot;</span> : <span class="hljs-string">&quot;2014-10-28&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: {}}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">20000</span>, <span class="hljs-string">&quot;color&quot;</span> : <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;honda&quot;</span>, <span class="hljs-string">&quot;sold&quot;</span> : <span class="hljs-string">&quot;2014-11-05&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: {}}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">30000</span>, <span class="hljs-string">&quot;color&quot;</span> : <span class="hljs-string">&quot;green&quot;</span>, <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;ford&quot;</span>, <span class="hljs-string">&quot;sold&quot;</span> : <span class="hljs-string">&quot;2014-05-18&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: {}}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">15000</span>, <span class="hljs-string">&quot;color&quot;</span> : <span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;toyota&quot;</span>, <span class="hljs-string">&quot;sold&quot;</span> : <span class="hljs-string">&quot;2014-07-02&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: {}}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">12000</span>, <span class="hljs-string">&quot;color&quot;</span> : <span class="hljs-string">&quot;green&quot;</span>, <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;toyota&quot;</span>, <span class="hljs-string">&quot;sold&quot;</span> : <span class="hljs-string">&quot;2014-08-19&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: {}}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">20000</span>, <span class="hljs-string">&quot;color&quot;</span> : <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;honda&quot;</span>, <span class="hljs-string">&quot;sold&quot;</span> : <span class="hljs-string">&quot;2014-11-05&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: {}}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">80000</span>, <span class="hljs-string">&quot;color&quot;</span> : <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;bmw&quot;</span>, <span class="hljs-string">&quot;sold&quot;</span> : <span class="hljs-string">&quot;2014-01-01&quot;</span> }
+{ <span class="hljs-string">&quot;index&quot;</span>: {}}
+{ <span class="hljs-string">&quot;price&quot;</span> : <span class="hljs-number">25000</span>, <span class="hljs-string">&quot;color&quot;</span> : <span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;ford&quot;</span>, <span class="hljs-string">&quot;sold&quot;</span> : <span class="hljs-string">&quot;2014-02-12&quot;</span> }
+</code></pre>
+<p>&#x6709;&#x4E86;&#x6570;&#x636E;&#xFF0C;&#x5F00;&#x59CB;&#x6784;&#x5EFA;&#x6211;&#x4EEC;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x805A;&#x5408;&#x3002;&#x6C7D;&#x8F66;&#x7ECF;&#x9500;&#x5546;&#x53EF;&#x80FD;&#x4F1A;&#x60F3;&#x77E5;&#x9053;&#x54EA;&#x4E2A;&#x989C;&#x8272;&#x7684;&#x6C7D;&#x8F66;&#x9500;&#x91CF;&#x6700;&#x597D;&#xFF0C;&#x7528;&#x805A;&#x5408;&#x53EF;&#x4EE5;&#x8F7B;&#x6613;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#xFF0C;&#x7528; <code>terms</code> &#x6876;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+    <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;aggs&quot;</span> : {                       &lt;1&gt;
+        &quot;popular_colors&quot; : {         &lt;2&gt;
+            &quot;terms&quot; : {              &lt;3&gt;
+              &quot;field&quot; : &quot;color&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x805A;&#x5408;&#x64CD;&#x4F5C;&#x88AB;&#x7F6E;&#x4E8E;&#x9876;&#x5C42;&#x53C2;&#x6570; <code>aggs</code> &#x4E4B;&#x4E0B;&#xFF08;&#x5982;&#x679C;&#x4F60;&#x613F;&#x610F;&#xFF0C;&#x5B8C;&#x6574;&#x5F62;&#x5F0F; <code>aggregations</code> &#x540C;&#x6837;&#x6709;&#x6548;&#xFF09;&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img">  &#x7136;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x805A;&#x5408;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x540D;&#x79F0;&#xFF0C;&#x672C;&#x4F8B;&#x4E2D;&#x662F;&#xFF1A; <code>popular_colors</code> &#x3002;   </p>
+<p> <img src="assets/3.png" alt="img">  &#x6700;&#x540E;&#xFF0C;&#x5B9A;&#x4E49;&#x5355;&#x4E2A;&#x6876;&#x7684;&#x7C7B;&#x578B; <code>terms</code> &#x3002;   </p>
+</blockquote>
+<p>&#x805A;&#x5408;&#x662F;&#x5728;&#x7279;&#x5B9A;&#x641C;&#x7D22;&#x7ED3;&#x679C;&#x80CC;&#x666F;&#x4E0B;&#x6267;&#x884C;&#x7684;&#xFF0C; &#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B83;&#x53EA;&#x662F;&#x67E5;&#x8BE2;&#x8BF7;&#x6C42;&#x7684;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x9876;&#x5C42;&#x53C2;&#x6570;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4F7F;&#x7528; <code>/_search</code> &#x7AEF;&#x70B9;&#xFF09;&#x3002; &#x805A;&#x5408;&#x53EF;&#x4EE5;&#x4E0E;&#x67E5;&#x8BE2;&#x7ED3;&#x5BF9;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x4F1A;&#x665A;&#x4E9B;&#x5728; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_scoping_aggregations.html" target="_blank">&#x9650;&#x5B9A;&#x805A;&#x5408;&#x7684;&#x8303;&#x56F4;&#xFF08;Scoping Aggregations&#xFF09;</a> &#x4E2D;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<blockquote>
+<p> <img src="assets/note.png" alt="&#x6CE8;&#x610F;">  &#x53EF;&#x80FD;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#x6211;&#x4EEC;&#x5C06; <code>size</code> &#x8BBE;&#x7F6E;&#x6210; 0 &#x3002;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;&#x641C;&#x7D22;&#x7ED3;&#x679C;&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x5C06;&#x8FD4;&#x56DE;&#x8BB0;&#x5F55;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A; 0 &#x6765;&#x63D0;&#x9AD8;&#x67E5;&#x8BE2;&#x901F;&#x5EA6;&#x3002; &#x8BBE;&#x7F6E; <code>size: 0</code> &#x4E0E; Elasticsearch 1.x &#x4E2D;&#x4F7F;&#x7528; <code>count</code> &#x641C;&#x7D22;&#x7C7B;&#x578B;&#x7B49;&#x4EF7;&#x3002;  </p>
+</blockquote>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x4E3A;&#x805A;&#x5408;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x540D;&#x5B57;&#x7684;&#x9009;&#x62E9;&#x53D6;&#x51B3;&#x4E8E;&#x4F7F;&#x7528;&#x8005;&#xFF0C;&#x54CD;&#x5E94;&#x7684;&#x7ED3;&#x679C;&#x4F1A;&#x4EE5;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x7684;&#x540D;&#x5B57;&#x4E3A;&#x6807;&#x7B7E;&#xFF0C;&#x8FD9;&#x6837;&#x5E94;&#x7528;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x968F;&#x540E;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x805A;&#x5408;&#x672C;&#x8EAB;&#xFF0C;&#x5728;&#x672C;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x5355; <code>terms</code> &#x6876;&#x3002; &#x8FD9;&#x4E2A; <code>terms</code> &#x6876;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E2A;&#x78B0;&#x5230;&#x7684;&#x552F;&#x4E00;&#x8BCD;&#x9879;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x6876;&#x3002; &#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x544A;&#x8BC9;&#x5B83;&#x4F7F;&#x7528; <code>color</code> &#x5B57;&#x6BB5;&#xFF0C;&#x6240;&#x4EE5; <code>terms</code> &#x6876;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E2A;&#x989C;&#x8272;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x65B0;&#x6876;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x8FD0;&#x884C;&#x805A;&#x5408;&#x5E76;&#x67E5;&#x770B;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-js">{
+...
+   <span class="hljs-string">&quot;hits&quot;</span>: {
+      <span class="hljs-string">&quot;hits&quot;</span>: []                   &lt;<span class="hljs-number">1</span>&gt;
+   },
+   <span class="hljs-string">&quot;aggregations&quot;</span>: {
+      <span class="hljs-string">&quot;popular_colors&quot;</span>: {          &lt;2&gt;
+         &quot;buckets&quot;: [
+            {
+               &quot;key&quot;: &quot;red&quot;,       &lt;3&gt;
+               &quot;doc_count&quot;: 4      &lt;4&gt;
+            },
+            {
+               &quot;key&quot;: &quot;blue&quot;,
+               &quot;doc_count&quot;: 2
+            },
+            {
+               &quot;key&quot;: &quot;green&quot;,
+               &quot;doc_count&quot;: 2
+            }
+         ]
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x4E86; <code>size</code> &#x53C2;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x4F1A;&#x6709; hits &#x641C;&#x7D22;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x3002;  </p>
+<p><img src="assets/2.png" alt="img">  <code>popular_colors</code> &#x805A;&#x5408;&#x662F;&#x4F5C;&#x4E3A; <code>aggregations</code> &#x5B57;&#x6BB5;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x88AB;&#x8FD4;&#x56DE;&#x7684;&#x3002;  </p>
+<p> <img src="assets/3.png" alt="img">  &#x6BCF;&#x4E2A;&#x6876;&#x7684; <code>key</code> &#x90FD;&#x4E0E; <code>color</code> &#x5B57;&#x6BB5;&#x91CC;&#x627E;&#x5230;&#x7684;&#x552F;&#x4E00;&#x8BCD;&#x5BF9;&#x5E94;&#x3002;&#x5B83;&#x603B;&#x4F1A;&#x5305;&#x542B; <code>doc_count</code> &#x5B57;&#x6BB5;&#xFF0C;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#x5305;&#x542B;&#x8BE5;&#x8BCD;&#x9879;&#x7684;&#x6587;&#x6863;&#x6570;&#x91CF;&#x3002;  </p>
+<p> <img src="assets/4.png" alt="img">  &#x6BCF;&#x4E2A;&#x6876;&#x7684;&#x6570;&#x91CF;&#x4EE3;&#x8868;&#x8BE5;&#x989C;&#x8272;&#x7684;&#x6587;&#x6863;&#x6570;&#x91CF;&#x3002;  </p>
+</blockquote>
+<p>&#x54CD;&#x5E94;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x6876;&#xFF0C;&#x6BCF;&#x4E2A;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x989C;&#x8272;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;&#x7EA2; &#x6216; &#x7EFF;&#xFF09;&#x3002;&#x6BCF;&#x4E2A;&#x6876;&#x4E5F;&#x5305;&#x62EC; <code>&#x805A;&#x5408;&#x8FDB;</code> &#x8BE5;&#x6876;&#x7684;&#x6240;&#x6709;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6709;&#x56DB;&#x8F86;&#x7EA2;&#x8272;&#x7684;&#x8F66;&#x3002;</p>
+<p>&#x524D;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5B8C;&#x5168;&#x662F;&#x5B9E;&#x65F6;&#x6267;&#x884C;&#x7684;&#xFF1A;&#x4E00;&#x65E6;&#x6587;&#x6863;&#x53EF;&#x4EE5;&#x88AB;&#x641C;&#x5230;&#xFF0C;&#x5B83;&#x5C31;&#x80FD;&#x88AB;&#x805A;&#x5408;&#x3002;&#x8FD9;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5C06;&#x805A;&#x5408;&#x7684;&#x7ED3;&#x679C;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#x4F20;&#x5165;&#x56FE;&#x5F62;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x751F;&#x6210;&#x5B9E;&#x65F6;&#x7684;&#x4EEA;&#x8868;&#x76D8;&#x3002; &#x4E0D;&#x4E45;&#xFF0C;&#x4F60;&#x53C8;&#x9500;&#x552E;&#x4E86;&#x4E00;&#x8F86;&#x94F6;&#x8272;&#x7684;&#x8F66;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x56FE;&#x5F62;&#x5C31;&#x4F1A;&#x7ACB;&#x5373;&#x52A8;&#x6001;&#x66F4;&#x65B0;&#x94F6;&#x8272;&#x8F66;&#x7684;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x77A7;&#xFF01;&#x8FD9;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x805A;&#x5408;&#xFF01;</p>
+<h3 id="&#x6DFB;&#x52A0;&#x5EA6;&#x91CF;&#x6307;&#x6807;"><a name="&#x6DFB;&#x52A0;&#x5EA6;&#x91CF;&#x6307;&#x6807;" class="anchor-navigation-ex-anchor" href="#&#x6DFB;&#x52A0;&#x5EA6;&#x91CF;&#x6307;&#x6807;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0;&#x5EA6;&#x91CF;&#x6307;&#x6807;</h3>
+<p>&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#x6BCF;&#x4E2A;&#x6876;&#x91CC;&#x9762;&#x7684;&#x6587;&#x6863;&#x6570;&#x91CF;&#xFF0C;&#x8FD9;&#x5F88;&#x6709;&#x7528;&#x3002; &#x4F46;&#x901A;&#x5E38;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x66F4;&#x590D;&#x6742;&#x7684;&#x6587;&#x6863;&#x5EA6;&#x91CF;&#x3002; &#x4F8B;&#x5982;&#xFF0C;&#x6BCF;&#x79CD;&#x989C;&#x8272;&#x6C7D;&#x8F66;&#x7684;&#x5E73;&#x5747;&#x4EF7;&#x683C;&#x662F;&#x591A;&#x5C11;&#xFF1F;</p>
+<p>&#x4E3A;&#x4E86;&#x83B7;&#x53D6;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x544A;&#x8BC9; Elasticsearch &#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x8BA1;&#x7B97;&#x4F55;&#x79CD;&#x5EA6;&#x91CF;&#x3002; &#x8FD9;&#x9700;&#x8981;&#x5C06;&#x5EA6;&#x91CF; <em>&#x5D4C;&#x5957;</em> &#x5728;&#x6876;&#x5185;&#xFF0C; &#x5EA6;&#x91CF;&#x4F1A;&#x57FA;&#x4E8E;&#x6876;&#x5185;&#x7684;&#x6587;&#x6863;&#x8BA1;&#x7B97;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x4E3A;&#x6C7D;&#x8F66;&#x7684;&#x4F8B;&#x5B50;&#x52A0;&#x5165; <code>average</code> &#x5E73;&#x5747;&#x5EA6;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+   <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;aggs&quot;</span>: {
+      <span class="hljs-string">&quot;colors&quot;</span>: {
+         <span class="hljs-string">&quot;terms&quot;</span>: {
+            <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;color&quot;</span>
+         },
+         <span class="hljs-string">&quot;aggs&quot;</span>: {                    &lt;1&gt;
+            &quot;avg_price&quot;: {            &lt;2&gt;
+               &quot;avg&quot;: {
+                  &quot;field&quot;: &quot;price&quot;    &lt;3&gt;
+               }
+            }
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x4E3A;&#x5EA6;&#x91CF;&#x65B0;&#x589E; <code>aggs</code> &#x5C42;&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img">  &#x4E3A;&#x5EA6;&#x91CF;&#x6307;&#x5B9A;&#x540D;&#x5B57;&#xFF1A; <code>avg_price</code> &#x3002;    </p>
+<p> <img src="assets/3.png" alt="img">  &#x6700;&#x540E;&#xFF0C;&#x4E3A; <code>price</code> &#x5B57;&#x6BB5;&#x5B9A;&#x4E49; <code>avg</code> &#x5EA6;&#x91CF;&#x3002;  </p>
+</blockquote>
+<p>&#x6B63;&#x5982;&#x6240;&#x89C1;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x52A0;&#x5165;&#x4E86;&#x65B0;&#x7684; <code>aggs</code> &#x5C42;&#x3002;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;&#x805A;&#x5408;&#x5C42;&#x8BA9;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06; <code>avg</code> &#x5EA6;&#x91CF;&#x5D4C;&#x5957;&#x7F6E;&#x4E8E; <code>terms</code> &#x6876;&#x5185;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8FD9;&#x5C31;&#x4E3A;&#x6BCF;&#x4E2A;&#x989C;&#x8272;&#x751F;&#x6210;&#x4E86;&#x5E73;&#x5747;&#x4EF7;&#x683C;&#x3002;</p>
+<p>&#x6B63;&#x5982; <code>&#x989C;&#x8272;</code> &#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7ED9;&#x5EA6;&#x91CF;&#x8D77;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#xFF08; <code>avg_price</code> &#xFF09;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x7A0D;&#x540E;&#x6839;&#x636E;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#x5B83;&#x7684;&#x503C;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x6307;&#x5B9A;&#x5EA6;&#x91CF;&#x672C;&#x8EAB;&#xFF08; <code>avg</code> &#xFF09;&#x4EE5;&#x53CA;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x8BA1;&#x7B97;&#x5E73;&#x5747;&#x503C;&#x7684;&#x5B57;&#x6BB5;&#xFF08; <code>price</code> &#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js">{
+...
+   <span class="hljs-string">&quot;aggregations&quot;</span>: {
+      <span class="hljs-string">&quot;colors&quot;</span>: {
+         <span class="hljs-string">&quot;buckets&quot;</span>: [
+            {
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;red&quot;</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">4</span>,
+               <span class="hljs-string">&quot;avg_price&quot;</span>: {           <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">1</span>&gt;</span>
+                  &quot;value&quot;: 32500
+               }
+            },
+            {
+               &quot;key&quot;: &quot;blue&quot;,
+               &quot;doc_count&quot;: 2,
+               &quot;avg_price&quot;: {
+                  &quot;value&quot;: 20000
+               }
+            },
+            {
+               &quot;key&quot;: &quot;green&quot;,
+               &quot;doc_count&quot;: 2,
+               &quot;avg_price&quot;: {
+                  &quot;value&quot;: 21000
+               }
+            }
+         ]
+      }
+   }
+...
+}
+</span></code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x54CD;&#x5E94;&#x4E2D;&#x7684;&#x65B0;&#x5B57;&#x6BB5; <code>avg_price</code> &#x3002;   </p>
+</blockquote>
+<p>&#x5C3D;&#x7BA1;&#x54CD;&#x5E94;&#x53EA;&#x53D1;&#x751F;&#x5F88;&#x5C0F;&#x6539;&#x53D8;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x4EEC;&#x83B7;&#x5F97;&#x7684;&#x6570;&#x636E;&#x662F;&#x589E;&#x957F;&#x4E86;&#x3002;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x6709;&#x56DB;&#x8F86;&#x7EA2;&#x8272;&#x7684;&#x8F66;&#xFF0C;&#x73B0;&#x5728;&#xFF0C;&#x7EA2;&#x8272;&#x8F66;&#x7684;&#x5E73;&#x5747;&#x4EF7;&#x683C;&#x662F; $32&#xFF0C;500 &#x7F8E;&#x5143;&#x3002;&#x8FD9;&#x4E2A;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x663E;&#x793A;&#x5728;&#x62A5;&#x8868;&#x6216;&#x8005;&#x56FE;&#x5F62;&#x4E2D;&#x3002;</p>
+<h3 id="&#x5D4C;&#x5957;&#x6876;"><a name="&#x5D4C;&#x5957;&#x6876;" class="anchor-navigation-ex-anchor" href="#&#x5D4C;&#x5957;&#x6876;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5D4C;&#x5957;&#x6876;</h3>
+<p>&#x5728;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x5D4C;&#x5957;&#x65B9;&#x6848;&#x65F6;&#xFF0C;&#x805A;&#x5408;&#x7684;&#x529B;&#x91CF;&#x624D;&#x80FD;&#x771F;&#x6B63;&#x5F97;&#x4EE5;&#x663E;&#x73B0;&#x3002; &#x5728;&#x524D;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x770B;&#x5230;&#x5982;&#x4F55;&#x5C06;&#x4E00;&#x4E2A;&#x5EA6;&#x91CF;&#x5D4C;&#x5165;&#x6876;&#x4E2D;&#xFF0C;&#x5B83;&#x7684;&#x529F;&#x80FD;&#x5DF2;&#x7ECF;&#x5341;&#x5206;&#x5F3A;&#x5927;&#x4E86;&#x3002;</p>
+<p>&#x4F46;&#x771F;&#x6B63;&#x4EE4;&#x4EBA;&#x6FC0;&#x52A8;&#x7684;&#x5206;&#x6790;&#x6765;&#x81EA;&#x4E8E;&#x5C06;&#x6876;&#x5D4C;&#x5957;&#x8FDB; <em>&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x6876;</em> &#x6240;&#x80FD;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x3002; &#x73B0;&#x5728;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x77E5;&#x9053;&#x6BCF;&#x4E2A;&#x989C;&#x8272;&#x7684;&#x6C7D;&#x8F66;&#x5236;&#x9020;&#x5546;&#x7684;&#x5206;&#x5E03;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+   <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;aggs&quot;</span>: {
+      <span class="hljs-string">&quot;colors&quot;</span>: {
+         <span class="hljs-string">&quot;terms&quot;</span>: {
+            <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;color&quot;</span>
+         },
+         <span class="hljs-string">&quot;aggs&quot;</span>: {
+            <span class="hljs-string">&quot;avg_price&quot;</span>: {               &lt;1&gt;
+               &quot;avg&quot;: {
+                  &quot;field&quot;: &quot;price&quot;
+               }
+            },
+            &quot;make&quot;: {                    &lt;2&gt;
+                &quot;terms&quot;: {
+                    &quot;field&quot;: &quot;make&quot;      &lt;3&gt;
+                }
+            }
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x6CE8;&#x610F;&#x524D;&#x4F8B;&#x4E2D;&#x7684; <code>avg_price</code> &#x5EA6;&#x91CF;&#x4ECD;&#x7136;&#x4FDD;&#x6301;&#x539F;&#x4F4D;&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img">  &#x53E6;&#x4E00;&#x4E2A;&#x805A;&#x5408; <code>make</code> &#x88AB;&#x52A0;&#x5165;&#x5230;&#x4E86; <code>color</code> &#x989C;&#x8272;&#x6876;&#x4E2D;&#x3002;  </p>
+<p> <img src="assets/3.png" alt="img">  &#x8FD9;&#x4E2A;&#x805A;&#x5408;&#x662F; <code>terms</code> &#x6876;&#xFF0C;&#x5B83;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E2A;&#x6C7D;&#x8F66;&#x5236;&#x9020;&#x5546;&#x751F;&#x6210;&#x552F;&#x4E00;&#x7684;&#x6876;&#x3002;  </p>
+</blockquote>
+<p>&#x8FD9;&#x91CC;&#x53D1;&#x751F;&#x4E86;&#x4E00;&#x4E9B;&#x6709;&#x8DA3;&#x7684;&#x4E8B;&#x3002; &#x9996;&#x5148;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x89C2;&#x5BDF;&#x5230;&#x4E4B;&#x524D;&#x4F8B;&#x5B50;&#x4E2D;&#x7684; <code>avg_price</code> &#x5EA6;&#x91CF;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x53D8;&#x5316;&#xFF0C;&#x8FD8;&#x5728;&#x539F;&#x6765;&#x7684;&#x4F4D;&#x7F6E;&#x3002; &#x4E00;&#x4E2A;&#x805A;&#x5408;&#x7684;&#x6BCF;&#x4E2A; <em>&#x5C42;&#x7EA7;</em> &#x90FD;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x5EA6;&#x91CF;&#x6216;&#x6876;&#xFF0C; <code>avg_price</code> &#x5EA6;&#x91CF;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#x6BCF;&#x79CD;&#x989C;&#x8272;&#x6C7D;&#x8F66;&#x7684;&#x5E73;&#x5747;&#x4EF7;&#x683C;&#x3002;&#x5B83;&#x4E0E;&#x5176;&#x4ED6;&#x7684;&#x6876;&#x548C;&#x5EA6;&#x91CF;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x3002;</p>
+<p>&#x8FD9;&#x5BF9;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x91CC;&#x9762;&#x6709;&#x5F88;&#x591A;&#x76F8;&#x4E92;&#x5173;&#x8054;&#xFF0C;&#x4F46;&#x53C8;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x5EA6;&#x91CF;&#x9700;&#x8981;&#x6536;&#x96C6;&#x3002;&#x805A;&#x5408;&#x4F7F;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x7528;&#x4E00;&#x6B21;&#x6570;&#x636E;&#x8BF7;&#x6C42;&#x83B7;&#x5F97;&#x6240;&#x6709;&#x7684;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#x4E00;&#x4EF6;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x91CD;&#x8981;&#x4E8B;&#x60C5;&#x662F;&#x6211;&#x4EEC;&#x65B0;&#x589E;&#x7684;&#x8FD9;&#x4E2A; <code>make</code> &#x805A;&#x5408;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A; <code>terms</code> &#x6876;&#xFF08;&#x5D4C;&#x5957;&#x5728; <code>colors</code> &#x3001; <code>terms</code> &#x6876;&#x5185;&#xFF09;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83; &#x4F1A;&#x4E3A;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x552F;&#x4E00;&#x7EC4;&#x5408;&#x751F;&#x6210;&#xFF08; <code>color</code> &#x3001; <code>make</code> &#xFF09;&#x5143;&#x7EC4;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x8FD4;&#x56DE;&#x7684;&#x54CD;&#x5E94;&#xFF08;&#x4E3A;&#x4E86;&#x7B80;&#x5355;&#x6211;&#x4EEC;&#x53EA;&#x663E;&#x793A;&#x90E8;&#x5206;&#x7ED3;&#x679C;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js">{
+...
+   <span class="hljs-string">&quot;aggregations&quot;</span>: {
+      <span class="hljs-string">&quot;colors&quot;</span>: {
+         <span class="hljs-string">&quot;buckets&quot;</span>: [
+            {
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;red&quot;</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">4</span>,
+               <span class="hljs-string">&quot;make&quot;</span>: {                       &lt;1&gt;
+                  &quot;buckets&quot;: [
+                     {
+                        &quot;key&quot;: &quot;honda&quot;,        &lt;2&gt;
+                        &quot;doc_count&quot;: 3
+                     },
+                     {
+                        &quot;key&quot;: &quot;bmw&quot;,
+                        &quot;doc_count&quot;: 1
+                     }
+                  ]
+               },
+               &quot;avg_price&quot;: {
+                  &quot;value&quot;: 32500               &lt;3&gt;
+               }
+            },
+
+...
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x6B63;&#x5982;&#x671F;&#x671B;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x65B0;&#x7684;&#x805A;&#x5408;&#x5D4C;&#x5165;&#x5728;&#x6BCF;&#x4E2A;&#x989C;&#x8272;&#x6876;&#x4E2D;&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img">  &#x73B0;&#x5728;&#x6211;&#x4EEC;&#x770B;&#x89C1;&#x6309;&#x4E0D;&#x540C;&#x5236;&#x9020;&#x5546;&#x5206;&#x89E3;&#x7684;&#x6BCF;&#x79CD;&#x989C;&#x8272;&#x4E0B;&#x8F66;&#x8F86;&#x4FE1;&#x606F;&#x3002;  </p>
+<p> <img src="assets/3.png" alt="img">  &#x6700;&#x7EC8;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x524D;&#x4F8B;&#x4E2D;&#x7684; <code>avg_price</code> &#x5EA6;&#x91CF;&#x4ECD;&#x7136;&#x7EF4;&#x6301;&#x4E0D;&#x53D8;&#x3002;  </p>
+</blockquote>
+<p>&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x7EA2;&#x8272;&#x8F66;&#x6709;&#x56DB;&#x8F86;&#x3002;</li>
+<li>&#x7EA2;&#x8272;&#x8F66;&#x7684;&#x5E73;&#x5747;&#x552E;&#x4EF7;&#x662F; $32&#xFF0C;500 &#x7F8E;&#x5143;&#x3002;</li>
+<li>&#x5176;&#x4E2D;&#x4E09;&#x8F86;&#x662F; Honda &#x672C;&#x7530;&#x5236;&#x9020;&#xFF0C;&#x4E00;&#x8F86;&#x662F; BMW &#x5B9D;&#x9A6C;&#x5236;&#x9020;&#x3002;</li>
+</ul>
+<h3 id="&#x6700;&#x540E;&#x7684;&#x4FEE;&#x6539;"><a name="&#x6700;&#x540E;&#x7684;&#x4FEE;&#x6539;" class="anchor-navigation-ex-anchor" href="#&#x6700;&#x540E;&#x7684;&#x4FEE;&#x6539;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6700;&#x540E;&#x7684;&#x4FEE;&#x6539;</h3>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x56DE;&#x5230;&#x8BDD;&#x9898;&#x7684;&#x539F;&#x70B9;&#xFF0C;&#x5728;&#x8FDB;&#x5165;&#x65B0;&#x8BDD;&#x9898;&#x4E4B;&#x524D;&#xFF0C;&#x5BF9;&#x6211;&#x4EEC;&#x7684;&#x793A;&#x4F8B;&#x505A;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4FEE;&#x6539;&#xFF0C; &#x4E3A;&#x6BCF;&#x4E2A;&#x6C7D;&#x8F66;&#x751F;&#x6210;&#x5546;&#x8BA1;&#x7B97;&#x6700;&#x4F4E;&#x548C;&#x6700;&#x9AD8;&#x7684;&#x4EF7;&#x683C;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+   <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;aggs&quot;</span>: {
+      <span class="hljs-string">&quot;colors&quot;</span>: {
+         <span class="hljs-string">&quot;terms&quot;</span>: {
+            <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;color&quot;</span>
+         },
+         <span class="hljs-string">&quot;aggs&quot;</span>: {
+            <span class="hljs-string">&quot;avg_price&quot;</span>: { <span class="hljs-string">&quot;avg&quot;</span>: { <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;price&quot;</span> }
+            },
+            <span class="hljs-string">&quot;make&quot;</span> : {
+                <span class="hljs-string">&quot;terms&quot;</span> : {
+                    <span class="hljs-string">&quot;field&quot;</span> : <span class="hljs-string">&quot;make&quot;</span>
+                },
+                <span class="hljs-string">&quot;aggs&quot;</span> : {                                           &lt;1&gt;
+                    &quot;min_price&quot; : { &quot;min&quot;: { &quot;field&quot;: &quot;price&quot;} },    &lt;2&gt;
+                    &quot;max_price&quot; : { &quot;max&quot;: { &quot;field&quot;: &quot;price&quot;} }     &lt;3&gt;
+                }
+            }
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x6211;&#x4EEC;&#x9700;&#x8981;&#x589E;&#x52A0;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5D4C;&#x5957;&#x7684; <code>aggs</code> &#x5C42;&#x7EA7;&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img">  &#x7136;&#x540E;&#x5305;&#x62EC; <code>min</code> &#x6700;&#x5C0F;&#x5EA6;&#x91CF;&#x3002;  </p>
+<p> <img src="assets/3.png" alt="img">  &#x4EE5;&#x53CA; <code>max</code> &#x6700;&#x5927;&#x5EA6;&#x91CF;&#x3002;  </p>
+</blockquote>
+<p>&#x5F97;&#x5230;&#x4EE5;&#x4E0B;&#x8F93;&#x51FA;&#xFF08;&#x53EA;&#x663E;&#x793A;&#x90E8;&#x5206;&#x7ED3;&#x679C;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js">{
+...
+   <span class="hljs-string">&quot;aggregations&quot;</span>: {
+      <span class="hljs-string">&quot;colors&quot;</span>: {
+         <span class="hljs-string">&quot;buckets&quot;</span>: [
+            {
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;red&quot;</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">4</span>,
+               <span class="hljs-string">&quot;make&quot;</span>: {
+                  <span class="hljs-string">&quot;buckets&quot;</span>: [
+                     {
+                        <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;honda&quot;</span>,
+                        <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">3</span>,
+                        <span class="hljs-string">&quot;min_price&quot;</span>: {
+                           <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">10000</span>     &lt;<span class="hljs-number">1</span>&gt;
+                        },
+                        <span class="hljs-string">&quot;max_price&quot;</span>: {
+                           <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">20000</span>     &lt;<span class="hljs-number">2</span>&gt;
+                        }
+                     },
+                     {
+                        <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;bmw&quot;</span>,
+                        <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>,
+                        <span class="hljs-string">&quot;min_price&quot;</span>: {
+                           <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">80000</span>
+                        },
+                        <span class="hljs-string">&quot;max_price&quot;</span>: {
+                           <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">80000</span>
+                        }
+                     }
+                  ]
+               },
+               <span class="hljs-string">&quot;avg_price&quot;</span>: {
+                  <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">32500</span>
+               }
+            },
+...
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  <img src="assets/2.png" alt="img">  <code>min</code> &#x548C; <code>max</code> &#x5EA6;&#x91CF;&#x73B0;&#x5728;&#x51FA;&#x73B0;&#x5728;&#x6BCF;&#x4E2A;&#x6C7D;&#x8F66;&#x5236;&#x9020;&#x5546;&#xFF08; <code>make</code> &#xFF09;&#x4E0B;&#x9762;&#x3002;   </p>
+</blockquote>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x6876;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x6269;&#x5C55;&#x5E76;&#x5F97;&#x5230;&#x4EE5;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;</p>
+<ul>
+<li>&#x6709;&#x56DB;&#x8F86;&#x7EA2;&#x8272;&#x8F66;&#x3002;</li>
+<li>&#x7EA2;&#x8272;&#x8F66;&#x7684;&#x5E73;&#x5747;&#x552E;&#x4EF7;&#x662F; $32&#xFF0C;500 &#x7F8E;&#x5143;&#x3002;</li>
+<li>&#x5176;&#x4E2D;&#x4E09;&#x8F86;&#x7EA2;&#x8272;&#x8F66;&#x662F; Honda &#x672C;&#x7530;&#x5236;&#x9020;&#xFF0C;&#x4E00;&#x8F86;&#x662F; BMW &#x5B9D;&#x9A6C;&#x5236;&#x9020;&#x3002;</li>
+<li>&#x6700;&#x4FBF;&#x5B9C;&#x7684;&#x7EA2;&#x8272;&#x672C;&#x7530;&#x552E;&#x4EF7;&#x4E3A; $10&#xFF0C;000 &#x7F8E;&#x5143;&#x3002;</li>
+<li>&#x6700;&#x8D35;&#x7684;&#x7EA2;&#x8272;&#x672C;&#x7530;&#x552E;&#x4EF7;&#x4E3A; $20&#xFF0C;000 &#x7F8E;&#x5143;&#x3002;</li>
+</ul>
+<h2 id="&#x6761;&#x5F62;&#x56FE;"><a name="&#x6761;&#x5F62;&#x56FE;" class="anchor-navigation-ex-anchor" href="#&#x6761;&#x5F62;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6761;&#x5F62;&#x56FE;</h2>
+<p>&#x805A;&#x5408;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x4EE4;&#x4EBA;&#x6FC0;&#x52A8;&#x7684;&#x7279;&#x6027;&#x5C31;&#x662F;&#x80FD;&#x591F;&#x5341;&#x5206;&#x5BB9;&#x6613;&#x5730;&#x5C06;&#x5B83;&#x4EEC;&#x8F6C;&#x6362;&#x6210;&#x56FE;&#x8868;&#x548C;&#x56FE;&#x5F62;&#x3002; &#x672C;&#x7AE0;&#x4E2D;&#xFF0C; &#x6211;&#x4EEC;&#x6B63;&#x5728;&#x901A;&#x8FC7;&#x793A;&#x4F8B;&#x6570;&#x636E;&#x6765;&#x5B8C;&#x6210;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x805A;&#x5408;&#x5206;&#x6790;&#xFF0C;&#x6700;&#x7EC8;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x53D1;&#x73B0;&#x805A;&#x5408;&#x529F;&#x80FD;&#x662F;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x7684;&#x3002;</p>
+<p>&#x76F4;&#x65B9;&#x56FE; <code>histogram</code> &#x7279;&#x522B;&#x6709;&#x7528;&#x3002; &#x5B83;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x6761;&#x5F62;&#x56FE;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x521B;&#x5EFA;&#x62A5;&#x8868;&#x6216;&#x5206;&#x6790;&#x4EEA;&#x8868;&#x76D8;&#x7684;&#x7ECF;&#x9A8C;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x4F1A;&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#x7684;&#x53D1;&#x73B0;&#x91CC;&#x9762;&#x6709;&#x4E00;&#x4E9B;&#x56FE;&#x8868;&#x662F;&#x6761;&#x5F62;&#x56FE;&#x3002; &#x521B;&#x5EFA;&#x76F4;&#x65B9;&#x56FE;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x533A;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x4E3A;&#x552E;&#x4EF7;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x76F4;&#x65B9;&#x56FE;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x95F4;&#x9694;&#x8BBE;&#x4E3A; 20,000&#x3002;&#x8FD9;&#x6837;&#x505A;&#x5C06;&#x4F1A;&#x5728;&#x6BCF;&#x4E2A; $20,000 &#x6863;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x6876;&#xFF0C;&#x7136;&#x540E;&#x6587;&#x6863;&#x4F1A;&#x88AB;&#x5206;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x6876;&#x4E2D;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x4EEA;&#x8868;&#x76D8;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x77E5;&#x9053;&#x6BCF;&#x4E2A;&#x552E;&#x4EF7;&#x533A;&#x95F4;&#x5185;&#x6C7D;&#x8F66;&#x7684;&#x9500;&#x91CF;&#x3002;&#x6211;&#x4EEC;&#x8FD8;&#x4F1A;&#x60F3;&#x77E5;&#x9053;&#x6BCF;&#x4E2A;&#x552E;&#x4EF7;&#x533A;&#x95F4;&#x5185;&#x6C7D;&#x8F66;&#x6240;&#x5E26;&#x6765;&#x7684;&#x6536;&#x5165;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x6BCF;&#x4E2A;&#x533A;&#x95F4;&#x5185;&#x5DF2;&#x552E;&#x6C7D;&#x8F66;&#x7684;&#x552E;&#x4EF7;&#x6C42;&#x548C;&#x5F97;&#x5230;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x7528; <code>histogram</code> &#x548C;&#x4E00;&#x4E2A;&#x5D4C;&#x5957;&#x7684; <code>sum</code> &#x5EA6;&#x91CF;&#x5F97;&#x5230;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x7B54;&#x6848;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+   <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;aggs&quot;</span>:{
+      <span class="hljs-string">&quot;price&quot;</span>:{
+         <span class="hljs-string">&quot;histogram&quot;</span>:{                   &lt;1&gt;
+            &quot;field&quot;: &quot;price&quot;,
+            &quot;interval&quot;: 20000
+         },
+         &quot;aggs&quot;:{
+            &quot;revenue&quot;: { 
+               &quot;sum&quot;: {                  &lt;2&gt;
+                 &quot;field&quot; : &quot;price&quot;
+               }
+             }
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  <code>histogram</code> &#x6876;&#x8981;&#x6C42;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#x5B57;&#x6BB5;&#x4EE5;&#x53CA;&#x4E00;&#x4E2A;&#x5B9A;&#x4E49;&#x6876;&#x5927;&#x5C0F;&#x95F4;&#x9694;&#x3002;   </p>
+<p> <img src="assets/2.png" alt="img">  <code>sum</code> &#x5EA6;&#x91CF;&#x5D4C;&#x5957;&#x5728;&#x6BCF;&#x4E2A;&#x552E;&#x4EF7;&#x533A;&#x95F4;&#x5185;&#xFF0C;&#x7528;&#x6765;&#x663E;&#x793A;&#x6BCF;&#x4E2A;&#x533A;&#x95F4;&#x5185;&#x7684;&#x603B;&#x6536;&#x5165;&#x3002;  </p>
+</blockquote>
+<p>&#x5982;&#x6211;&#x4EEC;&#x6240;&#x89C1;&#xFF0C;&#x67E5;&#x8BE2;&#x662F;&#x56F4;&#x7ED5; <code>price</code> &#x805A;&#x5408;&#x6784;&#x5EFA;&#x7684;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4E00;&#x4E2A; <code>histogram</code> &#x6876;&#x3002;&#x5B83;&#x8981;&#x6C42;&#x5B57;&#x6BB5;&#x7684;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x662F;&#x6570;&#x503C;&#x578B;&#x7684;&#x540C;&#x65F6;&#x9700;&#x8981;&#x8BBE;&#x5B9A;&#x5206;&#x7EC4;&#x7684;&#x95F4;&#x9694;&#x8303;&#x56F4;&#x3002; &#x95F4;&#x9694;&#x8BBE;&#x7F6E;&#x4E3A; 20,000 &#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x5F97;&#x5230;&#x5982; <code>[0-19999, 20000-39999, ...]</code> &#x8FD9;&#x6837;&#x7684;&#x533A;&#x95F4;&#x3002;</p>
+<p>&#x63A5;&#x7740;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x76F4;&#x65B9;&#x56FE;&#x5185;&#x5B9A;&#x4E49;&#x5D4C;&#x5957;&#x7684;&#x5EA6;&#x91CF;&#xFF0C;&#x8FD9;&#x4E2A; <code>sum</code> &#x5EA6;&#x91CF;&#xFF0C;&#x5B83;&#x4F1A;&#x5BF9;&#x843D;&#x5165;&#x67D0;&#x4E00;&#x5177;&#x4F53;&#x552E;&#x4EF7;&#x533A;&#x95F4;&#x7684;&#x6587;&#x6863;&#x4E2D; <code>price</code> &#x5B57;&#x6BB5;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x6C42;&#x548C;&#x3002; &#x8FD9;&#x53EF;&#x4EE5;&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x6BCF;&#x4E2A;&#x552E;&#x4EF7;&#x533A;&#x95F4;&#x7684;&#x6536;&#x5165;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x5230;&#x5E95;&#x662F;&#x666E;&#x901A;&#x5BB6;&#x7528;&#x8F66;&#x8D5A;&#x94B1;&#x8FD8;&#x662F;&#x5962;&#x4F88;&#x8F66;&#x8D5A;&#x94B1;&#x3002;</p>
+<p>&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-js">{
+...
+   <span class="hljs-string">&quot;aggregations&quot;</span>: {
+      <span class="hljs-string">&quot;price&quot;</span>: {
+         <span class="hljs-string">&quot;buckets&quot;</span>: [
+            {
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">0</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">3</span>,
+               <span class="hljs-string">&quot;revenue&quot;</span>: {
+                  <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">37000</span>
+               }
+            },
+            {
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">20000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">4</span>,
+               <span class="hljs-string">&quot;revenue&quot;</span>: {
+                  <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">95000</span>
+               }
+            },
+            {
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">80000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>,
+               <span class="hljs-string">&quot;revenue&quot;</span>: {
+                  <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">80000</span>
+               }
+            }
+         ]
+      }
+   }
+}
+</code></pre>
+<p>&#x7ED3;&#x679C;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x4E0D;&#x8FC7;&#x5E94;&#x8BE5;&#x6CE8;&#x610F;&#x5230;&#x76F4;&#x65B9;&#x56FE;&#x7684;&#x952E;&#x503C;&#x662F;&#x533A;&#x95F4;&#x7684;&#x4E0B;&#x9650;&#x3002;&#x952E; <code>0</code> &#x4EE3;&#x8868;&#x533A;&#x95F4; <code>0-19&#xFF0C;999</code> &#xFF0C;&#x952E; <code>20000</code> &#x4EE3;&#x8868;&#x533A;&#x95F4; <code>20&#xFF0C;000-39&#xFF0C;999</code> &#xFF0C;&#x7B49;&#x7B49;&#x3002;</p>
+<blockquote>
+<p> <img src="assets/note-1551926817341.png" alt="&#x6CE8;&#x610F;">  &#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#x7A7A;&#x7684;&#x533A;&#x95F4;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;$40&#xFF0C;000-60&#xFF0C;000&#xFF0C;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x5728;&#x54CD;&#x5E94;&#x4E2D;&#x3002; <code>histogram</code>&#x6876;&#x9ED8;&#x8BA4;&#x4F1A;&#x5FFD;&#x7565;&#x5B83;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x4E0D;&#x5E0C;&#x671B;&#x7684;&#x6F5C;&#x5728;&#x9519;&#x8BEF;&#x8F93;&#x51FA;&#x3002;  </p>
+</blockquote>
+<p>&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x4E0B;&#x4E00;&#x5C0F;&#x8282;&#x4E2D;&#x8BA8;&#x8BBA;&#x5982;&#x4F55;&#x5305;&#x62EC;&#x7A7A;&#x6876;&#x3002;&#x8FD4;&#x56DE;&#x7A7A;&#x6876; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_returning_empty_buckets.html" target="_blank">&#x8FD4;&#x56DE;&#x7A7A; Buckets</a> &#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x56FE; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_building_bar_charts.html#barcharts-histo1" target="_blank">&#x56FE; 35 &#x201C;Sales and Revenue per price bracket&#x201D;</a> &#x4E2D;&#x770B;&#x5230;&#x4EE5;&#x4E0A;&#x6570;&#x636E;&#x76F4;&#x65B9;&#x56FE;&#x7684;&#x56FE;&#x5F62;&#x5316;&#x8868;&#x793A;&#x3002;</p>
+<p><strong>&#x56FE; 35. Sales and Revenue per price bracket</strong></p>
+<p><img src="assets/elas_28in01.png" alt="Sales and Revenue per price bracket"></p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E3A;&#x4EFB;&#x4F55;&#x805A;&#x5408;&#x8F93;&#x51FA;&#x7684;&#x5206;&#x7C7B;&#x548C;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#x521B;&#x5EFA;&#x6761;&#x5F62;&#x56FE;&#xFF0C;&#x800C;&#x4E0D;&#x53EA;&#x662F; <code>&#x76F4;&#x65B9;&#x56FE;</code> &#x6876;&#x3002;&#x8BA9;&#x6211;&#x4EEC;&#x4EE5;&#x6700;&#x53D7;&#x6B22;&#x8FCE; 10 &#x79CD;&#x6C7D;&#x8F66;&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x7684;&#x5E73;&#x5747;&#x552E;&#x4EF7;&#x3001;&#x6807;&#x51C6;&#x5DEE;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6761;&#x5F62;&#x56FE;&#x3002; &#x6211;&#x4EEC;&#x4F1A;&#x7528;&#x5230; <code>terms</code> &#x6876;&#x548C; <code>extended_stats</code> &#x5EA6;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+  <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+  <span class="hljs-string">&quot;aggs&quot;</span>: {
+    <span class="hljs-string">&quot;makes&quot;</span>: {
+      <span class="hljs-string">&quot;terms&quot;</span>: {
+        <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;make&quot;</span>,
+        <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-number">10</span>
+      },
+      <span class="hljs-string">&quot;aggs&quot;</span>: {
+        <span class="hljs-string">&quot;stats&quot;</span>: {
+          <span class="hljs-string">&quot;extended_stats&quot;</span>: {
+            <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;price&quot;</span>
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x4F1A;&#x6309;&#x53D7;&#x6B22;&#x8FCE;&#x5EA6;&#x8FD4;&#x56DE;&#x5236;&#x9020;&#x5546;&#x5217;&#x8868;&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x5404;&#x81EA;&#x7684;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x3002;&#x6211;&#x4EEC;&#x5BF9;&#x5176;&#x4E2D;&#x7684; <code>stats.avg</code> &#x3001; <code>stats.count</code> &#x548C; <code>stats.std_deviation</code> &#x4FE1;&#x606F;&#x7279;&#x522B;&#x611F;&#x5174;&#x8DA3;&#xFF0C;&#x5E76;&#x7528; &#x5B83;&#x4EEC;&#x8BA1;&#x7B97;&#x51FA;&#x6807;&#x51C6;&#x5DEE;&#xFF1A;</p>
+<pre><code>std_err = std_deviation / count
+</code></pre><p>&#x521B;&#x5EFA;&#x56FE;&#x8868;&#x5982;&#x56FE; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_building_bar_charts.html#barcharts-bar1" target="_blank">&#x56FE; 36 &#x201C;Average price of all makes, with error bars&#x201D;</a> &#x3002;</p>
+<p><strong>&#x56FE; 36. Average price of all makes, with error bars</strong></p>
+<p><img src="assets/elas_28in02.png" alt="Average price of all makes, with error bars"></p>
+<h2 id="&#x6309;&#x65F6;&#x95F4;&#x7EDF;&#x8BA1;"><a name="&#x6309;&#x65F6;&#x95F4;&#x7EDF;&#x8BA1;" class="anchor-navigation-ex-anchor" href="#&#x6309;&#x65F6;&#x95F4;&#x7EDF;&#x8BA1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6309;&#x65F6;&#x95F4;&#x7EDF;&#x8BA1;</h2>
+<p>&#x5982;&#x679C;&#x641C;&#x7D22;&#x662F;&#x5728; Elasticsearch &#x4E2D;&#x4F7F;&#x7528;&#x9891;&#x7387;&#x6700;&#x9AD8;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x6784;&#x5EFA;&#x6309;&#x65F6;&#x95F4;&#x7EDF;&#x8BA1;&#x7684; date_histogram &#x7D27;&#x968F;&#x5176;&#x540E;&#x3002; &#x4E3A;&#x4EC0;&#x4E48;&#x4F60;&#x4F1A;&#x60F3;&#x7528; date_histogram &#x5462;&#xFF1F;</p>
+<p>&#x5047;&#x8BBE;&#x4F60;&#x7684;&#x6570;&#x636E;&#x5E26;&#x65F6;&#x95F4;&#x6233;&#x3002; &#x65E0;&#x8BBA;&#x662F;&#x4EC0;&#x4E48;&#x6570;&#x636E;&#xFF08;Apache &#x4E8B;&#x4EF6;&#x65E5;&#x5FD7;&#x3001;&#x80A1;&#x7968;&#x4E70;&#x5356;&#x4EA4;&#x6613;&#x65F6;&#x95F4;&#x3001;&#x68D2;&#x7403;&#x8FD0;&#x52A8;&#x65F6;&#x95F4;&#xFF09;&#x53EA;&#x8981;&#x5E26;&#x6709;&#x65F6;&#x95F4;&#x6233;&#x90FD;&#x53EF;&#x4EE5;&#x8FDB;&#x884C; date_histogram &#x5206;&#x6790;&#x3002;&#x5F53;&#x4F60;&#x7684;&#x6570;&#x636E;&#x6709;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x4F60;&#x603B;&#x662F;&#x60F3;&#x5728; <em>&#x65F6;&#x95F4;</em> &#x7EF4;&#x5EA6;&#x4E0A;&#x6784;&#x5EFA;&#x6307;&#x6807;&#x5206;&#x6790;&#xFF1A;</p>
+<ul>
+<li>&#x4ECA;&#x5E74;&#x6BCF;&#x6708;&#x9500;&#x552E;&#x591A;&#x5C11;&#x53F0;&#x6C7D;&#x8F66;&#xFF1F;</li>
+<li>&#x8FD9;&#x53EA;&#x80A1;&#x7968;&#x6700;&#x8FD1; 12 &#x5C0F;&#x65F6;&#x7684;&#x4EF7;&#x683C;&#x662F;&#x591A;&#x5C11;&#xFF1F;</li>
+<li>&#x6211;&#x4EEC;&#x7F51;&#x7AD9;&#x4E0A;&#x5468;&#x6BCF;&#x5C0F;&#x65F6;&#x7684;&#x5E73;&#x5747;&#x54CD;&#x5E94;&#x5EF6;&#x8FDF;&#x65F6;&#x95F4;&#x662F;&#x591A;&#x5C11;&#xFF1F;</li>
+</ul>
+<p>&#x867D;&#x7136;&#x901A;&#x5E38;&#x7684; histogram &#x90FD;&#x662F;&#x6761;&#x5F62;&#x56FE;&#xFF0C;&#x4F46; date<em>histogram &#x503E;&#x5411;&#x4E8E;&#x8F6C;&#x6362;&#x6210;&#x7EBF;&#x72B6;&#x56FE;&#x4EE5;&#x5C55;&#x793A;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x3002; &#x8BB8;&#x591A;&#x516C;&#x53F8;&#x7528; Elasticsearch </em>&#x4EC5;&#x4EC5;_ &#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x5206;&#x6790;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x3002; <code>date_histogram</code> &#x5206;&#x6790;&#x662F;&#x5B83;&#x4EEC;&#x6700;&#x57FA;&#x672C;&#x7684;&#x9700;&#x8981;&#x3002;</p>
+<p><code>date_histogram</code> &#x4E0E; &#x901A;&#x5E38;&#x7684; <code>histogram</code> &#x7C7B;&#x4F3C;&#x3002; &#x4F46;&#x4E0D;&#x662F;&#x5728;&#x4EE3;&#x8868;&#x6570;&#x503C;&#x8303;&#x56F4;&#x7684;&#x6570;&#x503C;&#x5B57;&#x6BB5;&#x4E0A;&#x6784;&#x5EFA; buckets&#xFF0C;&#x800C;&#x662F;&#x5728;&#x65F6;&#x95F4;&#x8303;&#x56F4;&#x4E0A;&#x6784;&#x5EFA; buckets&#x3002; &#x56E0;&#x6B64;&#x6BCF;&#x4E00;&#x4E2A; bucket &#x90FD;&#x88AB;&#x5B9A;&#x4E49;&#x6210;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x65E5;&#x671F;&#x5927;&#x5C0F; (&#x6BD4;&#x5982;&#xFF0C; <code>1&#x4E2A;&#x6708;</code> &#x6216; <code>2.5 &#x5929;</code>)&#x3002;</p>
+<hr>
+<blockquote>
+<p> <strong>&#x53EF;&#x4EE5;&#x7528;&#x901A;&#x5E38;&#x7684; histogram &#x8FDB;&#x884C;&#x65F6;&#x95F4;&#x5206;&#x6790;&#x5417;&#xFF1F;</strong></p>
+<p> &#x4ECE;&#x6280;&#x672F;&#x4E0A;&#x6765;&#x8BB2;&#xFF0C;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#x3002; &#x901A;&#x5E38;&#x7684; <code>histogram</code> bucket&#xFF08;&#x6876;&#xFF09;&#x662F;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x65E5;&#x671F;&#x7684;&#x3002; &#x4F46;&#x662F;&#x5B83;&#x4E0D;&#x80FD;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x65E5;&#x671F;&#x3002; &#x800C;&#x7528; <code>date_histogram</code> &#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x6BB5;&#x5982; <code>1 &#x4E2A;&#x6708;</code> &#xFF0C;&#x5B83;&#x80FD;&#x806A;&#x660E;&#x5730;&#x77E5;&#x9053; 2 &#x6708;&#x7684;&#x5929;&#x6570;&#x6BD4; 12 &#x6708;&#x5C11;&#x3002; <code>date_histogram</code> &#x8FD8;&#x5177;&#x6709;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x4F18;&#x52BF;&#xFF0C;&#x5373;&#x80FD;&#x5408;&#x7406;&#x5730;&#x5904;&#x7406;&#x65F6;&#x533A;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x4F7F;&#x4F60;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x65F6;&#x533A;&#x8FDB;&#x884C;&#x56FE;&#x6807;&#x5B9A;&#x5236;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7528;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x65F6;&#x533A;&#x3002;</p>
+<p> &#x901A;&#x5E38;&#x7684; histogram &#x4F1A;&#x628A;&#x65E5;&#x671F;&#x770B;&#x505A;&#x662F;&#x6570;&#x5B57;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x5FC5;&#x987B;&#x4EE5;&#x5FAE;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x6307;&#x660E;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x3002;&#x53E6;&#x5916;&#x805A;&#x5408;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x65E5;&#x5386;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#xFF0C;&#x4F7F;&#x5F97;&#x5B83;&#x5BF9;&#x4E8E;&#x65E5;&#x671F;&#x800C;&#x8A00;&#x51E0;&#x4E4E;&#x6CA1;&#x4EC0;&#x4E48;&#x7528;&#x5904;&#x3002;</p>
+<hr>
+</blockquote>
+<p>&#x6211;&#x4EEC;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x5C06;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6298;&#x7EBF;&#x56FE;&#x6765;&#x56DE;&#x7B54;&#x5982;&#x4E0B;&#x95EE;&#x9898;&#xFF1A; &#x6BCF;&#x6708;&#x9500;&#x552E;&#x591A;&#x5C11;&#x53F0;&#x6C7D;&#x8F66;&#xFF1F;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+   <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;aggs&quot;</span>: {
+      <span class="hljs-string">&quot;sales&quot;</span>: {
+         <span class="hljs-string">&quot;date_histogram&quot;</span>: {
+            <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;sold&quot;</span>,
+            <span class="hljs-string">&quot;interval&quot;</span>: <span class="hljs-string">&quot;month&quot;</span>,      &lt;1&gt;
+            &quot;format&quot;: &quot;yyyy-MM-dd&quot;    &lt;2&gt;
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x65F6;&#x95F4;&#x95F4;&#x9694;&#x8981;&#x6C42;&#x662F;&#x65E5;&#x5386;&#x672F;&#x8BED; (&#x5982;&#x6BCF;&#x4E2A; bucket 1 &#x4E2A;&#x6708;)&#x3002;  </p>
+<p> <img src="assets/2.png" alt="img">  &#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x65E5;&#x671F;&#x683C;&#x5F0F;&#x4EE5;&#x4FBF; buckets &#x7684;&#x952E;&#x503C;&#x4FBF;&#x4E8E;&#x9605;&#x8BFB;&#x3002;  </p>
+</blockquote>
+<p>&#x6211;&#x4EEC;&#x7684;&#x67E5;&#x8BE2;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x805A;&#x5408;&#xFF0C;&#x6BCF;&#x6708;&#x6784;&#x5EFA;&#x4E00;&#x4E2A; bucket&#x3002;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x6BCF;&#x4E2A;&#x6708;&#x9500;&#x552E;&#x7684;&#x6C7D;&#x8F66;&#x6570;&#x91CF;&#x3002; &#x53E6;&#x5916;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684; <code>format</code> &#x53C2;&#x6570;&#x4EE5;&#x4FBF; buckets &#x6709; &quot;&#x597D;&#x770B;&#x7684;&quot; &#x952E;&#x503C;&#x3002; &#x7136;&#x800C;&#x5728;&#x5185;&#x90E8;&#xFF0C;&#x65E5;&#x671F;&#x4ECD;&#x7136;&#x662F;&#x88AB;&#x7B80;&#x5355;&#x8868;&#x793A;&#x6210;&#x6570;&#x503C;&#x3002;&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x4F7F;&#x5F97; UI &#x8BBE;&#x8BA1;&#x8005;&#x62B1;&#x6028;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x5E38;&#x7528;&#x7684;&#x65E5;&#x671F;&#x683C;&#x5F0F;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x4EE5;&#x66F4;&#x65B9;&#x4FBF;&#x9605;&#x8BFB;&#x3002;</p>
+<p>&#x7ED3;&#x679C;&#x65E2;&#x7B26;&#x5408;&#x9884;&#x671F;&#x53C8;&#x6709;&#x4E00;&#x70B9;&#x51FA;&#x4EBA;&#x610F;&#x6599;&#xFF08;&#x770B;&#x770B;&#x4F60;&#x662F;&#x5426;&#x80FD;&#x627E;&#x5230;&#x610F;&#x5916;&#x4E4B;&#x5904;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js">{
+   ...
+   <span class="hljs-string">&quot;aggregations&quot;</span>: {
+      <span class="hljs-string">&quot;sales&quot;</span>: {
+         <span class="hljs-string">&quot;buckets&quot;</span>: [
+            {
+               <span class="hljs-string">&quot;key_as_string&quot;</span>: <span class="hljs-string">&quot;2014-01-01&quot;</span>,
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">1388534400000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>
+            },
+            {
+               <span class="hljs-string">&quot;key_as_string&quot;</span>: <span class="hljs-string">&quot;2014-02-01&quot;</span>,
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">1391212800000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>
+            },
+            {
+               <span class="hljs-string">&quot;key_as_string&quot;</span>: <span class="hljs-string">&quot;2014-05-01&quot;</span>,
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">1398902400000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>
+            },
+            {
+               <span class="hljs-string">&quot;key_as_string&quot;</span>: <span class="hljs-string">&quot;2014-07-01&quot;</span>,
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">1404172800000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>
+            },
+            {
+               <span class="hljs-string">&quot;key_as_string&quot;</span>: <span class="hljs-string">&quot;2014-08-01&quot;</span>,
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">1406851200000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>
+            },
+            {
+               <span class="hljs-string">&quot;key_as_string&quot;</span>: <span class="hljs-string">&quot;2014-10-01&quot;</span>,
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">1412121600000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>
+            },
+            {
+               <span class="hljs-string">&quot;key_as_string&quot;</span>: <span class="hljs-string">&quot;2014-11-01&quot;</span>,
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">1414800000000</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">2</span>
+            }
+         ]
+...
+}
+</code></pre>
+<p>&#x805A;&#x5408;&#x7ED3;&#x679C;&#x5DF2;&#x7ECF;&#x5B8C;&#x5168;&#x5C55;&#x793A;&#x4E86;&#x3002;&#x6B63;&#x5982;&#x4F60;&#x6240;&#x89C1;&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#x4EE3;&#x8868;&#x6708;&#x4EFD;&#x7684; buckets&#xFF0C;&#x6BCF;&#x4E2A;&#x6708;&#x7684;&#x6587;&#x6863;&#x6570;&#x76EE;&#xFF0C;&#x4EE5;&#x53CA;&#x7F8E;&#x5316;&#x540E;&#x7684; <code>key_as_string</code> &#x3002;</p>
+<h3 id="&#x8FD4;&#x56DE;&#x7A7A;Buckets"><a name="&#x8FD4;&#x56DE;&#x7A7A;Buckets" class="anchor-navigation-ex-anchor" href="#&#x8FD4;&#x56DE;&#x7A7A;Buckets"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD4;&#x56DE;&#x7A7A; Buckets  </h3>
+<p>&#x6CE8;&#x610F;&#x5230;&#x7ED3;&#x679C;&#x672B;&#x5C3E;&#x5904;&#x7684;&#x5947;&#x602A;&#x4E4B;&#x5904;&#x4E86;&#x5417;&#xFF1F;</p>
+<p>&#x662F;&#x7684;&#xFF0C;&#x7ED3;&#x679C;&#x6CA1;&#x9519;&#x3002; &#x6211;&#x4EEC;&#x7684;&#x7ED3;&#x679C;&#x5C11;&#x4E86;&#x4E00;&#x4E9B;&#x6708;&#x4EFD;&#xFF01; <code>date_histogram</code> &#xFF08;&#x548C; <code>histogram</code> &#x4E00;&#x6837;&#xFF09;&#x9ED8;&#x8BA4;&#x53EA;&#x4F1A;&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x6570;&#x76EE;&#x975E;&#x96F6;&#x7684; buckets&#x3002;</p>
+<p>&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x7684; histogram &#x603B;&#x662F;&#x8FD4;&#x56DE;&#x6700;&#x5C11;&#x7ED3;&#x679C;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x4F60;&#x5E76;&#x4E0D;&#x60F3;&#x8981;&#x8FD9;&#x6837;&#x3002;&#x5BF9;&#x4E8E;&#x5F88;&#x591A;&#x5E94;&#x7528;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x76F4;&#x63A5;&#x628A;&#x7ED3;&#x679C;&#x5BFC;&#x5165;&#x5230;&#x56FE;&#x5F62;&#x5E93;&#x4E2D;&#xFF0C;&#x800C;&#x4E0D;&#x60F3;&#x505A;&#x4EFB;&#x4F55;&#x540E;&#x671F;&#x52A0;&#x5DE5;&#x3002;</p>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x5373;&#x4F7F; buckets &#x4E2D;&#x6CA1;&#x6709;&#x6587;&#x6863;&#x6211;&#x4EEC;&#x4E5F;&#x60F3;&#x8FD4;&#x56DE;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x4E24;&#x4E2A;&#x989D;&#x5916;&#x53C2;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x8FD9;&#x79CD;&#x6548;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+   <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;aggs&quot;</span>: {
+      <span class="hljs-string">&quot;sales&quot;</span>: {
+         <span class="hljs-string">&quot;date_histogram&quot;</span>: {
+            <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;sold&quot;</span>,
+            <span class="hljs-string">&quot;interval&quot;</span>: <span class="hljs-string">&quot;month&quot;</span>,
+            <span class="hljs-string">&quot;format&quot;</span>: <span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>,
+            <span class="hljs-string">&quot;min_doc_count&quot;</span> : <span class="hljs-number">0</span>,           &lt;1&gt;
+            &quot;extended_bounds&quot; : {          &lt;2&gt; 
+                &quot;min&quot; : &quot;2014-01-01&quot;,
+                &quot;max&quot; : &quot;2014-12-31&quot;
+            }
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5F3A;&#x5236;&#x8FD4;&#x56DE;&#x7A7A; buckets&#x3002;   </p>
+<p> <img src="assets/2.png" alt="img">  &#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5F3A;&#x5236;&#x8FD4;&#x56DE;&#x6574;&#x5E74;&#x3002;   </p>
+</blockquote>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x4F1A;&#x5F3A;&#x5236;&#x8FD4;&#x56DE;&#x4E00;&#x5E74;&#x4E2D;&#x6240;&#x6709;&#x6708;&#x4EFD;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x800C;&#x4E0D;&#x8003;&#x8651;&#x7ED3;&#x679C;&#x4E2D;&#x7684;&#x6587;&#x6863;&#x6570;&#x76EE;&#x3002; <code>min_doc_count</code> &#x975E;&#x5E38;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF1A;&#x5B83;&#x5F3A;&#x5236;&#x8FD4;&#x56DE;&#x6240;&#x6709; buckets&#xFF0C;&#x5373;&#x4F7F; buckets &#x53EF;&#x80FD;&#x4E3A;&#x7A7A;&#x3002;</p>
+<p><code>extended_bounds</code> &#x53C2;&#x6570;&#x9700;&#x8981;&#x4E00;&#x70B9;&#x89E3;&#x91CA;&#x3002; <code>min_doc_count</code> &#x53C2;&#x6570;&#x5F3A;&#x5236;&#x8FD4;&#x56DE;&#x7A7A; buckets&#xFF0C;&#x4F46;&#x662F; Elasticsearch &#x9ED8;&#x8BA4;&#x53EA;&#x8FD4;&#x56DE;&#x4F60;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x6700;&#x5C0F;&#x503C;&#x548C;&#x6700;&#x5927;&#x503C;&#x4E4B;&#x95F4;&#x7684; buckets&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x5982;&#x679C;&#x4F60;&#x7684;&#x6570;&#x636E;&#x53EA;&#x843D;&#x5728;&#x4E86; 4 &#x6708;&#x548C; 7 &#x6708;&#x4E4B;&#x95F4;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x53EA;&#x80FD;&#x5F97;&#x5230;&#x8FD9;&#x4E9B;&#x6708;&#x4EFD;&#x7684; buckets&#xFF08;&#x53EF;&#x80FD;&#x4E3A;&#x7A7A;&#x4E5F;&#x53EF;&#x80FD;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF09;&#x3002;&#x56E0;&#x6B64;&#x4E3A;&#x4E86;&#x5F97;&#x5230;&#x5168;&#x5E74;&#x6570;&#x636E;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x544A;&#x8BC9; Elasticsearch &#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5168;&#x90E8; buckets&#xFF0C; &#x5373;&#x4FBF;&#x90A3;&#x4E9B; buckets &#x53EF;&#x80FD;&#x843D;&#x5728;&#x6700;&#x5C0F;&#x65E5;&#x671F; <em>&#x4E4B;&#x524D;</em> &#x6216; &#x6700;&#x5927;&#x65E5;&#x671F; <em>&#x4E4B;&#x540E;</em> &#x3002;</p>
+<p><code>extended_bounds</code> &#x53C2;&#x6570;&#x6B63;&#x662F;&#x5982;&#x6B64;&#x3002;&#x4E00;&#x65E6;&#x4F60;&#x52A0;&#x4E0A;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x8BBE;&#x7F6E;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x8F7B;&#x6613;&#x5730;&#x76F4;&#x63A5;&#x63D2;&#x5165;&#x5230;&#x4F60;&#x7684;&#x56FE;&#x5F62;&#x5E93;&#x4E2D;&#xFF0C;&#x4ECE;&#x800C;&#x5F97;&#x5230;&#x7C7B;&#x4F3C; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_returning_empty_buckets.html#date-histo-ts1" target="_blank">&#x56FE; 37 &#x201C;&#x6C7D;&#x8F66;&#x9500;&#x552E;&#x65F6;&#x95F4;&#x56FE;&#x201D;</a> &#x7684;&#x56FE;&#x8868;&#x3002;</p>
+<p><strong>&#x56FE; 37. &#x6C7D;&#x8F66;&#x9500;&#x552E;&#x65F6;&#x95F4;&#x56FE;</strong></p>
+<p><img src="assets/elas_29in01.png" alt="&#x6C7D;&#x8F66;&#x9500;&#x552E;&#x65F6;&#x95F4;&#x56FE;"></p>
+<h3 id="&#x6269;&#x5C55;&#x4F8B;&#x5B50;"><a name="&#x6269;&#x5C55;&#x4F8B;&#x5B50;" class="anchor-navigation-ex-anchor" href="#&#x6269;&#x5C55;&#x4F8B;&#x5B50;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6269;&#x5C55;&#x4F8B;&#x5B50;</h3>
+<p>&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x89C1;&#x8FC7;&#x5F88;&#x591A;&#x6B21;&#xFF0C;buckets &#x53EF;&#x4EE5;&#x5D4C;&#x5957;&#x8FDB; buckets &#x4E2D;&#x4ECE;&#x800C;&#x5F97;&#x5230;&#x66F4;&#x590D;&#x6742;&#x7684;&#x5206;&#x6790;&#x3002; &#x4F5C;&#x4E3A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x6784;&#x5EFA;&#x805A;&#x5408;&#x4EE5;&#x4FBF;&#x6309;&#x5B63;&#x5EA6;&#x5C55;&#x793A;&#x6240;&#x6709;&#x6C7D;&#x8F66;&#x54C1;&#x724C;&#x603B;&#x9500;&#x552E;&#x989D;&#x3002;&#x540C;&#x65F6;&#x6309;&#x5B63;&#x5EA6;&#x3001;&#x6309;&#x6BCF;&#x4E2A;&#x6C7D;&#x8F66;&#x54C1;&#x724C;&#x8BA1;&#x7B97;&#x9500;&#x552E;&#x603B;&#x989D;&#xFF0C;&#x4EE5;&#x4FBF;&#x53EF;&#x4EE5;&#x627E;&#x51FA;&#x54EA;&#x79CD;&#x54C1;&#x724C;&#x6700;&#x8D5A;&#x94B1;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+   <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+   <span class="hljs-string">&quot;aggs&quot;</span>: {
+      <span class="hljs-string">&quot;sales&quot;</span>: {
+         <span class="hljs-string">&quot;date_histogram&quot;</span>: {
+            <span class="hljs-string">&quot;field&quot;</span>: <span class="hljs-string">&quot;sold&quot;</span>,
+            <span class="hljs-string">&quot;interval&quot;</span>: <span class="hljs-string">&quot;quarter&quot;</span>,                 &lt;1&gt;
+            &quot;format&quot;: &quot;yyyy-MM-dd&quot;,
+            &quot;min_doc_count&quot; : 0,
+            &quot;extended_bounds&quot; : {
+                &quot;min&quot; : &quot;2014-01-01&quot;,
+                &quot;max&quot; : &quot;2014-12-31&quot;
+            }
+         },
+         &quot;aggs&quot;: {
+            &quot;per_make_sum&quot;: {
+               &quot;terms&quot;: {
+                  &quot;field&quot;: &quot;make&quot;
+               },
+               &quot;aggs&quot;: {
+                  &quot;sum_price&quot;: {
+                     &quot;sum&quot;: { &quot;field&quot;: &quot;price&quot; }   &lt;2&gt;
+                  }
+               }
+            },
+            &quot;total_sum&quot;: {
+               &quot;sum&quot;: { &quot;field&quot;: &quot;price&quot; }         &lt;3&gt;
+            }
+         }
+      }
+   }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x628A;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x4ECE; <code>month</code> &#x6539;&#x6210;&#x4E86; <code>quarter</code> &#x3002;   </p>
+<p> <img src="assets/2.png" alt="img">  &#x8BA1;&#x7B97;&#x6BCF;&#x79CD;&#x54C1;&#x724C;&#x7684;&#x603B;&#x9500;&#x552E;&#x91D1;&#x989D;&#x3002;   </p>
+<p> <img src="assets/3.png" alt="img">  &#x4E5F;&#x8BA1;&#x7B97;&#x6240;&#x6709;&#x5168;&#x90E8;&#x54C1;&#x724C;&#x7684;&#x6C47;&#x603B;&#x9500;&#x552E;&#x91D1;&#x989D;&#x3002;       </p>
+</blockquote>
+<p>&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#xFF08;&#x622A;&#x53BB;&#x4E86;&#x4E00;&#x5927;&#x90E8;&#x5206;&#xFF09;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-js">{
+....
+<span class="hljs-string">&quot;aggregations&quot;</span>: {
+   <span class="hljs-string">&quot;sales&quot;</span>: {
+      <span class="hljs-string">&quot;buckets&quot;</span>: [
+         {
+            <span class="hljs-string">&quot;key_as_string&quot;</span>: <span class="hljs-string">&quot;2014-01-01&quot;</span>,
+            <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">1388534400000</span>,
+            <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-string">&quot;total_sum&quot;</span>: {
+               <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">105000</span>
+            },
+            <span class="hljs-string">&quot;per_make_sum&quot;</span>: {
+               <span class="hljs-string">&quot;buckets&quot;</span>: [
+                  {
+                     <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;bmw&quot;</span>,
+                     <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>,
+                     <span class="hljs-string">&quot;sum_price&quot;</span>: {
+                        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">80000</span>
+                     }
+                  },
+                  {
+                     <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;ford&quot;</span>,
+                     <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>,
+                     <span class="hljs-string">&quot;sum_price&quot;</span>: {
+                        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">25000</span>
+                     }
+                  }
+               ]
+            }
+         },
+...
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x628A;&#x7ED3;&#x679C;&#x7ED8;&#x6210;&#x56FE;&#xFF0C;&#x5F97;&#x5230;&#x5982; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_extended_example.html#date-histo-ts2" target="_blank">&#x56FE; 38 &#x201C;&#x6309;&#x54C1;&#x724C;&#x5206;&#x5E03;&#x7684;&#x6BCF;&#x5B63;&#x5EA6;&#x9500;&#x552E;&#x989D;&#x201D;</a> &#x6240;&#x793A;&#x7684;&#x603B;&#x9500;&#x552E;&#x989D;&#x7684;&#x6298;&#x7EBF;&#x56FE;&#x548C;&#x6BCF;&#x4E2A;&#x54C1;&#x724C;&#xFF08;&#x6BCF;&#x5B63;&#x5EA6;&#xFF09;&#x7684;&#x67F1;&#x72B6;&#x56FE;&#x3002;</p>
+<p><strong>&#x56FE; 38. &#x6309;&#x54C1;&#x724C;&#x5206;&#x5E03;&#x7684;&#x6BCF;&#x5B63;&#x5EA6;&#x9500;&#x552E;&#x989D;</strong></p>
+<p><img src="assets/elas_29in02.png" alt="&#x6309;&#x54C1;&#x724C;&#x5206;&#x5E03;&#x7684;&#x6BCF;&#x5B63;&#x5EA6;&#x9500;&#x552E;&#x989D;"></p>
+<h3 id="&#x6F5C;&#x529B;&#x65E0;&#x7A77;"><a name="&#x6F5C;&#x529B;&#x65E0;&#x7A77;" class="anchor-navigation-ex-anchor" href="#&#x6F5C;&#x529B;&#x65E0;&#x7A77;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6F5C;&#x529B;&#x65E0;&#x7A77;</h3>
+<p>&#x8FD9;&#x4E9B;&#x5F88;&#x660E;&#x663E;&#x90FD;&#x662F;&#x7B80;&#x5355;&#x4F8B;&#x5B50;&#xFF0C;&#x4F46;&#x56FE;&#x8868;&#x805A;&#x5408;&#x5176;&#x5B9E;&#x662F;&#x6F5C;&#x529B;&#x65E0;&#x7A77;&#x7684;&#x3002; &#x5982; <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_the_sky_8217_s_the_limit.html#kibana-img" target="_blank">&#x56FE; 39 &#x201C;Kibana--&#x7528;&#x805A;&#x5408;&#x6784;&#x5EFA;&#x7684;&#x5B9E;&#x65F6;&#x5206;&#x6790;&#x9762;&#x677F;&#x201D;</a>&#x5C55;&#x793A;&#x4E86; Kibana &#x4E2D;&#x7528;&#x5404;&#x79CD;&#x805A;&#x5408;&#x6784;&#x5EFA;&#x7684;&#x9762;&#x677F;&#x3002;</p>
+<p><strong>&#x56FE; 39. Kibana--&#x7528;&#x805A;&#x5408;&#x6784;&#x5EFA;&#x7684;&#x5B9E;&#x65F6;&#x5206;&#x6790;&#x9762;&#x677F;</strong></p>
+<p><img src="assets/elas_29in03.png" alt="Kibana--&#x7528;&#x805A;&#x5408;&#x6784;&#x5EFA;&#x7684;&#x5B9E;&#x65F6;&#x5206;&#x6790;&#x9762;&#x677F;"></p>
+<p>&#x56E0;&#x4E3A;&#x805A;&#x5408;&#x7684;&#x5B9E;&#x65F6;&#x6027;&#xFF0C;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#x7684;&#x9762;&#x677F;&#x5F88;&#x5BB9;&#x6613;&#x67E5;&#x8BE2;&#x3001;&#x64CD;&#x4F5C;&#x548C;&#x4EA4;&#x4E92;&#x3002;&#x8FD9;&#x4F7F;&#x5F97;&#x5B83;&#x4EEC;&#x6210;&#x4E3A;&#x9700;&#x8981;&#x5206;&#x6790;&#x6570;&#x636E;&#x53C8;&#x4E0D;&#x4F1A;&#x6784;&#x5EFA; Hadoop &#x4F5C;&#x4E1A;&#x7684;&#x975E;&#x6280;&#x672F;&#x4EBA;&#x5458;&#x7684;&#x7406;&#x60F3;&#x5DE5;&#x5177;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x4E3A;&#x4E86;&#x6784;&#x5EFA;&#x7C7B;&#x4F3C; Kibana &#x8FD9;&#x6837;&#x7684;&#x5F3A;&#x5927;&#x9762;&#x677F;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x66F4;&#x6DF1;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x6BD4;&#x5982;&#x57FA;&#x4E8E;&#x8303;&#x56F4;&#x3001;&#x8FC7;&#x6EE4;&#x4EE5;&#x53CA;&#x6392;&#x5E8F;&#x7684;&#x805A;&#x5408;&#x3002;</p>
+<h2 id="&#x8303;&#x56F4;&#x9650;&#x5B9A;&#x7684;&#x805A;&#x5408;"><a name="&#x8303;&#x56F4;&#x9650;&#x5B9A;&#x7684;&#x805A;&#x5408;" class="anchor-navigation-ex-anchor" href="#&#x8303;&#x56F4;&#x9650;&#x5B9A;&#x7684;&#x805A;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8303;&#x56F4;&#x9650;&#x5B9A;&#x7684;&#x805A;&#x5408;</h2>
+<p>&#x6240;&#x6709;&#x805A;&#x5408;&#x7684;&#x4F8B;&#x5B50;&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x641C;&#x7D22;&#x8BF7;&#x6C42;&#x7701;&#x7565;&#x4E86;&#x4E00;&#x4E2A; <code>query</code> &#x3002; &#x6574;&#x4E2A;&#x8BF7;&#x6C42;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x4E00;&#x4E2A;&#x805A;&#x5408;&#x3002;</p>
+<p>&#x805A;&#x5408;&#x53EF;&#x4EE5;&#x4E0E;&#x641C;&#x7D22;&#x8BF7;&#x6C42;&#x540C;&#x65F6;&#x6267;&#x884C;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7406;&#x89E3;&#x4E00;&#x4E2A;&#x65B0;&#x6982;&#x5FF5;&#xFF1A; <em>&#x8303;&#x56F4;</em> &#x3002; &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x805A;&#x5408;&#x4E0E;&#x67E5;&#x8BE2;&#x662F;&#x5BF9;&#x540C;&#x4E00;&#x8303;&#x56F4;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x805A;&#x5408;&#x662F;&#x57FA;&#x4E8E;&#x6211;&#x4EEC;&#x67E5;&#x8BE2;&#x5339;&#x914D;&#x7684;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x7684;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x7B2C;&#x4E00;&#x4E2A;&#x805A;&#x5408;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+    <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;aggs&quot;</span> : {
+        <span class="hljs-string">&quot;colors&quot;</span> : {
+            <span class="hljs-string">&quot;terms&quot;</span> : {
+              <span class="hljs-string">&quot;field&quot;</span> : <span class="hljs-string">&quot;color&quot;</span>
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x805A;&#x5408;&#x662F;&#x9694;&#x79BB;&#x7684;&#x3002;&#x73B0;&#x5B9E;&#x4E2D;&#xFF0C;Elasticsearch &#x8BA4;&#x4E3A; &quot;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&quot; &#x548C; &quot;&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x6587;&#x6863;&quot; &#x662F;&#x7B49;&#x4EF7;&#x7684;&#x3002;&#x524D;&#x9762;&#x8FD9;&#x4E2A;&#x67E5;&#x8BE2;&#x5185;&#x90E8;&#x4F1A;&#x8F6C;&#x5316;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+    <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;match_all&quot;</span> : {}
+    },
+    <span class="hljs-string">&quot;aggs&quot;</span> : {
+        <span class="hljs-string">&quot;colors&quot;</span> : {
+            <span class="hljs-string">&quot;terms&quot;</span> : {
+              <span class="hljs-string">&quot;field&quot;</span> : <span class="hljs-string">&quot;color&quot;</span>
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x56E0;&#x4E3A;&#x805A;&#x5408;&#x603B;&#x662F;&#x5BF9;&#x67E5;&#x8BE2;&#x8303;&#x56F4;&#x5185;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x4E2A;&#x9694;&#x79BB;&#x7684;&#x805A;&#x5408;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5728;&#x5BF9; <code>match_all</code> &#x7684;&#x7ED3;&#x679C;&#x8303;&#x56F4;&#x64CD;&#x4F5C;&#xFF0C;&#x5373;&#x6240;&#x6709;&#x7684;&#x6587;&#x6863;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x6709;&#x4E86;&#x8303;&#x56F4;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x5BF9;&#x805A;&#x5408;&#x8FDB;&#x884C;&#x81EA;&#x5B9A;&#x4E49;&#x3002;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x6240;&#x6709;&#x7684;&#x793A;&#x4F8B;&#x90FD;&#x662F;&#x5BF9; <em>&#x6240;&#x6709;</em> &#x6570;&#x636E;&#x8BA1;&#x7B97;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x7684;&#xFF1A;&#x9500;&#x91CF;&#x6700;&#x9AD8;&#x7684;&#x6C7D;&#x8F66;&#xFF0C;&#x6240;&#x6709;&#x6C7D;&#x8F66;&#x7684;&#x5E73;&#x5747;&#x552E;&#x4EF7;&#xFF0C;&#x6700;&#x4F73;&#x9500;&#x552E;&#x6708;&#x4EFD;&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x5229;&#x7528;&#x8303;&#x56F4;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x95EE;&#x201C;&#x798F;&#x7279;&#x5728;&#x552E;&#x8F66;&#x6709;&#x591A;&#x5C11;&#x79CD;&#x989C;&#x8272;&#xFF1F;&#x201D;&#x8BF8;&#x5982;&#x6B64;&#x7C7B;&#x7684;&#x95EE;&#x9898;&#x3002;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x5728;&#x8BF7;&#x6C42;&#x4E2D;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#xFF08;&#x672C;&#x4F8B;&#x4E2D;&#x4E3A; <code>match</code> &#x67E5;&#x8BE2;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;match&quot;</span> : {
+            <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;ford&quot;</span>
+        }
+    },
+    <span class="hljs-string">&quot;aggs&quot;</span> : {
+        <span class="hljs-string">&quot;colors&quot;</span> : {
+            <span class="hljs-string">&quot;terms&quot;</span> : {
+              <span class="hljs-string">&quot;field&quot;</span> : <span class="hljs-string">&quot;color&quot;</span>
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x6307;&#x5B9A; <code>&quot;size&quot; : 0</code> &#xFF0C;&#x6240;&#x4EE5;&#x641C;&#x7D22;&#x7ED3;&#x679C;&#x548C;&#x805A;&#x5408;&#x7ED3;&#x679C;&#x90FD;&#x88AB;&#x8FD4;&#x56DE;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-js">{
+...
+   <span class="hljs-string">&quot;hits&quot;</span>: {
+      <span class="hljs-string">&quot;total&quot;</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-string">&quot;max_score&quot;</span>: <span class="hljs-number">1.6931472</span>,
+      <span class="hljs-string">&quot;hits&quot;</span>: [
+         {
+            <span class="hljs-string">&quot;_source&quot;</span>: {
+               <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">25000</span>,
+               <span class="hljs-string">&quot;color&quot;</span>: <span class="hljs-string">&quot;blue&quot;</span>,
+               <span class="hljs-string">&quot;make&quot;</span>: <span class="hljs-string">&quot;ford&quot;</span>,
+               <span class="hljs-string">&quot;sold&quot;</span>: <span class="hljs-string">&quot;2014-02-12&quot;</span>
+            }
+         },
+         {
+            <span class="hljs-string">&quot;_source&quot;</span>: {
+               <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">30000</span>,
+               <span class="hljs-string">&quot;color&quot;</span>: <span class="hljs-string">&quot;green&quot;</span>,
+               <span class="hljs-string">&quot;make&quot;</span>: <span class="hljs-string">&quot;ford&quot;</span>,
+               <span class="hljs-string">&quot;sold&quot;</span>: <span class="hljs-string">&quot;2014-05-18&quot;</span>
+            }
+         }
+      ]
+   },
+   <span class="hljs-string">&quot;aggregations&quot;</span>: {
+      <span class="hljs-string">&quot;colors&quot;</span>: {
+         <span class="hljs-string">&quot;buckets&quot;</span>: [
+            {
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;blue&quot;</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>
+            },
+            {
+               <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;green&quot;</span>,
+               <span class="hljs-string">&quot;doc_count&quot;</span>: <span class="hljs-number">1</span>
+            }
+         ]
+      }
+   }
+}
+</code></pre>
+<p>&#x770B;&#x4E0A;&#x53BB;&#x8FD9;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#xFF0C;&#x4F46;&#x5374;&#x5BF9;&#x9AD8;&#x5927;&#x4E0A;&#x7684;&#x4EEA;&#x8868;&#x76D8;&#x6765;&#x8BF4;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x3002; &#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x641C;&#x7D22;&#x680F;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x4F55;&#x9759;&#x6001;&#x7684;&#x4EEA;&#x8868;&#x677F;&#x53D8;&#x6210;&#x4E00;&#x4E2A;&#x5B9E;&#x65F6;&#x6570;&#x636E;&#x641C;&#x7D22;&#x8BBE;&#x5907;&#x3002; &#x8FD9;&#x8BA9;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x641C;&#x7D22;&#x6570;&#x636E;&#xFF0C;&#x67E5;&#x770B;&#x6240;&#x6709;&#x5B9E;&#x65F6;&#x66F4;&#x65B0;&#x7684;&#x56FE;&#x5F62;&#xFF08;&#x7531;&#x4E8E;&#x805A;&#x5408;&#x7684;&#x652F;&#x6301;&#x4EE5;&#x53CA;&#x5BF9;&#x67E5;&#x8BE2;&#x8303;&#x56F4;&#x7684;&#x9650;&#x5B9A;&#xFF09;&#x3002; &#x8FD9;&#x662F; Hadoop &#x65E0;&#x6CD5;&#x505A;&#x5230;&#x7684;&#xFF01;</p>
+<p><strong>&#x5168;&#x5C40;&#x6876;</strong></p>
+<p>&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x805A;&#x5408;&#x662F;&#x5728;&#x67E5;&#x8BE2;&#x8303;&#x56F4;&#x5185;&#x7684;&#xFF0C;&#x4F46;&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x4E5F;&#x60F3;&#x8981;&#x641C;&#x7D22;&#x5B83;&#x7684;&#x5B50;&#x96C6;&#xFF0C;&#x800C;&#x805A;&#x5408;&#x7684;&#x5BF9;&#x8C61;&#x5374;&#x662F; <em>&#x6240;&#x6709;</em> &#x6570;&#x636E;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x6BD4;&#x65B9;&#x8BF4;&#x6211;&#x4EEC;&#x60F3;&#x77E5;&#x9053;&#x798F;&#x7279;&#x6C7D;&#x8F66;&#x4E0E; <em>&#x6240;&#x6709;</em> &#x6C7D;&#x8F66;&#x5E73;&#x5747;&#x552E;&#x4EF7;&#x7684;&#x6BD4;&#x8F83;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x666E;&#x901A;&#x7684;&#x805A;&#x5408;&#xFF08;&#x67E5;&#x8BE2;&#x8303;&#x56F4;&#x5185;&#x7684;&#xFF09;&#x5F97;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x7528; <code>&#x5168;&#x5C40;</code> &#x6876;&#x83B7;&#x5F97;&#x7B2C;&#x4E8C;&#x4E2A;&#x4FE1;&#x606F;&#x3002;</p>
+<p><code>&#x5168;&#x5C40;</code> &#x6876;&#x5305;&#x542B; <em>&#x6240;&#x6709;</em> &#x7684;&#x6587;&#x6863;&#xFF0C;&#x5B83;&#x65E0;&#x89C6;&#x67E5;&#x8BE2;&#x7684;&#x8303;&#x56F4;&#x3002;&#x56E0;&#x4E3A;&#x5B83;&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x6876;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x50CF;&#x5E73;&#x5E38;&#x4E00;&#x6837;&#x5C06;&#x805A;&#x5408;&#x5D4C;&#x5957;&#x5728;&#x5185;&#xFF1A;</p>
+<pre><code class="lang-js">GET /cars/transactions/_search
+{
+    <span class="hljs-string">&quot;size&quot;</span> : <span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;query&quot;</span> : {
+        <span class="hljs-string">&quot;match&quot;</span> : {
+            <span class="hljs-string">&quot;make&quot;</span> : <span class="hljs-string">&quot;ford&quot;</span>
+        }
+    },
+    <span class="hljs-string">&quot;aggs&quot;</span> : {
+        <span class="hljs-string">&quot;single_avg_price&quot;</span>: {
+            <span class="hljs-string">&quot;avg&quot;</span> : { <span class="hljs-string">&quot;field&quot;</span> : <span class="hljs-string">&quot;price&quot;</span> }           &lt;<span class="hljs-number">1</span>&gt;
+        },
+        <span class="hljs-string">&quot;all&quot;</span>: {
+            <span class="hljs-string">&quot;global&quot;</span> : {},                          &lt;2&gt;
+            &quot;aggs&quot; : {
+                &quot;avg_price&quot;: {
+                    &quot;avg&quot; : { &quot;field&quot; : &quot;price&quot; }   &lt;3&gt;
+                }
+
+            }
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p> <img src="assets/1.png" alt="img">  &#x805A;&#x5408;&#x64CD;&#x4F5C;&#x5728;&#x67E5;&#x8BE2;&#x8303;&#x56F4;&#x5185;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;&#x6240;&#x6709;&#x6587;&#x6863;&#x5339;&#x914D; <code>ford</code> &#xFF09;  </p>
+<p> <img src="assets/2.png" alt="img">  <code>global</code> &#x5168;&#x5C40;&#x6876;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x3002;  </p>
+<p> <img src="assets/3.png" alt="img">  &#x805A;&#x5408;&#x64CD;&#x4F5C;&#x9488;&#x5BF9;&#x6240;&#x6709;&#x6587;&#x6863;&#xFF0C;&#x5FFD;&#x7565;&#x6C7D;&#x8F66;&#x54C1;&#x724C;&#x3002;   </p>
+</blockquote>
+<p><code>single_avg_price</code> &#x5EA6;&#x91CF;&#x8BA1;&#x7B97;&#x662F;&#x57FA;&#x4E8E;&#x67E5;&#x8BE2;&#x8303;&#x56F4;&#x5185;&#x6240;&#x6709;&#x6587;&#x6863;&#xFF0C;&#x5373;&#x6240;&#x6709; <code>&#x798F;&#x7279;</code> &#x6C7D;&#x8F66;&#x3002;<code>avg_price</code> &#x5EA6;&#x91CF;&#x662F;&#x5D4C;&#x5957;&#x5728; <code>&#x5168;&#x5C40;</code> &#x6876;&#x4E0B;&#x7684;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x5B8C;&#x5168;&#x5FFD;&#x7565;&#x4E86;&#x8303;&#x56F4;&#x5E76;&#x5BF9;&#x6240;&#x6709;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x3002;&#x805A;&#x5408;&#x8FD4;&#x56DE;&#x7684;&#x5E73;&#x5747;&#x503C;&#x662F;&#x6240;&#x6709;&#x6C7D;&#x8F66;&#x7684;&#x5E73;&#x5747;&#x552E;&#x4EF7;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x80FD;&#x4E00;&#x76F4;&#x575A;&#x6301;&#x8BFB;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x5E94;&#x8BE5;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x6709;&#x4E2A;&#x771F;&#x8A00;&#xFF1A;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x4F7F;&#x7528;&#x8FC7;&#x6EE4;&#x5668;&#x3002;&#x5B83;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x4E8E;&#x805A;&#x5408;&#xFF0C;&#x5728;&#x4E0B;&#x4E00;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x5BF9;&#x805A;&#x5408;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#x800C;&#x4E0D;&#x662F;&#x4EC5;&#x5BF9;&#x67E5;&#x8BE2;&#x8303;&#x56F4;&#x505A;&#x9650;&#x5B9A;&#x3002;</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; WS 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-03-07 11:29:30
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4_2_Dealing_with_language.html#语音匹配" class="navigation navigation-prev " aria-label="Previous page: 语音匹配">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="5_1_Aggregations.html#高阶概念" class="navigation navigation-next " aria-label="Next page: 高阶概念">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"聚合","level":"6.1","depth":1,"next":{"title":"高阶概念","level":"6.1.1","depth":2,"anchor":"#高阶概念","path":"5_1_Aggregations.md","ref":"5_1_Aggregations.md#高阶概念","articles":[{"title":"桶","level":"6.1.1.1","depth":3,"anchor":"#桶","path":"5_1_Aggregations.md","ref":"5_1_Aggregations.md#桶","articles":[]},{"title":"指标","level":"6.1.1.2","depth":3,"anchor":"#指标","path":"5_1_Aggregations.md","ref":"5_1_Aggregations.md#指标","articles":[]},{"title":"桶和指标的组合","level":"6.1.1.3","depth":3,"anchor":"#桶和指标的组合","path":"5_1_Aggregations.md","ref":"5_1_Aggregations.md#桶和指标的组合","articles":[]}]},"previous":{"title":"语音匹配","level":"5.1.7.5","depth":3,"anchor":"#语音匹配","path":"4_2_Dealing_with_language.md","ref":"4_2_Dealing_with_language.md#语音匹配","articles":[]},"dir":"ltr"},"config":{"plugins":["github@^2.0.0","edit-link@^2.0.2","anchors@^0.7.1","include-codeblock@^3.0.2","splitter@^0.0.8","tbfed-pagefooter@^0.0.1","expandable-chapters-small@^0.1.7","anchor-navigation-ex@0.1.8","book-summary-scroll-position-saver","ace","emphasize","-lunr","-search","search-plus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © WS 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"ace":{},"github":{"url":"https://github.com/wjw465150/Elasticsearch"},"book-summary-scroll-position-saver":{},"splitter":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"expandable-chapters-small":{},"include-codeblock":{"check":false,"edit":true,"fixlang":false,"lang":"","template":"ace","theme":"chrome","unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"编辑此页面","base":"https://github.com/wjw465150/Elasticsearch/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","author":"WS","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Elasticsearch权威指南中文版","language":"zh-hans","gitbook":"*","description":"Elasticsearch权威指南中文版"},"file":{"path":"5_1_Aggregations.md","mtime":"2019-03-07T03:29:30.805Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-07T07:23:37.684Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-book-summary-scroll-position-saver/book-summary-scroll-position-saver.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
