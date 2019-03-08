@@ -1,3 +1,5 @@
+# 基础入门
+
 ## 请求体查询
 
 *简易* 查询 —[query-string search](https://www.elastic.co/guide/cn/elasticsearch/guide/current/search-lite.html)— 对于用命令行进行即席查询（ad-hoc）是非常有用的。 然而，为了充分利用查询的强大功能，你应该使用 *请求体* `search` API， 之所以称之为请求体查询(Full-Body Search)，因为大部分参数是通过 Http 请求体而非查询字符串来传递的。

@@ -247,7 +247,7 @@
     * [过滤](5_2_Aggregations.md#过滤)
     * [过滤桶](5_2_Aggregations.md#过滤桶)
     * [后过滤器](5_2_Aggregations.md#后过滤器)
-    * [小结](5_2_Aggregations.md#小结)
+    * [小结](5_2_Aggregations.md#小结5_2)
   * [多桶排序](5_2_Aggregations.md#多桶排序)
     * [内置排序](5_2_Aggregations.md#内置排序)
     * [按度量排序](5_2_Aggregations.md#按度量排序)
@@ -265,4 +265,6 @@
     * [Fielddata 的过滤](5_2_Aggregations.md#Fielddata的过滤)
     * [预加载 fielddata](5_2_Aggregations.md#预加载fielddata)
     * [优化聚合查询](5_2_Aggregations.md#优化聚合查询)
-  * [总结](5_2_Aggregations.md#总结)
+  * [总结](5_2_Aggregations.md#总结5_2)
+
+-----
