@@ -780,8 +780,8 @@ GET /_search
 >  ![警告](assets/warning.png)  以全文 `analyzed` 字段排序会消耗大量的内存。获取更多信息请看 [聚合与分析](https://www.elastic.co/guide/cn/elasticsearch/guide/current/aggregations-and-analysis.html) 。
 
 
-
-### 什么是相关性?  {#什么是相关性}
+<a name="什么是相关性"></a>
+### 什么是相关性?
 
 我们曾经讲过，默认情况下，返回结果是按相关性倒序排列的。 但是什么是相关性？ 相关性如何计算？
 
@@ -941,8 +941,8 @@ GET /us/tweet/12/_explain
 也就是说我们的 `user_id` 过滤子句使该文档不能匹配到。
 
 
-
-### Doc Values 介绍  {#DocValues介绍}
+<a name="DocValues介绍"></a>
+### Doc Values 介绍
 
 本章的最后一个话题是关于 `Elasticsearch` 内部的一些运行情况。在这里我们先不介绍新的知识点，所以我们应该意识到，`Doc Values` 是我们需要反复提到的一个重要话题。
 
@@ -1136,8 +1136,8 @@ GET /_search?search_type=dfs_query_then_fetch
 搜索类型 `dfs_query_then_fetch` 有预查询阶段，这个阶段可以从所有相关分片获取词频来计算全局词频。 我们在 [被破坏的相关度！](https://www.elastic.co/guide/cn/elasticsearch/guide/current/relevance-is-broken.html) 会再讨论它。
 
 
-
-### 游标查询 *Scroll*  {#游标查询Scroll}
+<a name="游标查询Scroll"></a>
+### 游标查询 *Scroll*
 
 `scroll` 查询 可以用来对 Elasticsearch 有效地执行大批量的文档查询，而又不用付出深度分页那种代价。
 

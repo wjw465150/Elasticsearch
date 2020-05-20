@@ -1168,8 +1168,8 @@ GET /my_index/blogpost/_search
 有时你需要在主文档和其关联实体之间做一个完整的隔离设计。这个隔离是由 *父子关联* 提供的。
 
 
-
-## 父-子关系文档  {#父子关系文档}
+<a name="父子关系文档"></a>
+## 父-子关系文档
 
 父-子关系文档 在实质上类似于 [nested model](https://www.elastic.co/guide/cn/elasticsearch/guide/current/nested-objects.html) ：允许将一个对象实体和另外一个对象实体关联起来。 而这两种类型的主要区别是：在 [`nested` objects](https://www.elastic.co/guide/cn/elasticsearch/guide/current/nested-objects.html) 文档中，所有对象都是在同一个文档中，而在父-子关系文档中，父对象和子对象都是完全独立的文档。
 
@@ -1184,8 +1184,8 @@ Elasticsearch 维护了一个父文档和子文档的映射关系，得益于这
 父-子文档ID映射存储在 [Doc Values](https://www.elastic.co/guide/cn/elasticsearch/guide/current/docvalues.html) 中。当映射完全在内存中时， [Doc Values](https://www.elastic.co/guide/cn/elasticsearch/guide/current/docvalues.html) 提供对映射的快速处理能力，另一方面当映射非常大时，可以通过溢出到磁盘提供足够的扩展能力
 
 
-
-### 父-子关系文档映射  {#父子关系文档映射}
+<a name="父子关系文档映射"></a>
+### 父-子关系文档映射
 
 建立父-子文档映射关系时只需要指定某一个文档 type 是另一个文档 type 的父亲。 该关系可以在如下两个时间点设置：1）创建索引时；2）在子文档 type 创建之前更新父文档的 mapping。
 
@@ -1209,8 +1209,8 @@ PUT /company
 >  ![img](assets/1.png)   `employee` 文档 是 `branch` 文档的子文档。  
 
 
-
-### 构建父-子文档索引  {#构建父子文档索引}
+<a name="构建父子文档索引"></a>
+### 构建父-子文档索引
 
 为父文档创建索引与为普通文档创建索引没有区别。父文档并不需要知道它有哪些子文档。
 

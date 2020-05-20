@@ -698,8 +698,8 @@ PUT /my_index/address/5
 现在这些数据已可查询。
 
 
-
-### prefix 前缀查询  {#prefix前缀查询}
+<a name="prefix前缀查询"></a>
+### prefix 前缀查询
 
 为了找到所有以 `W1` 开始的邮编，可以使用简单的 `prefix` 查询：
 
@@ -886,8 +886,8 @@ GET /my_index/address/_search
 用户会感谢我们。
 
 
-
-### Ngrams 在部分匹配的应用  {#Ngrams在部分匹配的应用}
+<a name="Ngrams在部分匹配的应用"></a>
+### Ngrams 在部分匹配的应用
 
 之前提到：“只能在倒排索引中找到存在的词。” 尽管 `prefix` 、 `wildcard` 、 `regexp` 查询告诉我们这种说法并不完全正确，但单个词的查找 *确实* 要比在词列表中盲目挨个查找的效率要高得多。 在搜索之前准备好供部分匹配的数据可以提高搜索的性能。
 
@@ -1192,8 +1192,8 @@ Elasticsearch 里的 [completion suggester](https://www.elastic.co/guide/en/elas
 >  ![img](assets/2.png)  `postcode_search` 分析器可以将搜索词看成 `not_analyzed` 未分析的。   
 
 
-
-### Ngrams 在复合词的应用  {#Ngrams在复合词的应用}
+<a name="Ngrams在复合词的应用"></a>
+### Ngrams 在复合词的应用
 
 最后，来看看 n-gram 是如何应用于搜索复合词的语言中的。 德语的特点是它可以将许多小词组合成一个庞大的复合词以表达它准确或复杂的意义。例如：
 
@@ -1546,8 +1546,8 @@ result of:
 现在已经讲完评分计算的基本理论，我们可以继续了解 Lucene 是如何实现评分计算的。
 
 
-
-### Lucene 的实用评分函数  {#Lucene的实用评分函数}
+<a name="Lucene的实用评分函数"></a>
+### Lucene 的实用评分函数
 
 对于多词查询， Lucene 使用 [布尔模型（Boolean model）](https://www.elastic.co/guide/cn/elasticsearch/guide/current/scoring-theory.html#boolean-model) 、 [TF/IDF](https://www.elastic.co/guide/cn/elasticsearch/guide/current/scoring-theory.html#tfidf) 以及 [向量空间模型（vector space model）](https://www.elastic.co/guide/cn/elasticsearch/guide/current/scoring-theory.html#vector-space-model) ，然后将它们组合到单个高效的包里以收集匹配文档并进行评分计算。
 
@@ -1835,8 +1835,8 @@ GET /_search
 我们已经讨论过如何使用 [`match`](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-query.html) 、[`multi_match`](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-match-query.html) 、[`term`](https://www.elastic.co/guide/cn/elasticsearch/guide/current/term-vs-full-text.html) 、[`bool`](https://www.elastic.co/guide/cn/elasticsearch/guide/current/bool-query.html) 和 [`dis_max`](https://www.elastic.co/guide/cn/elasticsearch/guide/current/_best_fields.html#dis-max-query) 查询修改相关度评分。本章后面的内容会介绍另外三个与相关度评分有关的查询： `boosting` 查询、 `constant_score` 查询和 `function_score` 查询。
 
 
-
-### Not Quite Not  {#NotQuiteNot}
+<a name="NotQuiteNot"></a>
+### Not Quite Not
 
 在互联网上搜索 “Apple”，返回的结果很可能是一个公司、水果和各种食谱。 我们可以在 `bool` 查询中用 `must_not` 语句来排除像 `pie` 、 `tart` 、 `crumble` 和 `tree` 这样的词，从而将查询结果的范围缩小至只返回与 “Apple” （苹果）公司相关的结果：
 
@@ -1892,8 +1892,8 @@ GET /_search
 为了达到效果， `negative_boost` 的值必须小于 `1.0` 。在这个示例中，所有包含负向词的文档评分 `_score`都会减半。
 
 
-
-### 忽略 TF/IDF  {#忽略TFIDF}
+<a name="忽略TFIDF"></a>
+### 忽略 TF/IDF
 
 有时候我们根本不关心 TF/IDF ， 只想知道一个词是否在某个字段中出现过。可能搜索一个度假屋并希望它能尽可能有以下设施：
 
@@ -2011,8 +2011,8 @@ GET /_search
 这里的问题是：过滤器无法计算评分。这样就需要寻求一种方式将过滤器和查询间的差异抹平。 `function_score` 查询不仅正好可以扮演这个角色，而且有更强大的功能。
 
 
-
-### function_score 查询  {#functionscore查询}
+<a name="functionscore查询"></a>
+### function_score 查询
 
 [`function_score` 查询](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-function-score-query.html) 是用来控制评分过程的终极武器，它允许为每个与主查询匹配的文档应用一个函数，以达到改变甚至完全替换原始查询评分 `_score` 的目的。
 
@@ -2514,8 +2514,8 @@ GET /_search
 - 距中心 `5km` （ `offset + scale` ）的位置的评分是 `0.5` 。
 
 
-
-### 理解 price 价格语句  {#理解price价格语句}
+<a name="理解price价格语句"></a>
+### 理解 price 价格语句
 
 `price` 语句使用了一个小技巧：用户希望选择 £100 英镑以下的度假屋，但是例子中的原点被设置成 £50 英镑，价格不能为负，但肯定是越低越好，所以 £0 到 £100 英镑内的所有价格都认为是比较好的。
 
@@ -2735,8 +2735,8 @@ PUT /my_index
 >  ![提示](assets/tip.png)  自定义的相似度算法可以通过关闭索引，更新索引设置，开启索引这个过程进行更新。这样可以无须重建索引又能试验不同的相似度算法配置。  
 
 
-
-### 调试相关度是最后 10% 要做的事情  {#调试相关度是最后10要做的事情}
+<a name="调试相关度是最后10要做的事情"></a>
+### 调试相关度是最后 10% 要做的事情
 
 本章介绍了 Lucene 是如何基于 TF/IDF 生成评分的。理解评分过程是非常重要的， 这样就可以根据具体的业务对评分结果进行调试、调节、减弱和定制。
 

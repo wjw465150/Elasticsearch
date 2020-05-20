@@ -33,8 +33,8 @@ Elasticsearch 不仅仅只是全文搜索，我们还将介绍结构化搜索、
 现有的参考文档解决了 *如何* 使用这些功能，我们希望这本书解决的是 *为什么* 和 *什么时候* 使用这些功能。
 
 
-
-## Elasticsearch版本 {#Elasticsearch版本}
+<a name="Elasticsearch版本"></a>
+## Elasticsearch版本
 
 本书的初始印刷版针对的是 Elasticsearch 1.4.0，不过我们一直在不断更新内容和完善示例 [本书的线上版本](https://www.elastic.co/guide/en/elasticsearch/guide/current/) 针对的是 Elasticsearch 2.x。
 

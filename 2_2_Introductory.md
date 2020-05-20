@@ -49,8 +49,8 @@ shard = hash(routing) % number_of_primary_shards
 >  ![提示](assets/tip.png)  当发送请求的时候， 为了扩展负载，更好的做法是轮询集群中所有的节点。
 
 
-
-### 新建、索引和删除文档  {#新建索引和删除文档}
+<a name="新建索引和删除文档"></a>
+### 新建、索引和删除文档
 
 新建、索引和删除 请求都是 *写* 操作， 必须在主分片上面完成之后才能被复制到相关的副本分片，如下图所示 [图 9 “新建、索引和删除单个文档”](https://www.elastic.co/guide/cn/elasticsearch/guide/current/distrib-write.html#img-distrib-write).
 
@@ -190,8 +190,8 @@ bulk API， 如 [图 13 “使用 `bulk` 修改多个文档”](https://www.elas
 这些原始请求会被直接转发到正确的分片。没有冗余的数据复制，没有浪费的数据结构。整个请求尽可能在最小的内存中处理。
 
 
-
-## 搜索——最基本的工具  {#搜索最基本的工具}
+<a name="搜索最基本的工具"></a>
+## 搜索——最基本的工具
 
 现在，我们已经学会了如何使用 Elasticsearch 作为一个简单的 NoSQL 风格的分布式文档存储系统。我们可以将一个 JSON 文档扔到 Elasticsearch 里，然后根据 ID 检索。但 Elasticsearch 真正强大之处在于可以从无规律的数据中找出有意义的信息——从“大数据”到“大信息”。
 
@@ -311,8 +311,8 @@ GET /_search?timeout=10ms
 >  使用超时是因为 SLA(服务等级协议)对你是很重要的，而不是因为想去中止长时间运行的查询。
 
 
-
-### 多索引，多类型  {#多索引多类型}
+<a name="多索引多类型"></a>
+### 多索引，多类型
 
 你有没有注意到之前的 [empty search](https://www.elastic.co/guide/cn/elasticsearch/guide/current/empty-search.html) 的结果，不同类型的文档 — `user` 和 `tweet` 来自不同的索引— `us`和 `gb` ？
 
@@ -548,8 +548,8 @@ GET /gb/_mapping/tweet
 但是，到目前为止，最大的差异在于 代表 *精确值* （它包括 `string` 字段）的字段和代表 *全文* 的字段。这个区别非常重要——它将搜索引擎和所有其他数据库区别开来。
 
 
-
-### 精确值 VS 全文  {#精确值VS全文}
+<a name="精确值VS全文"></a>
+### 精确值 VS 全文
 
 Elasticsearch 中的数据可以概括的分为两类：精确值和全文。
 

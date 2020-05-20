@@ -22,8 +22,8 @@ Elasticsearch 中没有一个单独的组件是全新的或者是革命性的。
 Elasticsearch 将成为你最好的朋友。
 
 
-
-## 你知道的, 为了搜索…  {#你知道的为了搜索}
+<a name="你知道的为了搜索"></a>
+## 你知道的, 为了搜索…
 
 Elasticsearch 是一个开源的搜索引擎，建立在一个全文搜索引擎库 [Apache Lucene™](https://lucene.apache.org/core/) 基础之上。 Lucene 可以说是当下最先进、高性能、全功能的搜索引擎库--无论是开源还是私有。
 
@@ -64,8 +64,8 @@ Elasticsearch 将所有的功能打包成一个单独的服务，这样你可以
 ---
 
 
-
-### 安装并运行Elasticsearch  {#安装并运行Elasticsearch}
+<a name="安装并运行Elasticsearch"></a>
+### 安装并运行Elasticsearch
 
 想用最简单的方式去理解 Elasticsearch 能为你做什么，那就是使用它了，让我们开始吧！
 
@@ -118,7 +118,8 @@ TIP：看到下方的 View in Sense 的例子了么？[Install the Sense console
 
 当 Elastcisearch 在前台运行时，你可以通过按 Ctrl+C 去停止。
 
-### 安装Sense  {#安装Sense}
+<a name="安装Sense"></a>
+### 安装Sense
 
 Sense 是一个 [Kibana](https://www.elastic.co/guide/en/kibana/4.6/index.html) 应用 它提供交互式的控制台，通过你的浏览器直接向 Elasticsearch 提交请求。 这本书的在线版本包含有一个 View in Sense 的链接，里面有许多代码示例。当点击的时候，它会打开一个代码示例的Sense控制台。 你不必安装 Sense，但是它允许你在本地的 Elasticsearch 集群上测试示例代码，从而使本书更具有交互性。
 
@@ -139,8 +140,8 @@ Sense 是一个 [Kibana](https://www.elastic.co/guide/en/kibana/4.6/index.html) 
 3. 在你的浏览器中打开 Sense: `http://localhost:5601/app/sense` 。
 
 
-
-### 和Elasticsearch交互  {#和Elasticsearch交互}
+<a name="和Elasticsearch交互"></a>
+### 和Elasticsearch交互
 
 和 Elasticsearch 的交互方式取决于 你是否使用 Java
 
@@ -1234,8 +1235,8 @@ Elastcisearch 是分布式的 *文档* 存储。它能存储和检索复杂的�
 在本章中，我们展示了用来创建，检索，更新和删除文档的 API。就目前而言，我们不关心文档中的数据或者怎样查询它们。 所有我们关心的就是在 Elasticsearch 中怎样安全的存储文档，以及如何将文档再次返回。
 
 
-
-### 什么是文档?  {#什么是文档}
+<a name="什么是文档"></a>
+### 什么是文档?
 
 在大多数应用中，多数实体或对象可以被序列化为包含键值对的 JSON 对象。 一个 *键* 可以是一个字段或字段的名称，一个 *值* 可以是一个字符串，一个数字，一个布尔值， 另一个对象，一些数组值，或一些其它特殊类型诸如表示日期的字符串，或代表一个地理位置的对象：
 

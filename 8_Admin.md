@@ -1,4 +1,5 @@
-# 管理、监控和部署  {#管理监控和部署}
+<a name="管理监控和部署"></a>
+# 管理、监控和部署
 
 
 
@@ -21,8 +22,8 @@ Elasticsearch 经常以多节点集群的方式部署。 有多种 API 让你可
 因此，本章将介绍各种可以让你动态调整、调优和调配集群的 API。同时，还会介绍一系列提供集群自身统计数据的 API，你可以用这些接口来监控集群健康状态和性能。
 
 
-
-### Marvel 监控  {#Marvel监控}
+<a name="Marvel监控"></a>
+### Marvel 监控
 
 [Marvel](https://www.elastic.co/guide/en/marvel/current/index.html) 让你可以很简单的通过 Kibana 监控 Elasticsearch。你可以实时查看你的集群健康状态和性能，也可以分析过去的集群、索引和节点指标。
 
@@ -709,8 +710,8 @@ GET _cluster/pending_tasks
 ----
 
 
-
-### cat API  {#catAPI}
+<a name="catAPI"></a>
+### cat API
 
 如果经常在命令行环境下工作，`cat` API 对你会非常有用。 用 Linux 的 `cat` 命令命名，这些 API 也就设计成像 *nix 命令行工具一样工作了。
 
@@ -964,8 +965,8 @@ Elasticsearch 假定所有节点都是平等的--并不会因为有一半的节�
 与此同时，避免使用真正的高配机器。它们通常会导致资源使用不均衡（例如，所有的内存都被使用，但 CPU 却没有）而且在单机上运行多个节点时，会增加逻辑复杂度。
 
 
-
-### Java 虚拟机  {#Java虚拟机}
+<a name="Java虚拟机"></a>
+### Java 虚拟机
 
 你应该始终运行最新版本的 Java 虚拟机（ JVM ）， 除非 Elasticsearch 网站上另有说明。 Elasticsearch， 特别是 Lucene，是一个高要求的软件。Lucene 的单元测试和集成测试经常暴露出 JVM 本身的 bug。这些 bug 的范围从轻微的麻烦到严重段错误，所以，最好尽可能的使用最新版本的 JVM。
 
@@ -982,8 +983,8 @@ JVM 暴露出几十个（甚至数百）的设置、参数和配置。 它们允
 ----
 
 
-
-### Transport Client 与 Node Client  {#TransportClient与NodeClient}
+<a name="TransportClient与NodeClient"></a>
+### Transport Client 与 Node Client
 
 如果你使用的是 Java，你可能想知道何时使用传输客户端（注：Transport Client，下同）与节点客户端（注：Node Client，下同）。 在书的开头所述， 传输客户端作为一个集群和应用程序之间的通信层。它知道 API 并能自动帮你在节点之间轮询，帮你嗅探集群等等。但它是集群 *外部的* ，和 REST 客户端类似。
 
@@ -1168,8 +1169,8 @@ discovery.zen.ping.unicast.hosts: ["host1", "host2:port"]
 关于 Elasticsearch 节点发现的详细信息，请参阅 [Zen Discovery](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-zen.html) Elasticsearch 文献。
 
 
-
-### 不要触碰这些配置！ {#不要触碰这些配置}
+<a name="不要触碰这些配置"></a>
+### 不要触碰这些配置！
 
 在 Elasticsearch 中有一些热点，人们可能不可避免的会碰到。 我们理解的，所有的调整就是为了优化，但是这些调整，你真的不需要理会它。因为它们经常会被乱用，从而造成系统的不稳定或者糟糕的性能，甚至两者都有可能。
 
@@ -1214,8 +1215,8 @@ Elasticsearch 默认的线程设置已经是很合理的了。对于所有的线
 所以，下次请不要调整线程池的线程数。如果你真 *想调整* ， 一定要关注你的 CPU 核心数，最多设置成核心数的两倍，再多了都是浪费。
 
 
-
-### 堆内存:大小和交换  {#堆内存大小和交换}
+<a name="堆内存大小和交换"></a>
+### 堆内存:大小和交换
 
 Elasticsearch 默认安装后设置的堆内存是 1 GB。 对于任何一个业务部署来说， 这个设置都太小了。如果你正在使用这些默认堆内存配置，您的集群可能会出现问题。
 
@@ -1352,8 +1353,8 @@ bootstrap.mlockall: true
 ```
 
 
-
-### 文件描述符和 MMap  {#文件描述符和MMap}
+<a name="文件描述符和MMap"></a>
+### 文件描述符和 MMap
 
 Lucene 使用了 *大量的* 文件。 同时，Elasticsearch 在节点和 HTTP 客户端之间进行通信也使用了大量的套接字（注：sockets）。 所有这一切都需要足够的文件描述符。
 
@@ -2144,8 +2145,8 @@ DELETE /restored_index_3
 如果 `restored_index_3` 正在恢复中，这个删除命令会停止恢复，同时删除所有已经恢复到集群里的数据。
 
 
-
-### 集群是活着的、呼吸着的生命  {#集群是活着的呼吸着的生命}
+<a name="集群是活着的呼吸着的生命"></a>
+### 集群是活着的、呼吸着的生命
 
 一旦你的集群投入生产，你会发现他就开始了他自己的一生。 Elasticsearch 努力工作来保证集群自给自足而且 *真就在工作* 。不过一个集群也还要有日常照料和投喂，比如日常备份和升级。
 

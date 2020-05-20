@@ -677,8 +677,8 @@ GET /cars/transactions/_search
 聚合结果已经完全展示了。正如你所见，我们有代表月份的 buckets，每个月的文档数目，以及美化后的 `key_as_string` 。
 
 
-
-### 返回空 Buckets  {#返回空Buckets}
+<a name="返回空Buckets"></a>
+### 返回空 Buckets
 
 注意到结果末尾处的奇怪之处了吗？
 

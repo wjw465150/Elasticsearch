@@ -608,8 +608,8 @@ You're my 'favorite'.
 `standard` 分词器是大多数语言分词的一个合理的起点，特别是西方语言。 事实上，它构成了大多数特定语言分析器的基础，如 `english` 、`french` 和 `spanish` 分析器。 它也支持亚洲语言，只是有些缺陷，你可以考虑通过 ICU 插件的方式使用 `icu_tokenizer` 进行替换。
 
 
-
-### 安装 ICU 插件  {#安装ICU插件}
+<a name="安装ICU插件"></a>
+### 安装 ICU 插件
 
 Elasticsearch的 [ICU 分析器插件](https://github.com/elasticsearch/elasticsearch-analysis-icu) 使用 *国际化组件 Unicode* (ICU) 函数库（详情查看 [site.project.org](http://site.icu-project.org/) ）提供丰富的处理 Unicode 工具。 这些包含对处理亚洲语言特别有用的 `icu_分词器` ，还有大量对除英语外其他语言进行正确匹配和排序所必须的分词过滤器。
 >  ![注意](assets/note.png)  ICU 插件是处理英语之外语言的必需工具，非常推荐你安装并使用它，不幸的是，因为是基于额外的 ICU 函数库， 不同版本的ICU插件可能并不兼容之前的版本，当更新插件的时候，你需要重新索引你的数据。  
@@ -630,8 +630,8 @@ Elasticsearch的 [ICU 分析器插件](https://github.com/elasticsearch/elastics
 如果你有很多节点并以集群方式运行的，你需要在集群的每个节点都安装这个插件。
 
 
-
-### icu_分词器  {#icu分词器}
+<a name="icu分词器"></a>
+### icu_分词器
 
 `icu_分词器` 和 `标准分词器` 使用同样的 Unicode 文本分段算法， 只是为了更好的支持亚洲语，添加了泰语、老挝语、中文、日文、和韩文基于词典的词汇识别方法，并且可以使用自定义规则将缅甸语和柬埔寨语文本拆分成音节。
 
@@ -1017,8 +1017,8 @@ Position 1     Position 2
 所以，正如我们这一章做的，把每个字段的不同形式分开到不同的字段会让索引更清晰。
 
 
-
-### Unicode的世界  {#Unicode的世界}
+<a name="Unicode的世界"></a>
+### Unicode的世界
 
 当Elasticsearch在比较词元(token)的时候，它是进行字节(byte)级别的比较。 换句话说，如果两个词元(token)被判定为相同的话，他们必须是相同的字节(byte)组成的。然而，Unicode允许你用不同的字节来写相同的字符。
 
@@ -1076,8 +1076,8 @@ PUT /my_index
 通常来说，你不仅仅想要归一化(normalize)词元(token)的字节(byte)规则，还需要把他们转成小写字母。这个可以通过 `icu_normalizer` 和定制的归一化(normalization)的模式 `nfkc_cf` 来实现。下一节我们会具体讲这个。
 
 
-
-### Unicode 大小写折叠  {#Unicode大小写折叠}
+<a name="Unicode大小写折叠"></a>
+### Unicode 大小写折叠
 
 人类没有创造力的话就不会是人类， 而人类的语言就恰恰反映了这一点。
 
@@ -1133,8 +1133,8 @@ Weißkopfseeadler WEISSKOPFSEEADLER
 >  ![img](assets/2.png)  得到的词元(token)是 `weisskopfseeadler`, `weisskopfseeadler```standard`分析器得到了两个不同且不可比较的词元(token)，而我们定制化的分析器得到了两个相同但是不符合原意的词元(token)。`     
 
 
-
-### Unicode 字符折叠  {#Unicode字符折叠}
+<a name="Unicode字符折叠"></a>
+### Unicode 字符折叠
 
 ```
 在多语言((("Unicode", "character folding")))((("tokens", "normalizing", "Unicode character folding")))处理中，`lowercase` 语汇单元过滤器(token filters)是一个很好的开始。但是作为对比的话，也只是对于整个巴别塔的惊鸿一瞥。所以 <<asciifolding-token-filter,`asciifolding` token filter>> 需要更有效的Unicode _字符折叠_ (_character-folding_)工具来处理全世界的各种语言。((("asciifolding token filter")))
@@ -1690,8 +1690,8 @@ PUT /my_index
 >   ![提示](assets/tip.png)  如果你所使用的语言有比较好的算法化词干提取器，这通常是比一个基于字典的词干提取器更好的选择。对于算法化词干提取器效果比较差（或者压根没有）的语言，可以使用拼写检查（Hunspell）字典词干提取器，下一个章节会讨论。  
 
 
-
-### Hunspell 词干提取器  {#Hunspell词干提取器}
+<a name="Hunspell词干提取器"></a>
+### Hunspell 词干提取器
 
 Elasticsearch 提供了基于词典提取词干的 [`hunspell` 语汇单元过滤器（token filter）](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/analysis-hunspell-tokenfilter.html). Hunspell [*hunspell.github.io*](http://hunspell.github.io/) 是一个 Open Office、LibreOffice、Chrome、Firefox、Thunderbird 等众多其它开源项目都在使用的拼写检查器。
 

@@ -132,8 +132,8 @@ GET /cars/transactions/_search
 >  在我们需要不同过滤时， `post_filter` 只与聚合一起使用。
 
 
-
-### 小结  {#小结5_2}
+<a name="小结5_2"></a>
+### 小结
 
 选择合适类型的过滤（如：搜索命中、聚合或两者兼有）通常和我们期望如何表现用户交互有关。选择合适的过滤器（或组合）取决于我们期望如何将结果呈现给用户。
 
@@ -252,8 +252,8 @@ GET /cars/transactions/_search
 在上面这个例子中，我们按每个桶的方差来排序，所以这种颜色售价方差最小的会排在结果集最前面。
 
 
-
-### 基于“深度”度量排序  {#基于深度度量排序}
+<a name="基于深度度量排序"></a>
+### 基于“深度”度量排序
 
 在前面的示例中，度量是桶的直接子节点。平均售价是根据每个 `term` 来计算的。 在一定条件下，我们也有可能对 *更深* 的度量进行排序，比如孙子桶或从孙桶。
 
@@ -832,8 +832,8 @@ TDigest 算法用节点近似计算百分比：节点越多，准确度越高（
 暴露的异常指标 *代表什么* 依赖的你数据。对于信用卡数据，我们可能会想找出信用卡欺诈。 对于电商数据，我们可能会想找出未被识别的人口信息，从而进行更高效的市场推广。 如果我们正在分析日志，我们可能会发现一个服务器会抛出比它本应抛出的更多异常。 `significant_terms` 的应用还远不止这些。
 
 
-
-### significant_terms 演示  {#significantterms演示}
+<a name="significantterms演示"></a>
+### significant_terms 演示
 
 因为 `significant_terms` 聚合 是通过分析统计信息来工作的， 需要为数据设置一个阀值让它们更有效。也就是说无法通过只索引少量示例数据来展示它。
 
@@ -1223,12 +1223,12 @@ GET mlratings/_search
 这只是 `significant_terms` 它强大的一个示例，一旦开始使用 `significant_terms` ，可能碰到这样的情况，我们不想要最流行的，而想要显著的共性（注：uncommonly common）。这个简单的聚合可以揭示出一些数据里出人意料的复杂趋势。
 
 
-
-## Doc Values and Fielddata  {#DocValuesandFielddata}
+<a name="DocValuesandFielddata"></a>
+## Doc Values and Fielddata
 
   
-
-### Doc Values  {#DocValues}
+<a name="DocValues"></a>
+### Doc Values
 
 聚合使用一个叫 *doc values* 的数据结构（在 [Doc Values 介绍](https://www.elastic.co/guide/cn/elasticsearch/guide/current/docvalues-intro.html) 里简单介绍）。 Doc values 可以使聚合更快、更高效并且内存友好，所以理解它的工作方式十分有益。
 
@@ -1296,8 +1296,8 @@ Doc_3 | dog, dogs, fox, jumped, over, quick, the
 >  ![注意](assets/note.png)  Doc values 不仅可以用于聚合。 任何需要查找某个文档包含的值的操作都必须使用它。 除了聚合，还包括排序，访问字段值的脚本，父子关系处理（参见 [*父-子关系文档*](https://www.elastic.co/guide/cn/elasticsearch/guide/current/parent-child.html) ）。  
 
 
-
-### 深入理解 Doc Values  {#深入理解DocValues}
+<a name="深入理解DocValues"></a>
+### 深入理解 Doc Values
 
 在上一节一开头我们就说 `Doc Values` 是 *"快速、高效并且内存友好"* 。 这个口号听不起来不错，不过话说回来 `Doc Values` 到底是如何工作的呢？
 
@@ -1747,8 +1747,8 @@ PUT /_cluster/settings
 值得注意的是：断路器是根据总堆内存大小估算查询大小的，而 *非* 根据实际堆内存的使用情况。 这是由于各种技术原因造成的（例如，堆可能看上去是满的但实际上可能只是在等待垃圾回收，这使我们难以进行合理的估算）。但作为终端用户，这意味着设置需要保守，因为它是根据总堆内存必要的，而 *不是* 可用堆内存。
 
 
-
-### Fielddata 的过滤  {#Fielddata的过滤}
+<a name="Fielddata的过滤"></a>
+### Fielddata 的过滤
 
 设想我们正在运行一个网站允许用户收听他们喜欢的歌曲。 为了让他们可以更容易的管理自己的音乐库，用户可以为歌曲设置任何他们喜欢的标签，这样我们就会有很多歌曲被附上 `rock（摇滚）` 、 `hiphop（嘻哈）` 和 `electronica（电音）` ，但也会有些歌曲被附上 `my_16th_birthday_favorite_anthem` 这样的标签。
 
@@ -1794,8 +1794,8 @@ PUT /music/_mapping/song
 Fielddata 过滤对内存使用有 *巨大的* 影响，权衡也是显而易见的：我们实际上是在忽略数据。但对于很多应用，这种权衡是合理的，因为这些数据根本就没有被使用到。内存的节省通常要比包括一个大量而无用的长尾项更为重要。
 
 
-
-### 预加载 fielddata  {#预加载fielddata}
+<a name="预加载fielddata"></a>
+### 预加载 fielddata
 
 Elasticsearch 加载内存 fielddata 的默认行为是 *延迟* 加载 。 当 Elasticsearch 第一次查询某个字段时，它将会完整加载这个字段所有 Segment 中的倒排索引到内存中，以便于以后的查询能够获取更好的性能。
 
@@ -2109,8 +2109,8 @@ Elasticsearch 允许我们改变聚合的 *集合模式* ，就是为了应对�
 针对上面演员的例子，如果数据量越大，那么默认的使用深度优先的聚合模式生成的总分组数就会非常多，但是预估二级的聚合字段分组后的数据量相比总的分组数会小很多所以这种情况下使用广度优先的模式能大大节省内存，从而通过优化聚合模式来大大提高了在某些特定场景下聚合查询的成功率。
 
 
-
-## 总结  {#总结5_2}
+<a name="总结5_2"></a>
+## 总结
 
 本小节涵盖了许多基本理论以及很多深入的技术问题。聚合给 Elasticsearch 带来了难以言喻的强大能力和灵活性。桶与度量的嵌套能力，基数与百分位数的快速估算能力，定位信息中统计异常的能力， 所有的这些都在近乎实时的情况下操作的，而且全文搜索是并行的，它们改变了很多企业的游戏规则。
 

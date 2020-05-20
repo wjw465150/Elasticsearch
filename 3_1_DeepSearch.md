@@ -699,8 +699,8 @@ GET /my_store/products/_search
 ---
 
 
-
-### 处理 Null 值  {#处理Null值}
+<a name="处理Null值"></a>
+### 处理 Null 值
 
 回想在之前例子中，有的文档有名为 `tags` （标签）的字段，它是个多值字段， 一个文档可能有一个或多个标签，也可能根本就没有标签。如果一个字段没有值，那么如何将它存入倒排索引中的呢？
 
@@ -1579,8 +1579,8 @@ GET /my_index/my_type/_validate/query?explain
 >  ![注意](assets/note.png)  对于和时间相关的日志数据，通常的做法是每天自行创建索引，由于这种方式不是从头创建的索引，仍然可以用 [索引模板（Index Template）](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/indices-templates.html) 为新建的索引指定配置和映射。 
 
 
-
-### 被破坏的相关度！  {#被破坏的相关度}
+<a name="被破坏的相关度"></a>
+### 被破坏的相关度！
 
 在讨论更复杂的 [多字段搜索](https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-field-search.html) 之前，让我们先快速解释一下为什么只在主分片上 [创建测试索引](https://www.elastic.co/guide/cn/elasticsearch/guide/current/match-query.html#match-test-data) 。
 
@@ -1948,8 +1948,8 @@ PUT /my_index/my_type/2
 >  ![注意](assets/note.png)  `tie_breaker` 可以是 `0` 到 `1` 之间的浮点数，其中 `0` 代表使用 `dis_max` 最佳匹配语句的普通逻辑， `1` 表示所有匹配语句同等重要。最佳的精确值需要根据数据与查询调试得出，但是合理值应该与零接近（处于 `0.1 - 0.4` 之间），这样就不会颠覆 `dis_max` 最佳匹配性质的根本。
 
 
-
-### multi_match 查询  {#multi_match查询}
+<a name="multi_match查询"></a>
+### multi_match 查询
 
 `multi_match` 查询为能在多个字段上反复执行相同查询提供了一种便捷方式。
 
@@ -2387,8 +2387,8 @@ GET /_validate/query?explain
 这么做当然是可行的，但我们并不太喜欢存储冗余数据。取而代之的是 Elasticsearch 可以提供两个解决方案——一个在索引时，而另一个是在搜索时——随后会讨论它们。
 
 
-
-### 自定义 _all 字段  {#自定义all字段}
+<a name="自定义all字段"></a>
+### 自定义 _all 字段
 
 在 [all-field](https://www.elastic.co/guide/cn/elasticsearch/guide/current/root-object.html#all-field) 字段中，我们解释过 `_all` 字段的索引方式是将所有其他字段的值作为一个大字符串索引的。然而这么做并不十分灵活，为了灵活我们可以给人名添加一个自定义 `_all` 字段，再为地址添加另一个 `_all` 字段。
 
@@ -2459,8 +2459,8 @@ PUT /my_index
 ----
 
 
-
-### cross-fields 跨字段查询  {#crossfields跨字段查询}
+<a name="crossfields跨字段查询"></a>
+### cross-fields 跨字段查询
 
 自定义 `_all` 的方式是一个好的解决方案，只需在索引文档前为其设置好映射。 不过， Elasticsearch 还在搜索时提供了相应的解决方案：使用 `cross_fields` 类型进行 `multi_match` 查询。 `cross_fields` 使用词中心式（term-centric）的查询方式，这与 `best_fields` 和 `most_fields` 使用字段中心式（field-centric）的查询方式非常不同，它将所有字段当成一个大字段，并在 *每个字段* 中查找 *每个词* 。
 
@@ -2568,8 +2568,8 @@ GET /books/_search
 自定义单字段查询是否能够优于多字段查询，取决于在多字段查询与单字段自定义 `_all` 之间代价的权衡，即哪种解决方案会带来更大的性能优化就选择哪一种。
 
 
-
-### Exact-Value 精确值字段  {#ExactValue精确值字段}
+<a name="ExactValue精确值字段"></a>
+### Exact-Value 精确值字段
 
 在结束多字段查询这个话题之前，我们最后要讨论的是精确值 `not_analyzed` 未分析字段。 将 `not_analyzed` 字段与 `multi_match` 中 `analyzed` 字段混在一起没有多大用处。
 

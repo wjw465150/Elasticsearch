@@ -390,8 +390,8 @@ GET /attractions/restaurant/_search
 另外按距离排序还有个缺点就是性能：需要对每一个匹配到的文档都进行距离计算。而 `function_score` 查询，在 [`rescore` 语句](https://www.elastic.co/guide/cn/elasticsearch/guide/current/_Improving_Performance.html#rescore-api) 中可以限制只对前 *n* 个结果进行计算。
 
 
-
-## Geohashes  {#Geohashes6}
+<a name="Geohashes6"></a>
+## Geohashes
 
 [Geohashes](http://en.wikipedia.org/wiki/Geohash) 是一种将经纬度坐标（ `lat/lon` ）编码成字符串的方式。 这么做的初衷只是为了让地理位置在 url 上呈现的形式更加友好，但现在 geohashes 已经变成一种在数据库中有效索引地理坐标点和地理形状的方式。
 
@@ -421,8 +421,8 @@ Geohashes 把整个世界分为 32 个单元的格子 —— 4 行 8 列 —— 
 [`geohash单元` 过滤器](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl-geohash-cell-query.html) 可以使用这些 geohash 前缀 来找出与指定坐标点（ `lat/lon` ）相邻的位置。
 
 
-
-### Geohashes 映射  {#Geohashes映射}
+<a name="Geohashes映射"></a>
+### Geohashes 映射
 
 首先，你需要决定使用什么样的精度。 虽然你也可以使用 12 级的精度来索引所有的地理坐标点，但是你真的需要精确到数厘米吗？如果你把精度控制在一个实际一些的值，比如 `1km` ，那么你可以节省大量的索引空间：
 
@@ -452,8 +452,8 @@ PUT /attractions
 通过如上设置， geohash 前缀中 1 到 7 的部分将被索引，所能提供的精度大约在 150 米。
 
 
-
-### Geohash 单元查询  {#Geohash单元查询}
+<a name="Geohash单元查询"></a>
+### Geohash 单元查询
 
 `geohash_cell` 查询做的事情非常简单： 把经纬度坐标位置根据指定精度转换成一个 geohash ，然后查找所有包含这个 geohash 的位置——这是非常高效的查询。
 
@@ -644,8 +644,8 @@ GET /attractions/restaurant/_search
 在这个例子中，我们计算了落在每个同心环内的饭店数量。当然，我们可以在 `per_rings` 聚合下面嵌套子聚合来计算每个环的平均价格、最受欢迎程度，等等。
 
 
-
-### Geohash 网格聚合  {#Geohash网格聚合}
+<a name="Geohash网格聚合"></a>
+### Geohash 网格聚合
 
 通过一个查询返回的结果数量对在地图上单独的显示每一个位置点而言可能太多了。 `geohash_grid` 按照你定义的精度计算每一个点的 geohash 值而将附近的位置聚合在一起。
 

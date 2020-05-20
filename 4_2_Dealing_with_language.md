@@ -1,7 +1,7 @@
 # 处理人类语言
 
-
-## 停用词: 性能与精度  {#停用词性能与精度}
+<a name="停用词性能与精度"></a>
+## 停用词: 性能与精度
 
 从早期的信息检索到如今， 我们已习惯于磁盘空间和内存被限制为很小一部分，所以 必须使你的索引尽可能小。 每个字节都意味着巨大的性能提升。 (查看 [*将单词还原为词根*](https://www.elastic.co/guide/cn/elasticsearch/guide/current/stemming.html) ) 词干提取的重要性不仅是因为它让搜索的内容更广泛、让检索的能力更深入，还因为它是压缩索引空间的工具。
 
@@ -553,8 +553,8 @@ PUT /my_index
 幸运的是，鱼与熊掌是可以兼得的：请查看 [`common_grams` 过滤器](https://www.elastic.co/guide/cn/elasticsearch/guide/current/common-grams.html)。
 
 
-
-### common_grams 过滤器  {#commongrams过滤器}
+<a name="commongrams过滤器"></a>
+### common_grams 过滤器
 
 `common_grams` 过滤器是针对短语查询能更高效的使用停用词而设计的。 它与 shingles 过滤器 类似（参见 查找相关词（[寻找相关词](https://www.elastic.co/guide/cn/elasticsearch/guide/current/shingles.html))), 为每个相邻词对生成 ，用示例解释更为容易。
 
